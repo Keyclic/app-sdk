@@ -4,21 +4,22 @@
 
 part of keyclic_sdk_api;
 
+
 class DeviceApi {
   const DeviceApi(this._apiClient);
 
   final ApiClient _apiClient;
 
   /// Remove one Device resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
-  /// * [device]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [xKeyclicApp] 
+  /// * [device] 
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -30,13 +31,14 @@ class DeviceApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Remove one Device resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<void>> deleteDevice({
+  Future<Response<void>> deleteDevice({ 
     required String xKeyclicApp,
     required String device,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -44,8 +46,7 @@ class DeviceApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path =
-        r'/devices/{device}'.replaceAll('{' r'device' '}', device.toString());
+    final String path = r'/devices/{device}'.replaceAll('{' r'device' '}', device.toString());
     final options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -53,16 +54,15 @@ class DeviceApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -70,8 +70,11 @@ class DeviceApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     return _apiClient.dio.request<Object>(
       path,
@@ -80,18 +83,18 @@ class DeviceApi {
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
     );
-  }
 
+  }
   /// Retrieve one Device resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
-  /// * [device]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [xKeyclicApp] 
+  /// * [device] 
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -103,13 +106,14 @@ class DeviceApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one Device resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<void>> getDevice({
+  Future<Response<void>> getDevice({ 
     required String xKeyclicApp,
     required String device,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -117,8 +121,7 @@ class DeviceApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path =
-        r'/devices/{device}'.replaceAll('{' r'device' '}', device.toString());
+    final String path = r'/devices/{device}'.replaceAll('{' r'device' '}', device.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -126,16 +129,15 @@ class DeviceApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -143,8 +145,11 @@ class DeviceApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     return _apiClient.dio.request<Object>(
       path,
@@ -153,18 +158,18 @@ class DeviceApi {
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
     );
-  }
 
+  }
   /// Create one Device resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
-  /// * [deviceData]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [xKeyclicApp] 
+  /// * [deviceData] 
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -176,7 +181,7 @@ class DeviceApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Device resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<Device>> postDevice({
+  Future<Response<Device>> postDevice({ 
     required String xKeyclicApp,
     required DeviceData deviceData,
     String? acceptLanguage,
@@ -199,16 +204,15 @@ class DeviceApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -220,11 +224,12 @@ class DeviceApi {
       validateStatus: validateStatus,
     );
 
+
     dynamic bodyData;
 
     try {
-      bodyData = deviceData.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = deviceData.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -248,8 +253,7 @@ class DeviceApi {
     Device responseData;
 
     try {
-      responseData =
-          await _apiClient.deserializeAsync<Device>(response.data!, 'Device');
+            responseData = await _apiClient.deserializeAsync<Device>(response.data!, 'Device');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

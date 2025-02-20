@@ -11,13 +11,19 @@ void main() {
 
   group('test AssignmentJsonhalRead', () {
     // AssignmentJsonhalReadLinks links
-    test('to test the property `links`', () async {});
+    test('to test the property `links`', () async {
+    });
 
     // bool outOfContract
-    test('to test the property `outOfContract`', () async {});
+    test('to test the property `outOfContract`', () async {
+    });
 
     // The resource identifier.
     // String id
-    test('to test the property `id`', () async {});
+    test('to test the property `id`', () async {
+    });
+
+
   });
+
 }

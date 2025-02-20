@@ -7,17 +7,30 @@ part of keyclic_sdk_api;
 class FeedbackData {
   /// Returns a new [FeedbackData] instance.
   FeedbackData({
-    this.batch,
-    this.businessActivity,
-    this.category,
-    this.description,
-    this.equipments,
-    this.geo,
-    this.member,
-    this.metadata,
-    required this.place,
-    this.priority,
-    this.visibility,
+    this.batch
+,
+    this.businessActivity
+,
+    this.category
+,
+    this.description
+,
+    this.equipments
+,
+    this.geo
+,
+    this.member
+,
+    this.metadata
+,
+      required 
+    this.place
+      
+    ,
+    this.priority
+,
+    this.visibility
+,
   });
 
   /// Returns a new [FeedbackData] instance and imports its values from
@@ -27,46 +40,46 @@ class FeedbackData {
       return null;
     }
 
-    return FeedbackData(
-      batch: json[r'batch'],
-      businessActivity: json[r'businessActivity'],
-      category: json[r'category'],
-      description: json[r'description'],
-      equipments: json[r'equipments'] == null
-          ? null
-          : List<String>.from(json[r'equipments']),
-      geo: FeedbackDataGeo.fromJson(json[r'geo']),
-      member: json[r'member'],
-      metadata: json[r'metadata'] == null
-          ? null
-          : Map<String, Object?>.from(json[r'metadata']),
-      place: json[r'place'],
-      priority: json[r'priority'],
-      visibility: FeedbackDataVisibilityEnum.fromJson(json[r'visibility']),
+  return FeedbackData(
+                  batch: json[r'batch'],
+                  businessActivity: json[r'businessActivity'],
+                  category: json[r'category'],
+                  description: json[r'description'],
+        equipments:
+            json[r'equipments'] == null ?
+              null :
+          List<String>.from(json[r'equipments']),
+        geo: FeedbackDataGeo.fromJson(json[r'geo']),
+                  member: json[r'member'],
+            metadata:
+              json[r'metadata'] == null ? null : Map<String, Object?>.from(json[r'metadata']),
+                  place: json[r'place'],
+                  priority: json[r'priority'],
+              visibility: FeedbackDataVisibilityEnum.fromJson(json[r'visibility']),
     );
   }
 
-  String? batch;
+      String? batch;
 
-  String? businessActivity;
+      String? businessActivity;
 
-  String? category;
+      String? category;
 
-  String? description;
+      String? description;
 
-  List<String>? equipments;
+        List<String>? equipments;
 
-  FeedbackDataGeo? geo;
+      FeedbackDataGeo? geo;
 
-  String? member;
+      String? member;
 
-  Map<String, Object?>? metadata;
+    Map<String, Object?>? metadata;
 
-  String place;
+      String place;
 
-  String? priority;
+      String? priority;
 
-  FeedbackDataVisibilityEnum? visibility;
+      FeedbackDataVisibilityEnum? visibility;
 
   @override
   bool operator ==(Object other) {
@@ -75,42 +88,52 @@ class FeedbackData {
       return true;
     }
 
-    return other is FeedbackData &&
-        other.batch == batch &&
-        other.businessActivity == businessActivity &&
-        other.category == category &&
-        other.description == description &&
-        DeepCollectionEquality.unordered()
-            .equals(equipments, other.equipments) &&
-        other.geo == geo &&
-        other.member == member &&
-        DeepCollectionEquality.unordered().equals(metadata, other.metadata) &&
-        other.place == place &&
-        other.priority == priority &&
-        other.visibility == visibility;
+    return other is FeedbackData 
+          && other.batch == batch
+  
+          && other.businessActivity == businessActivity
+  
+          && other.category == category
+  
+          && other.description == description
+  
+          && DeepCollectionEquality.unordered().equals(equipments, other.equipments)
+  
+          && other.geo == geo
+  
+          && other.member == member
+  
+          && DeepCollectionEquality.unordered().equals(metadata, other.metadata)
+  
+          && other.place == place
+  
+          && other.priority == priority
+  
+          && other.visibility == visibility
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (batch == null ? 0 : batch.hashCode) +
-      (businessActivity == null ? 0 : businessActivity.hashCode) +
-      (category == null ? 0 : category.hashCode) +
-      (description == null ? 0 : description.hashCode) +
-      (equipments == null ? 0 : equipments.hashCode) +
-      (geo == null ? 0 : geo.hashCode) +
-      (member == null ? 0 : member.hashCode) +
-      (metadata == null ? 0 : metadata.hashCode) +
-      place.hashCode +
-      (priority == null ? 0 : priority.hashCode) +
-      (visibility == null ? 0 : visibility.hashCode);
+    (batch == null ? 0 : batch.hashCode) +
+    (businessActivity == null ? 0 : businessActivity.hashCode) +
+    (category == null ? 0 : category.hashCode) +
+    (description == null ? 0 : description.hashCode) +
+    (equipments == null ? 0 : equipments.hashCode) +
+    (geo == null ? 0 : geo.hashCode) +
+    (member == null ? 0 : member.hashCode) +
+    (metadata == null ? 0 : metadata.hashCode) +
+     place.hashCode +
+    (priority == null ? 0 : priority.hashCode) +
+    (visibility == null ? 0 : visibility.hashCode);
 
   static List<FeedbackData> listFromJson(Iterable? json) {
     if (json == null) {
       return <FeedbackData>[];
     }
 
-    return json.fold(<FeedbackData>[],
-        (List<FeedbackData> previousValue, element) {
+    return json.fold(<FeedbackData>[], (List<FeedbackData> previousValue, element) {
       final FeedbackData? object = FeedbackData.fromJson(element);
       if (object is FeedbackData) {
         previousValue.add(object);
@@ -125,8 +148,7 @@ class FeedbackData {
       return <String, FeedbackData>{};
     }
 
-    return json.entries.fold(<String, FeedbackData>{},
-        (Map<String, FeedbackData> previousValue, element) {
+    return json.entries.fold(<String, FeedbackData>{}, (Map<String, FeedbackData> previousValue, element) {
       final FeedbackData? object = FeedbackData.fromJson(element.value);
       if (object is FeedbackData) {
         previousValue[element.key] = object;
@@ -137,50 +159,83 @@ class FeedbackData {
   }
 
   // maps a json object with a list of FeedbackData-objects as value to a dart map
-  static Map<String, List<FeedbackData>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<FeedbackData>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<FeedbackData>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<FeedbackData>>(
-          key, FeedbackData.listFromJson(value));
+      return MapEntry<String, List<FeedbackData>>(key, FeedbackData.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'FeedbackData[batch=$batch, businessActivity=$businessActivity, category=$category, description=$description, equipments=$equipments, geo=$geo, member=$member, metadata=$metadata, place=$place, priority=$priority, visibility=$visibility]';
+  String toString() => 'FeedbackData[batch=$batch, businessActivity=$businessActivity, category=$category, description=$description, equipments=$equipments, geo=$geo, member=$member, metadata=$metadata, place=$place, priority=$priority, visibility=$visibility]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'batch')) r'batch': batch,
-      if (keys == null || keys.contains(r'businessActivity'))
-        r'businessActivity': businessActivity,
-      if (keys == null || keys.contains(r'category')) r'category': category,
-      if (keys == null || keys.contains(r'description'))
-        r'description': description,
-      if (keys == null || keys.contains(r'equipments'))
-        r'equipments': equipments,
-      if (keys == null || keys.any((key) => RegExp(r'^geo\.').hasMatch(key)))
-        r'geo': geo?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^geo\.'))) {
-            previousValue.add(element.split(RegExp(r'^geo\.')).last);
-          }
+    if (keys == null || keys.
+    contains(r'batch')
+    )
+        r'batch':
+          batch,
+    if (keys == null || keys.
+    contains(r'businessActivity')
+    )
+        r'businessActivity':
+          businessActivity,
+    if (keys == null || keys.
+    contains(r'category')
+    )
+        r'category':
+          category,
+    if (keys == null || keys.
+    contains(r'description')
+    )
+        r'description':
+          description,
+    if (keys == null || keys.
+    contains(r'equipments')
+    )
+        r'equipments':
+          equipments,
+    if (keys == null || keys.
+    any((key) => RegExp(r'^geo\.').hasMatch(key))
+    )
+        r'geo':
+            geo?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^geo\.'))) {
+                previousValue.add(element.split(RegExp(r'^geo\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'member')) r'member': member,
-      if (keys == null || keys.contains(r'metadata')) r'metadata': metadata,
-      r'place': place,
-      if (keys == null || keys.contains(r'priority')) r'priority': priority,
-      if (keys == null || keys.contains(r'visibility'))
-        r'visibility': visibility,
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    contains(r'member')
+    )
+        r'member':
+          member,
+    if (keys == null || keys.
+    contains(r'metadata')
+    )
+        r'metadata':
+            metadata,
+        r'place':
+          place,
+    if (keys == null || keys.
+    contains(r'priority')
+    )
+        r'priority':
+          priority,
+    if (keys == null || keys.
+    contains(r'visibility')
+    )
+        r'visibility':
+          visibility,
     };
   }
 }
+
 
 class FeedbackDataVisibilityEnum {
   /// Instantiate a new enum with the provided [value].
@@ -206,15 +261,12 @@ class FeedbackDataVisibilityEnum {
   ];
 
   static FeedbackDataVisibilityEnum? fromJson(dynamic value) =>
-      FeedbackDataVisibilityEnumTypeTransformer().decode(value);
+    FeedbackDataVisibilityEnumTypeTransformer().decode(value);
 
   static List<FeedbackDataVisibilityEnum> listFromJson(List<dynamic> json) {
-    return json
-        .map((value) {
-          return FeedbackDataVisibilityEnum.fromJson(value);
-        })
-        .whereType<FeedbackDataVisibilityEnum>()
-        .toList();
+    return json.map((value) {
+      return FeedbackDataVisibilityEnum.fromJson(value);
+    }).whereType<FeedbackDataVisibilityEnum>().toList();
   }
 }
 
@@ -223,8 +275,7 @@ class FeedbackDataVisibilityEnum {
 class FeedbackDataVisibilityEnumTypeTransformer {
   const FeedbackDataVisibilityEnumTypeTransformer._();
 
-  factory FeedbackDataVisibilityEnumTypeTransformer() =>
-      _instance ??= FeedbackDataVisibilityEnumTypeTransformer._();
+  factory FeedbackDataVisibilityEnumTypeTransformer() => _instance ??= FeedbackDataVisibilityEnumTypeTransformer._();
 
   String encode(FeedbackDataVisibilityEnum data) => data.value;
 
@@ -238,12 +289,9 @@ class FeedbackDataVisibilityEnumTypeTransformer {
   /// and users are still using an old app with the old code.
   FeedbackDataVisibilityEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
-      case r'VISIBILITY_PRIVATE':
-        return FeedbackDataVisibilityEnum.PRIVATE;
-      case r'VISIBILITY_PUBLIC':
-        return FeedbackDataVisibilityEnum.PUBLIC;
-      case r'VISIBILITY_SHARED':
-        return FeedbackDataVisibilityEnum.SHARED;
+      case r'VISIBILITY_PRIVATE': return FeedbackDataVisibilityEnum.PRIVATE;
+      case r'VISIBILITY_PUBLIC': return FeedbackDataVisibilityEnum.PUBLIC;
+      case r'VISIBILITY_SHARED': return FeedbackDataVisibilityEnum.SHARED;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
@@ -255,3 +303,4 @@ class FeedbackDataVisibilityEnumTypeTransformer {
   /// Singleton [FeedbackDataVisibilityEnumTypeTransformer] instance.
   static FeedbackDataVisibilityEnumTypeTransformer? _instance;
 }
+

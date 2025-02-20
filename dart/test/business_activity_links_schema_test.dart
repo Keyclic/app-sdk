@@ -12,9 +12,14 @@ void main() {
   group('test BusinessActivityLinksSchema', () {
     // The URI of the schema associated to the given businessactivity.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // BusinessActivityLinksSchemaIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

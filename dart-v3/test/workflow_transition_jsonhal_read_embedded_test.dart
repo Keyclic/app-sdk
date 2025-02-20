@@ -11,9 +11,14 @@ void main() {
 
   group('test WorkflowTransitionJsonhalReadEmbedded', () {
     // WorkflowStateJsonhalRead from
-    test('to test the property `from`', () async {});
+    test('to test the property `from`', () async {
+    });
 
     // WorkflowStateJsonhalRead to
-    test('to test the property `to`', () async {});
+    test('to test the property `to`', () async {
+    });
+
+
   });
+
 }

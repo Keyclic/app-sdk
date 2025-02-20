@@ -11,9 +11,14 @@ void main() {
 
   group('test ArticleLinks', () {
     // ArticleLinksSection section
-    test('to test the property `section`', () async {});
+    test('to test the property `section`', () async {
+    });
 
     // ArticleLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
+
+
   });
+
 }

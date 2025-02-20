@@ -11,9 +11,14 @@ void main() {
 
   group('test DocumentFile', () {
     // String contentType
-    test('to test the property `contentType`', () async {});
+    test('to test the property `contentType`', () async {
+    });
 
     // String name
-    test('to test the property `name`', () async {});
+    test('to test the property `name`', () async {
+    });
+
+
   });
+
 }

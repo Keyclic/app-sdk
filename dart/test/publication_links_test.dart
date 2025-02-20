@@ -11,15 +11,22 @@ void main() {
 
   group('test PublicationLinks', () {
     // PublicationLinksAuthor author
-    test('to test the property `author`', () async {});
+    test('to test the property `author`', () async {
+    });
 
     // PublicationLinksFeed feed
-    test('to test the property `feed`', () async {});
+    test('to test the property `feed`', () async {
+    });
 
     // PublicationLinksOrganization organization
-    test('to test the property `organization`', () async {});
+    test('to test the property `organization`', () async {
+    });
 
     // PublicationLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
+
+
   });
+
 }

@@ -7,8 +7,10 @@ part of keyclic_sdk_api;
 class ApplicationLinks {
   /// Returns a new [ApplicationLinks] instance.
   ApplicationLinks({
-    this.knowledgeBase,
-    this.self,
+    this.knowledgeBase
+,
+    this.self
+,
   });
 
   /// Returns a new [ApplicationLinks] instance and imports its values from
@@ -18,16 +20,15 @@ class ApplicationLinks {
       return null;
     }
 
-    return ApplicationLinks(
-      knowledgeBase:
-          ApplicationLinksKnowledgeBase.fromJson(json[r'knowledgeBase']),
-      self: ApplicationLinksSelf.fromJson(json[r'self']),
+  return ApplicationLinks(
+        knowledgeBase: ApplicationLinksKnowledgeBase.fromJson(json[r'knowledgeBase']),
+        self: ApplicationLinksSelf.fromJson(json[r'self']),
     );
   }
 
-  ApplicationLinksKnowledgeBase? knowledgeBase;
+      ApplicationLinksKnowledgeBase? knowledgeBase;
 
-  ApplicationLinksSelf? self;
+      ApplicationLinksSelf? self;
 
   @override
   bool operator ==(Object other) {
@@ -36,23 +37,25 @@ class ApplicationLinks {
       return true;
     }
 
-    return other is ApplicationLinks &&
-        other.knowledgeBase == knowledgeBase &&
-        other.self == self;
+    return other is ApplicationLinks 
+          && other.knowledgeBase == knowledgeBase
+  
+          && other.self == self
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (knowledgeBase == null ? 0 : knowledgeBase.hashCode) +
-      (self == null ? 0 : self.hashCode);
+    (knowledgeBase == null ? 0 : knowledgeBase.hashCode) +
+    (self == null ? 0 : self.hashCode);
 
   static List<ApplicationLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <ApplicationLinks>[];
     }
 
-    return json.fold(<ApplicationLinks>[],
-        (List<ApplicationLinks> previousValue, element) {
+    return json.fold(<ApplicationLinks>[], (List<ApplicationLinks> previousValue, element) {
       final ApplicationLinks? object = ApplicationLinks.fromJson(element);
       if (object is ApplicationLinks) {
         previousValue.add(object);
@@ -67,8 +70,7 @@ class ApplicationLinks {
       return <String, ApplicationLinks>{};
     }
 
-    return json.entries.fold(<String, ApplicationLinks>{},
-        (Map<String, ApplicationLinks> previousValue, element) {
+    return json.entries.fold(<String, ApplicationLinks>{}, (Map<String, ApplicationLinks> previousValue, element) {
       final ApplicationLinks? object = ApplicationLinks.fromJson(element.value);
       if (object is ApplicationLinks) {
         previousValue[element.key] = object;
@@ -79,43 +81,44 @@ class ApplicationLinks {
   }
 
   // maps a json object with a list of ApplicationLinks-objects as value to a dart map
-  static Map<String, List<ApplicationLinks>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<ApplicationLinks>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ApplicationLinks>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ApplicationLinks>>(
-          key, ApplicationLinks.listFromJson(value));
+      return MapEntry<String, List<ApplicationLinks>>(key, ApplicationLinks.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'ApplicationLinks[knowledgeBase=$knowledgeBase, self=$self]';
+  String toString() => 'ApplicationLinks[knowledgeBase=$knowledgeBase, self=$self]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^knowledgeBase\.').hasMatch(key)))
-        r'knowledgeBase': knowledgeBase?.toJson(keys?.fold<List<String>>(
-            <String>[], (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^knowledgeBase\.'))) {
-            previousValue.add(element.split(RegExp(r'^knowledgeBase\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^knowledgeBase\.').hasMatch(key))
+    )
+        r'knowledgeBase':
+            knowledgeBase?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^knowledgeBase\.'))) {
+                previousValue.add(element.split(RegExp(r'^knowledgeBase\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
-        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^self\.'))) {
-            previousValue.add(element.split(RegExp(r'^self\.')).last);
-          }
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    any((key) => RegExp(r'^self\.').hasMatch(key))
+    )
+        r'self':
+            self?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^self\.'))) {
+                previousValue.add(element.split(RegExp(r'^self\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

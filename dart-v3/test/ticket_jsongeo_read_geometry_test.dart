@@ -11,9 +11,14 @@ void main() {
 
   group('test TicketJsongeoReadGeometry', () {
     // String type
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
 
     // List<num> coordinates (default value: const [])
-    test('to test the property `coordinates`', () async {});
+    test('to test the property `coordinates`', () async {
+    });
+
+
   });
+
 }

@@ -7,8 +7,10 @@ part of keyclic_sdk_api;
 class InternalServiceLinks {
   /// Returns a new [InternalServiceLinks] instance.
   InternalServiceLinks({
-    this.organization,
-    this.self,
+    this.organization
+,
+    this.self
+,
   });
 
   /// Returns a new [InternalServiceLinks] instance and imports its values from
@@ -18,16 +20,15 @@ class InternalServiceLinks {
       return null;
     }
 
-    return InternalServiceLinks(
-      organization:
-          InternalServiceLinksOrganization.fromJson(json[r'organization']),
-      self: InternalServiceLinksSelf.fromJson(json[r'self']),
+  return InternalServiceLinks(
+        organization: InternalServiceLinksOrganization.fromJson(json[r'organization']),
+        self: InternalServiceLinksSelf.fromJson(json[r'self']),
     );
   }
 
-  InternalServiceLinksOrganization? organization;
+      InternalServiceLinksOrganization? organization;
 
-  InternalServiceLinksSelf? self;
+      InternalServiceLinksSelf? self;
 
   @override
   bool operator ==(Object other) {
@@ -36,25 +37,26 @@ class InternalServiceLinks {
       return true;
     }
 
-    return other is InternalServiceLinks &&
-        other.organization == organization &&
-        other.self == self;
+    return other is InternalServiceLinks 
+          && other.organization == organization
+  
+          && other.self == self
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (organization == null ? 0 : organization.hashCode) +
-      (self == null ? 0 : self.hashCode);
+    (organization == null ? 0 : organization.hashCode) +
+    (self == null ? 0 : self.hashCode);
 
   static List<InternalServiceLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <InternalServiceLinks>[];
     }
 
-    return json.fold(<InternalServiceLinks>[],
-        (List<InternalServiceLinks> previousValue, element) {
-      final InternalServiceLinks? object =
-          InternalServiceLinks.fromJson(element);
+    return json.fold(<InternalServiceLinks>[], (List<InternalServiceLinks> previousValue, element) {
+      final InternalServiceLinks? object = InternalServiceLinks.fromJson(element);
       if (object is InternalServiceLinks) {
         previousValue.add(object);
       }
@@ -63,16 +65,13 @@ class InternalServiceLinks {
     });
   }
 
-  static Map<String, InternalServiceLinks> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, InternalServiceLinks> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, InternalServiceLinks>{};
     }
 
-    return json.entries.fold(<String, InternalServiceLinks>{},
-        (Map<String, InternalServiceLinks> previousValue, element) {
-      final InternalServiceLinks? object =
-          InternalServiceLinks.fromJson(element.value);
+    return json.entries.fold(<String, InternalServiceLinks>{}, (Map<String, InternalServiceLinks> previousValue, element) {
+      final InternalServiceLinks? object = InternalServiceLinks.fromJson(element.value);
       if (object is InternalServiceLinks) {
         previousValue[element.key] = object;
       }
@@ -82,43 +81,44 @@ class InternalServiceLinks {
   }
 
   // maps a json object with a list of InternalServiceLinks-objects as value to a dart map
-  static Map<String, List<InternalServiceLinks>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<InternalServiceLinks>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<InternalServiceLinks>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<InternalServiceLinks>>(
-          key, InternalServiceLinks.listFromJson(value));
+      return MapEntry<String, List<InternalServiceLinks>>(key, InternalServiceLinks.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'InternalServiceLinks[organization=$organization, self=$self]';
+  String toString() => 'InternalServiceLinks[organization=$organization, self=$self]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^organization\.').hasMatch(key)))
-        r'organization': organization?.toJson(keys?.fold<List<String>>(
-            <String>[], (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^organization\.'))) {
-            previousValue.add(element.split(RegExp(r'^organization\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^organization\.').hasMatch(key))
+    )
+        r'organization':
+            organization?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^organization\.'))) {
+                previousValue.add(element.split(RegExp(r'^organization\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
-        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^self\.'))) {
-            previousValue.add(element.split(RegExp(r'^self\.')).last);
-          }
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    any((key) => RegExp(r'^self\.').hasMatch(key))
+    )
+        r'self':
+            self?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^self\.'))) {
+                previousValue.add(element.split(RegExp(r'^self\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

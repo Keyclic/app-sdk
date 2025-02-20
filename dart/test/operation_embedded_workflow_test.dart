@@ -11,12 +11,18 @@ void main() {
 
   group('test OperationEmbeddedWorkflow', () {
     // List<Metric> metrics (default value: const [])
-    test('to test the property `metrics`', () async {});
+    test('to test the property `metrics`', () async {
+    });
 
     // WorkflowState state
-    test('to test the property `state`', () async {});
+    test('to test the property `state`', () async {
+    });
 
     // List<WorkflowTransition> transitions (default value: const [])
-    test('to test the property `transitions`', () async {});
+    test('to test the property `transitions`', () async {
+    });
+
+
   });
+
 }

@@ -7,8 +7,10 @@ part of keyclic_sdk_api;
 class Dispatcher {
   /// Returns a new [Dispatcher] instance.
   Dispatcher({
-    this.id,
-    this.type,
+    this.id
+,
+    this.type
+,
   });
 
   /// Returns a new [Dispatcher] instance and imports its values from
@@ -18,15 +20,15 @@ class Dispatcher {
       return null;
     }
 
-    return Dispatcher(
-      id: json[r'id'],
-      type: json[r'type'],
+  return Dispatcher(
+                  id: json[r'id'],
+                  type: json[r'type'],
     );
   }
 
-  final String? id;
+      final String? id;
 
-  String? type;
+      String? type;
 
   @override
   bool operator ==(Object other) {
@@ -35,12 +37,18 @@ class Dispatcher {
       return true;
     }
 
-    return other is Dispatcher && other.id == id && other.type == type;
+    return other is Dispatcher 
+          && other.id == id
+  
+          && other.type == type
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (id == null ? 0 : id.hashCode) + (type == null ? 0 : type.hashCode);
+    (id == null ? 0 : id.hashCode) +
+    (type == null ? 0 : type.hashCode);
 
   static List<Dispatcher> listFromJson(Iterable? json) {
     if (json == null) {
@@ -62,8 +70,7 @@ class Dispatcher {
       return <String, Dispatcher>{};
     }
 
-    return json.entries.fold(<String, Dispatcher>{},
-        (Map<String, Dispatcher> previousValue, element) {
+    return json.entries.fold(<String, Dispatcher>{}, (Map<String, Dispatcher> previousValue, element) {
       final Dispatcher? object = Dispatcher.fromJson(element.value);
       if (object is Dispatcher) {
         previousValue[element.key] = object;
@@ -74,15 +81,13 @@ class Dispatcher {
   }
 
   // maps a json object with a list of Dispatcher-objects as value to a dart map
-  static Map<String, List<Dispatcher>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<Dispatcher>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<Dispatcher>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<Dispatcher>>(
-          key, Dispatcher.listFromJson(value));
+      return MapEntry<String, List<Dispatcher>>(key, Dispatcher.listFromJson(value));
     });
   }
 
@@ -91,8 +96,17 @@ class Dispatcher {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'type')) r'type': type,
+    if (keys == null || keys.
+    contains(r'id')
+    )
+        r'id':
+          id,
+    if (keys == null || keys.
+    contains(r'type')
+    )
+        r'type':
+          type,
     };
   }
 }
+

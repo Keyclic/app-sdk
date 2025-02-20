@@ -11,9 +11,14 @@ void main() {
 
   group('test ExternalServiceLinks', () {
     // ExternalServiceLinksProvider provider
-    test('to test the property `provider`', () async {});
+    test('to test the property `provider`', () async {
+    });
 
     // ExternalServiceLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
+
+
   });
+
 }

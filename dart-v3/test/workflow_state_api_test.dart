@@ -5,6 +5,7 @@
 // import 'package:keyclic_sdk_api_platform/api.dart';
 import 'package:test/test.dart';
 
+
 /// tests for WorkflowStateApi
 void main() {
   // final instance = WorkflowStateApi();
@@ -15,6 +16,8 @@ void main() {
     // Retrieves a WorkflowState resource.
     //
     //Future<WorkflowStateJsonhalRead> getState(String identifier, String xKeyclicApp, String xOrganizationId, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
-    test('test getState', () async {});
+    test('test getState', () async {
+    });
+
   });
 }

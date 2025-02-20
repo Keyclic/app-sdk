@@ -11,12 +11,18 @@ void main() {
 
   group('test CategoryPatch', () {
     // String identificationNumber
-    test('to test the property `identificationNumber`', () async {});
+    test('to test the property `identificationNumber`', () async {
+    });
 
     // String name
-    test('to test the property `name`', () async {});
+    test('to test the property `name`', () async {
+    });
 
     // String type
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
+
+
   });
+
 }

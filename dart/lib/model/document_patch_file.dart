@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class DocumentPatchFile {
   /// Returns a new [DocumentPatchFile] instance.
   DocumentPatchFile({
-    this.name,
+    this.name
+,
   });
 
   /// Returns a new [DocumentPatchFile] instance and imports its values from
@@ -17,12 +18,12 @@ class DocumentPatchFile {
       return null;
     }
 
-    return DocumentPatchFile(
-      name: json[r'name'],
+  return DocumentPatchFile(
+                  name: json[r'name'],
     );
   }
 
-  String? name;
+      String? name;
 
   @override
   bool operator ==(Object other) {
@@ -31,19 +32,22 @@ class DocumentPatchFile {
       return true;
     }
 
-    return other is DocumentPatchFile && other.name == name;
+    return other is DocumentPatchFile 
+          && other.name == name
+  ;
   }
+  
 
   @override
-  int get hashCode => (name == null ? 0 : name.hashCode);
+  int get hashCode =>
+    (name == null ? 0 : name.hashCode);
 
   static List<DocumentPatchFile> listFromJson(Iterable? json) {
     if (json == null) {
       return <DocumentPatchFile>[];
     }
 
-    return json.fold(<DocumentPatchFile>[],
-        (List<DocumentPatchFile> previousValue, element) {
+    return json.fold(<DocumentPatchFile>[], (List<DocumentPatchFile> previousValue, element) {
       final DocumentPatchFile? object = DocumentPatchFile.fromJson(element);
       if (object is DocumentPatchFile) {
         previousValue.add(object);
@@ -53,16 +57,13 @@ class DocumentPatchFile {
     });
   }
 
-  static Map<String, DocumentPatchFile> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, DocumentPatchFile> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, DocumentPatchFile>{};
     }
 
-    return json.entries.fold(<String, DocumentPatchFile>{},
-        (Map<String, DocumentPatchFile> previousValue, element) {
-      final DocumentPatchFile? object =
-          DocumentPatchFile.fromJson(element.value);
+    return json.entries.fold(<String, DocumentPatchFile>{}, (Map<String, DocumentPatchFile> previousValue, element) {
+      final DocumentPatchFile? object = DocumentPatchFile.fromJson(element.value);
       if (object is DocumentPatchFile) {
         previousValue[element.key] = object;
       }
@@ -72,15 +73,13 @@ class DocumentPatchFile {
   }
 
   // maps a json object with a list of DocumentPatchFile-objects as value to a dart map
-  static Map<String, List<DocumentPatchFile>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<DocumentPatchFile>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<DocumentPatchFile>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<DocumentPatchFile>>(
-          key, DocumentPatchFile.listFromJson(value));
+      return MapEntry<String, List<DocumentPatchFile>>(key, DocumentPatchFile.listFromJson(value));
     });
   }
 
@@ -89,7 +88,12 @@ class DocumentPatchFile {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'name')) r'name': name,
+    if (keys == null || keys.
+    contains(r'name')
+    )
+        r'name':
+          name,
     };
   }
 }
+

@@ -11,6 +11,10 @@ void main() {
 
   group('test ExternalServiceLinksSelfIriTemplateMapping', () {
     // String externalService
-    test('to test the property `externalService`', () async {});
+    test('to test the property `externalService`', () async {
+    });
+
+
   });
+
 }

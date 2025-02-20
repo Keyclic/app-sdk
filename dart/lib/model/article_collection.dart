@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class ArticleCollection {
   /// Returns a new [ArticleCollection] instance.
   ArticleCollection({
-    this.items,
+    this.items
+,
   });
 
   /// Returns a new [ArticleCollection] instance and imports its values from
@@ -17,12 +18,13 @@ class ArticleCollection {
       return null;
     }
 
-    return ArticleCollection(
-      items: Article.listFromJson(json[r'items']),
+  return ArticleCollection(
+        items: 
+          Article.listFromJson(json[r'items']),
     );
   }
 
-  List<Article>? items;
+        List<Article>? items;
 
   @override
   bool operator ==(Object other) {
@@ -31,20 +33,22 @@ class ArticleCollection {
       return true;
     }
 
-    return other is ArticleCollection &&
-        DeepCollectionEquality.unordered().equals(items, other.items);
+    return other is ArticleCollection 
+          && DeepCollectionEquality.unordered().equals(items, other.items)
+  ;
   }
+  
 
   @override
-  int get hashCode => (items == null ? 0 : items.hashCode);
+  int get hashCode =>
+    (items == null ? 0 : items.hashCode);
 
   static List<ArticleCollection> listFromJson(Iterable? json) {
     if (json == null) {
       return <ArticleCollection>[];
     }
 
-    return json.fold(<ArticleCollection>[],
-        (List<ArticleCollection> previousValue, element) {
+    return json.fold(<ArticleCollection>[], (List<ArticleCollection> previousValue, element) {
       final ArticleCollection? object = ArticleCollection.fromJson(element);
       if (object is ArticleCollection) {
         previousValue.add(object);
@@ -54,16 +58,13 @@ class ArticleCollection {
     });
   }
 
-  static Map<String, ArticleCollection> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, ArticleCollection> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, ArticleCollection>{};
     }
 
-    return json.entries.fold(<String, ArticleCollection>{},
-        (Map<String, ArticleCollection> previousValue, element) {
-      final ArticleCollection? object =
-          ArticleCollection.fromJson(element.value);
+    return json.entries.fold(<String, ArticleCollection>{}, (Map<String, ArticleCollection> previousValue, element) {
+      final ArticleCollection? object = ArticleCollection.fromJson(element.value);
       if (object is ArticleCollection) {
         previousValue[element.key] = object;
       }
@@ -73,15 +74,13 @@ class ArticleCollection {
   }
 
   // maps a json object with a list of ArticleCollection-objects as value to a dart map
-  static Map<String, List<ArticleCollection>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<ArticleCollection>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ArticleCollection>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ArticleCollection>>(
-          key, ArticleCollection.listFromJson(value));
+      return MapEntry<String, List<ArticleCollection>>(key, ArticleCollection.listFromJson(value));
     });
   }
 
@@ -90,7 +89,12 @@ class ArticleCollection {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'items')) r'items': items,
+    if (keys == null || keys.
+    contains(r'items')
+    )
+        r'items':
+            items,
     };
   }
 }
+

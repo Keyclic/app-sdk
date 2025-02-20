@@ -7,7 +7,8 @@ part of keyclic_sdk_api_platform;
 class EquipmentJsonhalOrganizationPreferenceRead {
   /// Returns a new [EquipmentJsonhalOrganizationPreferenceRead] instance.
   EquipmentJsonhalOrganizationPreferenceRead({
-    this.enabled,
+    this.enabled
+,
   });
 
   /// Returns a new [EquipmentJsonhalOrganizationPreferenceRead] instance and imports its values from
@@ -17,12 +18,12 @@ class EquipmentJsonhalOrganizationPreferenceRead {
       return null;
     }
 
-    return EquipmentJsonhalOrganizationPreferenceRead(
-      enabled: json[r'enabled'],
+  return EquipmentJsonhalOrganizationPreferenceRead(
+                  enabled: json[r'enabled'],
     );
   }
 
-  bool? enabled;
+      bool? enabled;
 
   @override
   bool operator ==(Object other) {
@@ -31,24 +32,23 @@ class EquipmentJsonhalOrganizationPreferenceRead {
       return true;
     }
 
-    return other is EquipmentJsonhalOrganizationPreferenceRead &&
-        other.enabled == enabled;
+    return other is EquipmentJsonhalOrganizationPreferenceRead 
+          && other.enabled == enabled
+  ;
   }
+  
 
   @override
-  int get hashCode => (enabled == null ? 0 : enabled.hashCode);
+  int get hashCode =>
+    (enabled == null ? 0 : enabled.hashCode);
 
-  static List<EquipmentJsonhalOrganizationPreferenceRead> listFromJson(
-      Iterable? json) {
+  static List<EquipmentJsonhalOrganizationPreferenceRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <EquipmentJsonhalOrganizationPreferenceRead>[];
     }
 
-    return json.fold(<EquipmentJsonhalOrganizationPreferenceRead>[],
-        (List<EquipmentJsonhalOrganizationPreferenceRead> previousValue,
-            element) {
-      final EquipmentJsonhalOrganizationPreferenceRead? object =
-          EquipmentJsonhalOrganizationPreferenceRead.fromJson(element);
+    return json.fold(<EquipmentJsonhalOrganizationPreferenceRead>[], (List<EquipmentJsonhalOrganizationPreferenceRead> previousValue, element) {
+      final EquipmentJsonhalOrganizationPreferenceRead? object = EquipmentJsonhalOrganizationPreferenceRead.fromJson(element);
       if (object is EquipmentJsonhalOrganizationPreferenceRead) {
         previousValue.add(object);
       }
@@ -57,18 +57,13 @@ class EquipmentJsonhalOrganizationPreferenceRead {
     });
   }
 
-  static Map<String, EquipmentJsonhalOrganizationPreferenceRead> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, EquipmentJsonhalOrganizationPreferenceRead> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, EquipmentJsonhalOrganizationPreferenceRead>{};
     }
 
-    return json.entries.fold(
-        <String, EquipmentJsonhalOrganizationPreferenceRead>{},
-        (Map<String, EquipmentJsonhalOrganizationPreferenceRead> previousValue,
-            element) {
-      final EquipmentJsonhalOrganizationPreferenceRead? object =
-          EquipmentJsonhalOrganizationPreferenceRead.fromJson(element.value);
+    return json.entries.fold(<String, EquipmentJsonhalOrganizationPreferenceRead>{}, (Map<String, EquipmentJsonhalOrganizationPreferenceRead> previousValue, element) {
+      final EquipmentJsonhalOrganizationPreferenceRead? object = EquipmentJsonhalOrganizationPreferenceRead.fromJson(element.value);
       if (object is EquipmentJsonhalOrganizationPreferenceRead) {
         previousValue[element.key] = object;
       }
@@ -78,25 +73,27 @@ class EquipmentJsonhalOrganizationPreferenceRead {
   }
 
   // maps a json object with a list of EquipmentJsonhalOrganizationPreferenceRead-objects as value to a dart map
-  static Map<String, List<EquipmentJsonhalOrganizationPreferenceRead>>
-      mapListFromJson(Map<String, dynamic>? json) {
+  static Map<String, List<EquipmentJsonhalOrganizationPreferenceRead>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<EquipmentJsonhalOrganizationPreferenceRead>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<EquipmentJsonhalOrganizationPreferenceRead>>(
-          key, EquipmentJsonhalOrganizationPreferenceRead.listFromJson(value));
+      return MapEntry<String, List<EquipmentJsonhalOrganizationPreferenceRead>>(key, EquipmentJsonhalOrganizationPreferenceRead.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'EquipmentJsonhalOrganizationPreferenceRead[enabled=$enabled]';
+  String toString() => 'EquipmentJsonhalOrganizationPreferenceRead[enabled=$enabled]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'enabled')) r'enabled': enabled,
+    if (keys == null || keys.
+    contains(r'enabled')
+    )
+        r'enabled':
+          enabled,
     };
   }
 }
+

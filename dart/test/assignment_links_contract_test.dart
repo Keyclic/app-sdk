@@ -12,9 +12,14 @@ void main() {
   group('test AssignmentLinksContract', () {
     // The URI of the contract associated to the given assignment.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // AssignmentLinksContractIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

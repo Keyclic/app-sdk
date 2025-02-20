@@ -11,12 +11,18 @@ void main() {
 
   group('test ConfigurationMemberType', () {
     // String id
-    test('to test the property `id`', () async {});
+    test('to test the property `id`', () async {
+    });
 
     // List<MemberTypeRole> roles (default value: const [])
-    test('to test the property `roles`', () async {});
+    test('to test the property `roles`', () async {
+    });
 
     // String type
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
+
+
   });
+
 }

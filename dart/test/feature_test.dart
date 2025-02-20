@@ -11,12 +11,18 @@ void main() {
 
   group('test Feature', () {
     // String type (default value: 'Feature')
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
 
     // Map<String, dynamic> geometry
-    test('to test the property `geometry`', () async {});
+    test('to test the property `geometry`', () async {
+    });
 
     // List<String> properties (default value: const [])
-    test('to test the property `properties`', () async {});
+    test('to test the property `properties`', () async {
+    });
+
+
   });
+
 }

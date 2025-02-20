@@ -12,9 +12,14 @@ void main() {
   group('test WorkflowLinksSelf', () {
     // The URI of the self associated to the given workflow.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // WorkflowLinksSelfIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

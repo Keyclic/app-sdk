@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class SectionCollection {
   /// Returns a new [SectionCollection] instance.
   SectionCollection({
-    this.items,
+    this.items
+,
   });
 
   /// Returns a new [SectionCollection] instance and imports its values from
@@ -17,12 +18,13 @@ class SectionCollection {
       return null;
     }
 
-    return SectionCollection(
-      items: Section.listFromJson(json[r'items']),
+  return SectionCollection(
+        items: 
+          Section.listFromJson(json[r'items']),
     );
   }
 
-  List<Section>? items;
+        List<Section>? items;
 
   @override
   bool operator ==(Object other) {
@@ -31,20 +33,22 @@ class SectionCollection {
       return true;
     }
 
-    return other is SectionCollection &&
-        DeepCollectionEquality.unordered().equals(items, other.items);
+    return other is SectionCollection 
+          && DeepCollectionEquality.unordered().equals(items, other.items)
+  ;
   }
+  
 
   @override
-  int get hashCode => (items == null ? 0 : items.hashCode);
+  int get hashCode =>
+    (items == null ? 0 : items.hashCode);
 
   static List<SectionCollection> listFromJson(Iterable? json) {
     if (json == null) {
       return <SectionCollection>[];
     }
 
-    return json.fold(<SectionCollection>[],
-        (List<SectionCollection> previousValue, element) {
+    return json.fold(<SectionCollection>[], (List<SectionCollection> previousValue, element) {
       final SectionCollection? object = SectionCollection.fromJson(element);
       if (object is SectionCollection) {
         previousValue.add(object);
@@ -54,16 +58,13 @@ class SectionCollection {
     });
   }
 
-  static Map<String, SectionCollection> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, SectionCollection> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, SectionCollection>{};
     }
 
-    return json.entries.fold(<String, SectionCollection>{},
-        (Map<String, SectionCollection> previousValue, element) {
-      final SectionCollection? object =
-          SectionCollection.fromJson(element.value);
+    return json.entries.fold(<String, SectionCollection>{}, (Map<String, SectionCollection> previousValue, element) {
+      final SectionCollection? object = SectionCollection.fromJson(element.value);
       if (object is SectionCollection) {
         previousValue[element.key] = object;
       }
@@ -73,15 +74,13 @@ class SectionCollection {
   }
 
   // maps a json object with a list of SectionCollection-objects as value to a dart map
-  static Map<String, List<SectionCollection>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<SectionCollection>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<SectionCollection>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<SectionCollection>>(
-          key, SectionCollection.listFromJson(value));
+      return MapEntry<String, List<SectionCollection>>(key, SectionCollection.listFromJson(value));
     });
   }
 
@@ -90,7 +89,12 @@ class SectionCollection {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'items')) r'items': items,
+    if (keys == null || keys.
+    contains(r'items')
+    )
+        r'items':
+            items,
     };
   }
 }
+

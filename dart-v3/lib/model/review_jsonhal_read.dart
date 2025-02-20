@@ -7,12 +7,18 @@ part of keyclic_sdk_api_platform;
 class ReviewJsonhalRead {
   /// Returns a new [ReviewJsonhalRead] instance.
   ReviewJsonhalRead({
-    this.links,
-    this.id,
-    this.createdAt,
-    this.updatedAt,
-    this.reviewBody,
-    this.reviewRating,
+    this.links
+,
+    this.id
+,
+    this.createdAt
+,
+    this.updatedAt
+,
+    this.reviewBody
+,
+    this.reviewRating
+,
   });
 
   /// Returns a new [ReviewJsonhalRead] instance and imports its values from
@@ -22,32 +28,32 @@ class ReviewJsonhalRead {
       return null;
     }
 
-    return ReviewJsonhalRead(
-      links: ReviewJsonhalReadLinks.fromJson(json[r'_links']),
-      id: json[r'id'],
-      createdAt: mapToDateTime(json[r'createdAt']),
-      updatedAt: mapToDateTime(json[r'updatedAt']),
-      reviewBody: json[r'reviewBody'],
-      reviewRating: json[r'reviewRating'],
+  return ReviewJsonhalRead(
+        links: ReviewJsonhalReadLinks.fromJson(json[r'_links']),
+                  id: json[r'id'],
+        createdAt: mapToDateTime(json[r'createdAt']),
+        updatedAt: mapToDateTime(json[r'updatedAt']),
+                  reviewBody: json[r'reviewBody'],
+                  reviewRating: json[r'reviewRating'],
     );
   }
 
-  ReviewJsonhalReadLinks? links;
+      ReviewJsonhalReadLinks? links;
 
   /// The resource identifier.
-  final String? id;
+      final String? id;
 
   /// The date and time when the resource was created, in UTC format.
-  final DateTime? createdAt;
+      final DateTime? createdAt;
 
   /// The date and time when the resource was updated, in UTC format.
-  final DateTime? updatedAt;
+      final DateTime? updatedAt;
 
-  String? reviewBody;
+      String? reviewBody;
 
   // minimum: 1
   // maximum: 5
-  int? reviewRating;
+      int? reviewRating;
 
   @override
   bool operator ==(Object other) {
@@ -56,31 +62,37 @@ class ReviewJsonhalRead {
       return true;
     }
 
-    return other is ReviewJsonhalRead &&
-        other.links == links &&
-        other.id == id &&
-        other.createdAt == createdAt &&
-        other.updatedAt == updatedAt &&
-        other.reviewBody == reviewBody &&
-        other.reviewRating == reviewRating;
+    return other is ReviewJsonhalRead 
+          && other.links == links
+  
+          && other.id == id
+  
+          && other.createdAt == createdAt
+  
+          && other.updatedAt == updatedAt
+  
+          && other.reviewBody == reviewBody
+  
+          && other.reviewRating == reviewRating
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
-      (id == null ? 0 : id.hashCode) +
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode) +
-      (reviewBody == null ? 0 : reviewBody.hashCode) +
-      (reviewRating == null ? 0 : reviewRating.hashCode);
+    (links == null ? 0 : links.hashCode) +
+    (id == null ? 0 : id.hashCode) +
+    (createdAt == null ? 0 : createdAt.hashCode) +
+    (updatedAt == null ? 0 : updatedAt.hashCode) +
+    (reviewBody == null ? 0 : reviewBody.hashCode) +
+    (reviewRating == null ? 0 : reviewRating.hashCode);
 
   static List<ReviewJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <ReviewJsonhalRead>[];
     }
 
-    return json.fold(<ReviewJsonhalRead>[],
-        (List<ReviewJsonhalRead> previousValue, element) {
+    return json.fold(<ReviewJsonhalRead>[], (List<ReviewJsonhalRead> previousValue, element) {
       final ReviewJsonhalRead? object = ReviewJsonhalRead.fromJson(element);
       if (object is ReviewJsonhalRead) {
         previousValue.add(object);
@@ -90,16 +102,13 @@ class ReviewJsonhalRead {
     });
   }
 
-  static Map<String, ReviewJsonhalRead> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, ReviewJsonhalRead> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, ReviewJsonhalRead>{};
     }
 
-    return json.entries.fold(<String, ReviewJsonhalRead>{},
-        (Map<String, ReviewJsonhalRead> previousValue, element) {
-      final ReviewJsonhalRead? object =
-          ReviewJsonhalRead.fromJson(element.value);
+    return json.entries.fold(<String, ReviewJsonhalRead>{}, (Map<String, ReviewJsonhalRead> previousValue, element) {
+      final ReviewJsonhalRead? object = ReviewJsonhalRead.fromJson(element.value);
       if (object is ReviewJsonhalRead) {
         previousValue[element.key] = object;
       }
@@ -109,42 +118,56 @@ class ReviewJsonhalRead {
   }
 
   // maps a json object with a list of ReviewJsonhalRead-objects as value to a dart map
-  static Map<String, List<ReviewJsonhalRead>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<ReviewJsonhalRead>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ReviewJsonhalRead>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ReviewJsonhalRead>>(
-          key, ReviewJsonhalRead.listFromJson(value));
+      return MapEntry<String, List<ReviewJsonhalRead>>(key, ReviewJsonhalRead.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'ReviewJsonhalRead[links=$links, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, reviewBody=$reviewBody, reviewRating=$reviewRating]';
+  String toString() => 'ReviewJsonhalRead[links=$links, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, reviewBody=$reviewBody, reviewRating=$reviewRating]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^links\.').hasMatch(key))
+    )
+        r'_links':
+            links?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^links\.'))) {
+                previousValue.add(element.split(RegExp(r'^links\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'reviewBody'))
-        r'reviewBody': reviewBody,
-      if (keys == null || keys.contains(r'reviewRating'))
-        r'reviewRating': reviewRating,
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    contains(r'id')
+    )
+        r'id':
+          id,
+    if (keys == null || keys.
+    contains(r'createdAt')
+    )
+      r'createdAt': createdAt?.toUtc().toIso8601String(),
+    if (keys == null || keys.
+    contains(r'updatedAt')
+    )
+      r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+    if (keys == null || keys.
+    contains(r'reviewBody')
+    )
+        r'reviewBody':
+          reviewBody,
+    if (keys == null || keys.
+    contains(r'reviewRating')
+    )
+        r'reviewRating':
+          reviewRating,
     };
   }
 }
+

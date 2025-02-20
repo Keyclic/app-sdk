@@ -5,6 +5,7 @@
 // import 'package:keyclic_sdk_api/api.dart';
 import 'package:test/test.dart';
 
+
 /// tests for MemberApi
 void main() {
   // final instance = MemberApi();
@@ -13,16 +14,20 @@ void main() {
     // Remove one Member resource.
     //
     //Future deleteMember(String xKeyclicApp, String member, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
-    test('test deleteMember', () async {});
+    test('test deleteMember', () async {
+    });
 
     // Edit one Member resource.
     //
     //Future<Member> patchMember(String xKeyclicApp, String member, MemberPatch memberPatch, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
-    test('test patchMember', () async {});
+    test('test patchMember', () async {
+    });
 
     // Create one Member resource.
     //
     //Future<Member> postMember(String xKeyclicApp, MemberData memberData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
-    test('test postMember', () async {});
+    test('test postMember', () async {
+    });
+
   });
 }

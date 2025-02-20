@@ -11,15 +11,22 @@ void main() {
 
   group('test CategoryData', () {
     // String name
-    test('to test the property `name`', () async {});
+    test('to test the property `name`', () async {
+    });
 
     // String organization
-    test('to test the property `organization`', () async {});
+    test('to test the property `organization`', () async {
+    });
 
     // String parent
-    test('to test the property `parent`', () async {});
+    test('to test the property `parent`', () async {
+    });
 
     // String type
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
+
+
   });
+
 }

@@ -12,9 +12,14 @@ void main() {
   group('test ReportLinksCreatedBy', () {
     // The URI of the createdBy associated to the given report.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // ReportLinksCreatedByIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

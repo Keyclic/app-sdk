@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class ProcedureEmbedded {
   /// Returns a new [ProcedureEmbedded] instance.
   ProcedureEmbedded({
-    this.document,
+    this.document
+,
   });
 
   /// Returns a new [ProcedureEmbedded] instance and imports its values from
@@ -17,12 +18,12 @@ class ProcedureEmbedded {
       return null;
     }
 
-    return ProcedureEmbedded(
-      document: Document.fromJson(json[r'document']),
+  return ProcedureEmbedded(
+        document: Document.fromJson(json[r'document']),
     );
   }
 
-  Document? document;
+      Document? document;
 
   @override
   bool operator ==(Object other) {
@@ -31,19 +32,22 @@ class ProcedureEmbedded {
       return true;
     }
 
-    return other is ProcedureEmbedded && other.document == document;
+    return other is ProcedureEmbedded 
+          && other.document == document
+  ;
   }
+  
 
   @override
-  int get hashCode => (document == null ? 0 : document.hashCode);
+  int get hashCode =>
+    (document == null ? 0 : document.hashCode);
 
   static List<ProcedureEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
       return <ProcedureEmbedded>[];
     }
 
-    return json.fold(<ProcedureEmbedded>[],
-        (List<ProcedureEmbedded> previousValue, element) {
+    return json.fold(<ProcedureEmbedded>[], (List<ProcedureEmbedded> previousValue, element) {
       final ProcedureEmbedded? object = ProcedureEmbedded.fromJson(element);
       if (object is ProcedureEmbedded) {
         previousValue.add(object);
@@ -53,16 +57,13 @@ class ProcedureEmbedded {
     });
   }
 
-  static Map<String, ProcedureEmbedded> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, ProcedureEmbedded> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, ProcedureEmbedded>{};
     }
 
-    return json.entries.fold(<String, ProcedureEmbedded>{},
-        (Map<String, ProcedureEmbedded> previousValue, element) {
-      final ProcedureEmbedded? object =
-          ProcedureEmbedded.fromJson(element.value);
+    return json.entries.fold(<String, ProcedureEmbedded>{}, (Map<String, ProcedureEmbedded> previousValue, element) {
+      final ProcedureEmbedded? object = ProcedureEmbedded.fromJson(element.value);
       if (object is ProcedureEmbedded) {
         previousValue[element.key] = object;
       }
@@ -72,15 +73,13 @@ class ProcedureEmbedded {
   }
 
   // maps a json object with a list of ProcedureEmbedded-objects as value to a dart map
-  static Map<String, List<ProcedureEmbedded>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<ProcedureEmbedded>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ProcedureEmbedded>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ProcedureEmbedded>>(
-          key, ProcedureEmbedded.listFromJson(value));
+      return MapEntry<String, List<ProcedureEmbedded>>(key, ProcedureEmbedded.listFromJson(value));
     });
   }
 
@@ -89,16 +88,18 @@ class ProcedureEmbedded {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^document\.').hasMatch(key)))
-        r'document': document?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^document\.'))) {
-            previousValue.add(element.split(RegExp(r'^document\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^document\.').hasMatch(key))
+    )
+        r'document':
+            document?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^document\.'))) {
+                previousValue.add(element.split(RegExp(r'^document\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

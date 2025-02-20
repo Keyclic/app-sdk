@@ -11,9 +11,14 @@ void main() {
 
   group('test BookmarkEmbedded', () {
     // Member member
-    test('to test the property `member`', () async {});
+    test('to test the property `member`', () async {
+    });
 
     // Place place
-    test('to test the property `place`', () async {});
+    test('to test the property `place`', () async {
+    });
+
+
   });
+
 }

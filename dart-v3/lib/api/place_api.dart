@@ -4,6 +4,7 @@
 
 part of keyclic_sdk_api_platform;
 
+
 class PlaceApi {
   const PlaceApi(this._apiClient);
 
@@ -13,35 +14,35 @@ class PlaceApi {
   /// Retrieves the collection of Place resources.
   ///
   /// Parameters:
-  /// * [xKeyclicApp] -
-  /// * [xOrganizationId] -
+  /// * [xKeyclicApp] - 
+  /// * [xOrganizationId] - 
   /// * [page] - The collection page number
   /// * [limit] - The number of items per page
   /// * [pagination] - Enable or disable pagination
-  /// * [search] -
-  /// * [createdAtLeftSquareBracketBeforeRightSquareBracket] -
-  /// * [createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket] -
-  /// * [createdAtLeftSquareBracketAfterRightSquareBracket] -
-  /// * [createdAtLeftSquareBracketStrictlyAfterRightSquareBracket] -
-  /// * [updatedAtLeftSquareBracketBeforeRightSquareBracket] -
-  /// * [updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket] -
-  /// * [updatedAtLeftSquareBracketAfterRightSquareBracket] -
-  /// * [updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket] -
-  /// * [orderLeftSquareBracketCreatedAtRightSquareBracket] -
-  /// * [orderLeftSquareBracketNameRightSquareBracket] -
-  /// * [orderLeftSquareBracketUpdatedAtRightSquareBracket] -
-  /// * [level] -
-  /// * [levelLeftSquareBracketRightSquareBracket] -
-  /// * [parent] -
-  /// * [parentLeftSquareBracketRightSquareBracket] -
-  /// * [subtree] -
-  /// * [existsLeftSquareBracketContractsRightSquareBracket] -
-  /// * [contracts] -
-  /// * [contractsLeftSquareBracketRightSquareBracket] -
-  /// * [acceptLanguage] -
-  /// * [xDateTime] -
-  /// * [xKeyclicAppPlatform] -
-  /// * [xKeyclicAppVersion] -
+  /// * [search] - 
+  /// * [createdAtLeftSquareBracketBeforeRightSquareBracket] - 
+  /// * [createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket] - 
+  /// * [createdAtLeftSquareBracketAfterRightSquareBracket] - 
+  /// * [createdAtLeftSquareBracketStrictlyAfterRightSquareBracket] - 
+  /// * [updatedAtLeftSquareBracketBeforeRightSquareBracket] - 
+  /// * [updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket] - 
+  /// * [updatedAtLeftSquareBracketAfterRightSquareBracket] - 
+  /// * [updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket] - 
+  /// * [orderLeftSquareBracketCreatedAtRightSquareBracket] - 
+  /// * [orderLeftSquareBracketNameRightSquareBracket] - 
+  /// * [orderLeftSquareBracketUpdatedAtRightSquareBracket] - 
+  /// * [level] - 
+  /// * [levelLeftSquareBracketRightSquareBracket] - 
+  /// * [parent] - 
+  /// * [parentLeftSquareBracketRightSquareBracket] - 
+  /// * [subtree] - 
+  /// * [existsLeftSquareBracketContractsRightSquareBracket] - 
+  /// * [contracts] - 
+  /// * [contractsLeftSquareBracketRightSquareBracket] - 
+  /// * [acceptLanguage] - 
+  /// * [xDateTime] - 
+  /// * [xKeyclicAppPlatform] - 
+  /// * [xKeyclicAppVersion] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -51,7 +52,7 @@ class PlaceApi {
   ///
   /// Returns a [Future] containing a [Response] with a [GetPlaceCollection200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetPlaceCollection200Response>> getPlaceCollection({
+  Future<Response<GetPlaceCollection200Response>> getPlaceCollection({ 
     required String xKeyclicApp,
     required String xOrganizationId,
     int? page,
@@ -81,6 +82,7 @@ class PlaceApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -96,10 +98,8 @@ class PlaceApi {
         if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
         if (xDateTime != null) r'X-Date-Time': xDateTime,
         r'X-Keyclic-App': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'X-Keyclic-App-Version': xKeyclicAppVersion,
         r'X-Organization-Id': xOrganizationId,
         ...?headers,
       },
@@ -107,6 +107,7 @@ class PlaceApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -114,67 +115,108 @@ class PlaceApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
 
     final queryParameters = <String, dynamic>{
-      if (page != null) r'page': encodeQueryParameter(page),
-      if (limit != null) r'limit': encodeQueryParameter(limit),
-      if (pagination != null) r'pagination': encodeQueryParameter(pagination),
-      if (search != null) r'search': encodeQueryParameter(search),
-      if (createdAtLeftSquareBracketBeforeRightSquareBracket != null)
-        r'createdAt[before]': encodeQueryParameter(
-            createdAtLeftSquareBracketBeforeRightSquareBracket),
-      if (createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket != null)
-        r'createdAt[strictly_before]': encodeQueryParameter(
-            createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket),
-      if (createdAtLeftSquareBracketAfterRightSquareBracket != null)
-        r'createdAt[after]': encodeQueryParameter(
-            createdAtLeftSquareBracketAfterRightSquareBracket),
-      if (createdAtLeftSquareBracketStrictlyAfterRightSquareBracket != null)
-        r'createdAt[strictly_after]': encodeQueryParameter(
-            createdAtLeftSquareBracketStrictlyAfterRightSquareBracket),
-      if (updatedAtLeftSquareBracketBeforeRightSquareBracket != null)
-        r'updatedAt[before]': encodeQueryParameter(
-            updatedAtLeftSquareBracketBeforeRightSquareBracket),
-      if (updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket != null)
-        r'updatedAt[strictly_before]': encodeQueryParameter(
-            updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket),
-      if (updatedAtLeftSquareBracketAfterRightSquareBracket != null)
-        r'updatedAt[after]': encodeQueryParameter(
-            updatedAtLeftSquareBracketAfterRightSquareBracket),
-      if (updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket != null)
-        r'updatedAt[strictly_after]': encodeQueryParameter(
-            updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket),
-      if (orderLeftSquareBracketCreatedAtRightSquareBracket != null)
-        r'order[createdAt]': encodeQueryParameter(
-            orderLeftSquareBracketCreatedAtRightSquareBracket),
-      if (orderLeftSquareBracketNameRightSquareBracket != null)
-        r'order[name]':
-            encodeQueryParameter(orderLeftSquareBracketNameRightSquareBracket),
-      if (orderLeftSquareBracketUpdatedAtRightSquareBracket != null)
-        r'order[updatedAt]': encodeQueryParameter(
-            orderLeftSquareBracketUpdatedAtRightSquareBracket),
-      if (level != null) r'level': encodeQueryParameter(level),
-      if (levelLeftSquareBracketRightSquareBracket != null)
-        r'level[]': encodeCollectionQueryParameter(
-            levelLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (parent != null) r'parent': encodeQueryParameter(parent),
-      if (parentLeftSquareBracketRightSquareBracket != null)
-        r'parent[]': encodeCollectionQueryParameter(
-            parentLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (subtree != null) r'subtree': encodeQueryParameter(subtree),
-      if (existsLeftSquareBracketContractsRightSquareBracket != null)
-        r'exists[contracts]': encodeQueryParameter(
-            existsLeftSquareBracketContractsRightSquareBracket),
-      if (contracts != null) r'contracts': encodeQueryParameter(contracts),
-      if (contractsLeftSquareBracketRightSquareBracket != null)
-        r'contracts[]': encodeCollectionQueryParameter(
-            contractsLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
+      if (page != null) r'page':
+        encodeQueryParameter(
+        page
+        ),
+      if (limit != null) r'limit':
+        encodeQueryParameter(
+        limit
+        ),
+      if (pagination != null) r'pagination':
+        encodeQueryParameter(
+        pagination
+        ),
+      if (search != null) r'search':
+        encodeQueryParameter(
+        search
+        ),
+      if (createdAtLeftSquareBracketBeforeRightSquareBracket != null) r'createdAt[before]':
+        encodeQueryParameter(
+        createdAtLeftSquareBracketBeforeRightSquareBracket
+        ),
+      if (createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket != null) r'createdAt[strictly_before]':
+        encodeQueryParameter(
+        createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket
+        ),
+      if (createdAtLeftSquareBracketAfterRightSquareBracket != null) r'createdAt[after]':
+        encodeQueryParameter(
+        createdAtLeftSquareBracketAfterRightSquareBracket
+        ),
+      if (createdAtLeftSquareBracketStrictlyAfterRightSquareBracket != null) r'createdAt[strictly_after]':
+        encodeQueryParameter(
+        createdAtLeftSquareBracketStrictlyAfterRightSquareBracket
+        ),
+      if (updatedAtLeftSquareBracketBeforeRightSquareBracket != null) r'updatedAt[before]':
+        encodeQueryParameter(
+        updatedAtLeftSquareBracketBeforeRightSquareBracket
+        ),
+      if (updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket != null) r'updatedAt[strictly_before]':
+        encodeQueryParameter(
+        updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket
+        ),
+      if (updatedAtLeftSquareBracketAfterRightSquareBracket != null) r'updatedAt[after]':
+        encodeQueryParameter(
+        updatedAtLeftSquareBracketAfterRightSquareBracket
+        ),
+      if (updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket != null) r'updatedAt[strictly_after]':
+        encodeQueryParameter(
+        updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket
+        ),
+      if (orderLeftSquareBracketCreatedAtRightSquareBracket != null) r'order[createdAt]':
+        encodeQueryParameter(
+        orderLeftSquareBracketCreatedAtRightSquareBracket
+        ),
+      if (orderLeftSquareBracketNameRightSquareBracket != null) r'order[name]':
+        encodeQueryParameter(
+        orderLeftSquareBracketNameRightSquareBracket
+        ),
+      if (orderLeftSquareBracketUpdatedAtRightSquareBracket != null) r'order[updatedAt]':
+        encodeQueryParameter(
+        orderLeftSquareBracketUpdatedAtRightSquareBracket
+        ),
+      if (level != null) r'level':
+        encodeQueryParameter(
+        level
+        ),
+      if (levelLeftSquareBracketRightSquareBracket != null) r'level[]':
+        encodeCollectionQueryParameter(
+        levelLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (parent != null) r'parent':
+        encodeQueryParameter(
+        parent
+        ),
+      if (parentLeftSquareBracketRightSquareBracket != null) r'parent[]':
+        encodeCollectionQueryParameter(
+        parentLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (subtree != null) r'subtree':
+        encodeQueryParameter(
+        subtree
+        ),
+      if (existsLeftSquareBracketContractsRightSquareBracket != null) r'exists[contracts]':
+        encodeQueryParameter(
+        existsLeftSquareBracketContractsRightSquareBracket
+        ),
+      if (contracts != null) r'contracts':
+        encodeQueryParameter(
+        contracts
+        ),
+      if (contractsLeftSquareBracketRightSquareBracket != null) r'contracts[]':
+        encodeCollectionQueryParameter(
+        contractsLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
     };
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -188,9 +230,7 @@ class PlaceApi {
     GetPlaceCollection200Response responseData;
 
     try {
-      responseData =
-          await _apiClient.deserializeAsync<GetPlaceCollection200Response>(
-              response.data!, 'GetPlaceCollection200Response');
+            responseData = await _apiClient.deserializeAsync<GetPlaceCollection200Response>(response.data!, 'GetPlaceCollection200Response');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -212,19 +252,18 @@ class PlaceApi {
       extra: response.extra,
     );
   }
-
   /// Updates the Place resource.
   /// Updates the Place resource.
   ///
   /// Parameters:
   /// * [identifier] - Place identifier
-  /// * [xKeyclicApp] -
-  /// * [xOrganizationId] -
+  /// * [xKeyclicApp] - 
+  /// * [xOrganizationId] - 
   /// * [placeEditPlaceCommandWriteEdit] - The updated Place resource
-  /// * [acceptLanguage] -
-  /// * [xDateTime] -
-  /// * [xKeyclicAppPlatform] -
-  /// * [xKeyclicAppVersion] -
+  /// * [acceptLanguage] - 
+  /// * [xDateTime] - 
+  /// * [xKeyclicAppPlatform] - 
+  /// * [xKeyclicAppVersion] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -234,7 +273,7 @@ class PlaceApi {
   ///
   /// Returns a [Future] containing a [Response] with a [PlaceJsonhalRead] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<PlaceJsonhalRead>> patchPlace({
+  Future<Response<PlaceJsonhalRead>> patchPlace({ 
     required String identifier,
     required String xKeyclicApp,
     required String xOrganizationId,
@@ -251,8 +290,7 @@ class PlaceApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/v2/places/{identifier}'
-        .replaceAll('{' r'identifier' '}', identifier.toString());
+    final String path = r'/v2/places/{identifier}'.replaceAll('{' r'identifier' '}', identifier.toString());
     final options = Options(
       method: r'PATCH',
       headers: <String, dynamic>{
@@ -260,10 +298,8 @@ class PlaceApi {
         if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
         if (xDateTime != null) r'X-Date-Time': xDateTime,
         r'X-Keyclic-App': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'X-Keyclic-App-Version': xKeyclicAppVersion,
         r'X-Organization-Id': xOrganizationId,
         ...?headers,
       },
@@ -271,6 +307,7 @@ class PlaceApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -282,11 +319,12 @@ class PlaceApi {
       validateStatus: validateStatus,
     );
 
+
     dynamic bodyData;
 
     try {
-      bodyData = placeEditPlaceCommandWriteEdit.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = placeEditPlaceCommandWriteEdit.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -310,8 +348,7 @@ class PlaceApi {
     PlaceJsonhalRead responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<PlaceJsonhalRead>(
-          response.data!, 'PlaceJsonhalRead');
+            responseData = await _apiClient.deserializeAsync<PlaceJsonhalRead>(response.data!, 'PlaceJsonhalRead');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -333,17 +370,16 @@ class PlaceApi {
       extra: response.extra,
     );
   }
-
   /// Creates a Place resource.
   /// Creates a Place resource.
   ///
   /// Parameters:
-  /// * [xKeyclicApp] -
+  /// * [xKeyclicApp] - 
   /// * [placeCreatePlaceCommandWriteCreate] - The new Place resource
-  /// * [acceptLanguage] -
-  /// * [xDateTime] -
-  /// * [xKeyclicAppPlatform] -
-  /// * [xKeyclicAppVersion] -
+  /// * [acceptLanguage] - 
+  /// * [xDateTime] - 
+  /// * [xKeyclicAppPlatform] - 
+  /// * [xKeyclicAppVersion] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -353,10 +389,9 @@ class PlaceApi {
   ///
   /// Returns a [Future] containing a [Response] with a [PlaceJsonhalRead] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<PlaceJsonhalRead>> postPlace({
+  Future<Response<PlaceJsonhalRead>> postPlace({ 
     required String xKeyclicApp,
-    required PlaceCreatePlaceCommandWriteCreate
-        placeCreatePlaceCommandWriteCreate,
+    required PlaceCreatePlaceCommandWriteCreate placeCreatePlaceCommandWriteCreate,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
@@ -377,16 +412,15 @@ class PlaceApi {
         if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
         if (xDateTime != null) r'X-Date-Time': xDateTime,
         r'X-Keyclic-App': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'X-Keyclic-App-Version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -398,11 +432,12 @@ class PlaceApi {
       validateStatus: validateStatus,
     );
 
+
     dynamic bodyData;
 
     try {
-      bodyData = placeCreatePlaceCommandWriteCreate.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = placeCreatePlaceCommandWriteCreate.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -426,8 +461,7 @@ class PlaceApi {
     PlaceJsonhalRead responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<PlaceJsonhalRead>(
-          response.data!, 'PlaceJsonhalRead');
+            responseData = await _apiClient.deserializeAsync<PlaceJsonhalRead>(response.data!, 'PlaceJsonhalRead');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

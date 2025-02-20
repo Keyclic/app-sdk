@@ -11,9 +11,14 @@ void main() {
 
   group('test UserJsonhalAuthProfileRead', () {
     // String email
-    test('to test the property `email`', () async {});
+    test('to test the property `email`', () async {
+    });
 
     // String username
-    test('to test the property `username`', () async {});
+    test('to test the property `username`', () async {
+    });
+
+
   });
+
 }

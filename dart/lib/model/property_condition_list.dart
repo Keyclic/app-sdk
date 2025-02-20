@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class PropertyConditionList {
   /// Returns a new [PropertyConditionList] instance.
   PropertyConditionList({
-    this.allOf,
+    this.allOf
+,
   });
 
   /// Returns a new [PropertyConditionList] instance and imports its values from
@@ -17,12 +18,13 @@ class PropertyConditionList {
       return null;
     }
 
-    return PropertyConditionList(
-      allOf: ConditionListCondition.listFromJson(json[r'allOf']),
+  return PropertyConditionList(
+        allOf: 
+          ConditionListCondition.listFromJson(json[r'allOf']),
     );
   }
 
-  List<ConditionListCondition>? allOf;
+        List<ConditionListCondition>? allOf;
 
   @override
   bool operator ==(Object other) {
@@ -31,22 +33,23 @@ class PropertyConditionList {
       return true;
     }
 
-    return other is PropertyConditionList &&
-        DeepCollectionEquality.unordered().equals(allOf, other.allOf);
+    return other is PropertyConditionList 
+          && DeepCollectionEquality.unordered().equals(allOf, other.allOf)
+  ;
   }
+  
 
   @override
-  int get hashCode => (allOf == null ? 0 : allOf.hashCode);
+  int get hashCode =>
+    (allOf == null ? 0 : allOf.hashCode);
 
   static List<PropertyConditionList> listFromJson(Iterable? json) {
     if (json == null) {
       return <PropertyConditionList>[];
     }
 
-    return json.fold(<PropertyConditionList>[],
-        (List<PropertyConditionList> previousValue, element) {
-      final PropertyConditionList? object =
-          PropertyConditionList.fromJson(element);
+    return json.fold(<PropertyConditionList>[], (List<PropertyConditionList> previousValue, element) {
+      final PropertyConditionList? object = PropertyConditionList.fromJson(element);
       if (object is PropertyConditionList) {
         previousValue.add(object);
       }
@@ -55,16 +58,13 @@ class PropertyConditionList {
     });
   }
 
-  static Map<String, PropertyConditionList> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, PropertyConditionList> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, PropertyConditionList>{};
     }
 
-    return json.entries.fold(<String, PropertyConditionList>{},
-        (Map<String, PropertyConditionList> previousValue, element) {
-      final PropertyConditionList? object =
-          PropertyConditionList.fromJson(element.value);
+    return json.entries.fold(<String, PropertyConditionList>{}, (Map<String, PropertyConditionList> previousValue, element) {
+      final PropertyConditionList? object = PropertyConditionList.fromJson(element.value);
       if (object is PropertyConditionList) {
         previousValue[element.key] = object;
       }
@@ -74,15 +74,13 @@ class PropertyConditionList {
   }
 
   // maps a json object with a list of PropertyConditionList-objects as value to a dart map
-  static Map<String, List<PropertyConditionList>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<PropertyConditionList>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<PropertyConditionList>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<PropertyConditionList>>(
-          key, PropertyConditionList.listFromJson(value));
+      return MapEntry<String, List<PropertyConditionList>>(key, PropertyConditionList.listFromJson(value));
     });
   }
 
@@ -91,7 +89,12 @@ class PropertyConditionList {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'allOf')) r'allOf': allOf,
+    if (keys == null || keys.
+    contains(r'allOf')
+    )
+        r'allOf':
+            allOf,
     };
   }
 }
+

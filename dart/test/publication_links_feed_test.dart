@@ -12,9 +12,14 @@ void main() {
   group('test PublicationLinksFeed', () {
     // The URI of the feed associated to the given publication.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // PublicationLinksFeedIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

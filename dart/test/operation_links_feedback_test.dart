@@ -12,9 +12,14 @@ void main() {
   group('test OperationLinksFeedback', () {
     // The URI of the feedback associated to the given operation.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // OperationLinksFeedbackIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

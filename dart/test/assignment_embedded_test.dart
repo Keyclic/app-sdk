@@ -11,9 +11,14 @@ void main() {
 
   group('test AssignmentEmbedded', () {
     // Person createdBy
-    test('to test the property `createdBy`', () async {});
+    test('to test the property `createdBy`', () async {
+    });
 
     // InternalService service
-    test('to test the property `service`', () async {});
+    test('to test the property `service`', () async {
+    });
+
+
   });
+
 }

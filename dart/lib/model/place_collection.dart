@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class PlaceCollection {
   /// Returns a new [PlaceCollection] instance.
   PlaceCollection({
-    this.items,
+    this.items
+,
   });
 
   /// Returns a new [PlaceCollection] instance and imports its values from
@@ -17,12 +18,13 @@ class PlaceCollection {
       return null;
     }
 
-    return PlaceCollection(
-      items: Place.listFromJson(json[r'items']),
+  return PlaceCollection(
+        items: 
+          Place.listFromJson(json[r'items']),
     );
   }
 
-  List<Place>? items;
+        List<Place>? items;
 
   @override
   bool operator ==(Object other) {
@@ -31,20 +33,22 @@ class PlaceCollection {
       return true;
     }
 
-    return other is PlaceCollection &&
-        DeepCollectionEquality.unordered().equals(items, other.items);
+    return other is PlaceCollection 
+          && DeepCollectionEquality.unordered().equals(items, other.items)
+  ;
   }
+  
 
   @override
-  int get hashCode => (items == null ? 0 : items.hashCode);
+  int get hashCode =>
+    (items == null ? 0 : items.hashCode);
 
   static List<PlaceCollection> listFromJson(Iterable? json) {
     if (json == null) {
       return <PlaceCollection>[];
     }
 
-    return json.fold(<PlaceCollection>[],
-        (List<PlaceCollection> previousValue, element) {
+    return json.fold(<PlaceCollection>[], (List<PlaceCollection> previousValue, element) {
       final PlaceCollection? object = PlaceCollection.fromJson(element);
       if (object is PlaceCollection) {
         previousValue.add(object);
@@ -59,8 +63,7 @@ class PlaceCollection {
       return <String, PlaceCollection>{};
     }
 
-    return json.entries.fold(<String, PlaceCollection>{},
-        (Map<String, PlaceCollection> previousValue, element) {
+    return json.entries.fold(<String, PlaceCollection>{}, (Map<String, PlaceCollection> previousValue, element) {
       final PlaceCollection? object = PlaceCollection.fromJson(element.value);
       if (object is PlaceCollection) {
         previousValue[element.key] = object;
@@ -71,15 +74,13 @@ class PlaceCollection {
   }
 
   // maps a json object with a list of PlaceCollection-objects as value to a dart map
-  static Map<String, List<PlaceCollection>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<PlaceCollection>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<PlaceCollection>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<PlaceCollection>>(
-          key, PlaceCollection.listFromJson(value));
+      return MapEntry<String, List<PlaceCollection>>(key, PlaceCollection.listFromJson(value));
     });
   }
 
@@ -88,7 +89,12 @@ class PlaceCollection {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'items')) r'items': items,
+    if (keys == null || keys.
+    contains(r'items')
+    )
+        r'items':
+            items,
     };
   }
 }
+

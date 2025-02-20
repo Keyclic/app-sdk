@@ -11,18 +11,26 @@ void main() {
 
   group('test TemplatePatch', () {
     // List<Map<String, Object>> body (default value: const [])
-    test('to test the property `body`', () async {});
+    test('to test the property `body`', () async {
+    });
 
     // List<Map<String, Object>> footer (default value: const [])
-    test('to test the property `footer`', () async {});
+    test('to test the property `footer`', () async {
+    });
 
     // List<Map<String, Object>> header (default value: const [])
-    test('to test the property `header`', () async {});
+    test('to test the property `header`', () async {
+    });
 
     // String name
-    test('to test the property `name`', () async {});
+    test('to test the property `name`', () async {
+    });
 
     // String type
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
+
+
   });
+
 }

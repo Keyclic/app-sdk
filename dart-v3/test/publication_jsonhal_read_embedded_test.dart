@@ -11,9 +11,14 @@ void main() {
 
   group('test PublicationJsonhalReadEmbedded', () {
     // PersonJsonhalRead author
-    test('to test the property `author`', () async {});
+    test('to test the property `author`', () async {
+    });
 
     // PlaceJsonhalRead place
-    test('to test the property `place`', () async {});
+    test('to test the property `place`', () async {
+    });
+
+
   });
+
 }

@@ -11,36 +11,50 @@ void main() {
 
   group('test Configuration', () {
     // ConfigurationLinks links
-    test('to test the property `links`', () async {});
+    test('to test the property `links`', () async {
+    });
 
     // DateTime createdAt
-    test('to test the property `createdAt`', () async {});
+    test('to test the property `createdAt`', () async {
+    });
 
     // String description
-    test('to test the property `description`', () async {});
+    test('to test the property `description`', () async {
+    });
 
     // String id
-    test('to test the property `id`', () async {});
+    test('to test the property `id`', () async {
+    });
 
     // ConfigurationMemberType memberType
-    test('to test the property `memberType`', () async {});
+    test('to test the property `memberType`', () async {
+    });
 
     // String name
-    test('to test the property `name`', () async {});
+    test('to test the property `name`', () async {
+    });
 
     // ConfigurationOperationType operationType
-    test('to test the property `operationType`', () async {});
+    test('to test the property `operationType`', () async {
+    });
 
     // ConfigurationPlaceType placeType
-    test('to test the property `placeType`', () async {});
+    test('to test the property `placeType`', () async {
+    });
 
     // ConfigurationReportType reportType
-    test('to test the property `reportType`', () async {});
+    test('to test the property `reportType`', () async {
+    });
 
     // String type
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
 
     // DateTime updatedAt
-    test('to test the property `updatedAt`', () async {});
+    test('to test the property `updatedAt`', () async {
+    });
+
+
   });
+
 }

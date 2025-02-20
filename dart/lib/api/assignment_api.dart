@@ -4,21 +4,22 @@
 
 part of keyclic_sdk_api;
 
+
 class AssignmentApi {
   const AssignmentApi(this._apiClient);
 
   final ApiClient _apiClient;
 
   /// Retrieve one Assignment resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [assignment] - The identifier of the resource.
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -30,13 +31,14 @@ class AssignmentApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one Assignment resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<Assignment>> getAssignment({
+  Future<Response<Assignment>> getAssignment({ 
     required String xKeyclicApp,
     required String assignment,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -44,8 +46,7 @@ class AssignmentApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/assignments/{assignment}'
-        .replaceAll('{' r'assignment' '}', assignment.toString());
+    final String path = r'/assignments/{assignment}'.replaceAll('{' r'assignment' '}', assignment.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -53,16 +54,15 @@ class AssignmentApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -70,8 +70,11 @@ class AssignmentApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -84,8 +87,7 @@ class AssignmentApi {
     Assignment responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<Assignment>(
-          response.data!, 'Assignment');
+            responseData = await _apiClient.deserializeAsync<Assignment>(response.data!, 'Assignment');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -107,17 +109,16 @@ class AssignmentApi {
       extra: response.extra,
     );
   }
-
   /// Create one Assignment resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
-  /// * [assignmentData]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [xKeyclicApp] 
+  /// * [assignmentData] 
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -129,7 +130,7 @@ class AssignmentApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Assignment resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<Assignment>> postAssignment({
+  Future<Response<Assignment>> postAssignment({ 
     required String xKeyclicApp,
     required AssignmentData assignmentData,
     String? acceptLanguage,
@@ -152,16 +153,15 @@ class AssignmentApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -173,11 +173,12 @@ class AssignmentApi {
       validateStatus: validateStatus,
     );
 
+
     dynamic bodyData;
 
     try {
-      bodyData = assignmentData.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = assignmentData.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -201,8 +202,7 @@ class AssignmentApi {
     Assignment responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<Assignment>(
-          response.data!, 'Assignment');
+            responseData = await _apiClient.deserializeAsync<Assignment>(response.data!, 'Assignment');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

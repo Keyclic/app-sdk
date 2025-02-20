@@ -11,6 +11,10 @@ void main() {
 
   group('test ContributionLinksFeedbackIriTemplateMapping', () {
     // String feedback
-    test('to test the property `feedback`', () async {});
+    test('to test the property `feedback`', () async {
+    });
+
+
   });
+
 }

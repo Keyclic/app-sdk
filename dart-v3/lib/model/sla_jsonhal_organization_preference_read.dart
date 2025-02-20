@@ -7,7 +7,8 @@ part of keyclic_sdk_api_platform;
 class SlaJsonhalOrganizationPreferenceRead {
   /// Returns a new [SlaJsonhalOrganizationPreferenceRead] instance.
   SlaJsonhalOrganizationPreferenceRead({
-    this.enabled,
+    this.enabled
+,
   });
 
   /// Returns a new [SlaJsonhalOrganizationPreferenceRead] instance and imports its values from
@@ -17,12 +18,12 @@ class SlaJsonhalOrganizationPreferenceRead {
       return null;
     }
 
-    return SlaJsonhalOrganizationPreferenceRead(
-      enabled: json[r'enabled'],
+  return SlaJsonhalOrganizationPreferenceRead(
+                  enabled: json[r'enabled'],
     );
   }
 
-  bool? enabled;
+      bool? enabled;
 
   @override
   bool operator ==(Object other) {
@@ -31,23 +32,23 @@ class SlaJsonhalOrganizationPreferenceRead {
       return true;
     }
 
-    return other is SlaJsonhalOrganizationPreferenceRead &&
-        other.enabled == enabled;
+    return other is SlaJsonhalOrganizationPreferenceRead 
+          && other.enabled == enabled
+  ;
   }
+  
 
   @override
-  int get hashCode => (enabled == null ? 0 : enabled.hashCode);
+  int get hashCode =>
+    (enabled == null ? 0 : enabled.hashCode);
 
-  static List<SlaJsonhalOrganizationPreferenceRead> listFromJson(
-      Iterable? json) {
+  static List<SlaJsonhalOrganizationPreferenceRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <SlaJsonhalOrganizationPreferenceRead>[];
     }
 
-    return json.fold(<SlaJsonhalOrganizationPreferenceRead>[],
-        (List<SlaJsonhalOrganizationPreferenceRead> previousValue, element) {
-      final SlaJsonhalOrganizationPreferenceRead? object =
-          SlaJsonhalOrganizationPreferenceRead.fromJson(element);
+    return json.fold(<SlaJsonhalOrganizationPreferenceRead>[], (List<SlaJsonhalOrganizationPreferenceRead> previousValue, element) {
+      final SlaJsonhalOrganizationPreferenceRead? object = SlaJsonhalOrganizationPreferenceRead.fromJson(element);
       if (object is SlaJsonhalOrganizationPreferenceRead) {
         previousValue.add(object);
       }
@@ -56,17 +57,13 @@ class SlaJsonhalOrganizationPreferenceRead {
     });
   }
 
-  static Map<String, SlaJsonhalOrganizationPreferenceRead> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, SlaJsonhalOrganizationPreferenceRead> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, SlaJsonhalOrganizationPreferenceRead>{};
     }
 
-    return json.entries.fold(<String, SlaJsonhalOrganizationPreferenceRead>{},
-        (Map<String, SlaJsonhalOrganizationPreferenceRead> previousValue,
-            element) {
-      final SlaJsonhalOrganizationPreferenceRead? object =
-          SlaJsonhalOrganizationPreferenceRead.fromJson(element.value);
+    return json.entries.fold(<String, SlaJsonhalOrganizationPreferenceRead>{}, (Map<String, SlaJsonhalOrganizationPreferenceRead> previousValue, element) {
+      final SlaJsonhalOrganizationPreferenceRead? object = SlaJsonhalOrganizationPreferenceRead.fromJson(element.value);
       if (object is SlaJsonhalOrganizationPreferenceRead) {
         previousValue[element.key] = object;
       }
@@ -76,15 +73,13 @@ class SlaJsonhalOrganizationPreferenceRead {
   }
 
   // maps a json object with a list of SlaJsonhalOrganizationPreferenceRead-objects as value to a dart map
-  static Map<String, List<SlaJsonhalOrganizationPreferenceRead>>
-      mapListFromJson(Map<String, dynamic>? json) {
+  static Map<String, List<SlaJsonhalOrganizationPreferenceRead>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<SlaJsonhalOrganizationPreferenceRead>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<SlaJsonhalOrganizationPreferenceRead>>(
-          key, SlaJsonhalOrganizationPreferenceRead.listFromJson(value));
+      return MapEntry<String, List<SlaJsonhalOrganizationPreferenceRead>>(key, SlaJsonhalOrganizationPreferenceRead.listFromJson(value));
     });
   }
 
@@ -93,7 +88,12 @@ class SlaJsonhalOrganizationPreferenceRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'enabled')) r'enabled': enabled,
+    if (keys == null || keys.
+    contains(r'enabled')
+    )
+        r'enabled':
+          enabled,
     };
   }
 }
+

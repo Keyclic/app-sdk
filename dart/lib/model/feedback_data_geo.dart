@@ -7,8 +7,10 @@ part of keyclic_sdk_api;
 class FeedbackDataGeo {
   /// Returns a new [FeedbackDataGeo] instance.
   FeedbackDataGeo({
-    this.point,
-    this.elevation,
+    this.point
+,
+    this.elevation
+,
   });
 
   /// Returns a new [FeedbackDataGeo] instance and imports its values from
@@ -18,16 +20,17 @@ class FeedbackDataGeo {
       return null;
     }
 
-    return FeedbackDataGeo(
-      point: FeedbackDataGeoPoint.fromJson(json[r'point']),
-      elevation:
-          json[r'elevation'] == null ? null : json[r'elevation'].toDouble(),
+  return FeedbackDataGeo(
+        point: FeedbackDataGeoPoint.fromJson(json[r'point']),
+        elevation: json[r'elevation'] == null ?
+          null :
+          json[r'elevation'].toDouble(),
     );
   }
 
-  FeedbackDataGeoPoint? point;
+      FeedbackDataGeoPoint? point;
 
-  num? elevation;
+      num? elevation;
 
   @override
   bool operator ==(Object other) {
@@ -36,23 +39,25 @@ class FeedbackDataGeo {
       return true;
     }
 
-    return other is FeedbackDataGeo &&
-        other.point == point &&
-        other.elevation == elevation;
+    return other is FeedbackDataGeo 
+          && other.point == point
+  
+          && other.elevation == elevation
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (point == null ? 0 : point.hashCode) +
-      (elevation == null ? 0 : elevation.hashCode);
+    (point == null ? 0 : point.hashCode) +
+    (elevation == null ? 0 : elevation.hashCode);
 
   static List<FeedbackDataGeo> listFromJson(Iterable? json) {
     if (json == null) {
       return <FeedbackDataGeo>[];
     }
 
-    return json.fold(<FeedbackDataGeo>[],
-        (List<FeedbackDataGeo> previousValue, element) {
+    return json.fold(<FeedbackDataGeo>[], (List<FeedbackDataGeo> previousValue, element) {
       final FeedbackDataGeo? object = FeedbackDataGeo.fromJson(element);
       if (object is FeedbackDataGeo) {
         previousValue.add(object);
@@ -67,8 +72,7 @@ class FeedbackDataGeo {
       return <String, FeedbackDataGeo>{};
     }
 
-    return json.entries.fold(<String, FeedbackDataGeo>{},
-        (Map<String, FeedbackDataGeo> previousValue, element) {
+    return json.entries.fold(<String, FeedbackDataGeo>{}, (Map<String, FeedbackDataGeo> previousValue, element) {
       final FeedbackDataGeo? object = FeedbackDataGeo.fromJson(element.value);
       if (object is FeedbackDataGeo) {
         previousValue[element.key] = object;
@@ -79,15 +83,13 @@ class FeedbackDataGeo {
   }
 
   // maps a json object with a list of FeedbackDataGeo-objects as value to a dart map
-  static Map<String, List<FeedbackDataGeo>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<FeedbackDataGeo>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<FeedbackDataGeo>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<FeedbackDataGeo>>(
-          key, FeedbackDataGeo.listFromJson(value));
+      return MapEntry<String, List<FeedbackDataGeo>>(key, FeedbackDataGeo.listFromJson(value));
     });
   }
 
@@ -96,16 +98,23 @@ class FeedbackDataGeo {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^point\.').hasMatch(key)))
-        r'point': point?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^point\.'))) {
-            previousValue.add(element.split(RegExp(r'^point\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^point\.').hasMatch(key))
+    )
+        r'point':
+            point?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^point\.'))) {
+                previousValue.add(element.split(RegExp(r'^point\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'elevation')) r'elevation': elevation,
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    contains(r'elevation')
+    )
+        r'elevation':
+          elevation,
     };
   }
 }
+

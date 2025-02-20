@@ -11,6 +11,10 @@ void main() {
 
   group('test KnowledgeBaseLinks', () {
     // KnowledgeBaseLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
+
+
   });
+
 }

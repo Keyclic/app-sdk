@@ -12,9 +12,14 @@ void main() {
   group('test ReportLinksPlace', () {
     // The URI of the place associated to the given report.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // ReportLinksPlaceIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

@@ -11,9 +11,14 @@ void main() {
 
   group('test LoginData', () {
     // String login
-    test('to test the property `login`', () async {});
+    test('to test the property `login`', () async {
+    });
 
     // String password
-    test('to test the property `password`', () async {});
+    test('to test the property `password`', () async {
+    });
+
+
   });
+
 }

@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class CategoryLinksTypeIriTemplate {
   /// Returns a new [CategoryLinksTypeIriTemplate] instance.
   CategoryLinksTypeIriTemplate({
-    this.mapping,
+    this.mapping
+,
   });
 
   /// Returns a new [CategoryLinksTypeIriTemplate] instance and imports its values from
@@ -17,13 +18,12 @@ class CategoryLinksTypeIriTemplate {
       return null;
     }
 
-    return CategoryLinksTypeIriTemplate(
-      mapping:
-          AssignmentLinksContractIriTemplateMapping.fromJson(json[r'mapping']),
+  return CategoryLinksTypeIriTemplate(
+        mapping: AssignmentLinksContractIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
-  AssignmentLinksContractIriTemplateMapping? mapping;
+      AssignmentLinksContractIriTemplateMapping? mapping;
 
   @override
   bool operator ==(Object other) {
@@ -32,21 +32,23 @@ class CategoryLinksTypeIriTemplate {
       return true;
     }
 
-    return other is CategoryLinksTypeIriTemplate && other.mapping == mapping;
+    return other is CategoryLinksTypeIriTemplate 
+          && other.mapping == mapping
+  ;
   }
+  
 
   @override
-  int get hashCode => (mapping == null ? 0 : mapping.hashCode);
+  int get hashCode =>
+    (mapping == null ? 0 : mapping.hashCode);
 
   static List<CategoryLinksTypeIriTemplate> listFromJson(Iterable? json) {
     if (json == null) {
       return <CategoryLinksTypeIriTemplate>[];
     }
 
-    return json.fold(<CategoryLinksTypeIriTemplate>[],
-        (List<CategoryLinksTypeIriTemplate> previousValue, element) {
-      final CategoryLinksTypeIriTemplate? object =
-          CategoryLinksTypeIriTemplate.fromJson(element);
+    return json.fold(<CategoryLinksTypeIriTemplate>[], (List<CategoryLinksTypeIriTemplate> previousValue, element) {
+      final CategoryLinksTypeIriTemplate? object = CategoryLinksTypeIriTemplate.fromJson(element);
       if (object is CategoryLinksTypeIriTemplate) {
         previousValue.add(object);
       }
@@ -55,16 +57,13 @@ class CategoryLinksTypeIriTemplate {
     });
   }
 
-  static Map<String, CategoryLinksTypeIriTemplate> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, CategoryLinksTypeIriTemplate> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, CategoryLinksTypeIriTemplate>{};
     }
 
-    return json.entries.fold(<String, CategoryLinksTypeIriTemplate>{},
-        (Map<String, CategoryLinksTypeIriTemplate> previousValue, element) {
-      final CategoryLinksTypeIriTemplate? object =
-          CategoryLinksTypeIriTemplate.fromJson(element.value);
+    return json.entries.fold(<String, CategoryLinksTypeIriTemplate>{}, (Map<String, CategoryLinksTypeIriTemplate> previousValue, element) {
+      final CategoryLinksTypeIriTemplate? object = CategoryLinksTypeIriTemplate.fromJson(element.value);
       if (object is CategoryLinksTypeIriTemplate) {
         previousValue[element.key] = object;
       }
@@ -74,15 +73,13 @@ class CategoryLinksTypeIriTemplate {
   }
 
   // maps a json object with a list of CategoryLinksTypeIriTemplate-objects as value to a dart map
-  static Map<String, List<CategoryLinksTypeIriTemplate>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<CategoryLinksTypeIriTemplate>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<CategoryLinksTypeIriTemplate>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<CategoryLinksTypeIriTemplate>>(
-          key, CategoryLinksTypeIriTemplate.listFromJson(value));
+      return MapEntry<String, List<CategoryLinksTypeIriTemplate>>(key, CategoryLinksTypeIriTemplate.listFromJson(value));
     });
   }
 
@@ -91,16 +88,18 @@ class CategoryLinksTypeIriTemplate {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^mapping\.').hasMatch(key)))
-        r'mapping': mapping?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^mapping\.'))) {
-            previousValue.add(element.split(RegExp(r'^mapping\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^mapping\.').hasMatch(key))
+    )
+        r'mapping':
+            mapping?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^mapping\.'))) {
+                previousValue.add(element.split(RegExp(r'^mapping\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

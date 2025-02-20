@@ -4,22 +4,22 @@
 
 part of keyclic_sdk_api;
 
+
 class ApiClient {
   ApiClient({
     Dio? dio,
     String? basePathOverride,
     List<Interceptor>? interceptors,
-  }) : this.dio = dio ??
-            Dio(BaseOptions(
-              baseUrl: basePathOverride ?? basePath,
-            )) {
-    this.dio.interceptors.addAll(interceptors ??
-        [
-          OAuthInterceptor(),
-          BasicAuthInterceptor(),
-          BearerAuthInterceptor(),
-          ApiKeyAuthInterceptor(),
-        ]);
+  })  : this.dio = dio ??
+    Dio(BaseOptions(
+    baseUrl: basePathOverride ?? basePath,
+  )) {
+    this.dio.interceptors.addAll(interceptors ?? [
+      OAuthInterceptor(),
+      BasicAuthInterceptor(),
+      BearerAuthInterceptor(),
+      ApiKeyAuthInterceptor(),
+    ]);
   }
 
   static const String basePath = r'https://api.keyclic.com';
@@ -55,7 +55,7 @@ class ApiClient {
   }
 
   void setApiKey(String name, String apiKey) {
-    // ApiKeyAuth('query', '');
+  // ApiKeyAuth('query', '');
     for (final interceptor in dio.interceptors) {
       if (interceptor is ApiKeyAuthInterceptor) {
         interceptor.apiKeys[name] = apiKey;
@@ -64,210 +64,171 @@ class ApiClient {
     }
   }
 
-  /// Get ApplicationApi instance
-  ApplicationApi getApplicationApi() {
+  
+    /// Get ApplicationApi instance
+    ApplicationApi getApplicationApi() {
     return ApplicationApi(this);
-  }
-
-  /// Get ArticleApi instance
-  ArticleApi getArticleApi() {
+    }
+    /// Get ArticleApi instance
+    ArticleApi getArticleApi() {
     return ArticleApi(this);
-  }
-
-  /// Get AssignmentApi instance
-  AssignmentApi getAssignmentApi() {
+    }
+    /// Get AssignmentApi instance
+    AssignmentApi getAssignmentApi() {
     return AssignmentApi(this);
-  }
-
-  /// Get BookmarkApi instance
-  BookmarkApi getBookmarkApi() {
+    }
+    /// Get BookmarkApi instance
+    BookmarkApi getBookmarkApi() {
     return BookmarkApi(this);
-  }
-
-  /// Get BusinessActivityApi instance
-  BusinessActivityApi getBusinessActivityApi() {
+    }
+    /// Get BusinessActivityApi instance
+    BusinessActivityApi getBusinessActivityApi() {
     return BusinessActivityApi(this);
-  }
-
-  /// Get CategoryApi instance
-  CategoryApi getCategoryApi() {
+    }
+    /// Get CategoryApi instance
+    CategoryApi getCategoryApi() {
     return CategoryApi(this);
-  }
-
-  /// Get ConfigurationApi instance
-  ConfigurationApi getConfigurationApi() {
+    }
+    /// Get ConfigurationApi instance
+    ConfigurationApi getConfigurationApi() {
     return ConfigurationApi(this);
-  }
-
-  /// Get ConnectorApi instance
-  ConnectorApi getConnectorApi() {
+    }
+    /// Get ConnectorApi instance
+    ConnectorApi getConnectorApi() {
     return ConnectorApi(this);
-  }
-
-  /// Get ContributionApi instance
-  ContributionApi getContributionApi() {
+    }
+    /// Get ContributionApi instance
+    ContributionApi getContributionApi() {
     return ContributionApi(this);
-  }
-
-  /// Get DeviceApi instance
-  DeviceApi getDeviceApi() {
+    }
+    /// Get DeviceApi instance
+    DeviceApi getDeviceApi() {
     return DeviceApi(this);
-  }
-
-  /// Get DigitalDocumentApi instance
-  DigitalDocumentApi getDigitalDocumentApi() {
+    }
+    /// Get DigitalDocumentApi instance
+    DigitalDocumentApi getDigitalDocumentApi() {
     return DigitalDocumentApi(this);
-  }
-
-  /// Get DispatcherApi instance
-  DispatcherApi getDispatcherApi() {
+    }
+    /// Get DispatcherApi instance
+    DispatcherApi getDispatcherApi() {
     return DispatcherApi(this);
-  }
-
-  /// Get DocumentApi instance
-  DocumentApi getDocumentApi() {
+    }
+    /// Get DocumentApi instance
+    DocumentApi getDocumentApi() {
     return DocumentApi(this);
-  }
-
-  /// Get ExportApi instance
-  ExportApi getExportApi() {
+    }
+    /// Get ExportApi instance
+    ExportApi getExportApi() {
     return ExportApi(this);
-  }
-
-  /// Get ExternalServiceApi instance
-  ExternalServiceApi getExternalServiceApi() {
+    }
+    /// Get ExternalServiceApi instance
+    ExternalServiceApi getExternalServiceApi() {
     return ExternalServiceApi(this);
-  }
-
-  /// Get FeedApi instance
-  FeedApi getFeedApi() {
+    }
+    /// Get FeedApi instance
+    FeedApi getFeedApi() {
     return FeedApi(this);
-  }
-
-  /// Get FeedbackApi instance
-  FeedbackApi getFeedbackApi() {
+    }
+    /// Get FeedbackApi instance
+    FeedbackApi getFeedbackApi() {
     return FeedbackApi(this);
-  }
-
-  /// Get InternalServiceApi instance
-  InternalServiceApi getInternalServiceApi() {
+    }
+    /// Get InternalServiceApi instance
+    InternalServiceApi getInternalServiceApi() {
     return InternalServiceApi(this);
-  }
-
-  /// Get InvitationApi instance
-  InvitationApi getInvitationApi() {
+    }
+    /// Get InvitationApi instance
+    InvitationApi getInvitationApi() {
     return InvitationApi(this);
-  }
-
-  /// Get KnowledgeBaseApi instance
-  KnowledgeBaseApi getKnowledgeBaseApi() {
+    }
+    /// Get KnowledgeBaseApi instance
+    KnowledgeBaseApi getKnowledgeBaseApi() {
     return KnowledgeBaseApi(this);
-  }
-
-  /// Get MarkerApi instance
-  MarkerApi getMarkerApi() {
+    }
+    /// Get MarkerApi instance
+    MarkerApi getMarkerApi() {
     return MarkerApi(this);
-  }
-
-  /// Get MemberApi instance
-  MemberApi getMemberApi() {
+    }
+    /// Get MemberApi instance
+    MemberApi getMemberApi() {
     return MemberApi(this);
-  }
-
-  /// Get NoteApi instance
-  NoteApi getNoteApi() {
+    }
+    /// Get NoteApi instance
+    NoteApi getNoteApi() {
     return NoteApi(this);
-  }
-
-  /// Get OccupantApi instance
-  OccupantApi getOccupantApi() {
+    }
+    /// Get OccupantApi instance
+    OccupantApi getOccupantApi() {
     return OccupantApi(this);
-  }
-
-  /// Get OperationApi instance
-  OperationApi getOperationApi() {
+    }
+    /// Get OperationApi instance
+    OperationApi getOperationApi() {
     return OperationApi(this);
-  }
-
-  /// Get OrganizationApi instance
-  OrganizationApi getOrganizationApi() {
+    }
+    /// Get OrganizationApi instance
+    OrganizationApi getOrganizationApi() {
     return OrganizationApi(this);
-  }
-
-  /// Get PdfApi instance
-  PdfApi getPdfApi() {
+    }
+    /// Get PdfApi instance
+    PdfApi getPdfApi() {
     return PdfApi(this);
-  }
-
-  /// Get PersonApi instance
-  PersonApi getPersonApi() {
+    }
+    /// Get PersonApi instance
+    PersonApi getPersonApi() {
     return PersonApi(this);
-  }
-
-  /// Get PlaceApi instance
-  PlaceApi getPlaceApi() {
+    }
+    /// Get PlaceApi instance
+    PlaceApi getPlaceApi() {
     return PlaceApi(this);
-  }
-
-  /// Get PlanApi instance
-  PlanApi getPlanApi() {
+    }
+    /// Get PlanApi instance
+    PlanApi getPlanApi() {
     return PlanApi(this);
-  }
-
-  /// Get ProcedureApi instance
-  ProcedureApi getProcedureApi() {
+    }
+    /// Get ProcedureApi instance
+    ProcedureApi getProcedureApi() {
     return ProcedureApi(this);
-  }
-
-  /// Get PublicationApi instance
-  PublicationApi getPublicationApi() {
+    }
+    /// Get PublicationApi instance
+    PublicationApi getPublicationApi() {
     return PublicationApi(this);
-  }
-
-  /// Get ReportApi instance
-  ReportApi getReportApi() {
+    }
+    /// Get ReportApi instance
+    ReportApi getReportApi() {
     return ReportApi(this);
-  }
-
-  /// Get ReviewApi instance
-  ReviewApi getReviewApi() {
+    }
+    /// Get ReviewApi instance
+    ReviewApi getReviewApi() {
     return ReviewApi(this);
-  }
-
-  /// Get RoleApi instance
-  RoleApi getRoleApi() {
+    }
+    /// Get RoleApi instance
+    RoleApi getRoleApi() {
     return RoleApi(this);
-  }
-
-  /// Get RuleApi instance
-  RuleApi getRuleApi() {
+    }
+    /// Get RuleApi instance
+    RuleApi getRuleApi() {
     return RuleApi(this);
-  }
-
-  /// Get SectionApi instance
-  SectionApi getSectionApi() {
+    }
+    /// Get SectionApi instance
+    SectionApi getSectionApi() {
     return SectionApi(this);
-  }
-
-  /// Get SecurityApi instance
-  SecurityApi getSecurityApi() {
+    }
+    /// Get SecurityApi instance
+    SecurityApi getSecurityApi() {
     return SecurityApi(this);
-  }
-
-  /// Get SignerApi instance
-  SignerApi getSignerApi() {
+    }
+    /// Get SignerApi instance
+    SignerApi getSignerApi() {
     return SignerApi(this);
-  }
-
-  /// Get TemplateApi instance
-  TemplateApi getTemplateApi() {
+    }
+    /// Get TemplateApi instance
+    TemplateApi getTemplateApi() {
     return TemplateApi(this);
-  }
-
-  /// Get WorkflowApi instance
-  WorkflowApi getWorkflowApi() {
+    }
+    /// Get WorkflowApi instance
+    WorkflowApi getWorkflowApi() {
     return WorkflowApi(this);
-  }
+    }
 
   Future<Response<Object>> invokeAPI({
     required String path,
@@ -278,38 +239,33 @@ class ApiClient {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    return dio.request<Object>(
-      path,
-      data: body,
-      options: options,
-      queryParameters: queryParameters,
-      cancelToken: cancelToken,
-      onSendProgress: onSendProgress,
-      onReceiveProgress: onReceiveProgress,
-    );
+      return dio.request<Object>(
+        path,
+        data: body,
+        options: options,
+        queryParameters: queryParameters,
+        cancelToken: cancelToken,
+        onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
+      );
   }
 
-  Future<T> deserializeAsync<T>(dynamic json, String targetType,
-          {bool growable = false}) async =>
-      // ignore: deprecated_member_use_from_same_package
-      deserialize(json, targetType, growable: growable) as T;
+  Future<T> deserializeAsync<T>(dynamic json, String targetType, {bool growable = false}) async =>
+    // ignore: deprecated_member_use_from_same_package
+    deserialize(json, targetType, growable: growable) as T;
 
-  @Deprecated(
-      'Scheduled for removal in OpenAPI Generator 6.x. Use deserializeAsync() instead.')
-  dynamic deserialize(dynamic json, String targetType,
-      {bool growable = false}) {
+  @Deprecated('Scheduled for removal in OpenAPI Generator 6.x. Use deserializeAsync() instead.')
+  dynamic deserialize(dynamic json, String targetType, {bool growable = false}) {
     // Remove all spaces. Necessary for regular expressions as well.
-    targetType =
-        targetType.replaceAll(' ', ''); // ignore: parameter_assignments
+    targetType = targetType.replaceAll(' ', ''); // ignore: parameter_assignments
 
     // If the expected target type is String, nothing to do...
     return targetType == 'String'
-        ? jsonEncode(json)
-        : _deserialize(json, targetType, growable: growable == true);
+      ? jsonEncode(json)
+      : _deserialize(json, targetType, growable: growable == true);
   }
 
-  static dynamic _deserialize(dynamic value, String targetType,
-      {bool growable = false}) {
+  static dynamic _deserialize(dynamic value, String targetType, {bool growable = false}) {
     try {
       switch (targetType) {
         case 'String':
@@ -357,8 +313,7 @@ class ApiClient {
         case 'ApplicationLinksKnowledgeBaseIriTemplate':
           return ApplicationLinksKnowledgeBaseIriTemplate.fromJson(value);
         case 'ApplicationLinksKnowledgeBaseIriTemplateMapping':
-          return ApplicationLinksKnowledgeBaseIriTemplateMapping.fromJson(
-              value);
+          return ApplicationLinksKnowledgeBaseIriTemplateMapping.fromJson(value);
         case 'ApplicationLinksSelf':
           return ApplicationLinksSelf.fromJson(value);
         case 'ApplicationLinksSelfIriTemplate':
@@ -1023,7 +978,7 @@ class ApiClient {
           return PasswordChangeData.fromJson(value);
         case 'Permission':
           return PermissionTypeTransformer().decode(value);
-
+          
         case 'Person':
           return Person.fromJson(value);
         case 'PersonAgreement':
@@ -1412,42 +1367,30 @@ class ApiClient {
           return WorkflowTransition.fromJson(value);
         default:
           Match? match;
-          if (value is List &&
-              (match = _regList.firstMatch(targetType)) != null) {
+          if (value is List && (match = _regList.firstMatch(targetType)) != null) {
             targetType = match![1]!; // ignore: parameter_assignments
             return value
-                .map((v) => _deserialize(v, targetType, growable: growable))
-                .toList(growable: growable);
+              .map((v) => _deserialize(v, targetType, growable: growable))
+              .toList(growable: growable);
           }
-          if (value is Set &&
-              (match = _regSet.firstMatch(targetType)) != null) {
+          if (value is Set && (match = _regSet.firstMatch(targetType)) != null) {
             targetType = match![1]!; // ignore: parameter_assignments
             return value
-                .map((v) => _deserialize(v, targetType, growable: growable))
-                .toSet();
+              .map((v) => _deserialize(v, targetType, growable: growable))
+              .toSet();
           }
-          if (value is Map &&
-              (match = _regMap.firstMatch(targetType)) != null) {
+          if (value is Map && (match = _regMap.firstMatch(targetType)) != null) {
             targetType = match![1]!; // ignore: parameter_assignments
             return Map.fromIterables(
               value.keys,
-              value.values
-                  .map((v) => _deserialize(v, targetType, growable: growable)),
+              value.values.map((v) => _deserialize(v, targetType, growable: growable)),
             );
           }
           break;
       }
     } on Exception catch (error, trace) {
-      throw ApiException.withInner(
-        HttpStatus.internalServerError,
-        'Exception during deserialization.',
-        error,
-        trace,
-      );
+      throw ApiException.withInner(HttpStatus.internalServerError, 'Exception during deserialization.', error, trace,);
     }
-    throw ApiException(
-      HttpStatus.internalServerError,
-      'Could not find a suitable class for deserialization',
-    );
+    throw ApiException(HttpStatus.internalServerError, 'Could not find a suitable class for deserialization',);
   }
 }

@@ -7,9 +7,12 @@ part of keyclic_sdk_api;
 class GeoShape {
   /// Returns a new [GeoShape] instance.
   GeoShape({
-    this.centroid,
-    this.elevation,
-    this.polygon,
+    this.centroid
+,
+    this.elevation
+,
+    this.polygon
+,
   });
 
   /// Returns a new [GeoShape] instance and imports its values from
@@ -19,18 +22,18 @@ class GeoShape {
       return null;
     }
 
-    return GeoShape(
-      centroid: GeoShapeCentroid.fromJson(json[r'centroid']),
-      elevation: json[r'elevation']?.toDouble(),
-      polygon: Polygon.fromJson(json[r'polygon']),
+  return GeoShape(
+        centroid: GeoShapeCentroid.fromJson(json[r'centroid']),
+                  elevation: json[r'elevation']?.toDouble(),
+        polygon: Polygon.fromJson(json[r'polygon']),
     );
   }
 
-  GeoShapeCentroid? centroid;
+      GeoShapeCentroid? centroid;
 
-  double? elevation;
+      double? elevation;
 
-  Polygon? polygon;
+      Polygon? polygon;
 
   @override
   bool operator ==(Object other) {
@@ -39,17 +42,21 @@ class GeoShape {
       return true;
     }
 
-    return other is GeoShape &&
-        other.centroid == centroid &&
-        other.elevation == elevation &&
-        other.polygon == polygon;
+    return other is GeoShape 
+          && other.centroid == centroid
+  
+          && other.elevation == elevation
+  
+          && other.polygon == polygon
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (centroid == null ? 0 : centroid.hashCode) +
-      (elevation == null ? 0 : elevation.hashCode) +
-      (polygon == null ? 0 : polygon.hashCode);
+    (centroid == null ? 0 : centroid.hashCode) +
+    (elevation == null ? 0 : elevation.hashCode) +
+    (polygon == null ? 0 : polygon.hashCode);
 
   static List<GeoShape> listFromJson(Iterable? json) {
     if (json == null) {
@@ -71,8 +78,7 @@ class GeoShape {
       return <String, GeoShape>{};
     }
 
-    return json.entries.fold(<String, GeoShape>{},
-        (Map<String, GeoShape> previousValue, element) {
+    return json.entries.fold(<String, GeoShape>{}, (Map<String, GeoShape> previousValue, element) {
       final GeoShape? object = GeoShape.fromJson(element.value);
       if (object is GeoShape) {
         previousValue[element.key] = object;
@@ -83,45 +89,49 @@ class GeoShape {
   }
 
   // maps a json object with a list of GeoShape-objects as value to a dart map
-  static Map<String, List<GeoShape>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<GeoShape>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<GeoShape>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<GeoShape>>(
-          key, GeoShape.listFromJson(value));
+      return MapEntry<String, List<GeoShape>>(key, GeoShape.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'GeoShape[centroid=$centroid, elevation=$elevation, polygon=$polygon]';
+  String toString() => 'GeoShape[centroid=$centroid, elevation=$elevation, polygon=$polygon]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^centroid\.').hasMatch(key)))
-        r'centroid': centroid?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^centroid\.'))) {
-            previousValue.add(element.split(RegExp(r'^centroid\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^centroid\.').hasMatch(key))
+    )
+        r'centroid':
+            centroid?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^centroid\.'))) {
+                previousValue.add(element.split(RegExp(r'^centroid\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'elevation')) r'elevation': elevation,
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^polygon\.').hasMatch(key)))
-        r'polygon': polygon?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^polygon\.'))) {
-            previousValue.add(element.split(RegExp(r'^polygon\.')).last);
-          }
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    contains(r'elevation')
+    )
+        r'elevation':
+          elevation,
+    if (keys == null || keys.
+    any((key) => RegExp(r'^polygon\.').hasMatch(key))
+    )
+        r'polygon':
+            polygon?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^polygon\.'))) {
+                previousValue.add(element.split(RegExp(r'^polygon\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

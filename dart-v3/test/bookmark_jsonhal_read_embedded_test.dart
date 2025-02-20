@@ -11,9 +11,14 @@ void main() {
 
   group('test BookmarkJsonhalReadEmbedded', () {
     // AssetJsonhalRead place
-    test('to test the property `place`', () async {});
+    test('to test the property `place`', () async {
+    });
 
     // MemberJsonhalRead member
-    test('to test the property `member`', () async {});
+    test('to test the property `member`', () async {
+    });
+
+
   });
+
 }

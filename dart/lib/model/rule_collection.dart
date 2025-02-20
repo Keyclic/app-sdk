@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class RuleCollection {
   /// Returns a new [RuleCollection] instance.
   RuleCollection({
-    this.items,
+    this.items
+,
   });
 
   /// Returns a new [RuleCollection] instance and imports its values from
@@ -17,12 +18,13 @@ class RuleCollection {
       return null;
     }
 
-    return RuleCollection(
-      items: Rule.listFromJson(json[r'items']),
+  return RuleCollection(
+        items: 
+          Rule.listFromJson(json[r'items']),
     );
   }
 
-  List<Rule>? items;
+        List<Rule>? items;
 
   @override
   bool operator ==(Object other) {
@@ -31,20 +33,22 @@ class RuleCollection {
       return true;
     }
 
-    return other is RuleCollection &&
-        DeepCollectionEquality.unordered().equals(items, other.items);
+    return other is RuleCollection 
+          && DeepCollectionEquality.unordered().equals(items, other.items)
+  ;
   }
+  
 
   @override
-  int get hashCode => (items == null ? 0 : items.hashCode);
+  int get hashCode =>
+    (items == null ? 0 : items.hashCode);
 
   static List<RuleCollection> listFromJson(Iterable? json) {
     if (json == null) {
       return <RuleCollection>[];
     }
 
-    return json.fold(<RuleCollection>[],
-        (List<RuleCollection> previousValue, element) {
+    return json.fold(<RuleCollection>[], (List<RuleCollection> previousValue, element) {
       final RuleCollection? object = RuleCollection.fromJson(element);
       if (object is RuleCollection) {
         previousValue.add(object);
@@ -59,8 +63,7 @@ class RuleCollection {
       return <String, RuleCollection>{};
     }
 
-    return json.entries.fold(<String, RuleCollection>{},
-        (Map<String, RuleCollection> previousValue, element) {
+    return json.entries.fold(<String, RuleCollection>{}, (Map<String, RuleCollection> previousValue, element) {
       final RuleCollection? object = RuleCollection.fromJson(element.value);
       if (object is RuleCollection) {
         previousValue[element.key] = object;
@@ -71,15 +74,13 @@ class RuleCollection {
   }
 
   // maps a json object with a list of RuleCollection-objects as value to a dart map
-  static Map<String, List<RuleCollection>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<RuleCollection>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<RuleCollection>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<RuleCollection>>(
-          key, RuleCollection.listFromJson(value));
+      return MapEntry<String, List<RuleCollection>>(key, RuleCollection.listFromJson(value));
     });
   }
 
@@ -88,7 +89,12 @@ class RuleCollection {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'items')) r'items': items,
+    if (keys == null || keys.
+    contains(r'items')
+    )
+        r'items':
+            items,
     };
   }
 }
+

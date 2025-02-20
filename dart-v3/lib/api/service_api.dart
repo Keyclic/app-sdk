@@ -4,6 +4,7 @@
 
 part of keyclic_sdk_api_platform;
 
+
 class ServiceApi {
   const ServiceApi(this._apiClient);
 
@@ -14,11 +15,11 @@ class ServiceApi {
   ///
   /// Parameters:
   /// * [identifier] - Service identifier
-  /// * [xKeyclicApp] -
-  /// * [acceptLanguage] -
-  /// * [xDateTime] -
-  /// * [xKeyclicAppPlatform] -
-  /// * [xKeyclicAppVersion] -
+  /// * [xKeyclicApp] - 
+  /// * [acceptLanguage] - 
+  /// * [xDateTime] - 
+  /// * [xKeyclicAppPlatform] - 
+  /// * [xKeyclicAppVersion] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -28,13 +29,14 @@ class ServiceApi {
   ///
   /// Returns a [Future] containing a [Response] with a [ServiceJsonhalRead] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<ServiceJsonhalRead>> getService({
+  Future<Response<ServiceJsonhalRead>> getService({ 
     required String identifier,
     required String xKeyclicApp,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -42,8 +44,7 @@ class ServiceApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/services/{identifier}'
-        .replaceAll('{' r'identifier' '}', identifier.toString());
+    final String path = r'/services/{identifier}'.replaceAll('{' r'identifier' '}', identifier.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -51,16 +52,15 @@ class ServiceApi {
         if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
         if (xDateTime != null) r'X-Date-Time': xDateTime,
         r'X-Keyclic-App': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'X-Keyclic-App-Version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -68,8 +68,11 @@ class ServiceApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -82,8 +85,7 @@ class ServiceApi {
     ServiceJsonhalRead responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<ServiceJsonhalRead>(
-          response.data!, 'ServiceJsonhalRead');
+            responseData = await _apiClient.deserializeAsync<ServiceJsonhalRead>(response.data!, 'ServiceJsonhalRead');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -105,20 +107,19 @@ class ServiceApi {
       extra: response.extra,
     );
   }
-
   /// Retrieves the collection of Service resources.
   /// Retrieves the collection of Service resources.
   ///
   /// Parameters:
-  /// * [xKeyclicApp] -
-  /// * [xOrganizationId] -
+  /// * [xKeyclicApp] - 
+  /// * [xOrganizationId] - 
   /// * [page] - The collection page number
   /// * [limit] - The number of items per page
   /// * [pagination] - Enable or disable pagination
-  /// * [acceptLanguage] -
-  /// * [xDateTime] -
-  /// * [xKeyclicAppPlatform] -
-  /// * [xKeyclicAppVersion] -
+  /// * [acceptLanguage] - 
+  /// * [xDateTime] - 
+  /// * [xKeyclicAppPlatform] - 
+  /// * [xKeyclicAppVersion] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -128,7 +129,7 @@ class ServiceApi {
   ///
   /// Returns a [Future] containing a [Response] with a [GetServiceCollection200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetServiceCollection200Response>> getServiceCollection({
+  Future<Response<GetServiceCollection200Response>> getServiceCollection({ 
     required String xKeyclicApp,
     required String xOrganizationId,
     int? page,
@@ -138,6 +139,7 @@ class ServiceApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -153,10 +155,8 @@ class ServiceApi {
         if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
         if (xDateTime != null) r'X-Date-Time': xDateTime,
         r'X-Keyclic-App': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'X-Keyclic-App-Version': xKeyclicAppVersion,
         r'X-Organization-Id': xOrganizationId,
         ...?headers,
       },
@@ -164,6 +164,7 @@ class ServiceApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -171,14 +172,25 @@ class ServiceApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
 
     final queryParameters = <String, dynamic>{
-      if (page != null) r'page': encodeQueryParameter(page),
-      if (limit != null) r'limit': encodeQueryParameter(limit),
-      if (pagination != null) r'pagination': encodeQueryParameter(pagination),
+      if (page != null) r'page':
+        encodeQueryParameter(
+        page
+        ),
+      if (limit != null) r'limit':
+        encodeQueryParameter(
+        limit
+        ),
+      if (pagination != null) r'pagination':
+        encodeQueryParameter(
+        pagination
+        ),
     };
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -192,9 +204,7 @@ class ServiceApi {
     GetServiceCollection200Response responseData;
 
     try {
-      responseData =
-          await _apiClient.deserializeAsync<GetServiceCollection200Response>(
-              response.data!, 'GetServiceCollection200Response');
+            responseData = await _apiClient.deserializeAsync<GetServiceCollection200Response>(response.data!, 'GetServiceCollection200Response');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

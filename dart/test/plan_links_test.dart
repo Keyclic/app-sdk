@@ -11,12 +11,18 @@ void main() {
 
   group('test PlanLinks', () {
     // PlanLinksImage image
-    test('to test the property `image`', () async {});
+    test('to test the property `image`', () async {
+    });
 
     // PlanLinksPlace place
-    test('to test the property `place`', () async {});
+    test('to test the property `place`', () async {
+    });
 
     // PlanLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
+
+
   });
+
 }

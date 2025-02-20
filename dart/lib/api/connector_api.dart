@@ -4,23 +4,24 @@
 
 part of keyclic_sdk_api;
 
+
 class ConnectorApi {
   const ConnectorApi(this._apiClient);
 
   final ApiClient _apiClient;
 
   /// Create one Connector resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [connector] - The identifier of the resource.
-  /// * [workflow]
-  /// * [runData]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [workflow] 
+  /// * [runData] 
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -32,7 +33,7 @@ class ConnectorApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Connector resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<Run>> postConnectorByConnectorAndWorkflow({
+  Future<Response<Run>> postConnectorByConnectorAndWorkflow({ 
     required String xKeyclicApp,
     required String connector,
     required String workflow,
@@ -49,9 +50,7 @@ class ConnectorApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/connectors/{connector}/workflows/{workflow}/runs'
-        .replaceAll('{' r'connector' '}', connector.toString())
-        .replaceAll('{' r'workflow' '}', workflow.toString());
+    final String path = r'/connectors/{connector}/workflows/{workflow}/runs'.replaceAll('{' r'connector' '}', connector.toString()).replaceAll('{' r'workflow' '}', workflow.toString());
     final options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -59,16 +58,15 @@ class ConnectorApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -80,11 +78,12 @@ class ConnectorApi {
       validateStatus: validateStatus,
     );
 
+
     dynamic bodyData;
 
     try {
-      bodyData = runData.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = runData.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -108,8 +107,7 @@ class ConnectorApi {
     Run responseData;
 
     try {
-      responseData =
-          await _apiClient.deserializeAsync<Run>(response.data!, 'Run');
+            responseData = await _apiClient.deserializeAsync<Run>(response.data!, 'Run');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

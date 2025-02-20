@@ -11,6 +11,10 @@ void main() {
 
   group('test ConfigurationLinksSelfIriTemplateMapping', () {
     // String configuration
-    test('to test the property `configuration`', () async {});
+    test('to test the property `configuration`', () async {
+    });
+
+
   });
+
 }

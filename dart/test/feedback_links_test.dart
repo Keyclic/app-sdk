@@ -11,30 +11,42 @@ void main() {
 
   group('test FeedbackLinks', () {
     // FeedbackLinksBusinessActivity businessActivity
-    test('to test the property `businessActivity`', () async {});
+    test('to test the property `businessActivity`', () async {
+    });
 
     // FeedbackLinksCategory category
-    test('to test the property `category`', () async {});
+    test('to test the property `category`', () async {
+    });
 
     // List<FeedbackLinksImages> images (default value: const [])
-    test('to test the property `images`', () async {});
+    test('to test the property `images`', () async {
+    });
 
     // FeedbackLinksMember member
-    test('to test the property `member`', () async {});
+    test('to test the property `member`', () async {
+    });
 
     // List<FeedbackLinksPlans> plans (default value: const [])
-    test('to test the property `plans`', () async {});
+    test('to test the property `plans`', () async {
+    });
 
     // FeedbackLinksReport report
-    test('to test the property `report`', () async {});
+    test('to test the property `report`', () async {
+    });
 
     // FeedbackLinksReporter reporter
-    test('to test the property `reporter`', () async {});
+    test('to test the property `reporter`', () async {
+    });
 
     // FeedbackLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
 
     // FeedbackLinksTracking tracking
-    test('to test the property `tracking`', () async {});
+    test('to test the property `tracking`', () async {
+    });
+
+
   });
+
 }

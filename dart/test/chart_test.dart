@@ -11,9 +11,14 @@ void main() {
 
   group('test Chart', () {
     // List<int> data (default value: const [])
-    test('to test the property `data`', () async {});
+    test('to test the property `data`', () async {
+    });
 
     // List<String> labels (default value: const [])
-    test('to test the property `labels`', () async {});
+    test('to test the property `labels`', () async {
+    });
+
+
   });
+
 }

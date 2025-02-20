@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class KnowledgeBaseLinks {
   /// Returns a new [KnowledgeBaseLinks] instance.
   KnowledgeBaseLinks({
-    this.self,
+    this.self
+,
   });
 
   /// Returns a new [KnowledgeBaseLinks] instance and imports its values from
@@ -17,12 +18,12 @@ class KnowledgeBaseLinks {
       return null;
     }
 
-    return KnowledgeBaseLinks(
-      self: KnowledgeBaseLinksSelf.fromJson(json[r'self']),
+  return KnowledgeBaseLinks(
+        self: KnowledgeBaseLinksSelf.fromJson(json[r'self']),
     );
   }
 
-  KnowledgeBaseLinksSelf? self;
+      KnowledgeBaseLinksSelf? self;
 
   @override
   bool operator ==(Object other) {
@@ -31,19 +32,22 @@ class KnowledgeBaseLinks {
       return true;
     }
 
-    return other is KnowledgeBaseLinks && other.self == self;
+    return other is KnowledgeBaseLinks 
+          && other.self == self
+  ;
   }
+  
 
   @override
-  int get hashCode => (self == null ? 0 : self.hashCode);
+  int get hashCode =>
+    (self == null ? 0 : self.hashCode);
 
   static List<KnowledgeBaseLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <KnowledgeBaseLinks>[];
     }
 
-    return json.fold(<KnowledgeBaseLinks>[],
-        (List<KnowledgeBaseLinks> previousValue, element) {
+    return json.fold(<KnowledgeBaseLinks>[], (List<KnowledgeBaseLinks> previousValue, element) {
       final KnowledgeBaseLinks? object = KnowledgeBaseLinks.fromJson(element);
       if (object is KnowledgeBaseLinks) {
         previousValue.add(object);
@@ -53,16 +57,13 @@ class KnowledgeBaseLinks {
     });
   }
 
-  static Map<String, KnowledgeBaseLinks> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, KnowledgeBaseLinks> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, KnowledgeBaseLinks>{};
     }
 
-    return json.entries.fold(<String, KnowledgeBaseLinks>{},
-        (Map<String, KnowledgeBaseLinks> previousValue, element) {
-      final KnowledgeBaseLinks? object =
-          KnowledgeBaseLinks.fromJson(element.value);
+    return json.entries.fold(<String, KnowledgeBaseLinks>{}, (Map<String, KnowledgeBaseLinks> previousValue, element) {
+      final KnowledgeBaseLinks? object = KnowledgeBaseLinks.fromJson(element.value);
       if (object is KnowledgeBaseLinks) {
         previousValue[element.key] = object;
       }
@@ -72,15 +73,13 @@ class KnowledgeBaseLinks {
   }
 
   // maps a json object with a list of KnowledgeBaseLinks-objects as value to a dart map
-  static Map<String, List<KnowledgeBaseLinks>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<KnowledgeBaseLinks>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<KnowledgeBaseLinks>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<KnowledgeBaseLinks>>(
-          key, KnowledgeBaseLinks.listFromJson(value));
+      return MapEntry<String, List<KnowledgeBaseLinks>>(key, KnowledgeBaseLinks.listFromJson(value));
     });
   }
 
@@ -89,15 +88,18 @@ class KnowledgeBaseLinks {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
-        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^self\.'))) {
-            previousValue.add(element.split(RegExp(r'^self\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^self\.').hasMatch(key))
+    )
+        r'self':
+            self?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^self\.'))) {
+                previousValue.add(element.split(RegExp(r'^self\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

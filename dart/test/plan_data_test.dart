@@ -11,12 +11,18 @@ void main() {
 
   group('test PlanData', () {
     // String asset
-    test('to test the property `asset`', () async {});
+    test('to test the property `asset`', () async {
+    });
 
     // String file
-    test('to test the property `file`', () async {});
+    test('to test the property `file`', () async {
+    });
 
     // String name
-    test('to test the property `name`', () async {});
+    test('to test the property `name`', () async {
+    });
+
+
   });
+
 }

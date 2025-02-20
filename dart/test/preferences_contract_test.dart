@@ -11,6 +11,10 @@ void main() {
 
   group('test PreferencesContract', () {
     // bool enabled
-    test('to test the property `enabled`', () async {});
+    test('to test the property `enabled`', () async {
+    });
+
+
   });
+
 }

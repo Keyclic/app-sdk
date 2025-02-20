@@ -12,9 +12,14 @@ void main() {
   group('test PlanLinksPlace', () {
     // The URI of the place associated to the given plan.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // PlanLinksPlaceIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

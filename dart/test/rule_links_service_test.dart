@@ -12,9 +12,14 @@ void main() {
   group('test RuleLinksService', () {
     // The URI of the service associated to the given rule.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // RuleLinksServiceIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

@@ -11,15 +11,22 @@ void main() {
 
   group('test TargetGroupJsonhalRead', () {
     // AssetTypeJsonhalReadLinks links
-    test('to test the property `links`', () async {});
+    test('to test the property `links`', () async {
+    });
 
     // String description
-    test('to test the property `description`', () async {});
+    test('to test the property `description`', () async {
+    });
 
     // String id
-    test('to test the property `id`', () async {});
+    test('to test the property `id`', () async {
+    });
 
     // String name
-    test('to test the property `name`', () async {});
+    test('to test the property `name`', () async {
+    });
+
+
   });
+
 }

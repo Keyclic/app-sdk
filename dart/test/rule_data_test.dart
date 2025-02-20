@@ -11,18 +11,26 @@ void main() {
 
   group('test RuleData', () {
     // String category
-    test('to test the property `category`', () async {});
+    test('to test the property `category`', () async {
+    });
 
     // String dispatcher
-    test('to test the property `dispatcher`', () async {});
+    test('to test the property `dispatcher`', () async {
+    });
 
     // String place
-    test('to test the property `place`', () async {});
+    test('to test the property `place`', () async {
+    });
 
     // num position
-    test('to test the property `position`', () async {});
+    test('to test the property `position`', () async {
+    });
 
     // String service
-    test('to test the property `service`', () async {});
+    test('to test the property `service`', () async {
+    });
+
+
   });
+
 }

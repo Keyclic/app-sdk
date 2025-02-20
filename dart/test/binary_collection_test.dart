@@ -11,6 +11,10 @@ void main() {
 
   group('test BinaryCollection', () {
     // List<Binary> items (default value: const [])
-    test('to test the property `items`', () async {});
+    test('to test the property `items`', () async {
+    });
+
+
   });
+
 }

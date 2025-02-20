@@ -12,9 +12,14 @@ void main() {
   group('test PlanLinksSelf', () {
     // The URI of the self associated to the given plan.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // PlanLinksSelfIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

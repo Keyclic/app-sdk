@@ -11,6 +11,10 @@ void main() {
 
   group('test GetIntegrationCollection200ResponseEmbedded', () {
     // List<IntegrationJsonhalRead> item (default value: const [])
-    test('to test the property `item`', () async {});
+    test('to test the property `item`', () async {
+    });
+
+
   });
+
 }

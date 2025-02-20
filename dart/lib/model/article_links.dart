@@ -7,8 +7,10 @@ part of keyclic_sdk_api;
 class ArticleLinks {
   /// Returns a new [ArticleLinks] instance.
   ArticleLinks({
-    this.section,
-    this.self,
+    this.section
+,
+    this.self
+,
   });
 
   /// Returns a new [ArticleLinks] instance and imports its values from
@@ -18,15 +20,15 @@ class ArticleLinks {
       return null;
     }
 
-    return ArticleLinks(
-      section: ArticleLinksSection.fromJson(json[r'section']),
-      self: ArticleLinksSelf.fromJson(json[r'self']),
+  return ArticleLinks(
+        section: ArticleLinksSection.fromJson(json[r'section']),
+        self: ArticleLinksSelf.fromJson(json[r'self']),
     );
   }
 
-  ArticleLinksSection? section;
+      ArticleLinksSection? section;
 
-  ArticleLinksSelf? self;
+      ArticleLinksSelf? self;
 
   @override
   bool operator ==(Object other) {
@@ -35,23 +37,25 @@ class ArticleLinks {
       return true;
     }
 
-    return other is ArticleLinks &&
-        other.section == section &&
-        other.self == self;
+    return other is ArticleLinks 
+          && other.section == section
+  
+          && other.self == self
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (section == null ? 0 : section.hashCode) +
-      (self == null ? 0 : self.hashCode);
+    (section == null ? 0 : section.hashCode) +
+    (self == null ? 0 : self.hashCode);
 
   static List<ArticleLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <ArticleLinks>[];
     }
 
-    return json.fold(<ArticleLinks>[],
-        (List<ArticleLinks> previousValue, element) {
+    return json.fold(<ArticleLinks>[], (List<ArticleLinks> previousValue, element) {
       final ArticleLinks? object = ArticleLinks.fromJson(element);
       if (object is ArticleLinks) {
         previousValue.add(object);
@@ -66,8 +70,7 @@ class ArticleLinks {
       return <String, ArticleLinks>{};
     }
 
-    return json.entries.fold(<String, ArticleLinks>{},
-        (Map<String, ArticleLinks> previousValue, element) {
+    return json.entries.fold(<String, ArticleLinks>{}, (Map<String, ArticleLinks> previousValue, element) {
       final ArticleLinks? object = ArticleLinks.fromJson(element.value);
       if (object is ArticleLinks) {
         previousValue[element.key] = object;
@@ -78,15 +81,13 @@ class ArticleLinks {
   }
 
   // maps a json object with a list of ArticleLinks-objects as value to a dart map
-  static Map<String, List<ArticleLinks>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<ArticleLinks>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ArticleLinks>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ArticleLinks>>(
-          key, ArticleLinks.listFromJson(value));
+      return MapEntry<String, List<ArticleLinks>>(key, ArticleLinks.listFromJson(value));
     });
   }
 
@@ -95,25 +96,29 @@ class ArticleLinks {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^section\.').hasMatch(key)))
-        r'section': section?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^section\.'))) {
-            previousValue.add(element.split(RegExp(r'^section\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^section\.').hasMatch(key))
+    )
+        r'section':
+            section?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^section\.'))) {
+                previousValue.add(element.split(RegExp(r'^section\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
-        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^self\.'))) {
-            previousValue.add(element.split(RegExp(r'^self\.')).last);
-          }
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    any((key) => RegExp(r'^self\.').hasMatch(key))
+    )
+        r'self':
+            self?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^self\.'))) {
+                previousValue.add(element.split(RegExp(r'^self\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

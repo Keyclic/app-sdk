@@ -7,9 +7,12 @@ part of keyclic_sdk_api_platform;
 class CollaboratorJsonhalReadEmbedded {
   /// Returns a new [CollaboratorJsonhalReadEmbedded] instance.
   CollaboratorJsonhalReadEmbedded({
-    this.organization,
-    this.person,
-    this.roles,
+    this.organization
+,
+    this.person
+,
+    this.roles
+,
   });
 
   /// Returns a new [CollaboratorJsonhalReadEmbedded] instance and imports its values from
@@ -19,18 +22,19 @@ class CollaboratorJsonhalReadEmbedded {
       return null;
     }
 
-    return CollaboratorJsonhalReadEmbedded(
-      organization: OrganizationJsonhalRead.fromJson(json[r'organization']),
-      person: PersonJsonhalRead.fromJson(json[r'person']),
-      roles: RoleJsonhalRead.listFromJson(json[r'roles']),
+  return CollaboratorJsonhalReadEmbedded(
+        organization: OrganizationJsonhalRead.fromJson(json[r'organization']),
+        person: PersonJsonhalRead.fromJson(json[r'person']),
+        roles: 
+          RoleJsonhalRead.listFromJson(json[r'roles']),
     );
   }
 
-  OrganizationJsonhalRead? organization;
+      OrganizationJsonhalRead? organization;
 
-  PersonJsonhalRead? person;
+      PersonJsonhalRead? person;
 
-  List<RoleJsonhalRead>? roles;
+        List<RoleJsonhalRead>? roles;
 
   @override
   bool operator ==(Object other) {
@@ -39,27 +43,29 @@ class CollaboratorJsonhalReadEmbedded {
       return true;
     }
 
-    return other is CollaboratorJsonhalReadEmbedded &&
-        other.organization == organization &&
-        other.person == person &&
-        DeepCollectionEquality.unordered().equals(roles, other.roles);
+    return other is CollaboratorJsonhalReadEmbedded 
+          && other.organization == organization
+  
+          && other.person == person
+  
+          && DeepCollectionEquality.unordered().equals(roles, other.roles)
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (organization == null ? 0 : organization.hashCode) +
-      (person == null ? 0 : person.hashCode) +
-      (roles == null ? 0 : roles.hashCode);
+    (organization == null ? 0 : organization.hashCode) +
+    (person == null ? 0 : person.hashCode) +
+    (roles == null ? 0 : roles.hashCode);
 
   static List<CollaboratorJsonhalReadEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
       return <CollaboratorJsonhalReadEmbedded>[];
     }
 
-    return json.fold(<CollaboratorJsonhalReadEmbedded>[],
-        (List<CollaboratorJsonhalReadEmbedded> previousValue, element) {
-      final CollaboratorJsonhalReadEmbedded? object =
-          CollaboratorJsonhalReadEmbedded.fromJson(element);
+    return json.fold(<CollaboratorJsonhalReadEmbedded>[], (List<CollaboratorJsonhalReadEmbedded> previousValue, element) {
+      final CollaboratorJsonhalReadEmbedded? object = CollaboratorJsonhalReadEmbedded.fromJson(element);
       if (object is CollaboratorJsonhalReadEmbedded) {
         previousValue.add(object);
       }
@@ -68,16 +74,13 @@ class CollaboratorJsonhalReadEmbedded {
     });
   }
 
-  static Map<String, CollaboratorJsonhalReadEmbedded> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, CollaboratorJsonhalReadEmbedded> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, CollaboratorJsonhalReadEmbedded>{};
     }
 
-    return json.entries.fold(<String, CollaboratorJsonhalReadEmbedded>{},
-        (Map<String, CollaboratorJsonhalReadEmbedded> previousValue, element) {
-      final CollaboratorJsonhalReadEmbedded? object =
-          CollaboratorJsonhalReadEmbedded.fromJson(element.value);
+    return json.entries.fold(<String, CollaboratorJsonhalReadEmbedded>{}, (Map<String, CollaboratorJsonhalReadEmbedded> previousValue, element) {
+      final CollaboratorJsonhalReadEmbedded? object = CollaboratorJsonhalReadEmbedded.fromJson(element.value);
       if (object is CollaboratorJsonhalReadEmbedded) {
         previousValue[element.key] = object;
       }
@@ -87,44 +90,49 @@ class CollaboratorJsonhalReadEmbedded {
   }
 
   // maps a json object with a list of CollaboratorJsonhalReadEmbedded-objects as value to a dart map
-  static Map<String, List<CollaboratorJsonhalReadEmbedded>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<CollaboratorJsonhalReadEmbedded>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<CollaboratorJsonhalReadEmbedded>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<CollaboratorJsonhalReadEmbedded>>(
-          key, CollaboratorJsonhalReadEmbedded.listFromJson(value));
+      return MapEntry<String, List<CollaboratorJsonhalReadEmbedded>>(key, CollaboratorJsonhalReadEmbedded.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'CollaboratorJsonhalReadEmbedded[organization=$organization, person=$person, roles=$roles]';
+  String toString() => 'CollaboratorJsonhalReadEmbedded[organization=$organization, person=$person, roles=$roles]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^organization\.').hasMatch(key)))
-        r'organization': organization?.toJson(keys?.fold<List<String>>(
-            <String>[], (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^organization\.'))) {
-            previousValue.add(element.split(RegExp(r'^organization\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^organization\.').hasMatch(key))
+    )
+        r'organization':
+            organization?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^organization\.'))) {
+                previousValue.add(element.split(RegExp(r'^organization\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.any((key) => RegExp(r'^person\.').hasMatch(key)))
-        r'person': person?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^person\.'))) {
-            previousValue.add(element.split(RegExp(r'^person\.')).last);
-          }
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    any((key) => RegExp(r'^person\.').hasMatch(key))
+    )
+        r'person':
+            person?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^person\.'))) {
+                previousValue.add(element.split(RegExp(r'^person\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'roles')) r'roles': roles,
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    contains(r'roles')
+    )
+        r'roles':
+            roles,
     };
   }
 }
+

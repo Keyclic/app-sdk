@@ -7,12 +7,18 @@ part of keyclic_sdk_api;
 class SignerPagination implements Pagination {
   /// Returns a new [SignerPagination] instance.
   SignerPagination({
-    this.limit,
-    this.page,
-    this.pages,
-    this.total,
-    this.links,
-    this.embedded,
+    this.limit
+,
+    this.page
+,
+    this.pages
+,
+    this.total
+,
+    this.links
+,
+    this.embedded
+,
   });
 
   /// Returns a new [SignerPagination] instance and imports its values from
@@ -22,27 +28,27 @@ class SignerPagination implements Pagination {
       return null;
     }
 
-    return SignerPagination(
-      limit: json[r'limit'],
-      page: json[r'page'],
-      pages: json[r'pages'],
-      total: json[r'total'],
-      links: PaginationLinks.fromJson(json[r'_links']),
-      embedded: SignerCollection.fromJson(json[r'_embedded']),
+  return SignerPagination(
+                  limit: json[r'limit'],
+                  page: json[r'page'],
+                  pages: json[r'pages'],
+                  total: json[r'total'],
+        links: PaginationLinks.fromJson(json[r'_links']),
+        embedded: SignerCollection.fromJson(json[r'_embedded']),
     );
   }
 
-  int? limit;
+      int? limit;
 
-  int? page;
+      int? page;
 
-  int? pages;
+      int? pages;
 
-  int? total;
+      int? total;
 
-  PaginationLinks? links;
+      PaginationLinks? links;
 
-  SignerCollection? embedded;
+      SignerCollection? embedded;
 
   @override
   bool operator ==(Object other) {
@@ -51,31 +57,37 @@ class SignerPagination implements Pagination {
       return true;
     }
 
-    return other is SignerPagination &&
-        other.limit == limit &&
-        other.page == page &&
-        other.pages == pages &&
-        other.total == total &&
-        other.links == links &&
-        other.embedded == embedded;
+    return other is SignerPagination 
+          && other.limit == limit
+  
+          && other.page == page
+  
+          && other.pages == pages
+  
+          && other.total == total
+  
+          && other.links == links
+  
+          && other.embedded == embedded
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (limit == null ? 0 : limit.hashCode) +
-      (page == null ? 0 : page.hashCode) +
-      (pages == null ? 0 : pages.hashCode) +
-      (total == null ? 0 : total.hashCode) +
-      (links == null ? 0 : links.hashCode) +
-      (embedded == null ? 0 : embedded.hashCode);
+    (limit == null ? 0 : limit.hashCode) +
+    (page == null ? 0 : page.hashCode) +
+    (pages == null ? 0 : pages.hashCode) +
+    (total == null ? 0 : total.hashCode) +
+    (links == null ? 0 : links.hashCode) +
+    (embedded == null ? 0 : embedded.hashCode);
 
   static List<SignerPagination> listFromJson(Iterable? json) {
     if (json == null) {
       return <SignerPagination>[];
     }
 
-    return json.fold(<SignerPagination>[],
-        (List<SignerPagination> previousValue, element) {
+    return json.fold(<SignerPagination>[], (List<SignerPagination> previousValue, element) {
       final SignerPagination? object = SignerPagination.fromJson(element);
       if (object is SignerPagination) {
         previousValue.add(object);
@@ -90,8 +102,7 @@ class SignerPagination implements Pagination {
       return <String, SignerPagination>{};
     }
 
-    return json.entries.fold(<String, SignerPagination>{},
-        (Map<String, SignerPagination> previousValue, element) {
+    return json.entries.fold(<String, SignerPagination>{}, (Map<String, SignerPagination> previousValue, element) {
       final SignerPagination? object = SignerPagination.fromJson(element.value);
       if (object is SignerPagination) {
         previousValue[element.key] = object;
@@ -102,47 +113,64 @@ class SignerPagination implements Pagination {
   }
 
   // maps a json object with a list of SignerPagination-objects as value to a dart map
-  static Map<String, List<SignerPagination>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<SignerPagination>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<SignerPagination>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<SignerPagination>>(
-          key, SignerPagination.listFromJson(value));
+      return MapEntry<String, List<SignerPagination>>(key, SignerPagination.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'SignerPagination[limit=$limit, page=$page, pages=$pages, total=$total, links=$links, embedded=$embedded]';
+  String toString() => 'SignerPagination[limit=$limit, page=$page, pages=$pages, total=$total, links=$links, embedded=$embedded]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'limit')) r'limit': limit,
-      if (keys == null || keys.contains(r'page')) r'page': page,
-      if (keys == null || keys.contains(r'pages')) r'pages': pages,
-      if (keys == null || keys.contains(r'total')) r'total': total,
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+    if (keys == null || keys.
+    contains(r'limit')
+    )
+        r'limit':
+          limit,
+    if (keys == null || keys.
+    contains(r'page')
+    )
+        r'page':
+          page,
+    if (keys == null || keys.
+    contains(r'pages')
+    )
+        r'pages':
+          pages,
+    if (keys == null || keys.
+    contains(r'total')
+    )
+        r'total':
+          total,
+    if (keys == null || keys.
+    any((key) => RegExp(r'^links\.').hasMatch(key))
+    )
+        r'_links':
+            links?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^links\.'))) {
+                previousValue.add(element.split(RegExp(r'^links\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^embedded\.').hasMatch(key)))
-        r'_embedded': embedded?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^embedded\.'))) {
-            previousValue.add(element.split(RegExp(r'^embedded\.')).last);
-          }
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    any((key) => RegExp(r'^embedded\.').hasMatch(key))
+    )
+        r'_embedded':
+            embedded?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^embedded\.'))) {
+                previousValue.add(element.split(RegExp(r'^embedded\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

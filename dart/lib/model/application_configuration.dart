@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class ApplicationConfiguration {
   /// Returns a new [ApplicationConfiguration] instance.
   ApplicationConfiguration({
-    this.public,
+    this.public
+,
   });
 
   /// Returns a new [ApplicationConfiguration] instance and imports its values from
@@ -17,12 +18,12 @@ class ApplicationConfiguration {
       return null;
     }
 
-    return ApplicationConfiguration(
-      public: json[r'public'],
+  return ApplicationConfiguration(
+                  public: json[r'public'],
     );
   }
 
-  bool? public;
+      bool? public;
 
   @override
   bool operator ==(Object other) {
@@ -31,21 +32,23 @@ class ApplicationConfiguration {
       return true;
     }
 
-    return other is ApplicationConfiguration && other.public == public;
+    return other is ApplicationConfiguration 
+          && other.public == public
+  ;
   }
+  
 
   @override
-  int get hashCode => (public == null ? 0 : public.hashCode);
+  int get hashCode =>
+    (public == null ? 0 : public.hashCode);
 
   static List<ApplicationConfiguration> listFromJson(Iterable? json) {
     if (json == null) {
       return <ApplicationConfiguration>[];
     }
 
-    return json.fold(<ApplicationConfiguration>[],
-        (List<ApplicationConfiguration> previousValue, element) {
-      final ApplicationConfiguration? object =
-          ApplicationConfiguration.fromJson(element);
+    return json.fold(<ApplicationConfiguration>[], (List<ApplicationConfiguration> previousValue, element) {
+      final ApplicationConfiguration? object = ApplicationConfiguration.fromJson(element);
       if (object is ApplicationConfiguration) {
         previousValue.add(object);
       }
@@ -54,16 +57,13 @@ class ApplicationConfiguration {
     });
   }
 
-  static Map<String, ApplicationConfiguration> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, ApplicationConfiguration> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, ApplicationConfiguration>{};
     }
 
-    return json.entries.fold(<String, ApplicationConfiguration>{},
-        (Map<String, ApplicationConfiguration> previousValue, element) {
-      final ApplicationConfiguration? object =
-          ApplicationConfiguration.fromJson(element.value);
+    return json.entries.fold(<String, ApplicationConfiguration>{}, (Map<String, ApplicationConfiguration> previousValue, element) {
+      final ApplicationConfiguration? object = ApplicationConfiguration.fromJson(element.value);
       if (object is ApplicationConfiguration) {
         previousValue[element.key] = object;
       }
@@ -73,15 +73,13 @@ class ApplicationConfiguration {
   }
 
   // maps a json object with a list of ApplicationConfiguration-objects as value to a dart map
-  static Map<String, List<ApplicationConfiguration>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<ApplicationConfiguration>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ApplicationConfiguration>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ApplicationConfiguration>>(
-          key, ApplicationConfiguration.listFromJson(value));
+      return MapEntry<String, List<ApplicationConfiguration>>(key, ApplicationConfiguration.listFromJson(value));
     });
   }
 
@@ -90,7 +88,12 @@ class ApplicationConfiguration {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'public')) r'public': public,
+    if (keys == null || keys.
+    contains(r'public')
+    )
+        r'public':
+          public,
     };
   }
 }
+

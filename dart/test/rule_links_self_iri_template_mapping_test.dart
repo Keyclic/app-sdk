@@ -11,6 +11,10 @@ void main() {
 
   group('test RuleLinksSelfIriTemplateMapping', () {
     // String rule
-    test('to test the property `rule`', () async {});
+    test('to test the property `rule`', () async {
+    });
+
+
   });
+
 }

@@ -7,8 +7,10 @@ part of keyclic_sdk_api;
 class MemberPatch {
   /// Returns a new [MemberPatch] instance.
   MemberPatch({
-    this.contactPoint,
-    this.roles,
+    this.contactPoint
+,
+    this.roles
+,
   });
 
   /// Returns a new [MemberPatch] instance and imports its values from
@@ -18,15 +20,18 @@ class MemberPatch {
       return null;
     }
 
-    return MemberPatch(
-      contactPoint: MemberPatchContactPoint.fromJson(json[r'contactPoint']),
-      roles: json[r'roles'] == null ? null : List<String>.from(json[r'roles']),
+  return MemberPatch(
+        contactPoint: MemberPatchContactPoint.fromJson(json[r'contactPoint']),
+        roles:
+            json[r'roles'] == null ?
+              null :
+          List<String>.from(json[r'roles']),
     );
   }
 
-  MemberPatchContactPoint? contactPoint;
+      MemberPatchContactPoint? contactPoint;
 
-  List<String>? roles;
+        List<String>? roles;
 
   @override
   bool operator ==(Object other) {
@@ -35,23 +40,25 @@ class MemberPatch {
       return true;
     }
 
-    return other is MemberPatch &&
-        other.contactPoint == contactPoint &&
-        DeepCollectionEquality.unordered().equals(roles, other.roles);
+    return other is MemberPatch 
+          && other.contactPoint == contactPoint
+  
+          && DeepCollectionEquality.unordered().equals(roles, other.roles)
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (contactPoint == null ? 0 : contactPoint.hashCode) +
-      (roles == null ? 0 : roles.hashCode);
+    (contactPoint == null ? 0 : contactPoint.hashCode) +
+    (roles == null ? 0 : roles.hashCode);
 
   static List<MemberPatch> listFromJson(Iterable? json) {
     if (json == null) {
       return <MemberPatch>[];
     }
 
-    return json.fold(<MemberPatch>[],
-        (List<MemberPatch> previousValue, element) {
+    return json.fold(<MemberPatch>[], (List<MemberPatch> previousValue, element) {
       final MemberPatch? object = MemberPatch.fromJson(element);
       if (object is MemberPatch) {
         previousValue.add(object);
@@ -66,8 +73,7 @@ class MemberPatch {
       return <String, MemberPatch>{};
     }
 
-    return json.entries.fold(<String, MemberPatch>{},
-        (Map<String, MemberPatch> previousValue, element) {
+    return json.entries.fold(<String, MemberPatch>{}, (Map<String, MemberPatch> previousValue, element) {
       final MemberPatch? object = MemberPatch.fromJson(element.value);
       if (object is MemberPatch) {
         previousValue[element.key] = object;
@@ -78,15 +84,13 @@ class MemberPatch {
   }
 
   // maps a json object with a list of MemberPatch-objects as value to a dart map
-  static Map<String, List<MemberPatch>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<MemberPatch>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<MemberPatch>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<MemberPatch>>(
-          key, MemberPatch.listFromJson(value));
+      return MapEntry<String, List<MemberPatch>>(key, MemberPatch.listFromJson(value));
     });
   }
 
@@ -95,17 +99,23 @@ class MemberPatch {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^contactPoint\.').hasMatch(key)))
-        r'contactPoint': contactPoint?.toJson(keys?.fold<List<String>>(
-            <String>[], (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^contactPoint\.'))) {
-            previousValue.add(element.split(RegExp(r'^contactPoint\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^contactPoint\.').hasMatch(key))
+    )
+        r'contactPoint':
+            contactPoint?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^contactPoint\.'))) {
+                previousValue.add(element.split(RegExp(r'^contactPoint\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'roles')) r'roles': roles,
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    contains(r'roles')
+    )
+        r'roles':
+          roles,
     };
   }
 }
+

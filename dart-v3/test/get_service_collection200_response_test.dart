@@ -11,15 +11,22 @@ void main() {
 
   group('test GetServiceCollection200Response', () {
     // GetServiceCollection200ResponseEmbedded embedded
-    test('to test the property `embedded`', () async {});
+    test('to test the property `embedded`', () async {
+    });
 
     // int totalItems
-    test('to test the property `totalItems`', () async {});
+    test('to test the property `totalItems`', () async {
+    });
 
     // int itemsPerPage
-    test('to test the property `itemsPerPage`', () async {});
+    test('to test the property `itemsPerPage`', () async {
+    });
 
     // GetPlaceCollection200ResponseLinks links
-    test('to test the property `links`', () async {});
+    test('to test the property `links`', () async {
+    });
+
+
   });
+
 }

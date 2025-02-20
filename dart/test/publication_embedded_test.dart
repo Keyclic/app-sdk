@@ -11,9 +11,14 @@ void main() {
 
   group('test PublicationEmbedded', () {
     // Person author
-    test('to test the property `author`', () async {});
+    test('to test the property `author`', () async {
+    });
 
     // Place place
-    test('to test the property `place`', () async {});
+    test('to test the property `place`', () async {
+    });
+
+
   });
+
 }

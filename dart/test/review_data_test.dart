@@ -11,12 +11,18 @@ void main() {
 
   group('test ReviewData', () {
     // String reviewBody
-    test('to test the property `reviewBody`', () async {});
+    test('to test the property `reviewBody`', () async {
+    });
 
     // num reviewRating
-    test('to test the property `reviewRating`', () async {});
+    test('to test the property `reviewRating`', () async {
+    });
 
     // String reviewRequest
-    test('to test the property `reviewRequest`', () async {});
+    test('to test the property `reviewRequest`', () async {
+    });
+
+
   });
+
 }

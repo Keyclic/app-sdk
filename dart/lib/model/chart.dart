@@ -7,8 +7,10 @@ part of keyclic_sdk_api;
 class Chart {
   /// Returns a new [Chart] instance.
   Chart({
-    this.data,
-    this.labels,
+    this.data
+,
+    this.labels
+,
   });
 
   /// Returns a new [Chart] instance and imports its values from
@@ -18,16 +20,21 @@ class Chart {
       return null;
     }
 
-    return Chart(
-      data: json[r'data'] == null ? null : List<int>.from(json[r'data']),
-      labels:
-          json[r'labels'] == null ? null : List<String>.from(json[r'labels']),
+  return Chart(
+        data:
+            json[r'data'] == null ?
+              null :
+          List<int>.from(json[r'data']),
+        labels:
+            json[r'labels'] == null ?
+              null :
+          List<String>.from(json[r'labels']),
     );
   }
 
-  List<int>? data;
+        List<int>? data;
 
-  List<String>? labels;
+        List<String>? labels;
 
   @override
   bool operator ==(Object other) {
@@ -36,15 +43,18 @@ class Chart {
       return true;
     }
 
-    return other is Chart &&
-        DeepCollectionEquality.unordered().equals(data, other.data) &&
-        DeepCollectionEquality.unordered().equals(labels, other.labels);
+    return other is Chart 
+          && DeepCollectionEquality.unordered().equals(data, other.data)
+  
+          && DeepCollectionEquality.unordered().equals(labels, other.labels)
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (data == null ? 0 : data.hashCode) +
-      (labels == null ? 0 : labels.hashCode);
+    (data == null ? 0 : data.hashCode) +
+    (labels == null ? 0 : labels.hashCode);
 
   static List<Chart> listFromJson(Iterable? json) {
     if (json == null) {
@@ -66,8 +76,7 @@ class Chart {
       return <String, Chart>{};
     }
 
-    return json.entries.fold(<String, Chart>{},
-        (Map<String, Chart> previousValue, element) {
+    return json.entries.fold(<String, Chart>{}, (Map<String, Chart> previousValue, element) {
       final Chart? object = Chart.fromJson(element.value);
       if (object is Chart) {
         previousValue[element.key] = object;
@@ -93,8 +102,17 @@ class Chart {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'data')) r'data': data,
-      if (keys == null || keys.contains(r'labels')) r'labels': labels,
+    if (keys == null || keys.
+    contains(r'data')
+    )
+        r'data':
+          data,
+    if (keys == null || keys.
+    contains(r'labels')
+    )
+        r'labels':
+          labels,
     };
   }
 }
+

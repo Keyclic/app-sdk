@@ -11,20 +11,28 @@ void main() {
 
   group('test ProfileJsonhalAuthProfileRead', () {
     // AssetTypeJsonhalReadLinks links
-    test('to test the property `links`', () async {});
+    test('to test the property `links`', () async {
+    });
 
     // Available connection types for the given email address. These might include password, enterprise, social.
     // List<String> types (default value: const [])
-    test('to test the property `types`', () async {});
+    test('to test the property `types`', () async {
+    });
 
     // List<ConnectionJsonhalAuthProfileRead> connections (default value: const [])
-    test('to test the property `connections`', () async {});
+    test('to test the property `connections`', () async {
+    });
 
     // UserJsonhalAuthProfileRead user
-    test('to test the property `user`', () async {});
+    test('to test the property `user`', () async {
+    });
 
     // Represents whether a user is making their first connection or interaction with the service.
     // bool firstConnection
-    test('to test the property `firstConnection`', () async {});
+    test('to test the property `firstConnection`', () async {
+    });
+
+
   });
+
 }

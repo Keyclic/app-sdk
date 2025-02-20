@@ -11,6 +11,10 @@ void main() {
 
   group('test FeedbackLinksCategoryIriTemplate', () {
     // CategoryLinksSelfIriTemplateMapping mapping
-    test('to test the property `mapping`', () async {});
+    test('to test the property `mapping`', () async {
+    });
+
+
   });
+
 }

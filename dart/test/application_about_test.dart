@@ -11,9 +11,14 @@ void main() {
 
   group('test ApplicationAbout', () {
     // String name
-    test('to test the property `name`', () async {});
+    test('to test the property `name`', () async {
+    });
 
     // String text
-    test('to test the property `text`', () async {});
+    test('to test the property `text`', () async {
+    });
+
+
   });
+
 }

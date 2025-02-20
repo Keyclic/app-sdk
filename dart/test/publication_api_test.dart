@@ -5,6 +5,7 @@
 // import 'package:keyclic_sdk_api/api.dart';
 import 'package:test/test.dart';
 
+
 /// tests for PublicationApi
 void main() {
   // final instance = PublicationApi();
@@ -13,11 +14,14 @@ void main() {
     // Remove one Publication resource.
     //
     //Future deletePublication(String xKeyclicApp, String publication, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
-    test('test deletePublication', () async {});
+    test('test deletePublication', () async {
+    });
 
     // Create one Publication resource.
     //
     //Future<Publication> postPublication(String xKeyclicApp, PublicationData publicationData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
-    test('test postPublication', () async {});
+    test('test postPublication', () async {
+    });
+
   });
 }

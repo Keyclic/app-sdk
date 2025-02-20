@@ -11,6 +11,10 @@ void main() {
 
   group('test BusinessActivityLinksImageIriTemplateMapping', () {
     // String businessActivity
-    test('to test the property `businessActivity`', () async {});
+    test('to test the property `businessActivity`', () async {
+    });
+
+
   });
+
 }

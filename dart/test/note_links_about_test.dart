@@ -12,9 +12,14 @@ void main() {
   group('test NoteLinksAbout', () {
     // The URI of the about associated to the given note.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // NoteLinksAboutIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

@@ -7,9 +7,12 @@ part of keyclic_sdk_api;
 class Point {
   /// Returns a new [Point] instance.
   Point({
-    this.latitude,
-    this.longitude,
-    this.srid,
+    this.latitude
+,
+    this.longitude
+,
+    this.srid
+,
   });
 
   /// Returns a new [Point] instance and imports its values from
@@ -19,18 +22,18 @@ class Point {
       return null;
     }
 
-    return Point(
-      latitude: json[r'latitude']?.toDouble(),
-      longitude: json[r'longitude']?.toDouble(),
-      srid: json[r'srid'],
+  return Point(
+                  latitude: json[r'latitude']?.toDouble(),
+                  longitude: json[r'longitude']?.toDouble(),
+                  srid: json[r'srid'],
     );
   }
 
-  double? latitude;
+      double? latitude;
 
-  double? longitude;
+      double? longitude;
 
-  int? srid;
+      int? srid;
 
   @override
   bool operator ==(Object other) {
@@ -39,17 +42,21 @@ class Point {
       return true;
     }
 
-    return other is Point &&
-        other.latitude == latitude &&
-        other.longitude == longitude &&
-        other.srid == srid;
+    return other is Point 
+          && other.latitude == latitude
+  
+          && other.longitude == longitude
+  
+          && other.srid == srid
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (latitude == null ? 0 : latitude.hashCode) +
-      (longitude == null ? 0 : longitude.hashCode) +
-      (srid == null ? 0 : srid.hashCode);
+    (latitude == null ? 0 : latitude.hashCode) +
+    (longitude == null ? 0 : longitude.hashCode) +
+    (srid == null ? 0 : srid.hashCode);
 
   static List<Point> listFromJson(Iterable? json) {
     if (json == null) {
@@ -71,8 +78,7 @@ class Point {
       return <String, Point>{};
     }
 
-    return json.entries.fold(<String, Point>{},
-        (Map<String, Point> previousValue, element) {
+    return json.entries.fold(<String, Point>{}, (Map<String, Point> previousValue, element) {
       final Point? object = Point.fromJson(element.value);
       if (object is Point) {
         previousValue[element.key] = object;
@@ -94,14 +100,26 @@ class Point {
   }
 
   @override
-  String toString() =>
-      'Point[latitude=$latitude, longitude=$longitude, srid=$srid]';
+  String toString() => 'Point[latitude=$latitude, longitude=$longitude, srid=$srid]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'latitude')) r'latitude': latitude,
-      if (keys == null || keys.contains(r'longitude')) r'longitude': longitude,
-      if (keys == null || keys.contains(r'srid')) r'srid': srid,
+    if (keys == null || keys.
+    contains(r'latitude')
+    )
+        r'latitude':
+          latitude,
+    if (keys == null || keys.
+    contains(r'longitude')
+    )
+        r'longitude':
+          longitude,
+    if (keys == null || keys.
+    contains(r'srid')
+    )
+        r'srid':
+          srid,
     };
   }
 }
+

@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class PaginationLink {
   /// Returns a new [PaginationLink] instance.
   PaginationLink({
-    this.href,
+    this.href
+,
   });
 
   /// Returns a new [PaginationLink] instance and imports its values from
@@ -17,12 +18,12 @@ class PaginationLink {
       return null;
     }
 
-    return PaginationLink(
-      href: json[r'href'],
+  return PaginationLink(
+                  href: json[r'href'],
     );
   }
 
-  String? href;
+      String? href;
 
   @override
   bool operator ==(Object other) {
@@ -31,19 +32,22 @@ class PaginationLink {
       return true;
     }
 
-    return other is PaginationLink && other.href == href;
+    return other is PaginationLink 
+          && other.href == href
+  ;
   }
+  
 
   @override
-  int get hashCode => (href == null ? 0 : href.hashCode);
+  int get hashCode =>
+    (href == null ? 0 : href.hashCode);
 
   static List<PaginationLink> listFromJson(Iterable? json) {
     if (json == null) {
       return <PaginationLink>[];
     }
 
-    return json.fold(<PaginationLink>[],
-        (List<PaginationLink> previousValue, element) {
+    return json.fold(<PaginationLink>[], (List<PaginationLink> previousValue, element) {
       final PaginationLink? object = PaginationLink.fromJson(element);
       if (object is PaginationLink) {
         previousValue.add(object);
@@ -58,8 +62,7 @@ class PaginationLink {
       return <String, PaginationLink>{};
     }
 
-    return json.entries.fold(<String, PaginationLink>{},
-        (Map<String, PaginationLink> previousValue, element) {
+    return json.entries.fold(<String, PaginationLink>{}, (Map<String, PaginationLink> previousValue, element) {
       final PaginationLink? object = PaginationLink.fromJson(element.value);
       if (object is PaginationLink) {
         previousValue[element.key] = object;
@@ -70,15 +73,13 @@ class PaginationLink {
   }
 
   // maps a json object with a list of PaginationLink-objects as value to a dart map
-  static Map<String, List<PaginationLink>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<PaginationLink>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<PaginationLink>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<PaginationLink>>(
-          key, PaginationLink.listFromJson(value));
+      return MapEntry<String, List<PaginationLink>>(key, PaginationLink.listFromJson(value));
     });
   }
 
@@ -87,7 +88,12 @@ class PaginationLink {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'href')) r'href': href,
+    if (keys == null || keys.
+    contains(r'href')
+    )
+        r'href':
+          href,
     };
   }
 }
+

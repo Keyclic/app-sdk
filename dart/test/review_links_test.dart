@@ -11,12 +11,18 @@ void main() {
 
   group('test ReviewLinks', () {
     // ReviewLinksAuthor author
-    test('to test the property `author`', () async {});
+    test('to test the property `author`', () async {
+    });
 
     // ReviewLinksItemReviewed itemReviewed
-    test('to test the property `itemReviewed`', () async {});
+    test('to test the property `itemReviewed`', () async {
+    });
 
     // ReviewLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
+
+
   });
+
 }

@@ -4,6 +4,7 @@
 
 part of keyclic_sdk_api_platform;
 
+
 class BookmarkApi {
   const BookmarkApi(this._apiClient);
 
@@ -14,11 +15,11 @@ class BookmarkApi {
   ///
   /// Parameters:
   /// * [identifier] - Bookmark identifier
-  /// * [xKeyclicApp] -
-  /// * [acceptLanguage] -
-  /// * [xDateTime] -
-  /// * [xKeyclicAppPlatform] -
-  /// * [xKeyclicAppVersion] -
+  /// * [xKeyclicApp] - 
+  /// * [acceptLanguage] - 
+  /// * [xDateTime] - 
+  /// * [xKeyclicAppPlatform] - 
+  /// * [xKeyclicAppVersion] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -28,13 +29,14 @@ class BookmarkApi {
   ///
   /// Returns a [Future] containing a [Response] with a [BookmarkJsonhalRead] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<BookmarkJsonhalRead>> getBookmark({
+  Future<Response<BookmarkJsonhalRead>> getBookmark({ 
     required String identifier,
     required String xKeyclicApp,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -42,8 +44,7 @@ class BookmarkApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/v2/bookmarks/{identifier}'
-        .replaceAll('{' r'identifier' '}', identifier.toString());
+    final String path = r'/v2/bookmarks/{identifier}'.replaceAll('{' r'identifier' '}', identifier.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -51,16 +52,15 @@ class BookmarkApi {
         if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
         if (xDateTime != null) r'X-Date-Time': xDateTime,
         r'X-Keyclic-App': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'X-Keyclic-App-Version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -68,8 +68,11 @@ class BookmarkApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -82,8 +85,7 @@ class BookmarkApi {
     BookmarkJsonhalRead responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<BookmarkJsonhalRead>(
-          response.data!, 'BookmarkJsonhalRead');
+            responseData = await _apiClient.deserializeAsync<BookmarkJsonhalRead>(response.data!, 'BookmarkJsonhalRead');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -105,26 +107,25 @@ class BookmarkApi {
       extra: response.extra,
     );
   }
-
   /// Retrieves the collection of Bookmark resources.
   /// Retrieves the collection of Bookmark resources.
   ///
   /// Parameters:
-  /// * [xKeyclicApp] -
+  /// * [xKeyclicApp] - 
   /// * [page] - The collection page number
   /// * [limit] - The number of items per page
   /// * [pagination] - Enable or disable pagination
-  /// * [asset] -
-  /// * [assetLeftSquareBracketRightSquareBracket] -
-  /// * [member] -
-  /// * [memberLeftSquareBracketRightSquareBracket] -
-  /// * [memberPeriodPerson] -
-  /// * [memberPeriodPersonLeftSquareBracketRightSquareBracket] -
-  /// * [acceptLanguage] -
-  /// * [xDateTime] -
-  /// * [xKeyclicAppPlatform] -
-  /// * [xKeyclicAppVersion] -
-  /// * [xOrganizationId] -
+  /// * [asset] - 
+  /// * [assetLeftSquareBracketRightSquareBracket] - 
+  /// * [member] - 
+  /// * [memberLeftSquareBracketRightSquareBracket] - 
+  /// * [memberPeriodPerson] - 
+  /// * [memberPeriodPersonLeftSquareBracketRightSquareBracket] - 
+  /// * [acceptLanguage] - 
+  /// * [xDateTime] - 
+  /// * [xKeyclicAppPlatform] - 
+  /// * [xKeyclicAppVersion] - 
+  /// * [xOrganizationId] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -134,7 +135,7 @@ class BookmarkApi {
   ///
   /// Returns a [Future] containing a [Response] with a [GetBookmarkCollection200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetBookmarkCollection200Response>> getBookmarkCollection({
+  Future<Response<GetBookmarkCollection200Response>> getBookmarkCollection({ 
     required String xKeyclicApp,
     int? page,
     int? limit,
@@ -150,6 +151,7 @@ class BookmarkApi {
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
     String? xOrganizationId,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -165,10 +167,8 @@ class BookmarkApi {
         if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
         if (xDateTime != null) r'X-Date-Time': xDateTime,
         r'X-Keyclic-App': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'X-Keyclic-App-Version': xKeyclicAppVersion,
         if (xOrganizationId != null) r'X-Organization-Id': xOrganizationId,
         ...?headers,
       },
@@ -176,6 +176,7 @@ class BookmarkApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -183,30 +184,52 @@ class BookmarkApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
 
     final queryParameters = <String, dynamic>{
-      if (page != null) r'page': encodeQueryParameter(page),
-      if (limit != null) r'limit': encodeQueryParameter(limit),
-      if (pagination != null) r'pagination': encodeQueryParameter(pagination),
-      if (asset != null) r'asset': encodeQueryParameter(asset),
-      if (assetLeftSquareBracketRightSquareBracket != null)
-        r'asset[]': encodeCollectionQueryParameter(
-            assetLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (member != null) r'member': encodeQueryParameter(member),
-      if (memberLeftSquareBracketRightSquareBracket != null)
-        r'member[]': encodeCollectionQueryParameter(
-            memberLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (memberPeriodPerson != null)
-        r'member.person': encodeQueryParameter(memberPeriodPerson),
-      if (memberPeriodPersonLeftSquareBracketRightSquareBracket != null)
-        r'member.person[]': encodeCollectionQueryParameter(
-            memberPeriodPersonLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
+      if (page != null) r'page':
+        encodeQueryParameter(
+        page
+        ),
+      if (limit != null) r'limit':
+        encodeQueryParameter(
+        limit
+        ),
+      if (pagination != null) r'pagination':
+        encodeQueryParameter(
+        pagination
+        ),
+      if (asset != null) r'asset':
+        encodeQueryParameter(
+        asset
+        ),
+      if (assetLeftSquareBracketRightSquareBracket != null) r'asset[]':
+        encodeCollectionQueryParameter(
+        assetLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (member != null) r'member':
+        encodeQueryParameter(
+        member
+        ),
+      if (memberLeftSquareBracketRightSquareBracket != null) r'member[]':
+        encodeCollectionQueryParameter(
+        memberLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (memberPeriodPerson != null) r'member.person':
+        encodeQueryParameter(
+        memberPeriodPerson
+        ),
+      if (memberPeriodPersonLeftSquareBracketRightSquareBracket != null) r'member.person[]':
+        encodeCollectionQueryParameter(
+        memberPeriodPersonLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
     };
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -220,9 +243,7 @@ class BookmarkApi {
     GetBookmarkCollection200Response responseData;
 
     try {
-      responseData =
-          await _apiClient.deserializeAsync<GetBookmarkCollection200Response>(
-              response.data!, 'GetBookmarkCollection200Response');
+            responseData = await _apiClient.deserializeAsync<GetBookmarkCollection200Response>(response.data!, 'GetBookmarkCollection200Response');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

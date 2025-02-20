@@ -4,6 +4,7 @@
 
 part of keyclic_sdk_api_platform;
 
+
 class BusinessHoursApi {
   const BusinessHoursApi(this._apiClient);
 
@@ -14,12 +15,12 @@ class BusinessHoursApi {
   ///
   /// Parameters:
   /// * [identifier] - BusinessHours identifier
-  /// * [xKeyclicApp] -
-  /// * [xOrganizationId] -
-  /// * [acceptLanguage] -
-  /// * [xDateTime] -
-  /// * [xKeyclicAppPlatform] -
-  /// * [xKeyclicAppVersion] -
+  /// * [xKeyclicApp] - 
+  /// * [xOrganizationId] - 
+  /// * [acceptLanguage] - 
+  /// * [xDateTime] - 
+  /// * [xKeyclicAppPlatform] - 
+  /// * [xKeyclicAppVersion] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -29,7 +30,7 @@ class BusinessHoursApi {
   ///
   /// Returns a [Future] containing a [Response] with a [BusinessHoursJsonhalRead] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<BusinessHoursJsonhalRead>> getBusinessHours({
+  Future<Response<BusinessHoursJsonhalRead>> getBusinessHours({ 
     required String identifier,
     required String xKeyclicApp,
     required String xOrganizationId,
@@ -37,6 +38,7 @@ class BusinessHoursApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -44,8 +46,7 @@ class BusinessHoursApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/business-hours/{identifier}'
-        .replaceAll('{' r'identifier' '}', identifier.toString());
+    final String path = r'/business-hours/{identifier}'.replaceAll('{' r'identifier' '}', identifier.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -53,10 +54,8 @@ class BusinessHoursApi {
         if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
         if (xDateTime != null) r'X-Date-Time': xDateTime,
         r'X-Keyclic-App': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'X-Keyclic-App-Version': xKeyclicAppVersion,
         r'X-Organization-Id': xOrganizationId,
         ...?headers,
       },
@@ -64,6 +63,7 @@ class BusinessHoursApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -71,8 +71,11 @@ class BusinessHoursApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -85,9 +88,7 @@ class BusinessHoursApi {
     BusinessHoursJsonhalRead responseData;
 
     try {
-      responseData =
-          await _apiClient.deserializeAsync<BusinessHoursJsonhalRead>(
-              response.data!, 'BusinessHoursJsonhalRead');
+            responseData = await _apiClient.deserializeAsync<BusinessHoursJsonhalRead>(response.data!, 'BusinessHoursJsonhalRead');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -109,20 +110,19 @@ class BusinessHoursApi {
       extra: response.extra,
     );
   }
-
   /// Retrieves the collection of BusinessHours resources.
   /// Retrieves the collection of BusinessHours resources.
   ///
   /// Parameters:
-  /// * [xKeyclicApp] -
-  /// * [xOrganizationId] -
+  /// * [xKeyclicApp] - 
+  /// * [xOrganizationId] - 
   /// * [page] - The collection page number
   /// * [limit] - The number of items per page
   /// * [pagination] - Enable or disable pagination
-  /// * [acceptLanguage] -
-  /// * [xDateTime] -
-  /// * [xKeyclicAppPlatform] -
-  /// * [xKeyclicAppVersion] -
+  /// * [acceptLanguage] - 
+  /// * [xDateTime] - 
+  /// * [xKeyclicAppPlatform] - 
+  /// * [xKeyclicAppVersion] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -132,8 +132,7 @@ class BusinessHoursApi {
   ///
   /// Returns a [Future] containing a [Response] with a [GetBusinessHoursCollection200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetBusinessHoursCollection200Response>>
-      getBusinessHoursCollection({
+  Future<Response<GetBusinessHoursCollection200Response>> getBusinessHoursCollection({ 
     required String xKeyclicApp,
     required String xOrganizationId,
     int? page,
@@ -143,6 +142,7 @@ class BusinessHoursApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -158,10 +158,8 @@ class BusinessHoursApi {
         if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
         if (xDateTime != null) r'X-Date-Time': xDateTime,
         r'X-Keyclic-App': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'X-Keyclic-App-Version': xKeyclicAppVersion,
         r'X-Organization-Id': xOrganizationId,
         ...?headers,
       },
@@ -169,6 +167,7 @@ class BusinessHoursApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -176,14 +175,25 @@ class BusinessHoursApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
 
     final queryParameters = <String, dynamic>{
-      if (page != null) r'page': encodeQueryParameter(page),
-      if (limit != null) r'limit': encodeQueryParameter(limit),
-      if (pagination != null) r'pagination': encodeQueryParameter(pagination),
+      if (page != null) r'page':
+        encodeQueryParameter(
+        page
+        ),
+      if (limit != null) r'limit':
+        encodeQueryParameter(
+        limit
+        ),
+      if (pagination != null) r'pagination':
+        encodeQueryParameter(
+        pagination
+        ),
     };
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -197,9 +207,7 @@ class BusinessHoursApi {
     GetBusinessHoursCollection200Response responseData;
 
     try {
-      responseData = await _apiClient
-          .deserializeAsync<GetBusinessHoursCollection200Response>(
-              response.data!, 'GetBusinessHoursCollection200Response');
+            responseData = await _apiClient.deserializeAsync<GetBusinessHoursCollection200Response>(response.data!, 'GetBusinessHoursCollection200Response');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

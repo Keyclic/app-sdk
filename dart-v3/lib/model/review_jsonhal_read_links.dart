@@ -7,9 +7,12 @@ part of keyclic_sdk_api_platform;
 class ReviewJsonhalReadLinks {
   /// Returns a new [ReviewJsonhalReadLinks] instance.
   ReviewJsonhalReadLinks({
-    this.self,
-    this.itemReviewed,
-    this.author,
+    this.self
+,
+    this.itemReviewed
+,
+    this.author
+,
   });
 
   /// Returns a new [ReviewJsonhalReadLinks] instance and imports its values from
@@ -19,19 +22,18 @@ class ReviewJsonhalReadLinks {
       return null;
     }
 
-    return ReviewJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
-      itemReviewed: GetPlaceCollection200ResponseLinksFirst.fromJson(
-          json[r'itemReviewed']),
-      author: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'author']),
+  return ReviewJsonhalReadLinks(
+        self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
+        itemReviewed: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'itemReviewed']),
+        author: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'author']),
     );
   }
 
-  GetPlaceCollection200ResponseLinksSelf? self;
+      GetPlaceCollection200ResponseLinksSelf? self;
 
-  GetPlaceCollection200ResponseLinksFirst? itemReviewed;
+      GetPlaceCollection200ResponseLinksFirst? itemReviewed;
 
-  GetPlaceCollection200ResponseLinksFirst? author;
+      GetPlaceCollection200ResponseLinksFirst? author;
 
   @override
   bool operator ==(Object other) {
@@ -40,27 +42,29 @@ class ReviewJsonhalReadLinks {
       return true;
     }
 
-    return other is ReviewJsonhalReadLinks &&
-        other.self == self &&
-        other.itemReviewed == itemReviewed &&
-        other.author == author;
+    return other is ReviewJsonhalReadLinks 
+          && other.self == self
+  
+          && other.itemReviewed == itemReviewed
+  
+          && other.author == author
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (self == null ? 0 : self.hashCode) +
-      (itemReviewed == null ? 0 : itemReviewed.hashCode) +
-      (author == null ? 0 : author.hashCode);
+    (self == null ? 0 : self.hashCode) +
+    (itemReviewed == null ? 0 : itemReviewed.hashCode) +
+    (author == null ? 0 : author.hashCode);
 
   static List<ReviewJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <ReviewJsonhalReadLinks>[];
     }
 
-    return json.fold(<ReviewJsonhalReadLinks>[],
-        (List<ReviewJsonhalReadLinks> previousValue, element) {
-      final ReviewJsonhalReadLinks? object =
-          ReviewJsonhalReadLinks.fromJson(element);
+    return json.fold(<ReviewJsonhalReadLinks>[], (List<ReviewJsonhalReadLinks> previousValue, element) {
+      final ReviewJsonhalReadLinks? object = ReviewJsonhalReadLinks.fromJson(element);
       if (object is ReviewJsonhalReadLinks) {
         previousValue.add(object);
       }
@@ -69,16 +73,13 @@ class ReviewJsonhalReadLinks {
     });
   }
 
-  static Map<String, ReviewJsonhalReadLinks> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, ReviewJsonhalReadLinks> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, ReviewJsonhalReadLinks>{};
     }
 
-    return json.entries.fold(<String, ReviewJsonhalReadLinks>{},
-        (Map<String, ReviewJsonhalReadLinks> previousValue, element) {
-      final ReviewJsonhalReadLinks? object =
-          ReviewJsonhalReadLinks.fromJson(element.value);
+    return json.entries.fold(<String, ReviewJsonhalReadLinks>{}, (Map<String, ReviewJsonhalReadLinks> previousValue, element) {
+      final ReviewJsonhalReadLinks? object = ReviewJsonhalReadLinks.fromJson(element.value);
       if (object is ReviewJsonhalReadLinks) {
         previousValue[element.key] = object;
       }
@@ -88,52 +89,55 @@ class ReviewJsonhalReadLinks {
   }
 
   // maps a json object with a list of ReviewJsonhalReadLinks-objects as value to a dart map
-  static Map<String, List<ReviewJsonhalReadLinks>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<ReviewJsonhalReadLinks>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ReviewJsonhalReadLinks>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ReviewJsonhalReadLinks>>(
-          key, ReviewJsonhalReadLinks.listFromJson(value));
+      return MapEntry<String, List<ReviewJsonhalReadLinks>>(key, ReviewJsonhalReadLinks.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'ReviewJsonhalReadLinks[self=$self, itemReviewed=$itemReviewed, author=$author]';
+  String toString() => 'ReviewJsonhalReadLinks[self=$self, itemReviewed=$itemReviewed, author=$author]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
-        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^self\.'))) {
-            previousValue.add(element.split(RegExp(r'^self\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^self\.').hasMatch(key))
+    )
+        r'self':
+            self?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^self\.'))) {
+                previousValue.add(element.split(RegExp(r'^self\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^itemReviewed\.').hasMatch(key)))
-        r'itemReviewed': itemReviewed?.toJson(keys?.fold<List<String>>(
-            <String>[], (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^itemReviewed\.'))) {
-            previousValue.add(element.split(RegExp(r'^itemReviewed\.')).last);
-          }
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    any((key) => RegExp(r'^itemReviewed\.').hasMatch(key))
+    )
+        r'itemReviewed':
+            itemReviewed?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^itemReviewed\.'))) {
+                previousValue.add(element.split(RegExp(r'^itemReviewed\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.any((key) => RegExp(r'^author\.').hasMatch(key)))
-        r'author': author?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^author\.'))) {
-            previousValue.add(element.split(RegExp(r'^author\.')).last);
-          }
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    any((key) => RegExp(r'^author\.').hasMatch(key))
+    )
+        r'author':
+            author?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^author\.'))) {
+                previousValue.add(element.split(RegExp(r'^author\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

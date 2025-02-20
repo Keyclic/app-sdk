@@ -11,6 +11,10 @@ void main() {
 
   group('test GetTicketDocumentTypes200ResponseEmbedded', () {
     // List<DocumentTypeJsonhalRead> item (default value: const [])
-    test('to test the property `item`', () async {});
+    test('to test the property `item`', () async {
+    });
+
+
   });
+
 }

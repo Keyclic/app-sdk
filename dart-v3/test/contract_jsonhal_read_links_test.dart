@@ -11,12 +11,18 @@ void main() {
 
   group('test ContractJsonhalReadLinks', () {
     // GetPlaceCollection200ResponseLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
 
     // GetPlaceCollection200ResponseLinksSelf provider
-    test('to test the property `provider`', () async {});
+    test('to test the property `provider`', () async {
+    });
 
     // GetPlaceCollection200ResponseLinksFirst type
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
+
+
   });
+
 }

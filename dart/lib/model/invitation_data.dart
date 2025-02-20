@@ -7,7 +7,10 @@ part of keyclic_sdk_api;
 class InvitationData {
   /// Returns a new [InvitationData] instance.
   InvitationData({
-    required this.member,
+      required 
+    this.member
+      
+    ,
   });
 
   /// Returns a new [InvitationData] instance and imports its values from
@@ -17,12 +20,12 @@ class InvitationData {
       return null;
     }
 
-    return InvitationData(
-      member: json[r'member'],
+  return InvitationData(
+                  member: json[r'member'],
     );
   }
 
-  String member;
+      String member;
 
   @override
   bool operator ==(Object other) {
@@ -31,19 +34,22 @@ class InvitationData {
       return true;
     }
 
-    return other is InvitationData && other.member == member;
+    return other is InvitationData 
+          && other.member == member
+  ;
   }
+  
 
   @override
-  int get hashCode => member.hashCode;
+  int get hashCode =>
+     member.hashCode;
 
   static List<InvitationData> listFromJson(Iterable? json) {
     if (json == null) {
       return <InvitationData>[];
     }
 
-    return json.fold(<InvitationData>[],
-        (List<InvitationData> previousValue, element) {
+    return json.fold(<InvitationData>[], (List<InvitationData> previousValue, element) {
       final InvitationData? object = InvitationData.fromJson(element);
       if (object is InvitationData) {
         previousValue.add(object);
@@ -58,8 +64,7 @@ class InvitationData {
       return <String, InvitationData>{};
     }
 
-    return json.entries.fold(<String, InvitationData>{},
-        (Map<String, InvitationData> previousValue, element) {
+    return json.entries.fold(<String, InvitationData>{}, (Map<String, InvitationData> previousValue, element) {
       final InvitationData? object = InvitationData.fromJson(element.value);
       if (object is InvitationData) {
         previousValue[element.key] = object;
@@ -70,15 +75,13 @@ class InvitationData {
   }
 
   // maps a json object with a list of InvitationData-objects as value to a dart map
-  static Map<String, List<InvitationData>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<InvitationData>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<InvitationData>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<InvitationData>>(
-          key, InvitationData.listFromJson(value));
+      return MapEntry<String, List<InvitationData>>(key, InvitationData.listFromJson(value));
     });
   }
 
@@ -87,7 +90,9 @@ class InvitationData {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'member': member,
+        r'member':
+          member,
     };
   }
 }
+

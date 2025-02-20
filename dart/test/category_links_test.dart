@@ -11,12 +11,18 @@ void main() {
 
   group('test CategoryLinks', () {
     // CategoryLinksOrganization organization
-    test('to test the property `organization`', () async {});
+    test('to test the property `organization`', () async {
+    });
 
     // CategoryLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
 
     // CategoryLinksType type
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
+
+
   });
+
 }

@@ -12,9 +12,14 @@ void main() {
   group('test ReportLinksSelf', () {
     // The URI of the self associated to the given report.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // ReportLinksSelfIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

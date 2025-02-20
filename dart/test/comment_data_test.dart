@@ -11,9 +11,14 @@ void main() {
 
   group('test CommentData', () {
     // String text
-    test('to test the property `text`', () async {});
+    test('to test the property `text`', () async {
+    });
 
     // String type
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
+
+
   });
+
 }

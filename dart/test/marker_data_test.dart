@@ -11,12 +11,18 @@ void main() {
 
   group('test MarkerData', () {
     // String feedback
-    test('to test the property `feedback`', () async {});
+    test('to test the property `feedback`', () async {
+    });
 
     // String plan
-    test('to test the property `plan`', () async {});
+    test('to test the property `plan`', () async {
+    });
 
     // MarkerDataPoint point
-    test('to test the property `point`', () async {});
+    test('to test the property `point`', () async {
+    });
+
+
   });
+
 }

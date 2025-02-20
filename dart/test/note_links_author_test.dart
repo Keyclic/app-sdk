@@ -12,9 +12,14 @@ void main() {
   group('test NoteLinksAuthor', () {
     // The URI of the author associated to the given note.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // NoteLinksAuthorIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

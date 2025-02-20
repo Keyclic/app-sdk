@@ -11,21 +11,30 @@ void main() {
 
   group('test TicketJsonhalReadLinks', () {
     // GetPlaceCollection200ResponseLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
 
     // GetPlaceCollection200ResponseLinksSelf organization
-    test('to test the property `organization`', () async {});
+    test('to test the property `organization`', () async {
+    });
 
     // GetPlaceCollection200ResponseLinksFirst parent
-    test('to test the property `parent`', () async {});
+    test('to test the property `parent`', () async {
+    });
 
     // List<GetPlaceCollection200ResponseLinksSelf> assignments (default value: const [])
-    test('to test the property `assignments`', () async {});
+    test('to test the property `assignments`', () async {
+    });
 
     // List<GetPlaceCollection200ResponseLinksSelf> equipments (default value: const [])
-    test('to test the property `equipments`', () async {});
+    test('to test the property `equipments`', () async {
+    });
 
     // List<GetPlaceCollection200ResponseLinksSelf> children (default value: const [])
-    test('to test the property `children`', () async {});
+    test('to test the property `children`', () async {
+    });
+
+
   });
+
 }

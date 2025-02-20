@@ -12,9 +12,14 @@ void main() {
   group('test ReportLinksWorkflow', () {
     // The URI of the workflow associated to the given report.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // ReportLinksWorkflowIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

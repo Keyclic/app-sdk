@@ -12,9 +12,14 @@ void main() {
   group('test SectionLinksSelf', () {
     // The URI of the self associated to the given section.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // SectionLinksSelfIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

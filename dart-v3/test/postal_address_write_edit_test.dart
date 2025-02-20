@@ -11,12 +11,18 @@ void main() {
 
   group('test PostalAddressWriteEdit', () {
     // String locality
-    test('to test the property `locality`', () async {});
+    test('to test the property `locality`', () async {
+    });
 
     // String postalCode
-    test('to test the property `postalCode`', () async {});
+    test('to test the property `postalCode`', () async {
+    });
 
     // String streetAddress
-    test('to test the property `streetAddress`', () async {});
+    test('to test the property `streetAddress`', () async {
+    });
+
+
   });
+
 }

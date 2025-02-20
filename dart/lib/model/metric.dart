@@ -7,8 +7,10 @@ part of keyclic_sdk_api;
 class Metric {
   /// Returns a new [Metric] instance.
   Metric({
-    this.name,
-    this.duration,
+    this.name
+,
+    this.duration
+,
   });
 
   /// Returns a new [Metric] instance and imports its values from
@@ -18,15 +20,15 @@ class Metric {
       return null;
     }
 
-    return Metric(
-      name: json[r'name'],
-      duration: Duration.fromJson(json[r'duration']),
+  return Metric(
+                  name: json[r'name'],
+        duration: Duration.fromJson(json[r'duration']),
     );
   }
 
-  String? name;
+      String? name;
 
-  Duration? duration;
+      Duration? duration;
 
   @override
   bool operator ==(Object other) {
@@ -35,13 +37,18 @@ class Metric {
       return true;
     }
 
-    return other is Metric && other.name == name && other.duration == duration;
+    return other is Metric 
+          && other.name == name
+  
+          && other.duration == duration
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (name == null ? 0 : name.hashCode) +
-      (duration == null ? 0 : duration.hashCode);
+    (name == null ? 0 : name.hashCode) +
+    (duration == null ? 0 : duration.hashCode);
 
   static List<Metric> listFromJson(Iterable? json) {
     if (json == null) {
@@ -63,8 +70,7 @@ class Metric {
       return <String, Metric>{};
     }
 
-    return json.entries.fold(<String, Metric>{},
-        (Map<String, Metric> previousValue, element) {
+    return json.entries.fold(<String, Metric>{}, (Map<String, Metric> previousValue, element) {
       final Metric? object = Metric.fromJson(element.value);
       if (object is Metric) {
         previousValue[element.key] = object;
@@ -90,17 +96,23 @@ class Metric {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'name')) r'name': name,
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^duration\.').hasMatch(key)))
-        r'duration': duration?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^duration\.'))) {
-            previousValue.add(element.split(RegExp(r'^duration\.')).last);
-          }
+    if (keys == null || keys.
+    contains(r'name')
+    )
+        r'name':
+          name,
+    if (keys == null || keys.
+    any((key) => RegExp(r'^duration\.').hasMatch(key))
+    )
+        r'duration':
+            duration?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^duration\.'))) {
+                previousValue.add(element.split(RegExp(r'^duration\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

@@ -11,18 +11,26 @@ void main() {
 
   group('test AssignmentData', () {
     // String contract
-    test('to test the property `contract`', () async {});
+    test('to test the property `contract`', () async {
+    });
 
     // String description
-    test('to test the property `description`', () async {});
+    test('to test the property `description`', () async {
+    });
 
     // bool outOfContract
-    test('to test the property `outOfContract`', () async {});
+    test('to test the property `outOfContract`', () async {
+    });
 
     // String report
-    test('to test the property `report`', () async {});
+    test('to test the property `report`', () async {
+    });
 
     // String service
-    test('to test the property `service`', () async {});
+    test('to test the property `service`', () async {
+    });
+
+
   });
+
 }

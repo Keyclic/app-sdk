@@ -4,6 +4,7 @@
 
 part of keyclic_sdk_api_platform;
 
+
 class MetricApi {
   const MetricApi(this._apiClient);
 
@@ -14,15 +15,15 @@ class MetricApi {
   ///
   /// Parameters:
   /// * [identifier] - Task identifier
-  /// * [xKeyclicApp] -
-  /// * [xOrganizationId] -
+  /// * [xKeyclicApp] - 
+  /// * [xOrganizationId] - 
   /// * [page] - The collection page number
   /// * [limit] - The number of items per page
   /// * [pagination] - Enable or disable pagination
-  /// * [acceptLanguage] -
-  /// * [xDateTime] -
-  /// * [xKeyclicAppPlatform] -
-  /// * [xKeyclicAppVersion] -
+  /// * [acceptLanguage] - 
+  /// * [xDateTime] - 
+  /// * [xKeyclicAppPlatform] - 
+  /// * [xKeyclicAppVersion] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -32,7 +33,7 @@ class MetricApi {
   ///
   /// Returns a [Future] containing a [Response] with a [GetTicketMetrics200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetTicketMetrics200Response>> getTicketMetrics({
+  Future<Response<GetTicketMetrics200Response>> getTicketMetrics({ 
     required String identifier,
     required String xKeyclicApp,
     required String xOrganizationId,
@@ -43,6 +44,7 @@ class MetricApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -50,8 +52,7 @@ class MetricApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/tickets/{identifier}/metrics'
-        .replaceAll('{' r'identifier' '}', identifier.toString());
+    final String path = r'/tickets/{identifier}/metrics'.replaceAll('{' r'identifier' '}', identifier.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -59,10 +60,8 @@ class MetricApi {
         if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
         if (xDateTime != null) r'X-Date-Time': xDateTime,
         r'X-Keyclic-App': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'X-Keyclic-App-Version': xKeyclicAppVersion,
         r'X-Organization-Id': xOrganizationId,
         ...?headers,
       },
@@ -70,6 +69,7 @@ class MetricApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -77,14 +77,25 @@ class MetricApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
 
     final queryParameters = <String, dynamic>{
-      if (page != null) r'page': encodeQueryParameter(page),
-      if (limit != null) r'limit': encodeQueryParameter(limit),
-      if (pagination != null) r'pagination': encodeQueryParameter(pagination),
+      if (page != null) r'page':
+        encodeQueryParameter(
+        page
+        ),
+      if (limit != null) r'limit':
+        encodeQueryParameter(
+        limit
+        ),
+      if (pagination != null) r'pagination':
+        encodeQueryParameter(
+        pagination
+        ),
     };
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -98,9 +109,7 @@ class MetricApi {
     GetTicketMetrics200Response responseData;
 
     try {
-      responseData =
-          await _apiClient.deserializeAsync<GetTicketMetrics200Response>(
-              response.data!, 'GetTicketMetrics200Response');
+            responseData = await _apiClient.deserializeAsync<GetTicketMetrics200Response>(response.data!, 'GetTicketMetrics200Response');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

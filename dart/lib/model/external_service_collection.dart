@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class ExternalServiceCollection {
   /// Returns a new [ExternalServiceCollection] instance.
   ExternalServiceCollection({
-    this.items,
+    this.items
+,
   });
 
   /// Returns a new [ExternalServiceCollection] instance and imports its values from
@@ -17,12 +18,13 @@ class ExternalServiceCollection {
       return null;
     }
 
-    return ExternalServiceCollection(
-      items: ExternalService.listFromJson(json[r'items']),
+  return ExternalServiceCollection(
+        items: 
+          ExternalService.listFromJson(json[r'items']),
     );
   }
 
-  List<ExternalService>? items;
+        List<ExternalService>? items;
 
   @override
   bool operator ==(Object other) {
@@ -31,22 +33,23 @@ class ExternalServiceCollection {
       return true;
     }
 
-    return other is ExternalServiceCollection &&
-        DeepCollectionEquality.unordered().equals(items, other.items);
+    return other is ExternalServiceCollection 
+          && DeepCollectionEquality.unordered().equals(items, other.items)
+  ;
   }
+  
 
   @override
-  int get hashCode => (items == null ? 0 : items.hashCode);
+  int get hashCode =>
+    (items == null ? 0 : items.hashCode);
 
   static List<ExternalServiceCollection> listFromJson(Iterable? json) {
     if (json == null) {
       return <ExternalServiceCollection>[];
     }
 
-    return json.fold(<ExternalServiceCollection>[],
-        (List<ExternalServiceCollection> previousValue, element) {
-      final ExternalServiceCollection? object =
-          ExternalServiceCollection.fromJson(element);
+    return json.fold(<ExternalServiceCollection>[], (List<ExternalServiceCollection> previousValue, element) {
+      final ExternalServiceCollection? object = ExternalServiceCollection.fromJson(element);
       if (object is ExternalServiceCollection) {
         previousValue.add(object);
       }
@@ -55,16 +58,13 @@ class ExternalServiceCollection {
     });
   }
 
-  static Map<String, ExternalServiceCollection> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, ExternalServiceCollection> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, ExternalServiceCollection>{};
     }
 
-    return json.entries.fold(<String, ExternalServiceCollection>{},
-        (Map<String, ExternalServiceCollection> previousValue, element) {
-      final ExternalServiceCollection? object =
-          ExternalServiceCollection.fromJson(element.value);
+    return json.entries.fold(<String, ExternalServiceCollection>{}, (Map<String, ExternalServiceCollection> previousValue, element) {
+      final ExternalServiceCollection? object = ExternalServiceCollection.fromJson(element.value);
       if (object is ExternalServiceCollection) {
         previousValue[element.key] = object;
       }
@@ -74,15 +74,13 @@ class ExternalServiceCollection {
   }
 
   // maps a json object with a list of ExternalServiceCollection-objects as value to a dart map
-  static Map<String, List<ExternalServiceCollection>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<ExternalServiceCollection>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ExternalServiceCollection>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ExternalServiceCollection>>(
-          key, ExternalServiceCollection.listFromJson(value));
+      return MapEntry<String, List<ExternalServiceCollection>>(key, ExternalServiceCollection.listFromJson(value));
     });
   }
 
@@ -91,7 +89,12 @@ class ExternalServiceCollection {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'items')) r'items': items,
+    if (keys == null || keys.
+    contains(r'items')
+    )
+        r'items':
+            items,
     };
   }
 }
+

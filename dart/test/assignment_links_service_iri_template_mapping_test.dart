@@ -11,6 +11,10 @@ void main() {
 
   group('test AssignmentLinksServiceIriTemplateMapping', () {
     // String service
-    test('to test the property `service`', () async {});
+    test('to test the property `service`', () async {
+    });
+
+
   });
+
 }

@@ -7,8 +7,10 @@ part of keyclic_sdk_api;
 class BookmarkEmbedded {
   /// Returns a new [BookmarkEmbedded] instance.
   BookmarkEmbedded({
-    this.member,
-    this.place,
+    this.member
+,
+    this.place
+,
   });
 
   /// Returns a new [BookmarkEmbedded] instance and imports its values from
@@ -18,15 +20,15 @@ class BookmarkEmbedded {
       return null;
     }
 
-    return BookmarkEmbedded(
-      member: Member.fromJson(json[r'member']),
-      place: Place.fromJson(json[r'place']),
+  return BookmarkEmbedded(
+        member: Member.fromJson(json[r'member']),
+        place: Place.fromJson(json[r'place']),
     );
   }
 
-  Member? member;
+      Member? member;
 
-  Place? place;
+      Place? place;
 
   @override
   bool operator ==(Object other) {
@@ -35,23 +37,25 @@ class BookmarkEmbedded {
       return true;
     }
 
-    return other is BookmarkEmbedded &&
-        other.member == member &&
-        other.place == place;
+    return other is BookmarkEmbedded 
+          && other.member == member
+  
+          && other.place == place
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (member == null ? 0 : member.hashCode) +
-      (place == null ? 0 : place.hashCode);
+    (member == null ? 0 : member.hashCode) +
+    (place == null ? 0 : place.hashCode);
 
   static List<BookmarkEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
       return <BookmarkEmbedded>[];
     }
 
-    return json.fold(<BookmarkEmbedded>[],
-        (List<BookmarkEmbedded> previousValue, element) {
+    return json.fold(<BookmarkEmbedded>[], (List<BookmarkEmbedded> previousValue, element) {
       final BookmarkEmbedded? object = BookmarkEmbedded.fromJson(element);
       if (object is BookmarkEmbedded) {
         previousValue.add(object);
@@ -66,8 +70,7 @@ class BookmarkEmbedded {
       return <String, BookmarkEmbedded>{};
     }
 
-    return json.entries.fold(<String, BookmarkEmbedded>{},
-        (Map<String, BookmarkEmbedded> previousValue, element) {
+    return json.entries.fold(<String, BookmarkEmbedded>{}, (Map<String, BookmarkEmbedded> previousValue, element) {
       final BookmarkEmbedded? object = BookmarkEmbedded.fromJson(element.value);
       if (object is BookmarkEmbedded) {
         previousValue[element.key] = object;
@@ -78,15 +81,13 @@ class BookmarkEmbedded {
   }
 
   // maps a json object with a list of BookmarkEmbedded-objects as value to a dart map
-  static Map<String, List<BookmarkEmbedded>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<BookmarkEmbedded>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<BookmarkEmbedded>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<BookmarkEmbedded>>(
-          key, BookmarkEmbedded.listFromJson(value));
+      return MapEntry<String, List<BookmarkEmbedded>>(key, BookmarkEmbedded.listFromJson(value));
     });
   }
 
@@ -95,24 +96,29 @@ class BookmarkEmbedded {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^member\.').hasMatch(key)))
-        r'member': member?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^member\.'))) {
-            previousValue.add(element.split(RegExp(r'^member\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^member\.').hasMatch(key))
+    )
+        r'member':
+            member?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^member\.'))) {
+                previousValue.add(element.split(RegExp(r'^member\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.any((key) => RegExp(r'^place\.').hasMatch(key)))
-        r'place': place?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^place\.'))) {
-            previousValue.add(element.split(RegExp(r'^place\.')).last);
-          }
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    any((key) => RegExp(r'^place\.').hasMatch(key))
+    )
+        r'place':
+            place?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^place\.'))) {
+                previousValue.add(element.split(RegExp(r'^place\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

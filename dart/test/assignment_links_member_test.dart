@@ -12,9 +12,14 @@ void main() {
   group('test AssignmentLinksMember', () {
     // The URI of the member associated to the given assignment.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // AssignmentLinksMemberIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

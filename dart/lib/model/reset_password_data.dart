@@ -7,8 +7,12 @@ part of keyclic_sdk_api;
 class ResetPasswordData {
   /// Returns a new [ResetPasswordData] instance.
   ResetPasswordData({
-    this.email,
-    required this.username,
+    this.email
+,
+      required 
+    this.username
+      
+    ,
   });
 
   /// Returns a new [ResetPasswordData] instance and imports its values from
@@ -18,15 +22,15 @@ class ResetPasswordData {
       return null;
     }
 
-    return ResetPasswordData(
-      email: json[r'email'],
-      username: json[r'username'],
+  return ResetPasswordData(
+                  email: json[r'email'],
+                  username: json[r'username'],
     );
   }
 
-  String? email;
+      String? email;
 
-  String username;
+      String username;
 
   @override
   bool operator ==(Object other) {
@@ -35,21 +39,25 @@ class ResetPasswordData {
       return true;
     }
 
-    return other is ResetPasswordData &&
-        other.email == email &&
-        other.username == username;
+    return other is ResetPasswordData 
+          && other.email == email
+  
+          && other.username == username
+  ;
   }
+  
 
   @override
-  int get hashCode => (email == null ? 0 : email.hashCode) + username.hashCode;
+  int get hashCode =>
+    (email == null ? 0 : email.hashCode) +
+     username.hashCode;
 
   static List<ResetPasswordData> listFromJson(Iterable? json) {
     if (json == null) {
       return <ResetPasswordData>[];
     }
 
-    return json.fold(<ResetPasswordData>[],
-        (List<ResetPasswordData> previousValue, element) {
+    return json.fold(<ResetPasswordData>[], (List<ResetPasswordData> previousValue, element) {
       final ResetPasswordData? object = ResetPasswordData.fromJson(element);
       if (object is ResetPasswordData) {
         previousValue.add(object);
@@ -59,16 +67,13 @@ class ResetPasswordData {
     });
   }
 
-  static Map<String, ResetPasswordData> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, ResetPasswordData> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, ResetPasswordData>{};
     }
 
-    return json.entries.fold(<String, ResetPasswordData>{},
-        (Map<String, ResetPasswordData> previousValue, element) {
-      final ResetPasswordData? object =
-          ResetPasswordData.fromJson(element.value);
+    return json.entries.fold(<String, ResetPasswordData>{}, (Map<String, ResetPasswordData> previousValue, element) {
+      final ResetPasswordData? object = ResetPasswordData.fromJson(element.value);
       if (object is ResetPasswordData) {
         previousValue[element.key] = object;
       }
@@ -78,15 +83,13 @@ class ResetPasswordData {
   }
 
   // maps a json object with a list of ResetPasswordData-objects as value to a dart map
-  static Map<String, List<ResetPasswordData>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<ResetPasswordData>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ResetPasswordData>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ResetPasswordData>>(
-          key, ResetPasswordData.listFromJson(value));
+      return MapEntry<String, List<ResetPasswordData>>(key, ResetPasswordData.listFromJson(value));
     });
   }
 
@@ -95,8 +98,14 @@ class ResetPasswordData {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'email')) r'email': email,
-      r'username': username,
+    if (keys == null || keys.
+    contains(r'email')
+    )
+        r'email':
+          email,
+        r'username':
+          username,
     };
   }
 }
+

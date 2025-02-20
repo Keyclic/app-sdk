@@ -7,8 +7,10 @@ part of keyclic_sdk_api_platform;
 class PriceJsonhalRead {
   /// Returns a new [PriceJsonhalRead] instance.
   PriceJsonhalRead({
-    this.currencyCode,
-    this.value,
+    this.currencyCode
+,
+    this.value
+,
   });
 
   /// Returns a new [PriceJsonhalRead] instance and imports its values from
@@ -18,18 +20,19 @@ class PriceJsonhalRead {
       return null;
     }
 
-    return PriceJsonhalRead(
-      currencyCode:
-          PriceJsonhalReadCurrencyCodeEnum.fromJson(json[r'currencyCode']),
-      value: json[r'value'] == null ? null : json[r'value'].toDouble(),
+  return PriceJsonhalRead(
+              currencyCode: PriceJsonhalReadCurrencyCodeEnum.fromJson(json[r'currencyCode']),
+        value: json[r'value'] == null ?
+          null :
+          json[r'value'].toDouble(),
     );
   }
 
   /// The currency code, in ISO 4217 format.
-  final PriceJsonhalReadCurrencyCodeEnum? currencyCode;
+      final PriceJsonhalReadCurrencyCodeEnum? currencyCode;
 
   // minimum: 0
-  num? value;
+      num? value;
 
   @override
   bool operator ==(Object other) {
@@ -38,23 +41,25 @@ class PriceJsonhalRead {
       return true;
     }
 
-    return other is PriceJsonhalRead &&
-        other.currencyCode == currencyCode &&
-        other.value == value;
+    return other is PriceJsonhalRead 
+          && other.currencyCode == currencyCode
+  
+          && other.value == value
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (currencyCode == null ? 0 : currencyCode.hashCode) +
-      (value == null ? 0 : value.hashCode);
+    (currencyCode == null ? 0 : currencyCode.hashCode) +
+    (value == null ? 0 : value.hashCode);
 
   static List<PriceJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <PriceJsonhalRead>[];
     }
 
-    return json.fold(<PriceJsonhalRead>[],
-        (List<PriceJsonhalRead> previousValue, element) {
+    return json.fold(<PriceJsonhalRead>[], (List<PriceJsonhalRead> previousValue, element) {
       final PriceJsonhalRead? object = PriceJsonhalRead.fromJson(element);
       if (object is PriceJsonhalRead) {
         previousValue.add(object);
@@ -69,8 +74,7 @@ class PriceJsonhalRead {
       return <String, PriceJsonhalRead>{};
     }
 
-    return json.entries.fold(<String, PriceJsonhalRead>{},
-        (Map<String, PriceJsonhalRead> previousValue, element) {
+    return json.entries.fold(<String, PriceJsonhalRead>{}, (Map<String, PriceJsonhalRead> previousValue, element) {
       final PriceJsonhalRead? object = PriceJsonhalRead.fromJson(element.value);
       if (object is PriceJsonhalRead) {
         previousValue[element.key] = object;
@@ -81,27 +85,31 @@ class PriceJsonhalRead {
   }
 
   // maps a json object with a list of PriceJsonhalRead-objects as value to a dart map
-  static Map<String, List<PriceJsonhalRead>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<PriceJsonhalRead>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<PriceJsonhalRead>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<PriceJsonhalRead>>(
-          key, PriceJsonhalRead.listFromJson(value));
+      return MapEntry<String, List<PriceJsonhalRead>>(key, PriceJsonhalRead.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'PriceJsonhalRead[currencyCode=$currencyCode, value=$value]';
+  String toString() => 'PriceJsonhalRead[currencyCode=$currencyCode, value=$value]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'currencyCode'))
-        r'currencyCode': currencyCode,
-      if (keys == null || keys.contains(r'value')) r'value': value,
+    if (keys == null || keys.
+    contains(r'currencyCode')
+    )
+        r'currencyCode':
+          currencyCode,
+    if (keys == null || keys.
+    contains(r'value')
+    )
+        r'value':
+          value,
     };
   }
 }
@@ -127,16 +135,12 @@ class PriceJsonhalReadCurrencyCodeEnum {
   ];
 
   static PriceJsonhalReadCurrencyCodeEnum? fromJson(dynamic value) =>
-      PriceJsonhalReadCurrencyCodeEnumTypeTransformer().decode(value);
+    PriceJsonhalReadCurrencyCodeEnumTypeTransformer().decode(value);
 
-  static List<PriceJsonhalReadCurrencyCodeEnum> listFromJson(
-      List<dynamic> json) {
-    return json
-        .map((value) {
-          return PriceJsonhalReadCurrencyCodeEnum.fromJson(value);
-        })
-        .whereType<PriceJsonhalReadCurrencyCodeEnum>()
-        .toList();
+  static List<PriceJsonhalReadCurrencyCodeEnum> listFromJson(List<dynamic> json) {
+    return json.map((value) {
+      return PriceJsonhalReadCurrencyCodeEnum.fromJson(value);
+    }).whereType<PriceJsonhalReadCurrencyCodeEnum>().toList();
   }
 }
 
@@ -145,8 +149,7 @@ class PriceJsonhalReadCurrencyCodeEnum {
 class PriceJsonhalReadCurrencyCodeEnumTypeTransformer {
   const PriceJsonhalReadCurrencyCodeEnumTypeTransformer._();
 
-  factory PriceJsonhalReadCurrencyCodeEnumTypeTransformer() =>
-      _instance ??= PriceJsonhalReadCurrencyCodeEnumTypeTransformer._();
+  factory PriceJsonhalReadCurrencyCodeEnumTypeTransformer() => _instance ??= PriceJsonhalReadCurrencyCodeEnumTypeTransformer._();
 
   String encode(PriceJsonhalReadCurrencyCodeEnum data) => data.value;
 
@@ -158,11 +161,9 @@ class PriceJsonhalReadCurrencyCodeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  PriceJsonhalReadCurrencyCodeEnum? decode(dynamic data,
-      {bool allowNull = true}) {
+  PriceJsonhalReadCurrencyCodeEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
-      case r'EUR':
-        return PriceJsonhalReadCurrencyCodeEnum.EUR;
+      case r'EUR': return PriceJsonhalReadCurrencyCodeEnum.EUR;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
@@ -174,3 +175,4 @@ class PriceJsonhalReadCurrencyCodeEnumTypeTransformer {
   /// Singleton [PriceJsonhalReadCurrencyCodeEnumTypeTransformer] instance.
   static PriceJsonhalReadCurrencyCodeEnumTypeTransformer? _instance;
 }
+

@@ -7,15 +7,26 @@ part of keyclic_sdk_api_platform;
 class FeedbackJsonhalRead {
   /// Returns a new [FeedbackJsonhalRead] instance.
   FeedbackJsonhalRead({
-    this.links,
-    this.description,
-    this.geoCoordinates,
-    this.markers,
-    this.metadata,
-    required this.visibility,
-    this.id,
-    this.createdAt,
-    this.updatedAt,
+    this.links
+,
+    this.description
+,
+    this.geoCoordinates
+,
+    this.markers
+,
+    this.metadata
+,
+      required 
+    this.visibility
+      
+    ,
+    this.id
+,
+    this.createdAt
+,
+    this.updatedAt
+,
   });
 
   /// Returns a new [FeedbackJsonhalRead] instance and imports its values from
@@ -25,43 +36,41 @@ class FeedbackJsonhalRead {
       return null;
     }
 
-    return FeedbackJsonhalRead(
-      links: FeedbackJsonhalReadLinks.fromJson(json[r'_links']),
-      description: json[r'description'],
-      geoCoordinates:
-          GeoCoordinatesJsonhalRead.fromJson(json[r'geoCoordinates']),
-      markers: MarkerJsonhalRead.listFromJson(json[r'markers']),
-      metadata: json[r'metadata'] == null
-          ? null
-          : Map<String, Object?>.from(json[r'metadata']),
-      visibility:
-          FeedbackJsonhalReadVisibilityEnum.fromJson(json[r'visibility'])!,
-      id: json[r'id'],
-      createdAt: mapToDateTime(json[r'createdAt']),
-      updatedAt: mapToDateTime(json[r'updatedAt']),
+  return FeedbackJsonhalRead(
+        links: FeedbackJsonhalReadLinks.fromJson(json[r'_links']),
+                  description: json[r'description'],
+        geoCoordinates: GeoCoordinatesJsonhalRead.fromJson(json[r'geoCoordinates']),
+        markers: 
+          MarkerJsonhalRead.listFromJson(json[r'markers']),
+            metadata:
+              json[r'metadata'] == null ? null : Map<String, Object?>.from(json[r'metadata']),
+              visibility: FeedbackJsonhalReadVisibilityEnum.fromJson(json[r'visibility'])!,
+                  id: json[r'id'],
+        createdAt: mapToDateTime(json[r'createdAt']),
+        updatedAt: mapToDateTime(json[r'updatedAt']),
     );
   }
 
-  FeedbackJsonhalReadLinks? links;
+      FeedbackJsonhalReadLinks? links;
 
-  String? description;
+      String? description;
 
-  GeoCoordinatesJsonhalRead? geoCoordinates;
+      GeoCoordinatesJsonhalRead? geoCoordinates;
 
-  final List<MarkerJsonhalRead>? markers;
+        final List<MarkerJsonhalRead>? markers;
 
-  Map<String, Object?>? metadata;
+    Map<String, Object?>? metadata;
 
-  FeedbackJsonhalReadVisibilityEnum visibility;
+      FeedbackJsonhalReadVisibilityEnum visibility;
 
   /// The resource identifier.
-  final String? id;
+      final String? id;
 
   /// The date and time when the resource was created, in UTC format.
-  final DateTime? createdAt;
+      final DateTime? createdAt;
 
   /// The date and time when the resource was updated, in UTC format.
-  final DateTime? updatedAt;
+      final DateTime? updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -70,37 +79,46 @@ class FeedbackJsonhalRead {
       return true;
     }
 
-    return other is FeedbackJsonhalRead &&
-        other.links == links &&
-        other.description == description &&
-        other.geoCoordinates == geoCoordinates &&
-        DeepCollectionEquality.unordered().equals(markers, other.markers) &&
-        DeepCollectionEquality.unordered().equals(metadata, other.metadata) &&
-        other.visibility == visibility &&
-        other.id == id &&
-        other.createdAt == createdAt &&
-        other.updatedAt == updatedAt;
+    return other is FeedbackJsonhalRead 
+          && other.links == links
+  
+          && other.description == description
+  
+          && other.geoCoordinates == geoCoordinates
+  
+          && DeepCollectionEquality.unordered().equals(markers, other.markers)
+  
+          && DeepCollectionEquality.unordered().equals(metadata, other.metadata)
+  
+          && other.visibility == visibility
+  
+          && other.id == id
+  
+          && other.createdAt == createdAt
+  
+          && other.updatedAt == updatedAt
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
-      (description == null ? 0 : description.hashCode) +
-      (geoCoordinates == null ? 0 : geoCoordinates.hashCode) +
-      (markers == null ? 0 : markers.hashCode) +
-      (metadata == null ? 0 : metadata.hashCode) +
-      visibility.hashCode +
-      (id == null ? 0 : id.hashCode) +
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode);
+    (links == null ? 0 : links.hashCode) +
+    (description == null ? 0 : description.hashCode) +
+    (geoCoordinates == null ? 0 : geoCoordinates.hashCode) +
+    (markers == null ? 0 : markers.hashCode) +
+    (metadata == null ? 0 : metadata.hashCode) +
+     visibility.hashCode +
+    (id == null ? 0 : id.hashCode) +
+    (createdAt == null ? 0 : createdAt.hashCode) +
+    (updatedAt == null ? 0 : updatedAt.hashCode);
 
   static List<FeedbackJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <FeedbackJsonhalRead>[];
     }
 
-    return json.fold(<FeedbackJsonhalRead>[],
-        (List<FeedbackJsonhalRead> previousValue, element) {
+    return json.fold(<FeedbackJsonhalRead>[], (List<FeedbackJsonhalRead> previousValue, element) {
       final FeedbackJsonhalRead? object = FeedbackJsonhalRead.fromJson(element);
       if (object is FeedbackJsonhalRead) {
         previousValue.add(object);
@@ -110,16 +128,13 @@ class FeedbackJsonhalRead {
     });
   }
 
-  static Map<String, FeedbackJsonhalRead> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, FeedbackJsonhalRead> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, FeedbackJsonhalRead>{};
     }
 
-    return json.entries.fold(<String, FeedbackJsonhalRead>{},
-        (Map<String, FeedbackJsonhalRead> previousValue, element) {
-      final FeedbackJsonhalRead? object =
-          FeedbackJsonhalRead.fromJson(element.value);
+    return json.entries.fold(<String, FeedbackJsonhalRead>{}, (Map<String, FeedbackJsonhalRead> previousValue, element) {
+      final FeedbackJsonhalRead? object = FeedbackJsonhalRead.fromJson(element.value);
       if (object is FeedbackJsonhalRead) {
         previousValue[element.key] = object;
       }
@@ -129,56 +144,77 @@ class FeedbackJsonhalRead {
   }
 
   // maps a json object with a list of FeedbackJsonhalRead-objects as value to a dart map
-  static Map<String, List<FeedbackJsonhalRead>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<FeedbackJsonhalRead>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<FeedbackJsonhalRead>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<FeedbackJsonhalRead>>(
-          key, FeedbackJsonhalRead.listFromJson(value));
+      return MapEntry<String, List<FeedbackJsonhalRead>>(key, FeedbackJsonhalRead.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'FeedbackJsonhalRead[links=$links, description=$description, geoCoordinates=$geoCoordinates, markers=$markers, metadata=$metadata, visibility=$visibility, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
+  String toString() => 'FeedbackJsonhalRead[links=$links, description=$description, geoCoordinates=$geoCoordinates, markers=$markers, metadata=$metadata, visibility=$visibility, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^links\.').hasMatch(key))
+    )
+        r'_links':
+            links?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^links\.'))) {
+                previousValue.add(element.split(RegExp(r'^links\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'description'))
-        r'description': description,
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^geoCoordinates\.').hasMatch(key)))
-        r'geoCoordinates': geoCoordinates?.toJson(keys?.fold<List<String>>(
-            <String>[], (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^geoCoordinates\.'))) {
-            previousValue.add(element.split(RegExp(r'^geoCoordinates\.')).last);
-          }
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    contains(r'description')
+    )
+        r'description':
+          description,
+    if (keys == null || keys.
+    any((key) => RegExp(r'^geoCoordinates\.').hasMatch(key))
+    )
+        r'geoCoordinates':
+            geoCoordinates?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^geoCoordinates\.'))) {
+                previousValue.add(element.split(RegExp(r'^geoCoordinates\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'markers')) r'markers': markers,
-      if (keys == null || keys.contains(r'metadata')) r'metadata': metadata,
-      r'visibility': visibility,
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    contains(r'markers')
+    )
+        r'markers':
+            markers,
+    if (keys == null || keys.
+    contains(r'metadata')
+    )
+        r'metadata':
+            metadata,
+        r'visibility':
+          visibility,
+    if (keys == null || keys.
+    contains(r'id')
+    )
+        r'id':
+          id,
+    if (keys == null || keys.
+    contains(r'createdAt')
+    )
+      r'createdAt': createdAt?.toUtc().toIso8601String(),
+    if (keys == null || keys.
+    contains(r'updatedAt')
+    )
+      r'updatedAt': updatedAt?.toUtc().toIso8601String(),
     };
   }
 }
+
 
 class FeedbackJsonhalReadVisibilityEnum {
   /// Instantiate a new enum with the provided [value].
@@ -192,12 +228,9 @@ class FeedbackJsonhalReadVisibilityEnum {
 
   String toJson() => value;
 
-  static const PRIVATE =
-      FeedbackJsonhalReadVisibilityEnum._(r'VISIBILITY_PRIVATE');
-  static const PUBLIC =
-      FeedbackJsonhalReadVisibilityEnum._(r'VISIBILITY_PUBLIC');
-  static const SHARED =
-      FeedbackJsonhalReadVisibilityEnum._(r'VISIBILITY_SHARED');
+  static const PRIVATE = FeedbackJsonhalReadVisibilityEnum._(r'VISIBILITY_PRIVATE');
+  static const PUBLIC = FeedbackJsonhalReadVisibilityEnum._(r'VISIBILITY_PUBLIC');
+  static const SHARED = FeedbackJsonhalReadVisibilityEnum._(r'VISIBILITY_SHARED');
 
   /// List of all possible values in this [enum][FeedbackJsonhalReadVisibilityEnum].
   static const values = <FeedbackJsonhalReadVisibilityEnum>[
@@ -207,16 +240,12 @@ class FeedbackJsonhalReadVisibilityEnum {
   ];
 
   static FeedbackJsonhalReadVisibilityEnum? fromJson(dynamic value) =>
-      FeedbackJsonhalReadVisibilityEnumTypeTransformer().decode(value);
+    FeedbackJsonhalReadVisibilityEnumTypeTransformer().decode(value);
 
-  static List<FeedbackJsonhalReadVisibilityEnum> listFromJson(
-      List<dynamic> json) {
-    return json
-        .map((value) {
-          return FeedbackJsonhalReadVisibilityEnum.fromJson(value);
-        })
-        .whereType<FeedbackJsonhalReadVisibilityEnum>()
-        .toList();
+  static List<FeedbackJsonhalReadVisibilityEnum> listFromJson(List<dynamic> json) {
+    return json.map((value) {
+      return FeedbackJsonhalReadVisibilityEnum.fromJson(value);
+    }).whereType<FeedbackJsonhalReadVisibilityEnum>().toList();
   }
 }
 
@@ -225,8 +254,7 @@ class FeedbackJsonhalReadVisibilityEnum {
 class FeedbackJsonhalReadVisibilityEnumTypeTransformer {
   const FeedbackJsonhalReadVisibilityEnumTypeTransformer._();
 
-  factory FeedbackJsonhalReadVisibilityEnumTypeTransformer() =>
-      _instance ??= FeedbackJsonhalReadVisibilityEnumTypeTransformer._();
+  factory FeedbackJsonhalReadVisibilityEnumTypeTransformer() => _instance ??= FeedbackJsonhalReadVisibilityEnumTypeTransformer._();
 
   String encode(FeedbackJsonhalReadVisibilityEnum data) => data.value;
 
@@ -238,15 +266,11 @@ class FeedbackJsonhalReadVisibilityEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  FeedbackJsonhalReadVisibilityEnum? decode(dynamic data,
-      {bool allowNull = true}) {
+  FeedbackJsonhalReadVisibilityEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
-      case r'VISIBILITY_PRIVATE':
-        return FeedbackJsonhalReadVisibilityEnum.PRIVATE;
-      case r'VISIBILITY_PUBLIC':
-        return FeedbackJsonhalReadVisibilityEnum.PUBLIC;
-      case r'VISIBILITY_SHARED':
-        return FeedbackJsonhalReadVisibilityEnum.SHARED;
+      case r'VISIBILITY_PRIVATE': return FeedbackJsonhalReadVisibilityEnum.PRIVATE;
+      case r'VISIBILITY_PUBLIC': return FeedbackJsonhalReadVisibilityEnum.PUBLIC;
+      case r'VISIBILITY_SHARED': return FeedbackJsonhalReadVisibilityEnum.SHARED;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
@@ -258,3 +282,4 @@ class FeedbackJsonhalReadVisibilityEnumTypeTransformer {
   /// Singleton [FeedbackJsonhalReadVisibilityEnumTypeTransformer] instance.
   static FeedbackJsonhalReadVisibilityEnumTypeTransformer? _instance;
 }
+

@@ -11,12 +11,18 @@ void main() {
 
   group('test SuccessLogin', () {
     // String accessToken
-    test('to test the property `accessToken`', () async {});
+    test('to test the property `accessToken`', () async {
+    });
 
     // String idToken
-    test('to test the property `idToken`', () async {});
+    test('to test the property `idToken`', () async {
+    });
 
     // String tokenType (default value: 'Bearer')
-    test('to test the property `tokenType`', () async {});
+    test('to test the property `tokenType`', () async {
+    });
+
+
   });
+
 }

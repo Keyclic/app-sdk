@@ -12,9 +12,14 @@ void main() {
   group('test GeoCoordinatesJsonhalRead', () {
     // The elevation of a location (WGS 84).
     // num elevation
-    test('to test the property `elevation`', () async {});
+    test('to test the property `elevation`', () async {
+    });
 
     // PointJsonhalRead point
-    test('to test the property `point`', () async {});
+    test('to test the property `point`', () async {
+    });
+
+
   });
+
 }

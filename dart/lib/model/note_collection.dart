@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class NoteCollection {
   /// Returns a new [NoteCollection] instance.
   NoteCollection({
-    this.items,
+    this.items
+,
   });
 
   /// Returns a new [NoteCollection] instance and imports its values from
@@ -17,12 +18,13 @@ class NoteCollection {
       return null;
     }
 
-    return NoteCollection(
-      items: Note.listFromJson(json[r'items']),
+  return NoteCollection(
+        items: 
+          Note.listFromJson(json[r'items']),
     );
   }
 
-  List<Note>? items;
+        List<Note>? items;
 
   @override
   bool operator ==(Object other) {
@@ -31,20 +33,22 @@ class NoteCollection {
       return true;
     }
 
-    return other is NoteCollection &&
-        DeepCollectionEquality.unordered().equals(items, other.items);
+    return other is NoteCollection 
+          && DeepCollectionEquality.unordered().equals(items, other.items)
+  ;
   }
+  
 
   @override
-  int get hashCode => (items == null ? 0 : items.hashCode);
+  int get hashCode =>
+    (items == null ? 0 : items.hashCode);
 
   static List<NoteCollection> listFromJson(Iterable? json) {
     if (json == null) {
       return <NoteCollection>[];
     }
 
-    return json.fold(<NoteCollection>[],
-        (List<NoteCollection> previousValue, element) {
+    return json.fold(<NoteCollection>[], (List<NoteCollection> previousValue, element) {
       final NoteCollection? object = NoteCollection.fromJson(element);
       if (object is NoteCollection) {
         previousValue.add(object);
@@ -59,8 +63,7 @@ class NoteCollection {
       return <String, NoteCollection>{};
     }
 
-    return json.entries.fold(<String, NoteCollection>{},
-        (Map<String, NoteCollection> previousValue, element) {
+    return json.entries.fold(<String, NoteCollection>{}, (Map<String, NoteCollection> previousValue, element) {
       final NoteCollection? object = NoteCollection.fromJson(element.value);
       if (object is NoteCollection) {
         previousValue[element.key] = object;
@@ -71,15 +74,13 @@ class NoteCollection {
   }
 
   // maps a json object with a list of NoteCollection-objects as value to a dart map
-  static Map<String, List<NoteCollection>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<NoteCollection>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<NoteCollection>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<NoteCollection>>(
-          key, NoteCollection.listFromJson(value));
+      return MapEntry<String, List<NoteCollection>>(key, NoteCollection.listFromJson(value));
     });
   }
 
@@ -88,7 +89,12 @@ class NoteCollection {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'items')) r'items': items,
+    if (keys == null || keys.
+    contains(r'items')
+    )
+        r'items':
+            items,
     };
   }
 }
+

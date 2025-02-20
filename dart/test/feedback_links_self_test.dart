@@ -12,9 +12,14 @@ void main() {
   group('test FeedbackLinksSelf', () {
     // The URI of the self associated to the given feedback.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // FeedbackLinksSelfIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

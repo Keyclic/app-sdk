@@ -12,9 +12,14 @@ void main() {
   group('test OrganizationLinksSelf', () {
     // The URI of the self associated to the given organization.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // OrganizationLinksSelfIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

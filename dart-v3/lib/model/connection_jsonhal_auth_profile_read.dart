@@ -7,10 +7,14 @@ part of keyclic_sdk_api_platform;
 class ConnectionJsonhalAuthProfileRead {
   /// Returns a new [ConnectionJsonhalAuthProfileRead] instance.
   ConnectionJsonhalAuthProfileRead({
-    this.image,
-    this.text,
-    this.authorizationUrl,
-    this.type,
+    this.image
+,
+    this.text
+,
+    this.authorizationUrl
+,
+    this.type
+,
   });
 
   /// Returns a new [ConnectionJsonhalAuthProfileRead] instance and imports its values from
@@ -20,21 +24,21 @@ class ConnectionJsonhalAuthProfileRead {
       return null;
     }
 
-    return ConnectionJsonhalAuthProfileRead(
-      image: json[r'image'],
-      text: json[r'text'],
-      authorizationUrl: json[r'authorizationUrl'],
-      type: ConnectionJsonhalAuthProfileReadTypeEnum.fromJson(json[r'type']),
+  return ConnectionJsonhalAuthProfileRead(
+                  image: json[r'image'],
+                  text: json[r'text'],
+                  authorizationUrl: json[r'authorizationUrl'],
+              type: ConnectionJsonhalAuthProfileReadTypeEnum.fromJson(json[r'type']),
     );
   }
 
-  String? image;
+      String? image;
 
-  String? text;
+      String? text;
 
-  final String? authorizationUrl;
+      final String? authorizationUrl;
 
-  final ConnectionJsonhalAuthProfileReadTypeEnum? type;
+      final ConnectionJsonhalAuthProfileReadTypeEnum? type;
 
   @override
   bool operator ==(Object other) {
@@ -43,29 +47,32 @@ class ConnectionJsonhalAuthProfileRead {
       return true;
     }
 
-    return other is ConnectionJsonhalAuthProfileRead &&
-        other.image == image &&
-        other.text == text &&
-        other.authorizationUrl == authorizationUrl &&
-        other.type == type;
+    return other is ConnectionJsonhalAuthProfileRead 
+          && other.image == image
+  
+          && other.text == text
+  
+          && other.authorizationUrl == authorizationUrl
+  
+          && other.type == type
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (image == null ? 0 : image.hashCode) +
-      (text == null ? 0 : text.hashCode) +
-      (authorizationUrl == null ? 0 : authorizationUrl.hashCode) +
-      (type == null ? 0 : type.hashCode);
+    (image == null ? 0 : image.hashCode) +
+    (text == null ? 0 : text.hashCode) +
+    (authorizationUrl == null ? 0 : authorizationUrl.hashCode) +
+    (type == null ? 0 : type.hashCode);
 
   static List<ConnectionJsonhalAuthProfileRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <ConnectionJsonhalAuthProfileRead>[];
     }
 
-    return json.fold(<ConnectionJsonhalAuthProfileRead>[],
-        (List<ConnectionJsonhalAuthProfileRead> previousValue, element) {
-      final ConnectionJsonhalAuthProfileRead? object =
-          ConnectionJsonhalAuthProfileRead.fromJson(element);
+    return json.fold(<ConnectionJsonhalAuthProfileRead>[], (List<ConnectionJsonhalAuthProfileRead> previousValue, element) {
+      final ConnectionJsonhalAuthProfileRead? object = ConnectionJsonhalAuthProfileRead.fromJson(element);
       if (object is ConnectionJsonhalAuthProfileRead) {
         previousValue.add(object);
       }
@@ -74,16 +81,13 @@ class ConnectionJsonhalAuthProfileRead {
     });
   }
 
-  static Map<String, ConnectionJsonhalAuthProfileRead> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, ConnectionJsonhalAuthProfileRead> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, ConnectionJsonhalAuthProfileRead>{};
     }
 
-    return json.entries.fold(<String, ConnectionJsonhalAuthProfileRead>{},
-        (Map<String, ConnectionJsonhalAuthProfileRead> previousValue, element) {
-      final ConnectionJsonhalAuthProfileRead? object =
-          ConnectionJsonhalAuthProfileRead.fromJson(element.value);
+    return json.entries.fold(<String, ConnectionJsonhalAuthProfileRead>{}, (Map<String, ConnectionJsonhalAuthProfileRead> previousValue, element) {
+      final ConnectionJsonhalAuthProfileRead? object = ConnectionJsonhalAuthProfileRead.fromJson(element.value);
       if (object is ConnectionJsonhalAuthProfileRead) {
         previousValue[element.key] = object;
       }
@@ -93,32 +97,45 @@ class ConnectionJsonhalAuthProfileRead {
   }
 
   // maps a json object with a list of ConnectionJsonhalAuthProfileRead-objects as value to a dart map
-  static Map<String, List<ConnectionJsonhalAuthProfileRead>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<ConnectionJsonhalAuthProfileRead>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ConnectionJsonhalAuthProfileRead>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ConnectionJsonhalAuthProfileRead>>(
-          key, ConnectionJsonhalAuthProfileRead.listFromJson(value));
+      return MapEntry<String, List<ConnectionJsonhalAuthProfileRead>>(key, ConnectionJsonhalAuthProfileRead.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'ConnectionJsonhalAuthProfileRead[image=$image, text=$text, authorizationUrl=$authorizationUrl, type=$type]';
+  String toString() => 'ConnectionJsonhalAuthProfileRead[image=$image, text=$text, authorizationUrl=$authorizationUrl, type=$type]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'image')) r'image': image,
-      if (keys == null || keys.contains(r'text')) r'text': text,
-      if (keys == null || keys.contains(r'authorizationUrl'))
-        r'authorizationUrl': authorizationUrl,
-      if (keys == null || keys.contains(r'type')) r'type': type,
+    if (keys == null || keys.
+    contains(r'image')
+    )
+        r'image':
+          image,
+    if (keys == null || keys.
+    contains(r'text')
+    )
+        r'text':
+          text,
+    if (keys == null || keys.
+    contains(r'authorizationUrl')
+    )
+        r'authorizationUrl':
+          authorizationUrl,
+    if (keys == null || keys.
+    contains(r'type')
+    )
+        r'type':
+          type,
     };
   }
 }
+
 
 class ConnectionJsonhalAuthProfileReadTypeEnum {
   /// Instantiate a new enum with the provided [value].
@@ -132,10 +149,8 @@ class ConnectionJsonhalAuthProfileReadTypeEnum {
 
   String toJson() => value;
 
-  static const enterprise =
-      ConnectionJsonhalAuthProfileReadTypeEnum._(r'enterprise');
-  static const password =
-      ConnectionJsonhalAuthProfileReadTypeEnum._(r'password');
+  static const enterprise = ConnectionJsonhalAuthProfileReadTypeEnum._(r'enterprise');
+  static const password = ConnectionJsonhalAuthProfileReadTypeEnum._(r'password');
 
   /// List of all possible values in this [enum][ConnectionJsonhalAuthProfileReadTypeEnum].
   static const values = <ConnectionJsonhalAuthProfileReadTypeEnum>[
@@ -144,16 +159,12 @@ class ConnectionJsonhalAuthProfileReadTypeEnum {
   ];
 
   static ConnectionJsonhalAuthProfileReadTypeEnum? fromJson(dynamic value) =>
-      ConnectionJsonhalAuthProfileReadTypeEnumTypeTransformer().decode(value);
+    ConnectionJsonhalAuthProfileReadTypeEnumTypeTransformer().decode(value);
 
-  static List<ConnectionJsonhalAuthProfileReadTypeEnum> listFromJson(
-      List<dynamic> json) {
-    return json
-        .map((value) {
-          return ConnectionJsonhalAuthProfileReadTypeEnum.fromJson(value);
-        })
-        .whereType<ConnectionJsonhalAuthProfileReadTypeEnum>()
-        .toList();
+  static List<ConnectionJsonhalAuthProfileReadTypeEnum> listFromJson(List<dynamic> json) {
+    return json.map((value) {
+      return ConnectionJsonhalAuthProfileReadTypeEnum.fromJson(value);
+    }).whereType<ConnectionJsonhalAuthProfileReadTypeEnum>().toList();
   }
 }
 
@@ -162,8 +173,7 @@ class ConnectionJsonhalAuthProfileReadTypeEnum {
 class ConnectionJsonhalAuthProfileReadTypeEnumTypeTransformer {
   const ConnectionJsonhalAuthProfileReadTypeEnumTypeTransformer._();
 
-  factory ConnectionJsonhalAuthProfileReadTypeEnumTypeTransformer() =>
-      _instance ??= ConnectionJsonhalAuthProfileReadTypeEnumTypeTransformer._();
+  factory ConnectionJsonhalAuthProfileReadTypeEnumTypeTransformer() => _instance ??= ConnectionJsonhalAuthProfileReadTypeEnumTypeTransformer._();
 
   String encode(ConnectionJsonhalAuthProfileReadTypeEnum data) => data.value;
 
@@ -175,13 +185,10 @@ class ConnectionJsonhalAuthProfileReadTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  ConnectionJsonhalAuthProfileReadTypeEnum? decode(dynamic data,
-      {bool allowNull = true}) {
+  ConnectionJsonhalAuthProfileReadTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
-      case r'enterprise':
-        return ConnectionJsonhalAuthProfileReadTypeEnum.enterprise;
-      case r'password':
-        return ConnectionJsonhalAuthProfileReadTypeEnum.password;
+      case r'enterprise': return ConnectionJsonhalAuthProfileReadTypeEnum.enterprise;
+      case r'password': return ConnectionJsonhalAuthProfileReadTypeEnum.password;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
@@ -193,3 +200,4 @@ class ConnectionJsonhalAuthProfileReadTypeEnumTypeTransformer {
   /// Singleton [ConnectionJsonhalAuthProfileReadTypeEnumTypeTransformer] instance.
   static ConnectionJsonhalAuthProfileReadTypeEnumTypeTransformer? _instance;
 }
+

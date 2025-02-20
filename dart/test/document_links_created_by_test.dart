@@ -12,9 +12,14 @@ void main() {
   group('test DocumentLinksCreatedBy', () {
     // The URI of the createdBy associated to the given document.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // DocumentLinksCreatedByIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

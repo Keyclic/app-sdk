@@ -7,8 +7,10 @@ part of keyclic_sdk_api;
 class AssignmentLinksService {
   /// Returns a new [AssignmentLinksService] instance.
   AssignmentLinksService({
-    this.href,
-    this.iriTemplate,
+    this.href
+,
+    this.iriTemplate
+,
   });
 
   /// Returns a new [AssignmentLinksService] instance and imports its values from
@@ -18,17 +20,16 @@ class AssignmentLinksService {
       return null;
     }
 
-    return AssignmentLinksService(
-      href: json[r'href'],
-      iriTemplate:
-          AssignmentLinksServiceIriTemplate.fromJson(json[r'iriTemplate']),
+  return AssignmentLinksService(
+                  href: json[r'href'],
+        iriTemplate: AssignmentLinksServiceIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
   /// The URI of the service associated to the given assignment.
-  String? href;
+      String? href;
 
-  AssignmentLinksServiceIriTemplate? iriTemplate;
+      AssignmentLinksServiceIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -37,25 +38,26 @@ class AssignmentLinksService {
       return true;
     }
 
-    return other is AssignmentLinksService &&
-        other.href == href &&
-        other.iriTemplate == iriTemplate;
+    return other is AssignmentLinksService 
+          && other.href == href
+  
+          && other.iriTemplate == iriTemplate
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (href == null ? 0 : href.hashCode) +
-      (iriTemplate == null ? 0 : iriTemplate.hashCode);
+    (href == null ? 0 : href.hashCode) +
+    (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
   static List<AssignmentLinksService> listFromJson(Iterable? json) {
     if (json == null) {
       return <AssignmentLinksService>[];
     }
 
-    return json.fold(<AssignmentLinksService>[],
-        (List<AssignmentLinksService> previousValue, element) {
-      final AssignmentLinksService? object =
-          AssignmentLinksService.fromJson(element);
+    return json.fold(<AssignmentLinksService>[], (List<AssignmentLinksService> previousValue, element) {
+      final AssignmentLinksService? object = AssignmentLinksService.fromJson(element);
       if (object is AssignmentLinksService) {
         previousValue.add(object);
       }
@@ -64,16 +66,13 @@ class AssignmentLinksService {
     });
   }
 
-  static Map<String, AssignmentLinksService> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, AssignmentLinksService> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, AssignmentLinksService>{};
     }
 
-    return json.entries.fold(<String, AssignmentLinksService>{},
-        (Map<String, AssignmentLinksService> previousValue, element) {
-      final AssignmentLinksService? object =
-          AssignmentLinksService.fromJson(element.value);
+    return json.entries.fold(<String, AssignmentLinksService>{}, (Map<String, AssignmentLinksService> previousValue, element) {
+      final AssignmentLinksService? object = AssignmentLinksService.fromJson(element.value);
       if (object is AssignmentLinksService) {
         previousValue[element.key] = object;
       }
@@ -83,35 +82,38 @@ class AssignmentLinksService {
   }
 
   // maps a json object with a list of AssignmentLinksService-objects as value to a dart map
-  static Map<String, List<AssignmentLinksService>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<AssignmentLinksService>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<AssignmentLinksService>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<AssignmentLinksService>>(
-          key, AssignmentLinksService.listFromJson(value));
+      return MapEntry<String, List<AssignmentLinksService>>(key, AssignmentLinksService.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'AssignmentLinksService[href=$href, iriTemplate=$iriTemplate]';
+  String toString() => 'AssignmentLinksService[href=$href, iriTemplate=$iriTemplate]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'href')) r'href': href,
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^iriTemplate\.').hasMatch(key)))
-        r'iriTemplate': iriTemplate?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^iriTemplate\.'))) {
-            previousValue.add(element.split(RegExp(r'^iriTemplate\.')).last);
-          }
+    if (keys == null || keys.
+    contains(r'href')
+    )
+        r'href':
+          href,
+    if (keys == null || keys.
+    any((key) => RegExp(r'^iriTemplate\.').hasMatch(key))
+    )
+        r'iriTemplate':
+            iriTemplate?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^iriTemplate\.'))) {
+                previousValue.add(element.split(RegExp(r'^iriTemplate\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

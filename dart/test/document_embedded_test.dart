@@ -11,18 +11,26 @@ void main() {
 
   group('test DocumentEmbedded', () {
     // Map<String, dynamic> container (default value: const {})
-    test('to test the property `container`', () async {});
+    test('to test the property `container`', () async {
+    });
 
     // Person createdBy
-    test('to test the property `createdBy`', () async {});
+    test('to test the property `createdBy`', () async {
+    });
 
     // List<Signer> signers (default value: const [])
-    test('to test the property `signers`', () async {});
+    test('to test the property `signers`', () async {
+    });
 
     // List<String> stateTransitions (default value: const [])
-    test('to test the property `stateTransitions`', () async {});
+    test('to test the property `stateTransitions`', () async {
+    });
 
     // DocumentType type
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
+
+
   });
+
 }

@@ -12,9 +12,14 @@ void main() {
   group('test RuleLinksCategory', () {
     // The URI of the category associated to the given rule.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // RuleLinksCategoryIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

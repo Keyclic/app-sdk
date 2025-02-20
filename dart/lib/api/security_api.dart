@@ -4,21 +4,22 @@
 
 part of keyclic_sdk_api;
 
+
 class SecurityApi {
   const SecurityApi(this._apiClient);
 
   final ApiClient _apiClient;
 
   /// Create one Login resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
-  /// * [loginData]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [xKeyclicApp] 
+  /// * [loginData] 
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -30,7 +31,7 @@ class SecurityApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Login resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<SuccessLogin>> postLogin({
+  Future<Response<SuccessLogin>> postLogin({ 
     required String xKeyclicApp,
     required LoginData loginData,
     String? acceptLanguage,
@@ -53,10 +54,8 @@ class SecurityApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -67,11 +66,12 @@ class SecurityApi {
       validateStatus: validateStatus,
     );
 
+
     dynamic bodyData;
 
     try {
-      bodyData = loginData.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = loginData.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -95,8 +95,7 @@ class SecurityApi {
     SuccessLogin responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<SuccessLogin>(
-          response.data!, 'SuccessLogin');
+            responseData = await _apiClient.deserializeAsync<SuccessLogin>(response.data!, 'SuccessLogin');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -118,18 +117,17 @@ class SecurityApi {
       extra: response.extra,
     );
   }
-
   /// Create one PasswordChange resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
-  /// * [token]
-  /// * [passwordChangeData]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [xKeyclicApp] 
+  /// * [token] 
+  /// * [passwordChangeData] 
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -141,7 +139,7 @@ class SecurityApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one PasswordChange resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<void>> postPasswordChangeByToken({
+  Future<Response<void>> postPasswordChangeByToken({ 
     required String xKeyclicApp,
     required String token,
     required PasswordChangeData passwordChangeData,
@@ -157,8 +155,7 @@ class SecurityApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/security/password/change/{token}'
-        .replaceAll('{' r'token' '}', token.toString());
+    final String path = r'/security/password/change/{token}'.replaceAll('{' r'token' '}', token.toString());
     final options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -166,10 +163,8 @@ class SecurityApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -180,11 +175,12 @@ class SecurityApi {
       validateStatus: validateStatus,
     );
 
+
     dynamic bodyData;
 
     try {
-      bodyData = passwordChangeData.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = passwordChangeData.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -204,18 +200,18 @@ class SecurityApi {
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
     );
-  }
 
+  }
   /// Create one PasswordReset resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
-  /// * [resetPasswordData]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [xKeyclicApp] 
+  /// * [resetPasswordData] 
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -227,7 +223,7 @@ class SecurityApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one PasswordReset resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<void>> postPasswordReset({
+  Future<Response<void>> postPasswordReset({ 
     required String xKeyclicApp,
     required ResetPasswordData resetPasswordData,
     String? acceptLanguage,
@@ -250,10 +246,8 @@ class SecurityApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -264,11 +258,12 @@ class SecurityApi {
       validateStatus: validateStatus,
     );
 
+
     dynamic bodyData;
 
     try {
-      bodyData = resetPasswordData.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = resetPasswordData.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -288,18 +283,18 @@ class SecurityApi {
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
     );
-  }
 
+  }
   /// Create one Register resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
-  /// * [registerData]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [xKeyclicApp] 
+  /// * [registerData] 
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -311,7 +306,7 @@ class SecurityApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Register resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<Person>> postRegister({
+  Future<Response<Person>> postRegister({ 
     required String xKeyclicApp,
     required RegisterData registerData,
     String? acceptLanguage,
@@ -334,16 +329,15 @@ class SecurityApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -355,11 +349,12 @@ class SecurityApi {
       validateStatus: validateStatus,
     );
 
+
     dynamic bodyData;
 
     try {
-      bodyData = registerData.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = registerData.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -383,8 +378,7 @@ class SecurityApi {
     Person responseData;
 
     try {
-      responseData =
-          await _apiClient.deserializeAsync<Person>(response.data!, 'Person');
+            responseData = await _apiClient.deserializeAsync<Person>(response.data!, 'Person');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

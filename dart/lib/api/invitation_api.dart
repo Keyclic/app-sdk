@@ -4,21 +4,22 @@
 
 part of keyclic_sdk_api;
 
+
 class InvitationApi {
   const InvitationApi(this._apiClient);
 
   final ApiClient _apiClient;
 
   /// Remove one Invitation resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [invitation] - The identifier of the resource.
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -30,13 +31,14 @@ class InvitationApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Remove one Invitation resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<void>> deleteInvitation({
+  Future<Response<void>> deleteInvitation({ 
     required String xKeyclicApp,
     required String invitation,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -44,8 +46,7 @@ class InvitationApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/invitations/{invitation}'
-        .replaceAll('{' r'invitation' '}', invitation.toString());
+    final String path = r'/invitations/{invitation}'.replaceAll('{' r'invitation' '}', invitation.toString());
     final options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -53,16 +54,15 @@ class InvitationApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -70,8 +70,11 @@ class InvitationApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     return _apiClient.dio.request<Object>(
       path,
@@ -80,18 +83,18 @@ class InvitationApi {
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
     );
-  }
 
+  }
   /// Retrieve one Invitation resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [invitation] - The identifier of the resource.
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -103,13 +106,14 @@ class InvitationApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one Invitation resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<Invitation>> getInvitation({
+  Future<Response<Invitation>> getInvitation({ 
     required String xKeyclicApp,
     required String invitation,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -117,8 +121,7 @@ class InvitationApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/invitations/{invitation}'
-        .replaceAll('{' r'invitation' '}', invitation.toString());
+    final String path = r'/invitations/{invitation}'.replaceAll('{' r'invitation' '}', invitation.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -126,16 +129,15 @@ class InvitationApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -143,8 +145,11 @@ class InvitationApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -157,8 +162,7 @@ class InvitationApi {
     Invitation responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<Invitation>(
-          response.data!, 'Invitation');
+            responseData = await _apiClient.deserializeAsync<Invitation>(response.data!, 'Invitation');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -180,17 +184,16 @@ class InvitationApi {
       extra: response.extra,
     );
   }
-
   /// Create one Invitation resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
-  /// * [invitationData]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [xKeyclicApp] 
+  /// * [invitationData] 
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -202,7 +205,7 @@ class InvitationApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Invitation resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<Invitation>> postInvitation({
+  Future<Response<Invitation>> postInvitation({ 
     required String xKeyclicApp,
     required InvitationData invitationData,
     String? acceptLanguage,
@@ -225,16 +228,15 @@ class InvitationApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -246,11 +248,12 @@ class InvitationApi {
       validateStatus: validateStatus,
     );
 
+
     dynamic bodyData;
 
     try {
-      bodyData = invitationData.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = invitationData.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -274,8 +277,7 @@ class InvitationApi {
     Invitation responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<Invitation>(
-          response.data!, 'Invitation');
+            responseData = await _apiClient.deserializeAsync<Invitation>(response.data!, 'Invitation');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

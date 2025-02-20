@@ -7,9 +7,12 @@ part of keyclic_sdk_api;
 class Duration {
   /// Returns a new [Duration] instance.
   Duration({
-    this.hours,
-    this.minutes,
-    this.seconds,
+    this.hours
+,
+    this.minutes
+,
+    this.seconds
+,
   });
 
   /// Returns a new [Duration] instance and imports its values from
@@ -19,18 +22,18 @@ class Duration {
       return null;
     }
 
-    return Duration(
-      hours: json[r'hours']?.toDouble(),
-      minutes: json[r'minutes']?.toDouble(),
-      seconds: json[r'seconds'],
+  return Duration(
+                  hours: json[r'hours']?.toDouble(),
+                  minutes: json[r'minutes']?.toDouble(),
+                  seconds: json[r'seconds'],
     );
   }
 
-  double? hours;
+      double? hours;
 
-  double? minutes;
+      double? minutes;
 
-  int? seconds;
+      int? seconds;
 
   @override
   bool operator ==(Object other) {
@@ -39,17 +42,21 @@ class Duration {
       return true;
     }
 
-    return other is Duration &&
-        other.hours == hours &&
-        other.minutes == minutes &&
-        other.seconds == seconds;
+    return other is Duration 
+          && other.hours == hours
+  
+          && other.minutes == minutes
+  
+          && other.seconds == seconds
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (hours == null ? 0 : hours.hashCode) +
-      (minutes == null ? 0 : minutes.hashCode) +
-      (seconds == null ? 0 : seconds.hashCode);
+    (hours == null ? 0 : hours.hashCode) +
+    (minutes == null ? 0 : minutes.hashCode) +
+    (seconds == null ? 0 : seconds.hashCode);
 
   static List<Duration> listFromJson(Iterable? json) {
     if (json == null) {
@@ -71,8 +78,7 @@ class Duration {
       return <String, Duration>{};
     }
 
-    return json.entries.fold(<String, Duration>{},
-        (Map<String, Duration> previousValue, element) {
+    return json.entries.fold(<String, Duration>{}, (Map<String, Duration> previousValue, element) {
       final Duration? object = Duration.fromJson(element.value);
       if (object is Duration) {
         previousValue[element.key] = object;
@@ -83,27 +89,37 @@ class Duration {
   }
 
   // maps a json object with a list of Duration-objects as value to a dart map
-  static Map<String, List<Duration>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<Duration>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<Duration>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<Duration>>(
-          key, Duration.listFromJson(value));
+      return MapEntry<String, List<Duration>>(key, Duration.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'Duration[hours=$hours, minutes=$minutes, seconds=$seconds]';
+  String toString() => 'Duration[hours=$hours, minutes=$minutes, seconds=$seconds]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'hours')) r'hours': hours,
-      if (keys == null || keys.contains(r'minutes')) r'minutes': minutes,
-      if (keys == null || keys.contains(r'seconds')) r'seconds': seconds,
+    if (keys == null || keys.
+    contains(r'hours')
+    )
+        r'hours':
+          hours,
+    if (keys == null || keys.
+    contains(r'minutes')
+    )
+        r'minutes':
+          minutes,
+    if (keys == null || keys.
+    contains(r'seconds')
+    )
+        r'seconds':
+          seconds,
     };
   }
 }
+

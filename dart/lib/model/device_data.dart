@@ -7,9 +7,18 @@ part of keyclic_sdk_api;
 class DeviceData {
   /// Returns a new [DeviceData] instance.
   DeviceData({
-    required this.token,
-    required this.platform,
-    required this.person,
+      required 
+    this.token
+      
+    ,
+      required 
+    this.platform
+      
+    ,
+      required 
+    this.person
+      
+    ,
   });
 
   /// Returns a new [DeviceData] instance and imports its values from
@@ -19,18 +28,18 @@ class DeviceData {
       return null;
     }
 
-    return DeviceData(
-      token: json[r'token'],
-      platform: DeviceDataPlatformEnum.fromJson(json[r'platform'])!,
-      person: json[r'person'],
+  return DeviceData(
+                  token: json[r'token'],
+              platform: DeviceDataPlatformEnum.fromJson(json[r'platform'])!,
+                  person: json[r'person'],
     );
   }
 
-  String token;
+      String token;
 
-  DeviceDataPlatformEnum platform;
+      DeviceDataPlatformEnum platform;
 
-  String person;
+      String person;
 
   @override
   bool operator ==(Object other) {
@@ -39,14 +48,21 @@ class DeviceData {
       return true;
     }
 
-    return other is DeviceData &&
-        other.token == token &&
-        other.platform == platform &&
-        other.person == person;
+    return other is DeviceData 
+          && other.token == token
+  
+          && other.platform == platform
+  
+          && other.person == person
+  ;
   }
+  
 
   @override
-  int get hashCode => token.hashCode + platform.hashCode + person.hashCode;
+  int get hashCode =>
+     token.hashCode +
+     platform.hashCode +
+     person.hashCode;
 
   static List<DeviceData> listFromJson(Iterable? json) {
     if (json == null) {
@@ -68,8 +84,7 @@ class DeviceData {
       return <String, DeviceData>{};
     }
 
-    return json.entries.fold(<String, DeviceData>{},
-        (Map<String, DeviceData> previousValue, element) {
+    return json.entries.fold(<String, DeviceData>{}, (Map<String, DeviceData> previousValue, element) {
       final DeviceData? object = DeviceData.fromJson(element.value);
       if (object is DeviceData) {
         previousValue[element.key] = object;
@@ -80,30 +95,31 @@ class DeviceData {
   }
 
   // maps a json object with a list of DeviceData-objects as value to a dart map
-  static Map<String, List<DeviceData>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<DeviceData>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<DeviceData>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<DeviceData>>(
-          key, DeviceData.listFromJson(value));
+      return MapEntry<String, List<DeviceData>>(key, DeviceData.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'DeviceData[token=$token, platform=$platform, person=$person]';
+  String toString() => 'DeviceData[token=$token, platform=$platform, person=$person]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'token': token,
-      r'platform': platform,
-      r'person': person,
+        r'token':
+          token,
+        r'platform':
+          platform,
+        r'person':
+          person,
     };
   }
 }
+
 
 class DeviceDataPlatformEnum {
   /// Instantiate a new enum with the provided [value].
@@ -127,15 +143,12 @@ class DeviceDataPlatformEnum {
   ];
 
   static DeviceDataPlatformEnum? fromJson(dynamic value) =>
-      DeviceDataPlatformEnumTypeTransformer().decode(value);
+    DeviceDataPlatformEnumTypeTransformer().decode(value);
 
   static List<DeviceDataPlatformEnum> listFromJson(List<dynamic> json) {
-    return json
-        .map((value) {
-          return DeviceDataPlatformEnum.fromJson(value);
-        })
-        .whereType<DeviceDataPlatformEnum>()
-        .toList();
+    return json.map((value) {
+      return DeviceDataPlatformEnum.fromJson(value);
+    }).whereType<DeviceDataPlatformEnum>().toList();
   }
 }
 
@@ -144,8 +157,7 @@ class DeviceDataPlatformEnum {
 class DeviceDataPlatformEnumTypeTransformer {
   const DeviceDataPlatformEnumTypeTransformer._();
 
-  factory DeviceDataPlatformEnumTypeTransformer() =>
-      _instance ??= DeviceDataPlatformEnumTypeTransformer._();
+  factory DeviceDataPlatformEnumTypeTransformer() => _instance ??= DeviceDataPlatformEnumTypeTransformer._();
 
   String encode(DeviceDataPlatformEnum data) => data.value;
 
@@ -159,10 +171,8 @@ class DeviceDataPlatformEnumTypeTransformer {
   /// and users are still using an old app with the old code.
   DeviceDataPlatformEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
-      case r'android':
-        return DeviceDataPlatformEnum.android;
-      case r'ios':
-        return DeviceDataPlatformEnum.ios;
+      case r'android': return DeviceDataPlatformEnum.android;
+      case r'ios': return DeviceDataPlatformEnum.ios;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
@@ -174,3 +184,4 @@ class DeviceDataPlatformEnumTypeTransformer {
   /// Singleton [DeviceDataPlatformEnumTypeTransformer] instance.
   static DeviceDataPlatformEnumTypeTransformer? _instance;
 }
+

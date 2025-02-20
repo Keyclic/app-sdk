@@ -7,8 +7,10 @@ part of keyclic_sdk_api;
 class Schema {
   /// Returns a new [Schema] instance.
   Schema({
-    this.properties,
-    this.required_,
+    this.properties
+,
+    this.required_
+,
   });
 
   /// Returns a new [Schema] instance and imports its values from
@@ -18,17 +20,19 @@ class Schema {
       return null;
     }
 
-    return Schema(
-      properties: SchemaProperty.mapFromJson(json[r'properties']),
-      required_: json[r'required'] == null
-          ? null
-          : List<String>.from(json[r'required']),
+  return Schema(
+            properties:
+              SchemaProperty.mapFromJson(json[r'properties']),
+        required_:
+            json[r'required'] == null ?
+              null :
+          List<String>.from(json[r'required']),
     );
   }
 
-  Map<String, SchemaProperty>? properties;
+      Map<String, SchemaProperty>? properties;
 
-  List<String>? required_;
+        List<String>? required_;
 
   @override
   bool operator ==(Object other) {
@@ -37,16 +41,18 @@ class Schema {
       return true;
     }
 
-    return other is Schema &&
-        DeepCollectionEquality.unordered()
-            .equals(properties, other.properties) &&
-        DeepCollectionEquality.unordered().equals(required_, other.required_);
+    return other is Schema 
+          && DeepCollectionEquality.unordered().equals(properties, other.properties)
+  
+          && DeepCollectionEquality.unordered().equals(required_, other.required_)
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (properties == null ? 0 : properties.hashCode) +
-      (required_ == null ? 0 : required_.hashCode);
+    (properties == null ? 0 : properties.hashCode) +
+    (required_ == null ? 0 : required_.hashCode);
 
   static List<Schema> listFromJson(Iterable? json) {
     if (json == null) {
@@ -68,8 +74,7 @@ class Schema {
       return <String, Schema>{};
     }
 
-    return json.entries.fold(<String, Schema>{},
-        (Map<String, Schema> previousValue, element) {
+    return json.entries.fold(<String, Schema>{}, (Map<String, Schema> previousValue, element) {
       final Schema? object = Schema.fromJson(element.value);
       if (object is Schema) {
         previousValue[element.key] = object;
@@ -95,9 +100,17 @@ class Schema {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'properties'))
-        r'properties': properties,
-      if (keys == null || keys.contains(r'required_')) r'required': required_,
+    if (keys == null || keys.
+    contains(r'properties')
+    )
+        r'properties':
+            properties,
+    if (keys == null || keys.
+    contains(r'required_')
+    )
+        r'required':
+          required_,
     };
   }
 }
+

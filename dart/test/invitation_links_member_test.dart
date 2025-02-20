@@ -12,9 +12,14 @@ void main() {
   group('test InvitationLinksMember', () {
     // The URI of the member associated to the given invitation.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // InvitationLinksMemberIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

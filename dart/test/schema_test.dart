@@ -11,9 +11,14 @@ void main() {
 
   group('test Schema', () {
     // Map<String, SchemaProperty> properties (default value: const {})
-    test('to test the property `properties`', () async {});
+    test('to test the property `properties`', () async {
+    });
 
     // List<String> required_ (default value: const [])
-    test('to test the property `required_`', () async {});
+    test('to test the property `required_`', () async {
+    });
+
+
   });
+
 }

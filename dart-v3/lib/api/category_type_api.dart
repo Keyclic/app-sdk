@@ -4,6 +4,7 @@
 
 part of keyclic_sdk_api_platform;
 
+
 class CategoryTypeApi {
   const CategoryTypeApi(this._apiClient);
 
@@ -14,12 +15,12 @@ class CategoryTypeApi {
   ///
   /// Parameters:
   /// * [identifier] - Type identifier
-  /// * [xKeyclicApp] -
-  /// * [xOrganizationId] -
-  /// * [acceptLanguage] -
-  /// * [xDateTime] -
-  /// * [xKeyclicAppPlatform] -
-  /// * [xKeyclicAppVersion] -
+  /// * [xKeyclicApp] - 
+  /// * [xOrganizationId] - 
+  /// * [acceptLanguage] - 
+  /// * [xDateTime] - 
+  /// * [xKeyclicAppPlatform] - 
+  /// * [xKeyclicAppVersion] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -29,7 +30,7 @@ class CategoryTypeApi {
   ///
   /// Returns a [Future] containing a [Response] with a [CategoryTypeJsonhalRead] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<CategoryTypeJsonhalRead>> getCategoryType({
+  Future<Response<CategoryTypeJsonhalRead>> getCategoryType({ 
     required String identifier,
     required String xKeyclicApp,
     required String xOrganizationId,
@@ -37,6 +38,7 @@ class CategoryTypeApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -44,8 +46,7 @@ class CategoryTypeApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/category-types/{identifier}'
-        .replaceAll('{' r'identifier' '}', identifier.toString());
+    final String path = r'/category-types/{identifier}'.replaceAll('{' r'identifier' '}', identifier.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -53,10 +54,8 @@ class CategoryTypeApi {
         if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
         if (xDateTime != null) r'X-Date-Time': xDateTime,
         r'X-Keyclic-App': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'X-Keyclic-App-Version': xKeyclicAppVersion,
         r'X-Organization-Id': xOrganizationId,
         ...?headers,
       },
@@ -64,6 +63,7 @@ class CategoryTypeApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -71,8 +71,11 @@ class CategoryTypeApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -85,8 +88,7 @@ class CategoryTypeApi {
     CategoryTypeJsonhalRead responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<CategoryTypeJsonhalRead>(
-          response.data!, 'CategoryTypeJsonhalRead');
+            responseData = await _apiClient.deserializeAsync<CategoryTypeJsonhalRead>(response.data!, 'CategoryTypeJsonhalRead');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -108,20 +110,19 @@ class CategoryTypeApi {
       extra: response.extra,
     );
   }
-
   /// Retrieves the collection of CategoryType resources.
   /// Retrieves the collection of CategoryType resources.
   ///
   /// Parameters:
-  /// * [xKeyclicApp] -
-  /// * [xOrganizationId] -
+  /// * [xKeyclicApp] - 
+  /// * [xOrganizationId] - 
   /// * [page] - The collection page number
   /// * [limit] - The number of items per page
   /// * [pagination] - Enable or disable pagination
-  /// * [acceptLanguage] -
-  /// * [xDateTime] -
-  /// * [xKeyclicAppPlatform] -
-  /// * [xKeyclicAppVersion] -
+  /// * [acceptLanguage] - 
+  /// * [xDateTime] - 
+  /// * [xKeyclicAppPlatform] - 
+  /// * [xKeyclicAppVersion] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -131,8 +132,7 @@ class CategoryTypeApi {
   ///
   /// Returns a [Future] containing a [Response] with a [GetCategoryTypeCollection200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetCategoryTypeCollection200Response>>
-      getCategoryTypeCollection({
+  Future<Response<GetCategoryTypeCollection200Response>> getCategoryTypeCollection({ 
     required String xKeyclicApp,
     required String xOrganizationId,
     int? page,
@@ -142,6 +142,7 @@ class CategoryTypeApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -157,10 +158,8 @@ class CategoryTypeApi {
         if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
         if (xDateTime != null) r'X-Date-Time': xDateTime,
         r'X-Keyclic-App': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'X-Keyclic-App-Version': xKeyclicAppVersion,
         r'X-Organization-Id': xOrganizationId,
         ...?headers,
       },
@@ -168,6 +167,7 @@ class CategoryTypeApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -175,14 +175,25 @@ class CategoryTypeApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
 
     final queryParameters = <String, dynamic>{
-      if (page != null) r'page': encodeQueryParameter(page),
-      if (limit != null) r'limit': encodeQueryParameter(limit),
-      if (pagination != null) r'pagination': encodeQueryParameter(pagination),
+      if (page != null) r'page':
+        encodeQueryParameter(
+        page
+        ),
+      if (limit != null) r'limit':
+        encodeQueryParameter(
+        limit
+        ),
+      if (pagination != null) r'pagination':
+        encodeQueryParameter(
+        pagination
+        ),
     };
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -196,9 +207,7 @@ class CategoryTypeApi {
     GetCategoryTypeCollection200Response responseData;
 
     try {
-      responseData = await _apiClient
-          .deserializeAsync<GetCategoryTypeCollection200Response>(
-              response.data!, 'GetCategoryTypeCollection200Response');
+            responseData = await _apiClient.deserializeAsync<GetCategoryTypeCollection200Response>(response.data!, 'GetCategoryTypeCollection200Response');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

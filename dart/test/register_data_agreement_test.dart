@@ -11,12 +11,18 @@ void main() {
 
   group('test RegisterDataAgreement', () {
     // bool olderThan
-    test('to test the property `olderThan`', () async {});
+    test('to test the property `olderThan`', () async {
+    });
 
     // bool privacyPolicy
-    test('to test the property `privacyPolicy`', () async {});
+    test('to test the property `privacyPolicy`', () async {
+    });
 
     // bool termsOfService
-    test('to test the property `termsOfService`', () async {});
+    test('to test the property `termsOfService`', () async {
+    });
+
+
   });
+
 }

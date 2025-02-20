@@ -11,6 +11,10 @@ void main() {
 
   group('test DocumentLinksProcedureIriTemplateMapping', () {
     // String procedure
-    test('to test the property `procedure`', () async {});
+    test('to test the property `procedure`', () async {
+    });
+
+
   });
+
 }

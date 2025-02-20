@@ -11,9 +11,14 @@ void main() {
 
   group('test SlaPolicyJsonhalReadEmbedded', () {
     // List<String> fromStates (default value: const [])
-    test('to test the property `fromStates`', () async {});
+    test('to test the property `fromStates`', () async {
+    });
 
     // List<String> toStates (default value: const [])
-    test('to test the property `toStates`', () async {});
+    test('to test the property `toStates`', () async {
+    });
+
+
   });
+
 }

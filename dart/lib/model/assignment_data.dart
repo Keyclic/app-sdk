@@ -7,11 +7,20 @@ part of keyclic_sdk_api;
 class AssignmentData {
   /// Returns a new [AssignmentData] instance.
   AssignmentData({
-    this.contract,
-    this.description,
-    this.outOfContract,
-    required this.report,
-    required this.service,
+    this.contract
+,
+    this.description
+,
+    this.outOfContract
+,
+      required 
+    this.report
+      
+    ,
+      required 
+    this.service
+      
+    ,
   });
 
   /// Returns a new [AssignmentData] instance and imports its values from
@@ -21,24 +30,24 @@ class AssignmentData {
       return null;
     }
 
-    return AssignmentData(
-      contract: json[r'contract'],
-      description: json[r'description'],
-      outOfContract: json[r'outOfContract'],
-      report: json[r'report'],
-      service: json[r'service'],
+  return AssignmentData(
+                  contract: json[r'contract'],
+                  description: json[r'description'],
+                  outOfContract: json[r'outOfContract'],
+                  report: json[r'report'],
+                  service: json[r'service'],
     );
   }
 
-  String? contract;
+      String? contract;
 
-  String? description;
+      String? description;
 
-  bool? outOfContract;
+      bool? outOfContract;
 
-  String report;
+      String report;
 
-  String service;
+      String service;
 
   @override
   bool operator ==(Object other) {
@@ -47,29 +56,34 @@ class AssignmentData {
       return true;
     }
 
-    return other is AssignmentData &&
-        other.contract == contract &&
-        other.description == description &&
-        other.outOfContract == outOfContract &&
-        other.report == report &&
-        other.service == service;
+    return other is AssignmentData 
+          && other.contract == contract
+  
+          && other.description == description
+  
+          && other.outOfContract == outOfContract
+  
+          && other.report == report
+  
+          && other.service == service
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (contract == null ? 0 : contract.hashCode) +
-      (description == null ? 0 : description.hashCode) +
-      (outOfContract == null ? 0 : outOfContract.hashCode) +
-      report.hashCode +
-      service.hashCode;
+    (contract == null ? 0 : contract.hashCode) +
+    (description == null ? 0 : description.hashCode) +
+    (outOfContract == null ? 0 : outOfContract.hashCode) +
+     report.hashCode +
+     service.hashCode;
 
   static List<AssignmentData> listFromJson(Iterable? json) {
     if (json == null) {
       return <AssignmentData>[];
     }
 
-    return json.fold(<AssignmentData>[],
-        (List<AssignmentData> previousValue, element) {
+    return json.fold(<AssignmentData>[], (List<AssignmentData> previousValue, element) {
       final AssignmentData? object = AssignmentData.fromJson(element);
       if (object is AssignmentData) {
         previousValue.add(object);
@@ -84,8 +98,7 @@ class AssignmentData {
       return <String, AssignmentData>{};
     }
 
-    return json.entries.fold(<String, AssignmentData>{},
-        (Map<String, AssignmentData> previousValue, element) {
+    return json.entries.fold(<String, AssignmentData>{}, (Map<String, AssignmentData> previousValue, element) {
       final AssignmentData? object = AssignmentData.fromJson(element.value);
       if (object is AssignmentData) {
         previousValue[element.key] = object;
@@ -96,31 +109,41 @@ class AssignmentData {
   }
 
   // maps a json object with a list of AssignmentData-objects as value to a dart map
-  static Map<String, List<AssignmentData>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<AssignmentData>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<AssignmentData>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<AssignmentData>>(
-          key, AssignmentData.listFromJson(value));
+      return MapEntry<String, List<AssignmentData>>(key, AssignmentData.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'AssignmentData[contract=$contract, description=$description, outOfContract=$outOfContract, report=$report, service=$service]';
+  String toString() => 'AssignmentData[contract=$contract, description=$description, outOfContract=$outOfContract, report=$report, service=$service]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'contract')) r'contract': contract,
-      if (keys == null || keys.contains(r'description'))
-        r'description': description,
-      if (keys == null || keys.contains(r'outOfContract'))
-        r'outOfContract': outOfContract,
-      r'report': report,
-      r'service': service,
+    if (keys == null || keys.
+    contains(r'contract')
+    )
+        r'contract':
+          contract,
+    if (keys == null || keys.
+    contains(r'description')
+    )
+        r'description':
+          description,
+    if (keys == null || keys.
+    contains(r'outOfContract')
+    )
+        r'outOfContract':
+          outOfContract,
+        r'report':
+          report,
+        r'service':
+          service,
     };
   }
 }
+

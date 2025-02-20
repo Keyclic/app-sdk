@@ -11,12 +11,18 @@ void main() {
 
   group('test MetricJsonhalRead', () {
     // AssetTypeJsonhalReadLinks links
-    test('to test the property `links`', () async {});
+    test('to test the property `links`', () async {
+    });
 
     // DurationJsonhalRead duration
-    test('to test the property `duration`', () async {});
+    test('to test the property `duration`', () async {
+    });
 
     // String name
-    test('to test the property `name`', () async {});
+    test('to test the property `name`', () async {
+    });
+
+
   });
+
 }

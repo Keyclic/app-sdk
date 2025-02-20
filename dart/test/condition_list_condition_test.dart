@@ -11,18 +11,26 @@ void main() {
 
   group('test ConditionListCondition', () {
     // String id
-    test('to test the property `id`', () async {});
+    test('to test the property `id`', () async {
+    });
 
     // String operator_
-    test('to test the property `operator_`', () async {});
+    test('to test the property `operator_`', () async {
+    });
 
     // String path
-    test('to test the property `path`', () async {});
+    test('to test the property `path`', () async {
+    });
 
     // String type
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
 
     // List<String> value (default value: const [])
-    test('to test the property `value`', () async {});
+    test('to test the property `value`', () async {
+    });
+
+
   });
+
 }

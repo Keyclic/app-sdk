@@ -7,7 +7,10 @@ part of keyclic_sdk_api;
 class AssignData {
   /// Returns a new [AssignData] instance.
   AssignData({
-    required this.member,
+      required 
+    this.member
+      
+    ,
   });
 
   /// Returns a new [AssignData] instance and imports its values from
@@ -17,12 +20,12 @@ class AssignData {
       return null;
     }
 
-    return AssignData(
-      member: json[r'member'],
+  return AssignData(
+                  member: json[r'member'],
     );
   }
 
-  String member;
+      String member;
 
   @override
   bool operator ==(Object other) {
@@ -31,11 +34,15 @@ class AssignData {
       return true;
     }
 
-    return other is AssignData && other.member == member;
+    return other is AssignData 
+          && other.member == member
+  ;
   }
+  
 
   @override
-  int get hashCode => member.hashCode;
+  int get hashCode =>
+     member.hashCode;
 
   static List<AssignData> listFromJson(Iterable? json) {
     if (json == null) {
@@ -57,8 +64,7 @@ class AssignData {
       return <String, AssignData>{};
     }
 
-    return json.entries.fold(<String, AssignData>{},
-        (Map<String, AssignData> previousValue, element) {
+    return json.entries.fold(<String, AssignData>{}, (Map<String, AssignData> previousValue, element) {
       final AssignData? object = AssignData.fromJson(element.value);
       if (object is AssignData) {
         previousValue[element.key] = object;
@@ -69,15 +75,13 @@ class AssignData {
   }
 
   // maps a json object with a list of AssignData-objects as value to a dart map
-  static Map<String, List<AssignData>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<AssignData>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<AssignData>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<AssignData>>(
-          key, AssignData.listFromJson(value));
+      return MapEntry<String, List<AssignData>>(key, AssignData.listFromJson(value));
     });
   }
 
@@ -86,7 +90,9 @@ class AssignData {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'member': member,
+        r'member':
+          member,
     };
   }
 }
+

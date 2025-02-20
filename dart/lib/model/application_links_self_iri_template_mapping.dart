@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class ApplicationLinksSelfIriTemplateMapping {
   /// Returns a new [ApplicationLinksSelfIriTemplateMapping] instance.
   ApplicationLinksSelfIriTemplateMapping({
-    this.application,
+    this.application
+,
   });
 
   /// Returns a new [ApplicationLinksSelfIriTemplateMapping] instance and imports its values from
@@ -17,12 +18,12 @@ class ApplicationLinksSelfIriTemplateMapping {
       return null;
     }
 
-    return ApplicationLinksSelfIriTemplateMapping(
-      application: json[r'application'],
+  return ApplicationLinksSelfIriTemplateMapping(
+                  application: json[r'application'],
     );
   }
 
-  String? application;
+      String? application;
 
   @override
   bool operator ==(Object other) {
@@ -31,23 +32,23 @@ class ApplicationLinksSelfIriTemplateMapping {
       return true;
     }
 
-    return other is ApplicationLinksSelfIriTemplateMapping &&
-        other.application == application;
+    return other is ApplicationLinksSelfIriTemplateMapping 
+          && other.application == application
+  ;
   }
+  
 
   @override
-  int get hashCode => (application == null ? 0 : application.hashCode);
+  int get hashCode =>
+    (application == null ? 0 : application.hashCode);
 
-  static List<ApplicationLinksSelfIriTemplateMapping> listFromJson(
-      Iterable? json) {
+  static List<ApplicationLinksSelfIriTemplateMapping> listFromJson(Iterable? json) {
     if (json == null) {
       return <ApplicationLinksSelfIriTemplateMapping>[];
     }
 
-    return json.fold(<ApplicationLinksSelfIriTemplateMapping>[],
-        (List<ApplicationLinksSelfIriTemplateMapping> previousValue, element) {
-      final ApplicationLinksSelfIriTemplateMapping? object =
-          ApplicationLinksSelfIriTemplateMapping.fromJson(element);
+    return json.fold(<ApplicationLinksSelfIriTemplateMapping>[], (List<ApplicationLinksSelfIriTemplateMapping> previousValue, element) {
+      final ApplicationLinksSelfIriTemplateMapping? object = ApplicationLinksSelfIriTemplateMapping.fromJson(element);
       if (object is ApplicationLinksSelfIriTemplateMapping) {
         previousValue.add(object);
       }
@@ -56,17 +57,13 @@ class ApplicationLinksSelfIriTemplateMapping {
     });
   }
 
-  static Map<String, ApplicationLinksSelfIriTemplateMapping> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, ApplicationLinksSelfIriTemplateMapping> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, ApplicationLinksSelfIriTemplateMapping>{};
     }
 
-    return json.entries.fold(<String, ApplicationLinksSelfIriTemplateMapping>{},
-        (Map<String, ApplicationLinksSelfIriTemplateMapping> previousValue,
-            element) {
-      final ApplicationLinksSelfIriTemplateMapping? object =
-          ApplicationLinksSelfIriTemplateMapping.fromJson(element.value);
+    return json.entries.fold(<String, ApplicationLinksSelfIriTemplateMapping>{}, (Map<String, ApplicationLinksSelfIriTemplateMapping> previousValue, element) {
+      final ApplicationLinksSelfIriTemplateMapping? object = ApplicationLinksSelfIriTemplateMapping.fromJson(element.value);
       if (object is ApplicationLinksSelfIriTemplateMapping) {
         previousValue[element.key] = object;
       }
@@ -76,26 +73,27 @@ class ApplicationLinksSelfIriTemplateMapping {
   }
 
   // maps a json object with a list of ApplicationLinksSelfIriTemplateMapping-objects as value to a dart map
-  static Map<String, List<ApplicationLinksSelfIriTemplateMapping>>
-      mapListFromJson(Map<String, dynamic>? json) {
+  static Map<String, List<ApplicationLinksSelfIriTemplateMapping>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ApplicationLinksSelfIriTemplateMapping>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ApplicationLinksSelfIriTemplateMapping>>(
-          key, ApplicationLinksSelfIriTemplateMapping.listFromJson(value));
+      return MapEntry<String, List<ApplicationLinksSelfIriTemplateMapping>>(key, ApplicationLinksSelfIriTemplateMapping.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'ApplicationLinksSelfIriTemplateMapping[application=$application]';
+  String toString() => 'ApplicationLinksSelfIriTemplateMapping[application=$application]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'application'))
-        r'application': application,
+    if (keys == null || keys.
+    contains(r'application')
+    )
+        r'application':
+          application,
     };
   }
 }
+

@@ -12,9 +12,14 @@ void main() {
   group('test OrganizationLinksLogo', () {
     // The URI of the logo associated to the given organization.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // OrganizationLinksLogoIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

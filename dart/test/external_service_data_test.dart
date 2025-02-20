@@ -11,15 +11,22 @@ void main() {
 
   group('test ExternalServiceData', () {
     // String organization
-    test('to test the property `organization`', () async {});
+    test('to test the property `organization`', () async {
+    });
 
     // String name
-    test('to test the property `name`', () async {});
+    test('to test the property `name`', () async {
+    });
 
     // String description
-    test('to test the property `description`', () async {});
+    test('to test the property `description`', () async {
+    });
 
     // String provider
-    test('to test the property `provider`', () async {});
+    test('to test the property `provider`', () async {
+    });
+
+
   });
+
 }

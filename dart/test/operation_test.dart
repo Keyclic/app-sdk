@@ -11,48 +11,66 @@ void main() {
 
   group('test Operation', () {
     // OperationEmbedded embedded
-    test('to test the property `embedded`', () async {});
+    test('to test the property `embedded`', () async {
+    });
 
     // OperationLinks links
-    test('to test the property `links`', () async {});
+    test('to test the property `links`', () async {
+    });
 
     // bool archived
-    test('to test the property `archived`', () async {});
+    test('to test the property `archived`', () async {
+    });
 
     // DateTime createdAt
-    test('to test the property `createdAt`', () async {});
+    test('to test the property `createdAt`', () async {
+    });
 
     // String description
-    test('to test the property `description`', () async {});
+    test('to test the property `description`', () async {
+    });
 
     // DateTime dueBy
-    test('to test the property `dueBy`', () async {});
+    test('to test the property `dueBy`', () async {
+    });
 
     // String id
-    test('to test the property `id`', () async {});
+    test('to test the property `id`', () async {
+    });
 
     // String identificationNumber
-    test('to test the property `identificationNumber`', () async {});
+    test('to test the property `identificationNumber`', () async {
+    });
 
     // String name
-    test('to test the property `name`', () async {});
+    test('to test the property `name`', () async {
+    });
 
     // OperationPriority priority
-    test('to test the property `priority`', () async {});
+    test('to test the property `priority`', () async {
+    });
 
     // String reference
-    test('to test the property `reference`', () async {});
+    test('to test the property `reference`', () async {
+    });
 
     // DateTime scheduledAt
-    test('to test the property `scheduledAt`', () async {});
+    test('to test the property `scheduledAt`', () async {
+    });
 
     // List<String> tags (default value: const [])
-    test('to test the property `tags`', () async {});
+    test('to test the property `tags`', () async {
+    });
 
     // String type
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
 
     // DateTime updatedAt
-    test('to test the property `updatedAt`', () async {});
+    test('to test the property `updatedAt`', () async {
+    });
+
+
   });
+
 }

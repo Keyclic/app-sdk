@@ -11,12 +11,18 @@ void main() {
 
   group('test MemberLinks', () {
     // MemberLinksOrganization organization
-    test('to test the property `organization`', () async {});
+    test('to test the property `organization`', () async {
+    });
 
     // MemberLinksPerson person
-    test('to test the property `person`', () async {});
+    test('to test the property `person`', () async {
+    });
 
     // MemberLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
+
+
   });
+
 }

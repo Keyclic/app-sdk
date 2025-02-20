@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class OrganizationLinksApplicationIriTemplate {
   /// Returns a new [OrganizationLinksApplicationIriTemplate] instance.
   OrganizationLinksApplicationIriTemplate({
-    this.mapping,
+    this.mapping
+,
   });
 
   /// Returns a new [OrganizationLinksApplicationIriTemplate] instance and imports its values from
@@ -17,13 +18,12 @@ class OrganizationLinksApplicationIriTemplate {
       return null;
     }
 
-    return OrganizationLinksApplicationIriTemplate(
-      mapping:
-          ApplicationLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
+  return OrganizationLinksApplicationIriTemplate(
+        mapping: ApplicationLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
-  ApplicationLinksSelfIriTemplateMapping? mapping;
+      ApplicationLinksSelfIriTemplateMapping? mapping;
 
   @override
   bool operator ==(Object other) {
@@ -32,23 +32,23 @@ class OrganizationLinksApplicationIriTemplate {
       return true;
     }
 
-    return other is OrganizationLinksApplicationIriTemplate &&
-        other.mapping == mapping;
+    return other is OrganizationLinksApplicationIriTemplate 
+          && other.mapping == mapping
+  ;
   }
+  
 
   @override
-  int get hashCode => (mapping == null ? 0 : mapping.hashCode);
+  int get hashCode =>
+    (mapping == null ? 0 : mapping.hashCode);
 
-  static List<OrganizationLinksApplicationIriTemplate> listFromJson(
-      Iterable? json) {
+  static List<OrganizationLinksApplicationIriTemplate> listFromJson(Iterable? json) {
     if (json == null) {
       return <OrganizationLinksApplicationIriTemplate>[];
     }
 
-    return json.fold(<OrganizationLinksApplicationIriTemplate>[],
-        (List<OrganizationLinksApplicationIriTemplate> previousValue, element) {
-      final OrganizationLinksApplicationIriTemplate? object =
-          OrganizationLinksApplicationIriTemplate.fromJson(element);
+    return json.fold(<OrganizationLinksApplicationIriTemplate>[], (List<OrganizationLinksApplicationIriTemplate> previousValue, element) {
+      final OrganizationLinksApplicationIriTemplate? object = OrganizationLinksApplicationIriTemplate.fromJson(element);
       if (object is OrganizationLinksApplicationIriTemplate) {
         previousValue.add(object);
       }
@@ -57,18 +57,13 @@ class OrganizationLinksApplicationIriTemplate {
     });
   }
 
-  static Map<String, OrganizationLinksApplicationIriTemplate> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, OrganizationLinksApplicationIriTemplate> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, OrganizationLinksApplicationIriTemplate>{};
     }
 
-    return json.entries
-        .fold(<String, OrganizationLinksApplicationIriTemplate>{},
-            (Map<String, OrganizationLinksApplicationIriTemplate> previousValue,
-                element) {
-      final OrganizationLinksApplicationIriTemplate? object =
-          OrganizationLinksApplicationIriTemplate.fromJson(element.value);
+    return json.entries.fold(<String, OrganizationLinksApplicationIriTemplate>{}, (Map<String, OrganizationLinksApplicationIriTemplate> previousValue, element) {
+      final OrganizationLinksApplicationIriTemplate? object = OrganizationLinksApplicationIriTemplate.fromJson(element.value);
       if (object is OrganizationLinksApplicationIriTemplate) {
         previousValue[element.key] = object;
       }
@@ -78,34 +73,33 @@ class OrganizationLinksApplicationIriTemplate {
   }
 
   // maps a json object with a list of OrganizationLinksApplicationIriTemplate-objects as value to a dart map
-  static Map<String, List<OrganizationLinksApplicationIriTemplate>>
-      mapListFromJson(Map<String, dynamic>? json) {
+  static Map<String, List<OrganizationLinksApplicationIriTemplate>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<OrganizationLinksApplicationIriTemplate>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<OrganizationLinksApplicationIriTemplate>>(
-          key, OrganizationLinksApplicationIriTemplate.listFromJson(value));
+      return MapEntry<String, List<OrganizationLinksApplicationIriTemplate>>(key, OrganizationLinksApplicationIriTemplate.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'OrganizationLinksApplicationIriTemplate[mapping=$mapping]';
+  String toString() => 'OrganizationLinksApplicationIriTemplate[mapping=$mapping]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^mapping\.').hasMatch(key)))
-        r'mapping': mapping?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^mapping\.'))) {
-            previousValue.add(element.split(RegExp(r'^mapping\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^mapping\.').hasMatch(key))
+    )
+        r'mapping':
+            mapping?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^mapping\.'))) {
+                previousValue.add(element.split(RegExp(r'^mapping\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

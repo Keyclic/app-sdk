@@ -11,6 +11,10 @@ void main() {
 
   group('test ReviewLinksSelfIriTemplateMapping', () {
     // String review
-    test('to test the property `review`', () async {});
+    test('to test the property `review`', () async {
+    });
+
+
   });
+
 }

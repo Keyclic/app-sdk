@@ -11,15 +11,22 @@ void main() {
 
   group('test ExternalServicePatch', () {
     // ExternalServicePatchAddress address
-    test('to test the property `address`', () async {});
+    test('to test the property `address`', () async {
+    });
 
     // ExternalServicePatchContactPoint contactPoint
-    test('to test the property `contactPoint`', () async {});
+    test('to test the property `contactPoint`', () async {
+    });
 
     // String description
-    test('to test the property `description`', () async {});
+    test('to test the property `description`', () async {
+    });
 
     // String name
-    test('to test the property `name`', () async {});
+    test('to test the property `name`', () async {
+    });
+
+
   });
+
 }

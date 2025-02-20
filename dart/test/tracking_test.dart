@@ -11,15 +11,22 @@ void main() {
 
   group('test Tracking', () {
     // List<Checkpoint> checkpoints (default value: const [])
-    test('to test the property `checkpoints`', () async {});
+    test('to test the property `checkpoints`', () async {
+    });
 
     // TrackingProgression progression
-    test('to test the property `progression`', () async {});
+    test('to test the property `progression`', () async {
+    });
 
     // String state
-    test('to test the property `state`', () async {});
+    test('to test the property `state`', () async {
+    });
 
     // int time
-    test('to test the property `time`', () async {});
+    test('to test the property `time`', () async {
+    });
+
+
   });
+
 }

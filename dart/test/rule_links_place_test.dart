@@ -12,9 +12,14 @@ void main() {
   group('test RuleLinksPlace', () {
     // The URI of the place associated to the given rule.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // RuleLinksPlaceIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

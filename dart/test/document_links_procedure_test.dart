@@ -12,9 +12,14 @@ void main() {
   group('test DocumentLinksProcedure', () {
     // The URI of the procedure associated to the given document.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // DocumentLinksProcedureIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

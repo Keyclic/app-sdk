@@ -11,15 +11,22 @@ void main() {
 
   group('test PaginationLinks', () {
     // PaginationLink first
-    test('to test the property `first`', () async {});
+    test('to test the property `first`', () async {
+    });
 
     // PaginationLink last
-    test('to test the property `last`', () async {});
+    test('to test the property `last`', () async {
+    });
 
     // PaginationLink next
-    test('to test the property `next`', () async {});
+    test('to test the property `next`', () async {
+    });
 
     // PaginationLink self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
+
+
   });
+
 }

@@ -11,49 +11,66 @@ void main() {
 
   group('test PersonJsonhalRead', () {
     // AssetTypeJsonhalReadLinks links
-    test('to test the property `links`', () async {});
+    test('to test the property `links`', () async {
+    });
 
     // String id
-    test('to test the property `id`', () async {});
+    test('to test the property `id`', () async {
+    });
 
     // String image
-    test('to test the property `image`', () async {});
+    test('to test the property `image`', () async {
+    });
 
     // String jobTitle
-    test('to test the property `jobTitle`', () async {});
+    test('to test the property `jobTitle`', () async {
+    });
 
     // bool optIn
-    test('to test the property `optIn`', () async {});
+    test('to test the property `optIn`', () async {
+    });
 
     // String telephone
-    test('to test the property `telephone`', () async {});
+    test('to test the property `telephone`', () async {
+    });
 
     // String email
-    test('to test the property `email`', () async {});
+    test('to test the property `email`', () async {
+    });
 
     // String username
-    test('to test the property `username`', () async {});
+    test('to test the property `username`', () async {
+    });
 
     // bool enabled
-    test('to test the property `enabled`', () async {});
+    test('to test the property `enabled`', () async {
+    });
 
     // Family name. In the U.S., the last name of a Person.
     // String familyName
-    test('to test the property `familyName`', () async {});
+    test('to test the property `familyName`', () async {
+    });
 
     // Given name. In the U.S., the first name of a Person.
     // String givenName
-    test('to test the property `givenName`', () async {});
+    test('to test the property `givenName`', () async {
+    });
 
     // The date and time when the resource was created, in UTC format.
     // DateTime createdAt
-    test('to test the property `createdAt`', () async {});
+    test('to test the property `createdAt`', () async {
+    });
 
     // The date and time when the resource was updated, in UTC format.
     // DateTime updatedAt
-    test('to test the property `updatedAt`', () async {});
+    test('to test the property `updatedAt`', () async {
+    });
 
     // String type
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
+
+
   });
+
 }

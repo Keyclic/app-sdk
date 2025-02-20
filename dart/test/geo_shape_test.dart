@@ -11,12 +11,18 @@ void main() {
 
   group('test GeoShape', () {
     // GeoShapeCentroid centroid
-    test('to test the property `centroid`', () async {});
+    test('to test the property `centroid`', () async {
+    });
 
     // double elevation
-    test('to test the property `elevation`', () async {});
+    test('to test the property `elevation`', () async {
+    });
 
     // Polygon polygon
-    test('to test the property `polygon`', () async {});
+    test('to test the property `polygon`', () async {
+    });
+
+
   });
+
 }

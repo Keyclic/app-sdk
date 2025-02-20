@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class AssignmentLinksContractIriTemplateMapping {
   /// Returns a new [AssignmentLinksContractIriTemplateMapping] instance.
   AssignmentLinksContractIriTemplateMapping({
-    this.identifier,
+    this.identifier
+,
   });
 
   /// Returns a new [AssignmentLinksContractIriTemplateMapping] instance and imports its values from
@@ -17,12 +18,12 @@ class AssignmentLinksContractIriTemplateMapping {
       return null;
     }
 
-    return AssignmentLinksContractIriTemplateMapping(
-      identifier: json[r'identifier'],
+  return AssignmentLinksContractIriTemplateMapping(
+                  identifier: json[r'identifier'],
     );
   }
 
-  String? identifier;
+      String? identifier;
 
   @override
   bool operator ==(Object other) {
@@ -31,24 +32,23 @@ class AssignmentLinksContractIriTemplateMapping {
       return true;
     }
 
-    return other is AssignmentLinksContractIriTemplateMapping &&
-        other.identifier == identifier;
+    return other is AssignmentLinksContractIriTemplateMapping 
+          && other.identifier == identifier
+  ;
   }
+  
 
   @override
-  int get hashCode => (identifier == null ? 0 : identifier.hashCode);
+  int get hashCode =>
+    (identifier == null ? 0 : identifier.hashCode);
 
-  static List<AssignmentLinksContractIriTemplateMapping> listFromJson(
-      Iterable? json) {
+  static List<AssignmentLinksContractIriTemplateMapping> listFromJson(Iterable? json) {
     if (json == null) {
       return <AssignmentLinksContractIriTemplateMapping>[];
     }
 
-    return json.fold(<AssignmentLinksContractIriTemplateMapping>[],
-        (List<AssignmentLinksContractIriTemplateMapping> previousValue,
-            element) {
-      final AssignmentLinksContractIriTemplateMapping? object =
-          AssignmentLinksContractIriTemplateMapping.fromJson(element);
+    return json.fold(<AssignmentLinksContractIriTemplateMapping>[], (List<AssignmentLinksContractIriTemplateMapping> previousValue, element) {
+      final AssignmentLinksContractIriTemplateMapping? object = AssignmentLinksContractIriTemplateMapping.fromJson(element);
       if (object is AssignmentLinksContractIriTemplateMapping) {
         previousValue.add(object);
       }
@@ -57,18 +57,13 @@ class AssignmentLinksContractIriTemplateMapping {
     });
   }
 
-  static Map<String, AssignmentLinksContractIriTemplateMapping> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, AssignmentLinksContractIriTemplateMapping> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, AssignmentLinksContractIriTemplateMapping>{};
     }
 
-    return json.entries.fold(
-        <String, AssignmentLinksContractIriTemplateMapping>{},
-        (Map<String, AssignmentLinksContractIriTemplateMapping> previousValue,
-            element) {
-      final AssignmentLinksContractIriTemplateMapping? object =
-          AssignmentLinksContractIriTemplateMapping.fromJson(element.value);
+    return json.entries.fold(<String, AssignmentLinksContractIriTemplateMapping>{}, (Map<String, AssignmentLinksContractIriTemplateMapping> previousValue, element) {
+      final AssignmentLinksContractIriTemplateMapping? object = AssignmentLinksContractIriTemplateMapping.fromJson(element.value);
       if (object is AssignmentLinksContractIriTemplateMapping) {
         previousValue[element.key] = object;
       }
@@ -78,26 +73,27 @@ class AssignmentLinksContractIriTemplateMapping {
   }
 
   // maps a json object with a list of AssignmentLinksContractIriTemplateMapping-objects as value to a dart map
-  static Map<String, List<AssignmentLinksContractIriTemplateMapping>>
-      mapListFromJson(Map<String, dynamic>? json) {
+  static Map<String, List<AssignmentLinksContractIriTemplateMapping>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<AssignmentLinksContractIriTemplateMapping>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<AssignmentLinksContractIriTemplateMapping>>(
-          key, AssignmentLinksContractIriTemplateMapping.listFromJson(value));
+      return MapEntry<String, List<AssignmentLinksContractIriTemplateMapping>>(key, AssignmentLinksContractIriTemplateMapping.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'AssignmentLinksContractIriTemplateMapping[identifier=$identifier]';
+  String toString() => 'AssignmentLinksContractIriTemplateMapping[identifier=$identifier]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'identifier'))
-        r'identifier': identifier,
+    if (keys == null || keys.
+    contains(r'identifier')
+    )
+        r'identifier':
+          identifier,
     };
   }
 }
+

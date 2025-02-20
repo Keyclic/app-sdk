@@ -7,10 +7,14 @@ part of keyclic_sdk_api;
 class ConfigurationReportType {
   /// Returns a new [ConfigurationReportType] instance.
   ConfigurationReportType({
-    this.id,
-    this.priorities,
-    this.type,
-    this.workflow,
+    this.id
+,
+    this.priorities
+,
+    this.type
+,
+    this.workflow
+,
   });
 
   /// Returns a new [ConfigurationReportType] instance and imports its values from
@@ -20,21 +24,22 @@ class ConfigurationReportType {
       return null;
     }
 
-    return ConfigurationReportType(
-      id: json[r'id'],
-      priorities: ReportTypePriority.listFromJson(json[r'priorities']),
-      type: json[r'type'],
-      workflow: ReportTypeWorkflow.fromJson(json[r'workflow']),
+  return ConfigurationReportType(
+                  id: json[r'id'],
+        priorities: 
+          ReportTypePriority.listFromJson(json[r'priorities']),
+                  type: json[r'type'],
+        workflow: ReportTypeWorkflow.fromJson(json[r'workflow']),
     );
   }
 
-  final String? id;
+      final String? id;
 
-  List<ReportTypePriority>? priorities;
+        List<ReportTypePriority>? priorities;
 
-  String? type;
+      String? type;
 
-  ReportTypeWorkflow? workflow;
+      ReportTypeWorkflow? workflow;
 
   @override
   bool operator ==(Object other) {
@@ -43,30 +48,32 @@ class ConfigurationReportType {
       return true;
     }
 
-    return other is ConfigurationReportType &&
-        other.id == id &&
-        DeepCollectionEquality.unordered()
-            .equals(priorities, other.priorities) &&
-        other.type == type &&
-        other.workflow == workflow;
+    return other is ConfigurationReportType 
+          && other.id == id
+  
+          && DeepCollectionEquality.unordered().equals(priorities, other.priorities)
+  
+          && other.type == type
+  
+          && other.workflow == workflow
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (id == null ? 0 : id.hashCode) +
-      (priorities == null ? 0 : priorities.hashCode) +
-      (type == null ? 0 : type.hashCode) +
-      (workflow == null ? 0 : workflow.hashCode);
+    (id == null ? 0 : id.hashCode) +
+    (priorities == null ? 0 : priorities.hashCode) +
+    (type == null ? 0 : type.hashCode) +
+    (workflow == null ? 0 : workflow.hashCode);
 
   static List<ConfigurationReportType> listFromJson(Iterable? json) {
     if (json == null) {
       return <ConfigurationReportType>[];
     }
 
-    return json.fold(<ConfigurationReportType>[],
-        (List<ConfigurationReportType> previousValue, element) {
-      final ConfigurationReportType? object =
-          ConfigurationReportType.fromJson(element);
+    return json.fold(<ConfigurationReportType>[], (List<ConfigurationReportType> previousValue, element) {
+      final ConfigurationReportType? object = ConfigurationReportType.fromJson(element);
       if (object is ConfigurationReportType) {
         previousValue.add(object);
       }
@@ -75,16 +82,13 @@ class ConfigurationReportType {
     });
   }
 
-  static Map<String, ConfigurationReportType> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, ConfigurationReportType> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, ConfigurationReportType>{};
     }
 
-    return json.entries.fold(<String, ConfigurationReportType>{},
-        (Map<String, ConfigurationReportType> previousValue, element) {
-      final ConfigurationReportType? object =
-          ConfigurationReportType.fromJson(element.value);
+    return json.entries.fold(<String, ConfigurationReportType>{}, (Map<String, ConfigurationReportType> previousValue, element) {
+      final ConfigurationReportType? object = ConfigurationReportType.fromJson(element.value);
       if (object is ConfigurationReportType) {
         previousValue[element.key] = object;
       }
@@ -94,38 +98,48 @@ class ConfigurationReportType {
   }
 
   // maps a json object with a list of ConfigurationReportType-objects as value to a dart map
-  static Map<String, List<ConfigurationReportType>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<ConfigurationReportType>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ConfigurationReportType>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ConfigurationReportType>>(
-          key, ConfigurationReportType.listFromJson(value));
+      return MapEntry<String, List<ConfigurationReportType>>(key, ConfigurationReportType.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'ConfigurationReportType[id=$id, priorities=$priorities, type=$type, workflow=$workflow]';
+  String toString() => 'ConfigurationReportType[id=$id, priorities=$priorities, type=$type, workflow=$workflow]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'priorities'))
-        r'priorities': priorities,
-      if (keys == null || keys.contains(r'type')) r'type': type,
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^workflow\.').hasMatch(key)))
-        r'workflow': workflow?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^workflow\.'))) {
-            previousValue.add(element.split(RegExp(r'^workflow\.')).last);
-          }
+    if (keys == null || keys.
+    contains(r'id')
+    )
+        r'id':
+          id,
+    if (keys == null || keys.
+    contains(r'priorities')
+    )
+        r'priorities':
+            priorities,
+    if (keys == null || keys.
+    contains(r'type')
+    )
+        r'type':
+          type,
+    if (keys == null || keys.
+    any((key) => RegExp(r'^workflow\.').hasMatch(key))
+    )
+        r'workflow':
+            workflow?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^workflow\.'))) {
+                previousValue.add(element.split(RegExp(r'^workflow\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

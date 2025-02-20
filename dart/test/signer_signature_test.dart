@@ -11,9 +11,14 @@ void main() {
 
   group('test SignerSignature', () {
     // DateTime signedAt
-    test('to test the property `signedAt`', () async {});
+    test('to test the property `signedAt`', () async {
+    });
 
     // String text
-    test('to test the property `text`', () async {});
+    test('to test the property `text`', () async {
+    });
+
+
   });
+
 }

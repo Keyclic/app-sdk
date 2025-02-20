@@ -7,8 +7,10 @@ part of keyclic_sdk_api;
 class NodePath {
   /// Returns a new [NodePath] instance.
   NodePath({
-    this.id,
-    this.name,
+    this.id
+,
+    this.name
+,
   });
 
   /// Returns a new [NodePath] instance and imports its values from
@@ -18,15 +20,15 @@ class NodePath {
       return null;
     }
 
-    return NodePath(
-      id: json[r'id'],
-      name: json[r'name'],
+  return NodePath(
+                  id: json[r'id'],
+                  name: json[r'name'],
     );
   }
 
-  String? id;
+      String? id;
 
-  String? name;
+      String? name;
 
   @override
   bool operator ==(Object other) {
@@ -35,12 +37,18 @@ class NodePath {
       return true;
     }
 
-    return other is NodePath && other.id == id && other.name == name;
+    return other is NodePath 
+          && other.id == id
+  
+          && other.name == name
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (id == null ? 0 : id.hashCode) + (name == null ? 0 : name.hashCode);
+    (id == null ? 0 : id.hashCode) +
+    (name == null ? 0 : name.hashCode);
 
   static List<NodePath> listFromJson(Iterable? json) {
     if (json == null) {
@@ -62,8 +70,7 @@ class NodePath {
       return <String, NodePath>{};
     }
 
-    return json.entries.fold(<String, NodePath>{},
-        (Map<String, NodePath> previousValue, element) {
+    return json.entries.fold(<String, NodePath>{}, (Map<String, NodePath> previousValue, element) {
       final NodePath? object = NodePath.fromJson(element.value);
       if (object is NodePath) {
         previousValue[element.key] = object;
@@ -74,15 +81,13 @@ class NodePath {
   }
 
   // maps a json object with a list of NodePath-objects as value to a dart map
-  static Map<String, List<NodePath>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<NodePath>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<NodePath>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<NodePath>>(
-          key, NodePath.listFromJson(value));
+      return MapEntry<String, List<NodePath>>(key, NodePath.listFromJson(value));
     });
   }
 
@@ -91,8 +96,17 @@ class NodePath {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'name')) r'name': name,
+    if (keys == null || keys.
+    contains(r'id')
+    )
+        r'id':
+          id,
+    if (keys == null || keys.
+    contains(r'name')
+    )
+        r'name':
+          name,
     };
   }
 }
+

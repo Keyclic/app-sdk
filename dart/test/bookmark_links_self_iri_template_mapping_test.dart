@@ -11,6 +11,10 @@ void main() {
 
   group('test BookmarkLinksSelfIriTemplateMapping', () {
     // String bookmark
-    test('to test the property `bookmark`', () async {});
+    test('to test the property `bookmark`', () async {
+    });
+
+
   });
+
 }

@@ -4,6 +4,7 @@
 
 part of keyclic_sdk_api_platform;
 
+
 class IntegrationApi {
   const IntegrationApi(this._apiClient);
 
@@ -14,7 +15,7 @@ class IntegrationApi {
   ///
   /// Parameters:
   /// * [identifier] - Integration identifier
-  /// * [acceptLanguage] -
+  /// * [acceptLanguage] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -24,9 +25,10 @@ class IntegrationApi {
   ///
   /// Returns a [Future] containing a [Response] with a [IntegrationJsonhalRead] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<IntegrationJsonhalRead>> getIntegration({
+  Future<Response<IntegrationJsonhalRead>> getIntegration({ 
     required String identifier,
     String? acceptLanguage,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -34,8 +36,7 @@ class IntegrationApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/integrations/{identifier}'
-        .replaceAll('{' r'identifier' '}', identifier.toString());
+    final String path = r'/integrations/{identifier}'.replaceAll('{' r'identifier' '}', identifier.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -47,6 +48,7 @@ class IntegrationApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -54,8 +56,11 @@ class IntegrationApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -68,8 +73,7 @@ class IntegrationApi {
     IntegrationJsonhalRead responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<IntegrationJsonhalRead>(
-          response.data!, 'IntegrationJsonhalRead');
+            responseData = await _apiClient.deserializeAsync<IntegrationJsonhalRead>(response.data!, 'IntegrationJsonhalRead');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -91,7 +95,6 @@ class IntegrationApi {
       extra: response.extra,
     );
   }
-
   /// Retrieves the collection of Integration resources.
   /// Retrieves the collection of Integration resources.
   ///
@@ -99,22 +102,22 @@ class IntegrationApi {
   /// * [page] - The collection page number
   /// * [limit] - The number of items per page
   /// * [pagination] - Enable or disable pagination
-  /// * [createdAtLeftSquareBracketBeforeRightSquareBracket] -
-  /// * [createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket] -
-  /// * [createdAtLeftSquareBracketAfterRightSquareBracket] -
-  /// * [createdAtLeftSquareBracketStrictlyAfterRightSquareBracket] -
-  /// * [updatedAtLeftSquareBracketBeforeRightSquareBracket] -
-  /// * [updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket] -
-  /// * [updatedAtLeftSquareBracketAfterRightSquareBracket] -
-  /// * [updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket] -
-  /// * [jsonInputs] -
-  /// * [orderLeftSquareBracketCreatedAtRightSquareBracket] -
-  /// * [orderLeftSquareBracketUpdatedAtRightSquareBracket] -
-  /// * [connectorPeriodIdentifier] -
-  /// * [connectorPeriodIdentifierLeftSquareBracketRightSquareBracket] -
-  /// * [organizationPeriodIdentifier] -
-  /// * [organizationPeriodIdentifierLeftSquareBracketRightSquareBracket] -
-  /// * [acceptLanguage] -
+  /// * [createdAtLeftSquareBracketBeforeRightSquareBracket] - 
+  /// * [createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket] - 
+  /// * [createdAtLeftSquareBracketAfterRightSquareBracket] - 
+  /// * [createdAtLeftSquareBracketStrictlyAfterRightSquareBracket] - 
+  /// * [updatedAtLeftSquareBracketBeforeRightSquareBracket] - 
+  /// * [updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket] - 
+  /// * [updatedAtLeftSquareBracketAfterRightSquareBracket] - 
+  /// * [updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket] - 
+  /// * [jsonInputs] - 
+  /// * [orderLeftSquareBracketCreatedAtRightSquareBracket] - 
+  /// * [orderLeftSquareBracketUpdatedAtRightSquareBracket] - 
+  /// * [connectorPeriodIdentifier] - 
+  /// * [connectorPeriodIdentifierLeftSquareBracketRightSquareBracket] - 
+  /// * [organizationPeriodIdentifier] - 
+  /// * [organizationPeriodIdentifierLeftSquareBracketRightSquareBracket] - 
+  /// * [acceptLanguage] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -124,8 +127,7 @@ class IntegrationApi {
   ///
   /// Returns a [Future] containing a [Response] with a [GetIntegrationCollection200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetIntegrationCollection200Response>>
-      getIntegrationCollection({
+  Future<Response<GetIntegrationCollection200Response>> getIntegrationCollection({ 
     int? page,
     int? limit,
     bool? pagination,
@@ -143,9 +145,9 @@ class IntegrationApi {
     String? connectorPeriodIdentifier,
     List<String>? connectorPeriodIdentifierLeftSquareBracketRightSquareBracket,
     String? organizationPeriodIdentifier,
-    List<String>?
-        organizationPeriodIdentifierLeftSquareBracketRightSquareBracket,
+    List<String>? organizationPeriodIdentifierLeftSquareBracketRightSquareBracket,
     String? acceptLanguage,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -165,6 +167,7 @@ class IntegrationApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -172,62 +175,88 @@ class IntegrationApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
 
     final queryParameters = <String, dynamic>{
-      if (page != null) r'page': encodeQueryParameter(page),
-      if (limit != null) r'limit': encodeQueryParameter(limit),
-      if (pagination != null) r'pagination': encodeQueryParameter(pagination),
-      if (createdAtLeftSquareBracketBeforeRightSquareBracket != null)
-        r'createdAt[before]': encodeQueryParameter(
-            createdAtLeftSquareBracketBeforeRightSquareBracket),
-      if (createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket != null)
-        r'createdAt[strictly_before]': encodeQueryParameter(
-            createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket),
-      if (createdAtLeftSquareBracketAfterRightSquareBracket != null)
-        r'createdAt[after]': encodeQueryParameter(
-            createdAtLeftSquareBracketAfterRightSquareBracket),
-      if (createdAtLeftSquareBracketStrictlyAfterRightSquareBracket != null)
-        r'createdAt[strictly_after]': encodeQueryParameter(
-            createdAtLeftSquareBracketStrictlyAfterRightSquareBracket),
-      if (updatedAtLeftSquareBracketBeforeRightSquareBracket != null)
-        r'updatedAt[before]': encodeQueryParameter(
-            updatedAtLeftSquareBracketBeforeRightSquareBracket),
-      if (updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket != null)
-        r'updatedAt[strictly_before]': encodeQueryParameter(
-            updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket),
-      if (updatedAtLeftSquareBracketAfterRightSquareBracket != null)
-        r'updatedAt[after]': encodeQueryParameter(
-            updatedAtLeftSquareBracketAfterRightSquareBracket),
-      if (updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket != null)
-        r'updatedAt[strictly_after]': encodeQueryParameter(
-            updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket),
-      if (jsonInputs != null)
-        r'json_inputs':
-            encodeCollectionQueryParameter(jsonInputs, format: ListFormat.csv),
-      if (orderLeftSquareBracketCreatedAtRightSquareBracket != null)
-        r'order[createdAt]': encodeQueryParameter(
-            orderLeftSquareBracketCreatedAtRightSquareBracket),
-      if (orderLeftSquareBracketUpdatedAtRightSquareBracket != null)
-        r'order[updatedAt]': encodeQueryParameter(
-            orderLeftSquareBracketUpdatedAtRightSquareBracket),
-      if (connectorPeriodIdentifier != null)
-        r'connector.identifier':
-            encodeQueryParameter(connectorPeriodIdentifier),
-      if (connectorPeriodIdentifierLeftSquareBracketRightSquareBracket != null)
-        r'connector.identifier[]': encodeCollectionQueryParameter(
-            connectorPeriodIdentifierLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (organizationPeriodIdentifier != null)
-        r'organization.identifier':
-            encodeQueryParameter(organizationPeriodIdentifier),
-      if (organizationPeriodIdentifierLeftSquareBracketRightSquareBracket !=
-          null)
-        r'organization.identifier[]': encodeCollectionQueryParameter(
-            organizationPeriodIdentifierLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
+      if (page != null) r'page':
+        encodeQueryParameter(
+        page
+        ),
+      if (limit != null) r'limit':
+        encodeQueryParameter(
+        limit
+        ),
+      if (pagination != null) r'pagination':
+        encodeQueryParameter(
+        pagination
+        ),
+      if (createdAtLeftSquareBracketBeforeRightSquareBracket != null) r'createdAt[before]':
+        encodeQueryParameter(
+        createdAtLeftSquareBracketBeforeRightSquareBracket
+        ),
+      if (createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket != null) r'createdAt[strictly_before]':
+        encodeQueryParameter(
+        createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket
+        ),
+      if (createdAtLeftSquareBracketAfterRightSquareBracket != null) r'createdAt[after]':
+        encodeQueryParameter(
+        createdAtLeftSquareBracketAfterRightSquareBracket
+        ),
+      if (createdAtLeftSquareBracketStrictlyAfterRightSquareBracket != null) r'createdAt[strictly_after]':
+        encodeQueryParameter(
+        createdAtLeftSquareBracketStrictlyAfterRightSquareBracket
+        ),
+      if (updatedAtLeftSquareBracketBeforeRightSquareBracket != null) r'updatedAt[before]':
+        encodeQueryParameter(
+        updatedAtLeftSquareBracketBeforeRightSquareBracket
+        ),
+      if (updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket != null) r'updatedAt[strictly_before]':
+        encodeQueryParameter(
+        updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket
+        ),
+      if (updatedAtLeftSquareBracketAfterRightSquareBracket != null) r'updatedAt[after]':
+        encodeQueryParameter(
+        updatedAtLeftSquareBracketAfterRightSquareBracket
+        ),
+      if (updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket != null) r'updatedAt[strictly_after]':
+        encodeQueryParameter(
+        updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket
+        ),
+      if (jsonInputs != null) r'json_inputs':
+        encodeCollectionQueryParameter(
+        jsonInputs,
+        format: ListFormat.csv
+        ),
+      if (orderLeftSquareBracketCreatedAtRightSquareBracket != null) r'order[createdAt]':
+        encodeQueryParameter(
+        orderLeftSquareBracketCreatedAtRightSquareBracket
+        ),
+      if (orderLeftSquareBracketUpdatedAtRightSquareBracket != null) r'order[updatedAt]':
+        encodeQueryParameter(
+        orderLeftSquareBracketUpdatedAtRightSquareBracket
+        ),
+      if (connectorPeriodIdentifier != null) r'connector.identifier':
+        encodeQueryParameter(
+        connectorPeriodIdentifier
+        ),
+      if (connectorPeriodIdentifierLeftSquareBracketRightSquareBracket != null) r'connector.identifier[]':
+        encodeCollectionQueryParameter(
+        connectorPeriodIdentifierLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (organizationPeriodIdentifier != null) r'organization.identifier':
+        encodeQueryParameter(
+        organizationPeriodIdentifier
+        ),
+      if (organizationPeriodIdentifierLeftSquareBracketRightSquareBracket != null) r'organization.identifier[]':
+        encodeCollectionQueryParameter(
+        organizationPeriodIdentifierLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
     };
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -241,9 +270,7 @@ class IntegrationApi {
     GetIntegrationCollection200Response responseData;
 
     try {
-      responseData = await _apiClient
-          .deserializeAsync<GetIntegrationCollection200Response>(
-              response.data!, 'GetIntegrationCollection200Response');
+            responseData = await _apiClient.deserializeAsync<GetIntegrationCollection200Response>(response.data!, 'GetIntegrationCollection200Response');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

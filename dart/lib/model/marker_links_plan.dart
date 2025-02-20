@@ -7,8 +7,10 @@ part of keyclic_sdk_api;
 class MarkerLinksPlan {
   /// Returns a new [MarkerLinksPlan] instance.
   MarkerLinksPlan({
-    this.href,
-    this.iriTemplate,
+    this.href
+,
+    this.iriTemplate
+,
   });
 
   /// Returns a new [MarkerLinksPlan] instance and imports its values from
@@ -18,16 +20,16 @@ class MarkerLinksPlan {
       return null;
     }
 
-    return MarkerLinksPlan(
-      href: json[r'href'],
-      iriTemplate: MarkerLinksPlanIriTemplate.fromJson(json[r'iriTemplate']),
+  return MarkerLinksPlan(
+                  href: json[r'href'],
+        iriTemplate: MarkerLinksPlanIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
   /// The URI of the plan associated to the given marker.
-  String? href;
+      String? href;
 
-  MarkerLinksPlanIriTemplate? iriTemplate;
+      MarkerLinksPlanIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -36,23 +38,25 @@ class MarkerLinksPlan {
       return true;
     }
 
-    return other is MarkerLinksPlan &&
-        other.href == href &&
-        other.iriTemplate == iriTemplate;
+    return other is MarkerLinksPlan 
+          && other.href == href
+  
+          && other.iriTemplate == iriTemplate
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (href == null ? 0 : href.hashCode) +
-      (iriTemplate == null ? 0 : iriTemplate.hashCode);
+    (href == null ? 0 : href.hashCode) +
+    (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
   static List<MarkerLinksPlan> listFromJson(Iterable? json) {
     if (json == null) {
       return <MarkerLinksPlan>[];
     }
 
-    return json.fold(<MarkerLinksPlan>[],
-        (List<MarkerLinksPlan> previousValue, element) {
+    return json.fold(<MarkerLinksPlan>[], (List<MarkerLinksPlan> previousValue, element) {
       final MarkerLinksPlan? object = MarkerLinksPlan.fromJson(element);
       if (object is MarkerLinksPlan) {
         previousValue.add(object);
@@ -67,8 +71,7 @@ class MarkerLinksPlan {
       return <String, MarkerLinksPlan>{};
     }
 
-    return json.entries.fold(<String, MarkerLinksPlan>{},
-        (Map<String, MarkerLinksPlan> previousValue, element) {
+    return json.entries.fold(<String, MarkerLinksPlan>{}, (Map<String, MarkerLinksPlan> previousValue, element) {
       final MarkerLinksPlan? object = MarkerLinksPlan.fromJson(element.value);
       if (object is MarkerLinksPlan) {
         previousValue[element.key] = object;
@@ -79,15 +82,13 @@ class MarkerLinksPlan {
   }
 
   // maps a json object with a list of MarkerLinksPlan-objects as value to a dart map
-  static Map<String, List<MarkerLinksPlan>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<MarkerLinksPlan>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<MarkerLinksPlan>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<MarkerLinksPlan>>(
-          key, MarkerLinksPlan.listFromJson(value));
+      return MapEntry<String, List<MarkerLinksPlan>>(key, MarkerLinksPlan.listFromJson(value));
     });
   }
 
@@ -96,17 +97,23 @@ class MarkerLinksPlan {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'href')) r'href': href,
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^iriTemplate\.').hasMatch(key)))
-        r'iriTemplate': iriTemplate?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^iriTemplate\.'))) {
-            previousValue.add(element.split(RegExp(r'^iriTemplate\.')).last);
-          }
+    if (keys == null || keys.
+    contains(r'href')
+    )
+        r'href':
+          href,
+    if (keys == null || keys.
+    any((key) => RegExp(r'^iriTemplate\.').hasMatch(key))
+    )
+        r'iriTemplate':
+            iriTemplate?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^iriTemplate\.'))) {
+                previousValue.add(element.split(RegExp(r'^iriTemplate\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

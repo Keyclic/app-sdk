@@ -11,15 +11,22 @@ void main() {
 
   group('test AssignmentJsonhalReadLinks', () {
     // GetPlaceCollection200ResponseLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
 
     // GetPlaceCollection200ResponseLinksFirst contract
-    test('to test the property `contract`', () async {});
+    test('to test the property `contract`', () async {
+    });
 
     // GetPlaceCollection200ResponseLinksFirst member
-    test('to test the property `member`', () async {});
+    test('to test the property `member`', () async {
+    });
 
     // GetPlaceCollection200ResponseLinksFirst service
-    test('to test the property `service`', () async {});
+    test('to test the property `service`', () async {
+    });
+
+
   });
+
 }

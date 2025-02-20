@@ -12,9 +12,14 @@ void main() {
   group('test MarkerLinksPlan', () {
     // The URI of the plan associated to the given marker.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // MarkerLinksPlanIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

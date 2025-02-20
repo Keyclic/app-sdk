@@ -11,12 +11,18 @@ void main() {
 
   group('test MemberEmbedded', () {
     // Organization organization
-    test('to test the property `organization`', () async {});
+    test('to test the property `organization`', () async {
+    });
 
     // Person person
-    test('to test the property `person`', () async {});
+    test('to test the property `person`', () async {
+    });
 
     // List<Role> roles (default value: const [])
-    test('to test the property `roles`', () async {});
+    test('to test the property `roles`', () async {
+    });
+
+
   });
+
 }

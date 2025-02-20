@@ -12,9 +12,14 @@ void main() {
   group('test OperationLinksAssignments', () {
     // The URI of the assignments associated to the given operation.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // OperationLinksAssignmentsIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

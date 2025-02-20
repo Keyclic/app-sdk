@@ -11,6 +11,10 @@ void main() {
 
   group('test ReviewRequestJsonhalReadEmbedded', () {
     // ReviewJsonhalRead review
-    test('to test the property `review`', () async {});
+    test('to test the property `review`', () async {
+    });
+
+
   });
+
 }

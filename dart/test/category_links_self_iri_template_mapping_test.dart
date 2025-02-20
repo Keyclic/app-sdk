@@ -11,6 +11,10 @@ void main() {
 
   group('test CategoryLinksSelfIriTemplateMapping', () {
     // String category
-    test('to test the property `category`', () async {});
+    test('to test the property `category`', () async {
+    });
+
+
   });
+
 }

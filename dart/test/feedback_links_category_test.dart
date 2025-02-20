@@ -12,9 +12,14 @@ void main() {
   group('test FeedbackLinksCategory', () {
     // The URI of the category associated to the given feedback.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // FeedbackLinksCategoryIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

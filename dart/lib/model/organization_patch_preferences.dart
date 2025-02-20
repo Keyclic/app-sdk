@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class OrganizationPatchPreferences {
   /// Returns a new [OrganizationPatchPreferences] instance.
   OrganizationPatchPreferences({
-    this.reference,
+    this.reference
+,
   });
 
   /// Returns a new [OrganizationPatchPreferences] instance and imports its values from
@@ -17,13 +18,12 @@ class OrganizationPatchPreferences {
       return null;
     }
 
-    return OrganizationPatchPreferences(
-      reference:
-          OrganizationPatchPreferencesReference.fromJson(json[r'reference']),
+  return OrganizationPatchPreferences(
+        reference: OrganizationPatchPreferencesReference.fromJson(json[r'reference']),
     );
   }
 
-  OrganizationPatchPreferencesReference? reference;
+      OrganizationPatchPreferencesReference? reference;
 
   @override
   bool operator ==(Object other) {
@@ -32,22 +32,23 @@ class OrganizationPatchPreferences {
       return true;
     }
 
-    return other is OrganizationPatchPreferences &&
-        other.reference == reference;
+    return other is OrganizationPatchPreferences 
+          && other.reference == reference
+  ;
   }
+  
 
   @override
-  int get hashCode => (reference == null ? 0 : reference.hashCode);
+  int get hashCode =>
+    (reference == null ? 0 : reference.hashCode);
 
   static List<OrganizationPatchPreferences> listFromJson(Iterable? json) {
     if (json == null) {
       return <OrganizationPatchPreferences>[];
     }
 
-    return json.fold(<OrganizationPatchPreferences>[],
-        (List<OrganizationPatchPreferences> previousValue, element) {
-      final OrganizationPatchPreferences? object =
-          OrganizationPatchPreferences.fromJson(element);
+    return json.fold(<OrganizationPatchPreferences>[], (List<OrganizationPatchPreferences> previousValue, element) {
+      final OrganizationPatchPreferences? object = OrganizationPatchPreferences.fromJson(element);
       if (object is OrganizationPatchPreferences) {
         previousValue.add(object);
       }
@@ -56,16 +57,13 @@ class OrganizationPatchPreferences {
     });
   }
 
-  static Map<String, OrganizationPatchPreferences> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, OrganizationPatchPreferences> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, OrganizationPatchPreferences>{};
     }
 
-    return json.entries.fold(<String, OrganizationPatchPreferences>{},
-        (Map<String, OrganizationPatchPreferences> previousValue, element) {
-      final OrganizationPatchPreferences? object =
-          OrganizationPatchPreferences.fromJson(element.value);
+    return json.entries.fold(<String, OrganizationPatchPreferences>{}, (Map<String, OrganizationPatchPreferences> previousValue, element) {
+      final OrganizationPatchPreferences? object = OrganizationPatchPreferences.fromJson(element.value);
       if (object is OrganizationPatchPreferences) {
         previousValue[element.key] = object;
       }
@@ -75,15 +73,13 @@ class OrganizationPatchPreferences {
   }
 
   // maps a json object with a list of OrganizationPatchPreferences-objects as value to a dart map
-  static Map<String, List<OrganizationPatchPreferences>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<OrganizationPatchPreferences>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<OrganizationPatchPreferences>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<OrganizationPatchPreferences>>(
-          key, OrganizationPatchPreferences.listFromJson(value));
+      return MapEntry<String, List<OrganizationPatchPreferences>>(key, OrganizationPatchPreferences.listFromJson(value));
     });
   }
 
@@ -92,16 +88,18 @@ class OrganizationPatchPreferences {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^reference\.').hasMatch(key)))
-        r'reference': reference?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^reference\.'))) {
-            previousValue.add(element.split(RegExp(r'^reference\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^reference\.').hasMatch(key))
+    )
+        r'reference':
+            reference?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^reference\.'))) {
+                previousValue.add(element.split(RegExp(r'^reference\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

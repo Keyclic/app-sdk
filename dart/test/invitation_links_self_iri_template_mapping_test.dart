@@ -11,6 +11,10 @@ void main() {
 
   group('test InvitationLinksSelfIriTemplateMapping', () {
     // String invitation
-    test('to test the property `invitation`', () async {});
+    test('to test the property `invitation`', () async {
+    });
+
+
   });
+
 }

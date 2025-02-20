@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class BookmarkLinksPlaceIriTemplate {
   /// Returns a new [BookmarkLinksPlaceIriTemplate] instance.
   BookmarkLinksPlaceIriTemplate({
-    this.mapping,
+    this.mapping
+,
   });
 
   /// Returns a new [BookmarkLinksPlaceIriTemplate] instance and imports its values from
@@ -17,12 +18,12 @@ class BookmarkLinksPlaceIriTemplate {
       return null;
     }
 
-    return BookmarkLinksPlaceIriTemplate(
-      mapping: BookmarkLinksPlaceIriTemplateMapping.fromJson(json[r'mapping']),
+  return BookmarkLinksPlaceIriTemplate(
+        mapping: BookmarkLinksPlaceIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
-  BookmarkLinksPlaceIriTemplateMapping? mapping;
+      BookmarkLinksPlaceIriTemplateMapping? mapping;
 
   @override
   bool operator ==(Object other) {
@@ -31,21 +32,23 @@ class BookmarkLinksPlaceIriTemplate {
       return true;
     }
 
-    return other is BookmarkLinksPlaceIriTemplate && other.mapping == mapping;
+    return other is BookmarkLinksPlaceIriTemplate 
+          && other.mapping == mapping
+  ;
   }
+  
 
   @override
-  int get hashCode => (mapping == null ? 0 : mapping.hashCode);
+  int get hashCode =>
+    (mapping == null ? 0 : mapping.hashCode);
 
   static List<BookmarkLinksPlaceIriTemplate> listFromJson(Iterable? json) {
     if (json == null) {
       return <BookmarkLinksPlaceIriTemplate>[];
     }
 
-    return json.fold(<BookmarkLinksPlaceIriTemplate>[],
-        (List<BookmarkLinksPlaceIriTemplate> previousValue, element) {
-      final BookmarkLinksPlaceIriTemplate? object =
-          BookmarkLinksPlaceIriTemplate.fromJson(element);
+    return json.fold(<BookmarkLinksPlaceIriTemplate>[], (List<BookmarkLinksPlaceIriTemplate> previousValue, element) {
+      final BookmarkLinksPlaceIriTemplate? object = BookmarkLinksPlaceIriTemplate.fromJson(element);
       if (object is BookmarkLinksPlaceIriTemplate) {
         previousValue.add(object);
       }
@@ -54,16 +57,13 @@ class BookmarkLinksPlaceIriTemplate {
     });
   }
 
-  static Map<String, BookmarkLinksPlaceIriTemplate> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, BookmarkLinksPlaceIriTemplate> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, BookmarkLinksPlaceIriTemplate>{};
     }
 
-    return json.entries.fold(<String, BookmarkLinksPlaceIriTemplate>{},
-        (Map<String, BookmarkLinksPlaceIriTemplate> previousValue, element) {
-      final BookmarkLinksPlaceIriTemplate? object =
-          BookmarkLinksPlaceIriTemplate.fromJson(element.value);
+    return json.entries.fold(<String, BookmarkLinksPlaceIriTemplate>{}, (Map<String, BookmarkLinksPlaceIriTemplate> previousValue, element) {
+      final BookmarkLinksPlaceIriTemplate? object = BookmarkLinksPlaceIriTemplate.fromJson(element.value);
       if (object is BookmarkLinksPlaceIriTemplate) {
         previousValue[element.key] = object;
       }
@@ -73,15 +73,13 @@ class BookmarkLinksPlaceIriTemplate {
   }
 
   // maps a json object with a list of BookmarkLinksPlaceIriTemplate-objects as value to a dart map
-  static Map<String, List<BookmarkLinksPlaceIriTemplate>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<BookmarkLinksPlaceIriTemplate>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<BookmarkLinksPlaceIriTemplate>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<BookmarkLinksPlaceIriTemplate>>(
-          key, BookmarkLinksPlaceIriTemplate.listFromJson(value));
+      return MapEntry<String, List<BookmarkLinksPlaceIriTemplate>>(key, BookmarkLinksPlaceIriTemplate.listFromJson(value));
     });
   }
 
@@ -90,16 +88,18 @@ class BookmarkLinksPlaceIriTemplate {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^mapping\.').hasMatch(key)))
-        r'mapping': mapping?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^mapping\.'))) {
-            previousValue.add(element.split(RegExp(r'^mapping\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^mapping\.').hasMatch(key))
+    )
+        r'mapping':
+            mapping?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^mapping\.'))) {
+                previousValue.add(element.split(RegExp(r'^mapping\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

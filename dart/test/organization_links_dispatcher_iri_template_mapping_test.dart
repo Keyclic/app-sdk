@@ -11,6 +11,10 @@ void main() {
 
   group('test OrganizationLinksDispatcherIriTemplateMapping', () {
     // String dispatcher
-    test('to test the property `dispatcher`', () async {});
+    test('to test the property `dispatcher`', () async {
+    });
+
+
   });
+
 }

@@ -11,9 +11,14 @@ void main() {
 
   group('test MarkerDataPoint', () {
     // num x
-    test('to test the property `x`', () async {});
+    test('to test the property `x`', () async {
+    });
 
     // num y
-    test('to test the property `y`', () async {});
+    test('to test the property `y`', () async {
+    });
+
+
   });
+
 }

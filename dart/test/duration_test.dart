@@ -11,12 +11,18 @@ void main() {
 
   group('test Duration', () {
     // double hours
-    test('to test the property `hours`', () async {});
+    test('to test the property `hours`', () async {
+    });
 
     // double minutes
-    test('to test the property `minutes`', () async {});
+    test('to test the property `minutes`', () async {
+    });
 
     // int seconds
-    test('to test the property `seconds`', () async {});
+    test('to test the property `seconds`', () async {
+    });
+
+
   });
+
 }

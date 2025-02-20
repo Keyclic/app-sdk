@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class InvitationLinksSelfIriTemplateMapping {
   /// Returns a new [InvitationLinksSelfIriTemplateMapping] instance.
   InvitationLinksSelfIriTemplateMapping({
-    this.invitation,
+    this.invitation
+,
   });
 
   /// Returns a new [InvitationLinksSelfIriTemplateMapping] instance and imports its values from
@@ -17,12 +18,12 @@ class InvitationLinksSelfIriTemplateMapping {
       return null;
     }
 
-    return InvitationLinksSelfIriTemplateMapping(
-      invitation: json[r'invitation'],
+  return InvitationLinksSelfIriTemplateMapping(
+                  invitation: json[r'invitation'],
     );
   }
 
-  String? invitation;
+      String? invitation;
 
   @override
   bool operator ==(Object other) {
@@ -31,23 +32,23 @@ class InvitationLinksSelfIriTemplateMapping {
       return true;
     }
 
-    return other is InvitationLinksSelfIriTemplateMapping &&
-        other.invitation == invitation;
+    return other is InvitationLinksSelfIriTemplateMapping 
+          && other.invitation == invitation
+  ;
   }
+  
 
   @override
-  int get hashCode => (invitation == null ? 0 : invitation.hashCode);
+  int get hashCode =>
+    (invitation == null ? 0 : invitation.hashCode);
 
-  static List<InvitationLinksSelfIriTemplateMapping> listFromJson(
-      Iterable? json) {
+  static List<InvitationLinksSelfIriTemplateMapping> listFromJson(Iterable? json) {
     if (json == null) {
       return <InvitationLinksSelfIriTemplateMapping>[];
     }
 
-    return json.fold(<InvitationLinksSelfIriTemplateMapping>[],
-        (List<InvitationLinksSelfIriTemplateMapping> previousValue, element) {
-      final InvitationLinksSelfIriTemplateMapping? object =
-          InvitationLinksSelfIriTemplateMapping.fromJson(element);
+    return json.fold(<InvitationLinksSelfIriTemplateMapping>[], (List<InvitationLinksSelfIriTemplateMapping> previousValue, element) {
+      final InvitationLinksSelfIriTemplateMapping? object = InvitationLinksSelfIriTemplateMapping.fromJson(element);
       if (object is InvitationLinksSelfIriTemplateMapping) {
         previousValue.add(object);
       }
@@ -56,17 +57,13 @@ class InvitationLinksSelfIriTemplateMapping {
     });
   }
 
-  static Map<String, InvitationLinksSelfIriTemplateMapping> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, InvitationLinksSelfIriTemplateMapping> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, InvitationLinksSelfIriTemplateMapping>{};
     }
 
-    return json.entries.fold(<String, InvitationLinksSelfIriTemplateMapping>{},
-        (Map<String, InvitationLinksSelfIriTemplateMapping> previousValue,
-            element) {
-      final InvitationLinksSelfIriTemplateMapping? object =
-          InvitationLinksSelfIriTemplateMapping.fromJson(element.value);
+    return json.entries.fold(<String, InvitationLinksSelfIriTemplateMapping>{}, (Map<String, InvitationLinksSelfIriTemplateMapping> previousValue, element) {
+      final InvitationLinksSelfIriTemplateMapping? object = InvitationLinksSelfIriTemplateMapping.fromJson(element.value);
       if (object is InvitationLinksSelfIriTemplateMapping) {
         previousValue[element.key] = object;
       }
@@ -76,26 +73,27 @@ class InvitationLinksSelfIriTemplateMapping {
   }
 
   // maps a json object with a list of InvitationLinksSelfIriTemplateMapping-objects as value to a dart map
-  static Map<String, List<InvitationLinksSelfIriTemplateMapping>>
-      mapListFromJson(Map<String, dynamic>? json) {
+  static Map<String, List<InvitationLinksSelfIriTemplateMapping>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<InvitationLinksSelfIriTemplateMapping>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<InvitationLinksSelfIriTemplateMapping>>(
-          key, InvitationLinksSelfIriTemplateMapping.listFromJson(value));
+      return MapEntry<String, List<InvitationLinksSelfIriTemplateMapping>>(key, InvitationLinksSelfIriTemplateMapping.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'InvitationLinksSelfIriTemplateMapping[invitation=$invitation]';
+  String toString() => 'InvitationLinksSelfIriTemplateMapping[invitation=$invitation]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'invitation'))
-        r'invitation': invitation,
+    if (keys == null || keys.
+    contains(r'invitation')
+    )
+        r'invitation':
+          invitation,
     };
   }
 }
+

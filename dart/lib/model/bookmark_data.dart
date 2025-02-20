@@ -7,8 +7,14 @@ part of keyclic_sdk_api;
 class BookmarkData {
   /// Returns a new [BookmarkData] instance.
   BookmarkData({
-    required this.asset,
-    required this.member,
+      required 
+    this.asset
+      
+    ,
+      required 
+    this.member
+      
+    ,
   });
 
   /// Returns a new [BookmarkData] instance and imports its values from
@@ -18,15 +24,15 @@ class BookmarkData {
       return null;
     }
 
-    return BookmarkData(
-      asset: json[r'asset'],
-      member: json[r'member'],
+  return BookmarkData(
+                  asset: json[r'asset'],
+                  member: json[r'member'],
     );
   }
 
-  String asset;
+      String asset;
 
-  String member;
+      String member;
 
   @override
   bool operator ==(Object other) {
@@ -35,21 +41,25 @@ class BookmarkData {
       return true;
     }
 
-    return other is BookmarkData &&
-        other.asset == asset &&
-        other.member == member;
+    return other is BookmarkData 
+          && other.asset == asset
+  
+          && other.member == member
+  ;
   }
+  
 
   @override
-  int get hashCode => asset.hashCode + member.hashCode;
+  int get hashCode =>
+     asset.hashCode +
+     member.hashCode;
 
   static List<BookmarkData> listFromJson(Iterable? json) {
     if (json == null) {
       return <BookmarkData>[];
     }
 
-    return json.fold(<BookmarkData>[],
-        (List<BookmarkData> previousValue, element) {
+    return json.fold(<BookmarkData>[], (List<BookmarkData> previousValue, element) {
       final BookmarkData? object = BookmarkData.fromJson(element);
       if (object is BookmarkData) {
         previousValue.add(object);
@@ -64,8 +74,7 @@ class BookmarkData {
       return <String, BookmarkData>{};
     }
 
-    return json.entries.fold(<String, BookmarkData>{},
-        (Map<String, BookmarkData> previousValue, element) {
+    return json.entries.fold(<String, BookmarkData>{}, (Map<String, BookmarkData> previousValue, element) {
       final BookmarkData? object = BookmarkData.fromJson(element.value);
       if (object is BookmarkData) {
         previousValue[element.key] = object;
@@ -76,15 +85,13 @@ class BookmarkData {
   }
 
   // maps a json object with a list of BookmarkData-objects as value to a dart map
-  static Map<String, List<BookmarkData>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<BookmarkData>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<BookmarkData>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<BookmarkData>>(
-          key, BookmarkData.listFromJson(value));
+      return MapEntry<String, List<BookmarkData>>(key, BookmarkData.listFromJson(value));
     });
   }
 
@@ -93,8 +100,11 @@ class BookmarkData {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'asset': asset,
-      r'member': member,
+        r'asset':
+          asset,
+        r'member':
+          member,
     };
   }
 }
+

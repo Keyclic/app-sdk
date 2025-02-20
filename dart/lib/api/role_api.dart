@@ -4,21 +4,22 @@
 
 part of keyclic_sdk_api;
 
+
 class RoleApi {
   const RoleApi(this._apiClient);
 
   final ApiClient _apiClient;
 
   /// Retrieve one Role resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [role] - The identifier of the resource.
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -30,13 +31,14 @@ class RoleApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one Role resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<Role>> getRole({
+  Future<Response<Role>> getRole({ 
     required String xKeyclicApp,
     required String role,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -44,8 +46,7 @@ class RoleApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path =
-        r'/roles/{role}'.replaceAll('{' r'role' '}', role.toString());
+    final String path = r'/roles/{role}'.replaceAll('{' r'role' '}', role.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -53,16 +54,15 @@ class RoleApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -70,8 +70,11 @@ class RoleApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -84,8 +87,7 @@ class RoleApi {
     Role responseData;
 
     try {
-      responseData =
-          await _apiClient.deserializeAsync<Role>(response.data!, 'Role');
+            responseData = await _apiClient.deserializeAsync<Role>(response.data!, 'Role');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

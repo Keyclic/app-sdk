@@ -11,6 +11,10 @@ void main() {
 
   group('test SignerLinksSelfIriTemplateMapping', () {
     // String signer
-    test('to test the property `signer`', () async {});
+    test('to test the property `signer`', () async {
+    });
+
+
   });
+
 }

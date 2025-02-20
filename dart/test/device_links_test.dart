@@ -11,9 +11,14 @@ void main() {
 
   group('test DeviceLinks', () {
     // DeviceLinksPerson person
-    test('to test the property `person`', () async {});
+    test('to test the property `person`', () async {
+    });
 
     // DeviceLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
+
+
   });
+
 }

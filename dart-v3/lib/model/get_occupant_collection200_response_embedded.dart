@@ -7,7 +7,10 @@ part of keyclic_sdk_api_platform;
 class GetOccupantCollection200ResponseEmbedded {
   /// Returns a new [GetOccupantCollection200ResponseEmbedded] instance.
   GetOccupantCollection200ResponseEmbedded({
-    this.item = const [],
+      
+    this.item
+       = const []
+    ,
   });
 
   /// Returns a new [GetOccupantCollection200ResponseEmbedded] instance and imports its values from
@@ -17,12 +20,13 @@ class GetOccupantCollection200ResponseEmbedded {
       return null;
     }
 
-    return GetOccupantCollection200ResponseEmbedded(
-      item: OccupantJsonhalRead.listFromJson(json[r'item']),
+  return GetOccupantCollection200ResponseEmbedded(
+        item: 
+          OccupantJsonhalRead.listFromJson(json[r'item']),
     );
   }
 
-  List<OccupantJsonhalRead> item;
+        List<OccupantJsonhalRead> item;
 
   @override
   bool operator ==(Object other) {
@@ -31,24 +35,23 @@ class GetOccupantCollection200ResponseEmbedded {
       return true;
     }
 
-    return other is GetOccupantCollection200ResponseEmbedded &&
-        DeepCollectionEquality.unordered().equals(item, other.item);
+    return other is GetOccupantCollection200ResponseEmbedded 
+          && DeepCollectionEquality.unordered().equals(item, other.item)
+  ;
   }
+  
 
   @override
-  int get hashCode => item.hashCode;
+  int get hashCode =>
+     item.hashCode;
 
-  static List<GetOccupantCollection200ResponseEmbedded> listFromJson(
-      Iterable? json) {
+  static List<GetOccupantCollection200ResponseEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
       return <GetOccupantCollection200ResponseEmbedded>[];
     }
 
-    return json.fold(<GetOccupantCollection200ResponseEmbedded>[],
-        (List<GetOccupantCollection200ResponseEmbedded> previousValue,
-            element) {
-      final GetOccupantCollection200ResponseEmbedded? object =
-          GetOccupantCollection200ResponseEmbedded.fromJson(element);
+    return json.fold(<GetOccupantCollection200ResponseEmbedded>[], (List<GetOccupantCollection200ResponseEmbedded> previousValue, element) {
+      final GetOccupantCollection200ResponseEmbedded? object = GetOccupantCollection200ResponseEmbedded.fromJson(element);
       if (object is GetOccupantCollection200ResponseEmbedded) {
         previousValue.add(object);
       }
@@ -57,18 +60,13 @@ class GetOccupantCollection200ResponseEmbedded {
     });
   }
 
-  static Map<String, GetOccupantCollection200ResponseEmbedded> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, GetOccupantCollection200ResponseEmbedded> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, GetOccupantCollection200ResponseEmbedded>{};
     }
 
-    return json.entries.fold(
-        <String, GetOccupantCollection200ResponseEmbedded>{},
-        (Map<String, GetOccupantCollection200ResponseEmbedded> previousValue,
-            element) {
-      final GetOccupantCollection200ResponseEmbedded? object =
-          GetOccupantCollection200ResponseEmbedded.fromJson(element.value);
+    return json.entries.fold(<String, GetOccupantCollection200ResponseEmbedded>{}, (Map<String, GetOccupantCollection200ResponseEmbedded> previousValue, element) {
+      final GetOccupantCollection200ResponseEmbedded? object = GetOccupantCollection200ResponseEmbedded.fromJson(element.value);
       if (object is GetOccupantCollection200ResponseEmbedded) {
         previousValue[element.key] = object;
       }
@@ -78,15 +76,13 @@ class GetOccupantCollection200ResponseEmbedded {
   }
 
   // maps a json object with a list of GetOccupantCollection200ResponseEmbedded-objects as value to a dart map
-  static Map<String, List<GetOccupantCollection200ResponseEmbedded>>
-      mapListFromJson(Map<String, dynamic>? json) {
+  static Map<String, List<GetOccupantCollection200ResponseEmbedded>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<GetOccupantCollection200ResponseEmbedded>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<GetOccupantCollection200ResponseEmbedded>>(
-          key, GetOccupantCollection200ResponseEmbedded.listFromJson(value));
+      return MapEntry<String, List<GetOccupantCollection200ResponseEmbedded>>(key, GetOccupantCollection200ResponseEmbedded.listFromJson(value));
     });
   }
 
@@ -95,7 +91,9 @@ class GetOccupantCollection200ResponseEmbedded {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'item': item,
+        r'item':
+            item,
     };
   }
 }
+

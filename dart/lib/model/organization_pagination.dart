@@ -7,12 +7,18 @@ part of keyclic_sdk_api;
 class OrganizationPagination implements Pagination {
   /// Returns a new [OrganizationPagination] instance.
   OrganizationPagination({
-    this.limit,
-    this.page,
-    this.pages,
-    this.total,
-    this.links,
-    this.embedded,
+    this.limit
+,
+    this.page
+,
+    this.pages
+,
+    this.total
+,
+    this.links
+,
+    this.embedded
+,
   });
 
   /// Returns a new [OrganizationPagination] instance and imports its values from
@@ -22,27 +28,27 @@ class OrganizationPagination implements Pagination {
       return null;
     }
 
-    return OrganizationPagination(
-      limit: json[r'limit'],
-      page: json[r'page'],
-      pages: json[r'pages'],
-      total: json[r'total'],
-      links: PaginationLinks.fromJson(json[r'_links']),
-      embedded: OrganizationCollection.fromJson(json[r'_embedded']),
+  return OrganizationPagination(
+                  limit: json[r'limit'],
+                  page: json[r'page'],
+                  pages: json[r'pages'],
+                  total: json[r'total'],
+        links: PaginationLinks.fromJson(json[r'_links']),
+        embedded: OrganizationCollection.fromJson(json[r'_embedded']),
     );
   }
 
-  int? limit;
+      int? limit;
 
-  int? page;
+      int? page;
 
-  int? pages;
+      int? pages;
 
-  int? total;
+      int? total;
 
-  PaginationLinks? links;
+      PaginationLinks? links;
 
-  OrganizationCollection? embedded;
+      OrganizationCollection? embedded;
 
   @override
   bool operator ==(Object other) {
@@ -51,33 +57,38 @@ class OrganizationPagination implements Pagination {
       return true;
     }
 
-    return other is OrganizationPagination &&
-        other.limit == limit &&
-        other.page == page &&
-        other.pages == pages &&
-        other.total == total &&
-        other.links == links &&
-        other.embedded == embedded;
+    return other is OrganizationPagination 
+          && other.limit == limit
+  
+          && other.page == page
+  
+          && other.pages == pages
+  
+          && other.total == total
+  
+          && other.links == links
+  
+          && other.embedded == embedded
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (limit == null ? 0 : limit.hashCode) +
-      (page == null ? 0 : page.hashCode) +
-      (pages == null ? 0 : pages.hashCode) +
-      (total == null ? 0 : total.hashCode) +
-      (links == null ? 0 : links.hashCode) +
-      (embedded == null ? 0 : embedded.hashCode);
+    (limit == null ? 0 : limit.hashCode) +
+    (page == null ? 0 : page.hashCode) +
+    (pages == null ? 0 : pages.hashCode) +
+    (total == null ? 0 : total.hashCode) +
+    (links == null ? 0 : links.hashCode) +
+    (embedded == null ? 0 : embedded.hashCode);
 
   static List<OrganizationPagination> listFromJson(Iterable? json) {
     if (json == null) {
       return <OrganizationPagination>[];
     }
 
-    return json.fold(<OrganizationPagination>[],
-        (List<OrganizationPagination> previousValue, element) {
-      final OrganizationPagination? object =
-          OrganizationPagination.fromJson(element);
+    return json.fold(<OrganizationPagination>[], (List<OrganizationPagination> previousValue, element) {
+      final OrganizationPagination? object = OrganizationPagination.fromJson(element);
       if (object is OrganizationPagination) {
         previousValue.add(object);
       }
@@ -86,16 +97,13 @@ class OrganizationPagination implements Pagination {
     });
   }
 
-  static Map<String, OrganizationPagination> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, OrganizationPagination> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, OrganizationPagination>{};
     }
 
-    return json.entries.fold(<String, OrganizationPagination>{},
-        (Map<String, OrganizationPagination> previousValue, element) {
-      final OrganizationPagination? object =
-          OrganizationPagination.fromJson(element.value);
+    return json.entries.fold(<String, OrganizationPagination>{}, (Map<String, OrganizationPagination> previousValue, element) {
+      final OrganizationPagination? object = OrganizationPagination.fromJson(element.value);
       if (object is OrganizationPagination) {
         previousValue[element.key] = object;
       }
@@ -105,47 +113,64 @@ class OrganizationPagination implements Pagination {
   }
 
   // maps a json object with a list of OrganizationPagination-objects as value to a dart map
-  static Map<String, List<OrganizationPagination>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<OrganizationPagination>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<OrganizationPagination>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<OrganizationPagination>>(
-          key, OrganizationPagination.listFromJson(value));
+      return MapEntry<String, List<OrganizationPagination>>(key, OrganizationPagination.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'OrganizationPagination[limit=$limit, page=$page, pages=$pages, total=$total, links=$links, embedded=$embedded]';
+  String toString() => 'OrganizationPagination[limit=$limit, page=$page, pages=$pages, total=$total, links=$links, embedded=$embedded]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'limit')) r'limit': limit,
-      if (keys == null || keys.contains(r'page')) r'page': page,
-      if (keys == null || keys.contains(r'pages')) r'pages': pages,
-      if (keys == null || keys.contains(r'total')) r'total': total,
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+    if (keys == null || keys.
+    contains(r'limit')
+    )
+        r'limit':
+          limit,
+    if (keys == null || keys.
+    contains(r'page')
+    )
+        r'page':
+          page,
+    if (keys == null || keys.
+    contains(r'pages')
+    )
+        r'pages':
+          pages,
+    if (keys == null || keys.
+    contains(r'total')
+    )
+        r'total':
+          total,
+    if (keys == null || keys.
+    any((key) => RegExp(r'^links\.').hasMatch(key))
+    )
+        r'_links':
+            links?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^links\.'))) {
+                previousValue.add(element.split(RegExp(r'^links\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^embedded\.').hasMatch(key)))
-        r'_embedded': embedded?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^embedded\.'))) {
-            previousValue.add(element.split(RegExp(r'^embedded\.')).last);
-          }
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    any((key) => RegExp(r'^embedded\.').hasMatch(key))
+    )
+        r'_embedded':
+            embedded?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^embedded\.'))) {
+                previousValue.add(element.split(RegExp(r'^embedded\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

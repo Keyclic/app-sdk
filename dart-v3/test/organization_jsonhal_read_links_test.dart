@@ -11,9 +11,14 @@ void main() {
 
   group('test OrganizationJsonhalReadLinks', () {
     // GetPlaceCollection200ResponseLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
 
     // GetPlaceCollection200ResponseLinksFirst dispatcher
-    test('to test the property `dispatcher`', () async {});
+    test('to test the property `dispatcher`', () async {
+    });
+
+
   });
+
 }

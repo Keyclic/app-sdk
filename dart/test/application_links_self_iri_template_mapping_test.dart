@@ -11,6 +11,10 @@ void main() {
 
   group('test ApplicationLinksSelfIriTemplateMapping', () {
     // String application
-    test('to test the property `application`', () async {});
+    test('to test the property `application`', () async {
+    });
+
+
   });
+
 }

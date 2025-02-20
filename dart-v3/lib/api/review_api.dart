@@ -4,6 +4,7 @@
 
 part of keyclic_sdk_api_platform;
 
+
 class ReviewApi {
   const ReviewApi(this._apiClient);
 
@@ -14,11 +15,11 @@ class ReviewApi {
   ///
   /// Parameters:
   /// * [identifier] - Review identifier
-  /// * [xKeyclicApp] -
-  /// * [acceptLanguage] -
-  /// * [xDateTime] -
-  /// * [xKeyclicAppPlatform] -
-  /// * [xKeyclicAppVersion] -
+  /// * [xKeyclicApp] - 
+  /// * [acceptLanguage] - 
+  /// * [xDateTime] - 
+  /// * [xKeyclicAppPlatform] - 
+  /// * [xKeyclicAppVersion] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -28,13 +29,14 @@ class ReviewApi {
   ///
   /// Returns a [Future] containing a [Response] with a [ReviewJsonhalRead] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<ReviewJsonhalRead>> getReview({
+  Future<Response<ReviewJsonhalRead>> getReview({ 
     required String identifier,
     required String xKeyclicApp,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -42,8 +44,7 @@ class ReviewApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/reviews/{identifier}'
-        .replaceAll('{' r'identifier' '}', identifier.toString());
+    final String path = r'/reviews/{identifier}'.replaceAll('{' r'identifier' '}', identifier.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -51,16 +52,15 @@ class ReviewApi {
         if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
         if (xDateTime != null) r'X-Date-Time': xDateTime,
         r'X-Keyclic-App': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'X-Keyclic-App-Version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -68,8 +68,11 @@ class ReviewApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -82,8 +85,7 @@ class ReviewApi {
     ReviewJsonhalRead responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<ReviewJsonhalRead>(
-          response.data!, 'ReviewJsonhalRead');
+            responseData = await _apiClient.deserializeAsync<ReviewJsonhalRead>(response.data!, 'ReviewJsonhalRead');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -105,28 +107,27 @@ class ReviewApi {
       extra: response.extra,
     );
   }
-
   /// Retrieves the collection of Review resources.
   /// Retrieves the collection of Review resources.
   ///
   /// Parameters:
-  /// * [xKeyclicApp] -
-  /// * [xOrganizationId] -
+  /// * [xKeyclicApp] - 
+  /// * [xOrganizationId] - 
   /// * [page] - The collection page number
   /// * [limit] - The number of items per page
   /// * [pagination] - Enable or disable pagination
-  /// * [itemReviewed] -
-  /// * [itemReviewedLeftSquareBracketRightSquareBracket] -
-  /// * [itemReviewedPeriodAssignmentsPeriodService] -
-  /// * [itemReviewedPeriodAssignmentsPeriodServiceLeftSquareBracketRightSquareBracket] -
-  /// * [itemReviewedPeriodCategory] -
-  /// * [itemReviewedPeriodCategoryLeftSquareBracketRightSquareBracket] -
-  /// * [reviewRating] -
-  /// * [reviewRatingLeftSquareBracketRightSquareBracket] -
-  /// * [acceptLanguage] -
-  /// * [xDateTime] -
-  /// * [xKeyclicAppPlatform] -
-  /// * [xKeyclicAppVersion] -
+  /// * [itemReviewed] - 
+  /// * [itemReviewedLeftSquareBracketRightSquareBracket] - 
+  /// * [itemReviewedPeriodAssignmentsPeriodService] - 
+  /// * [itemReviewedPeriodAssignmentsPeriodServiceLeftSquareBracketRightSquareBracket] - 
+  /// * [itemReviewedPeriodCategory] - 
+  /// * [itemReviewedPeriodCategoryLeftSquareBracketRightSquareBracket] - 
+  /// * [reviewRating] - 
+  /// * [reviewRatingLeftSquareBracketRightSquareBracket] - 
+  /// * [acceptLanguage] - 
+  /// * [xDateTime] - 
+  /// * [xKeyclicAppPlatform] - 
+  /// * [xKeyclicAppVersion] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -136,7 +137,7 @@ class ReviewApi {
   ///
   /// Returns a [Future] containing a [Response] with a [GetReviewCollection200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetReviewCollection200Response>> getReviewCollection({
+  Future<Response<GetReviewCollection200Response>> getReviewCollection({ 
     required String xKeyclicApp,
     required String xOrganizationId,
     int? page,
@@ -145,8 +146,7 @@ class ReviewApi {
     String? itemReviewed,
     List<String>? itemReviewedLeftSquareBracketRightSquareBracket,
     String? itemReviewedPeriodAssignmentsPeriodService,
-    List<String>?
-        itemReviewedPeriodAssignmentsPeriodServiceLeftSquareBracketRightSquareBracket,
+    List<String>? itemReviewedPeriodAssignmentsPeriodServiceLeftSquareBracketRightSquareBracket,
     String? itemReviewedPeriodCategory,
     List<String>? itemReviewedPeriodCategoryLeftSquareBracketRightSquareBracket,
     int? reviewRating,
@@ -155,6 +155,7 @@ class ReviewApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -170,10 +171,8 @@ class ReviewApi {
         if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
         if (xDateTime != null) r'X-Date-Time': xDateTime,
         r'X-Keyclic-App': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'X-Keyclic-App-Version': xKeyclicAppVersion,
         r'X-Organization-Id': xOrganizationId,
         ...?headers,
       },
@@ -181,6 +180,7 @@ class ReviewApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -188,41 +188,61 @@ class ReviewApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
 
     final queryParameters = <String, dynamic>{
-      if (page != null) r'page': encodeQueryParameter(page),
-      if (limit != null) r'limit': encodeQueryParameter(limit),
-      if (pagination != null) r'pagination': encodeQueryParameter(pagination),
-      if (itemReviewed != null)
-        r'itemReviewed': encodeQueryParameter(itemReviewed),
-      if (itemReviewedLeftSquareBracketRightSquareBracket != null)
-        r'itemReviewed[]': encodeCollectionQueryParameter(
-            itemReviewedLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (itemReviewedPeriodAssignmentsPeriodService != null)
-        r'itemReviewed.assignments.service':
-            encodeQueryParameter(itemReviewedPeriodAssignmentsPeriodService),
-      if (itemReviewedPeriodAssignmentsPeriodServiceLeftSquareBracketRightSquareBracket !=
-          null)
-        r'itemReviewed.assignments.service[]': encodeCollectionQueryParameter(
-            itemReviewedPeriodAssignmentsPeriodServiceLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (itemReviewedPeriodCategory != null)
-        r'itemReviewed.category':
-            encodeQueryParameter(itemReviewedPeriodCategory),
-      if (itemReviewedPeriodCategoryLeftSquareBracketRightSquareBracket != null)
-        r'itemReviewed.category[]': encodeCollectionQueryParameter(
-            itemReviewedPeriodCategoryLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (reviewRating != null)
-        r'reviewRating': encodeQueryParameter(reviewRating),
-      if (reviewRatingLeftSquareBracketRightSquareBracket != null)
-        r'reviewRating[]': encodeCollectionQueryParameter(
-            reviewRatingLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
+      if (page != null) r'page':
+        encodeQueryParameter(
+        page
+        ),
+      if (limit != null) r'limit':
+        encodeQueryParameter(
+        limit
+        ),
+      if (pagination != null) r'pagination':
+        encodeQueryParameter(
+        pagination
+        ),
+      if (itemReviewed != null) r'itemReviewed':
+        encodeQueryParameter(
+        itemReviewed
+        ),
+      if (itemReviewedLeftSquareBracketRightSquareBracket != null) r'itemReviewed[]':
+        encodeCollectionQueryParameter(
+        itemReviewedLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (itemReviewedPeriodAssignmentsPeriodService != null) r'itemReviewed.assignments.service':
+        encodeQueryParameter(
+        itemReviewedPeriodAssignmentsPeriodService
+        ),
+      if (itemReviewedPeriodAssignmentsPeriodServiceLeftSquareBracketRightSquareBracket != null) r'itemReviewed.assignments.service[]':
+        encodeCollectionQueryParameter(
+        itemReviewedPeriodAssignmentsPeriodServiceLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (itemReviewedPeriodCategory != null) r'itemReviewed.category':
+        encodeQueryParameter(
+        itemReviewedPeriodCategory
+        ),
+      if (itemReviewedPeriodCategoryLeftSquareBracketRightSquareBracket != null) r'itemReviewed.category[]':
+        encodeCollectionQueryParameter(
+        itemReviewedPeriodCategoryLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (reviewRating != null) r'reviewRating':
+        encodeQueryParameter(
+        reviewRating
+        ),
+      if (reviewRatingLeftSquareBracketRightSquareBracket != null) r'reviewRating[]':
+        encodeCollectionQueryParameter(
+        reviewRatingLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
     };
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -236,9 +256,7 @@ class ReviewApi {
     GetReviewCollection200Response responseData;
 
     try {
-      responseData =
-          await _apiClient.deserializeAsync<GetReviewCollection200Response>(
-              response.data!, 'GetReviewCollection200Response');
+            responseData = await _apiClient.deserializeAsync<GetReviewCollection200Response>(response.data!, 'GetReviewCollection200Response');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

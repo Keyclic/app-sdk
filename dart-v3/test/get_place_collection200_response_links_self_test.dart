@@ -11,6 +11,10 @@ void main() {
 
   group('test GetPlaceCollection200ResponseLinksSelf', () {
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
+
+
   });
+
 }

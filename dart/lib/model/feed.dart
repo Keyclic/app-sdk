@@ -7,10 +7,14 @@ part of keyclic_sdk_api;
 class Feed {
   /// Returns a new [Feed] instance.
   Feed({
-    this.apiKey,
-    this.appId,
-    this.userId,
-    this.userToken,
+    this.apiKey
+,
+    this.appId
+,
+    this.userId
+,
+    this.userToken
+,
   });
 
   /// Returns a new [Feed] instance and imports its values from
@@ -20,21 +24,21 @@ class Feed {
       return null;
     }
 
-    return Feed(
-      apiKey: json[r'apiKey'],
-      appId: json[r'appId'],
-      userId: json[r'userId'],
-      userToken: json[r'userToken'],
+  return Feed(
+                  apiKey: json[r'apiKey'],
+                  appId: json[r'appId'],
+                  userId: json[r'userId'],
+                  userToken: json[r'userToken'],
     );
   }
 
-  String? apiKey;
+      String? apiKey;
 
-  String? appId;
+      String? appId;
 
-  String? userId;
+      String? userId;
 
-  String? userToken;
+      String? userToken;
 
   @override
   bool operator ==(Object other) {
@@ -43,19 +47,24 @@ class Feed {
       return true;
     }
 
-    return other is Feed &&
-        other.apiKey == apiKey &&
-        other.appId == appId &&
-        other.userId == userId &&
-        other.userToken == userToken;
+    return other is Feed 
+          && other.apiKey == apiKey
+  
+          && other.appId == appId
+  
+          && other.userId == userId
+  
+          && other.userToken == userToken
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (apiKey == null ? 0 : apiKey.hashCode) +
-      (appId == null ? 0 : appId.hashCode) +
-      (userId == null ? 0 : userId.hashCode) +
-      (userToken == null ? 0 : userToken.hashCode);
+    (apiKey == null ? 0 : apiKey.hashCode) +
+    (appId == null ? 0 : appId.hashCode) +
+    (userId == null ? 0 : userId.hashCode) +
+    (userToken == null ? 0 : userToken.hashCode);
 
   static List<Feed> listFromJson(Iterable? json) {
     if (json == null) {
@@ -77,8 +86,7 @@ class Feed {
       return <String, Feed>{};
     }
 
-    return json.entries.fold(<String, Feed>{},
-        (Map<String, Feed> previousValue, element) {
+    return json.entries.fold(<String, Feed>{}, (Map<String, Feed> previousValue, element) {
       final Feed? object = Feed.fromJson(element.value);
       if (object is Feed) {
         previousValue[element.key] = object;
@@ -100,15 +108,31 @@ class Feed {
   }
 
   @override
-  String toString() =>
-      'Feed[apiKey=$apiKey, appId=$appId, userId=$userId, userToken=$userToken]';
+  String toString() => 'Feed[apiKey=$apiKey, appId=$appId, userId=$userId, userToken=$userToken]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'apiKey')) r'apiKey': apiKey,
-      if (keys == null || keys.contains(r'appId')) r'appId': appId,
-      if (keys == null || keys.contains(r'userId')) r'userId': userId,
-      if (keys == null || keys.contains(r'userToken')) r'userToken': userToken,
+    if (keys == null || keys.
+    contains(r'apiKey')
+    )
+        r'apiKey':
+          apiKey,
+    if (keys == null || keys.
+    contains(r'appId')
+    )
+        r'appId':
+          appId,
+    if (keys == null || keys.
+    contains(r'userId')
+    )
+        r'userId':
+          userId,
+    if (keys == null || keys.
+    contains(r'userToken')
+    )
+        r'userToken':
+          userToken,
     };
   }
 }
+

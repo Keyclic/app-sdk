@@ -7,8 +7,10 @@ part of keyclic_sdk_api;
 class CategoryLinksType {
   /// Returns a new [CategoryLinksType] instance.
   CategoryLinksType({
-    this.href,
-    this.iriTemplate,
+    this.href
+,
+    this.iriTemplate
+,
   });
 
   /// Returns a new [CategoryLinksType] instance and imports its values from
@@ -18,16 +20,16 @@ class CategoryLinksType {
       return null;
     }
 
-    return CategoryLinksType(
-      href: json[r'href'],
-      iriTemplate: CategoryLinksTypeIriTemplate.fromJson(json[r'iriTemplate']),
+  return CategoryLinksType(
+                  href: json[r'href'],
+        iriTemplate: CategoryLinksTypeIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
   /// The URI of the type associated to the given category.
-  String? href;
+      String? href;
 
-  CategoryLinksTypeIriTemplate? iriTemplate;
+      CategoryLinksTypeIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -36,23 +38,25 @@ class CategoryLinksType {
       return true;
     }
 
-    return other is CategoryLinksType &&
-        other.href == href &&
-        other.iriTemplate == iriTemplate;
+    return other is CategoryLinksType 
+          && other.href == href
+  
+          && other.iriTemplate == iriTemplate
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (href == null ? 0 : href.hashCode) +
-      (iriTemplate == null ? 0 : iriTemplate.hashCode);
+    (href == null ? 0 : href.hashCode) +
+    (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
   static List<CategoryLinksType> listFromJson(Iterable? json) {
     if (json == null) {
       return <CategoryLinksType>[];
     }
 
-    return json.fold(<CategoryLinksType>[],
-        (List<CategoryLinksType> previousValue, element) {
+    return json.fold(<CategoryLinksType>[], (List<CategoryLinksType> previousValue, element) {
       final CategoryLinksType? object = CategoryLinksType.fromJson(element);
       if (object is CategoryLinksType) {
         previousValue.add(object);
@@ -62,16 +66,13 @@ class CategoryLinksType {
     });
   }
 
-  static Map<String, CategoryLinksType> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, CategoryLinksType> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, CategoryLinksType>{};
     }
 
-    return json.entries.fold(<String, CategoryLinksType>{},
-        (Map<String, CategoryLinksType> previousValue, element) {
-      final CategoryLinksType? object =
-          CategoryLinksType.fromJson(element.value);
+    return json.entries.fold(<String, CategoryLinksType>{}, (Map<String, CategoryLinksType> previousValue, element) {
+      final CategoryLinksType? object = CategoryLinksType.fromJson(element.value);
       if (object is CategoryLinksType) {
         previousValue[element.key] = object;
       }
@@ -81,35 +82,38 @@ class CategoryLinksType {
   }
 
   // maps a json object with a list of CategoryLinksType-objects as value to a dart map
-  static Map<String, List<CategoryLinksType>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<CategoryLinksType>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<CategoryLinksType>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<CategoryLinksType>>(
-          key, CategoryLinksType.listFromJson(value));
+      return MapEntry<String, List<CategoryLinksType>>(key, CategoryLinksType.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'CategoryLinksType[href=$href, iriTemplate=$iriTemplate]';
+  String toString() => 'CategoryLinksType[href=$href, iriTemplate=$iriTemplate]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'href')) r'href': href,
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^iriTemplate\.').hasMatch(key)))
-        r'iriTemplate': iriTemplate?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^iriTemplate\.'))) {
-            previousValue.add(element.split(RegExp(r'^iriTemplate\.')).last);
-          }
+    if (keys == null || keys.
+    contains(r'href')
+    )
+        r'href':
+          href,
+    if (keys == null || keys.
+    any((key) => RegExp(r'^iriTemplate\.').hasMatch(key))
+    )
+        r'iriTemplate':
+            iriTemplate?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^iriTemplate\.'))) {
+                previousValue.add(element.split(RegExp(r'^iriTemplate\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

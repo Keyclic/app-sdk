@@ -7,9 +7,12 @@ part of keyclic_sdk_api;
 class PlanLinks {
   /// Returns a new [PlanLinks] instance.
   PlanLinks({
-    this.image,
-    this.place,
-    this.self,
+    this.image
+,
+    this.place
+,
+    this.self
+,
   });
 
   /// Returns a new [PlanLinks] instance and imports its values from
@@ -19,18 +22,18 @@ class PlanLinks {
       return null;
     }
 
-    return PlanLinks(
-      image: PlanLinksImage.fromJson(json[r'image']),
-      place: PlanLinksPlace.fromJson(json[r'place']),
-      self: PlanLinksSelf.fromJson(json[r'self']),
+  return PlanLinks(
+        image: PlanLinksImage.fromJson(json[r'image']),
+        place: PlanLinksPlace.fromJson(json[r'place']),
+        self: PlanLinksSelf.fromJson(json[r'self']),
     );
   }
 
-  PlanLinksImage? image;
+      PlanLinksImage? image;
 
-  PlanLinksPlace? place;
+      PlanLinksPlace? place;
 
-  PlanLinksSelf? self;
+      PlanLinksSelf? self;
 
   @override
   bool operator ==(Object other) {
@@ -39,17 +42,21 @@ class PlanLinks {
       return true;
     }
 
-    return other is PlanLinks &&
-        other.image == image &&
-        other.place == place &&
-        other.self == self;
+    return other is PlanLinks 
+          && other.image == image
+  
+          && other.place == place
+  
+          && other.self == self
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (image == null ? 0 : image.hashCode) +
-      (place == null ? 0 : place.hashCode) +
-      (self == null ? 0 : self.hashCode);
+    (image == null ? 0 : image.hashCode) +
+    (place == null ? 0 : place.hashCode) +
+    (self == null ? 0 : self.hashCode);
 
   static List<PlanLinks> listFromJson(Iterable? json) {
     if (json == null) {
@@ -71,8 +78,7 @@ class PlanLinks {
       return <String, PlanLinks>{};
     }
 
-    return json.entries.fold(<String, PlanLinks>{},
-        (Map<String, PlanLinks> previousValue, element) {
+    return json.entries.fold(<String, PlanLinks>{}, (Map<String, PlanLinks> previousValue, element) {
       final PlanLinks? object = PlanLinks.fromJson(element.value);
       if (object is PlanLinks) {
         previousValue[element.key] = object;
@@ -83,15 +89,13 @@ class PlanLinks {
   }
 
   // maps a json object with a list of PlanLinks-objects as value to a dart map
-  static Map<String, List<PlanLinks>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<PlanLinks>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<PlanLinks>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<PlanLinks>>(
-          key, PlanLinks.listFromJson(value));
+      return MapEntry<String, List<PlanLinks>>(key, PlanLinks.listFromJson(value));
     });
   }
 
@@ -100,33 +104,40 @@ class PlanLinks {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^image\.').hasMatch(key)))
-        r'image': image?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^image\.'))) {
-            previousValue.add(element.split(RegExp(r'^image\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^image\.').hasMatch(key))
+    )
+        r'image':
+            image?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^image\.'))) {
+                previousValue.add(element.split(RegExp(r'^image\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.any((key) => RegExp(r'^place\.').hasMatch(key)))
-        r'place': place?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^place\.'))) {
-            previousValue.add(element.split(RegExp(r'^place\.')).last);
-          }
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    any((key) => RegExp(r'^place\.').hasMatch(key))
+    )
+        r'place':
+            place?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^place\.'))) {
+                previousValue.add(element.split(RegExp(r'^place\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
-        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^self\.'))) {
-            previousValue.add(element.split(RegExp(r'^self\.')).last);
-          }
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    any((key) => RegExp(r'^self\.').hasMatch(key))
+    )
+        r'self':
+            self?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^self\.'))) {
+                previousValue.add(element.split(RegExp(r'^self\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

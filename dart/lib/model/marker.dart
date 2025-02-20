@@ -7,11 +7,18 @@ part of keyclic_sdk_api;
 class Marker {
   /// Returns a new [Marker] instance.
   Marker({
-    this.links,
-    this.createdAt,
-    this.id,
-    required this.point,
-    this.type,
+    this.links
+,
+    this.createdAt
+,
+    this.id
+,
+      required 
+    this.point
+      
+    ,
+    this.type
+,
   });
 
   /// Returns a new [Marker] instance and imports its values from
@@ -21,24 +28,24 @@ class Marker {
       return null;
     }
 
-    return Marker(
-      links: MarkerLinks.fromJson(json[r'_links']),
-      createdAt: mapToDateTime(json[r'createdAt']),
-      id: json[r'id'],
-      point: Point.fromJson(json[r'point'])!,
-      type: json[r'type'],
+  return Marker(
+        links: MarkerLinks.fromJson(json[r'_links']),
+        createdAt: mapToDateTime(json[r'createdAt']),
+                  id: json[r'id'],
+        point: Point.fromJson(json[r'point'])!,
+                  type: json[r'type'],
     );
   }
 
-  MarkerLinks? links;
+      MarkerLinks? links;
 
-  final DateTime? createdAt;
+      final DateTime? createdAt;
 
-  final String? id;
+      final String? id;
 
-  Point point;
+      Point point;
 
-  String? type;
+      String? type;
 
   @override
   bool operator ==(Object other) {
@@ -47,21 +54,27 @@ class Marker {
       return true;
     }
 
-    return other is Marker &&
-        other.links == links &&
-        other.createdAt == createdAt &&
-        other.id == id &&
-        other.point == point &&
-        other.type == type;
+    return other is Marker 
+          && other.links == links
+  
+          && other.createdAt == createdAt
+  
+          && other.id == id
+  
+          && other.point == point
+  
+          && other.type == type
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (id == null ? 0 : id.hashCode) +
-      point.hashCode +
-      (type == null ? 0 : type.hashCode);
+    (links == null ? 0 : links.hashCode) +
+    (createdAt == null ? 0 : createdAt.hashCode) +
+    (id == null ? 0 : id.hashCode) +
+     point.hashCode +
+    (type == null ? 0 : type.hashCode);
 
   static List<Marker> listFromJson(Iterable? json) {
     if (json == null) {
@@ -83,8 +96,7 @@ class Marker {
       return <String, Marker>{};
     }
 
-    return json.entries.fold(<String, Marker>{},
-        (Map<String, Marker> previousValue, element) {
+    return json.entries.fold(<String, Marker>{}, (Map<String, Marker> previousValue, element) {
       final Marker? object = Marker.fromJson(element.value);
       if (object is Marker) {
         previousValue[element.key] = object;
@@ -106,32 +118,44 @@ class Marker {
   }
 
   @override
-  String toString() =>
-      'Marker[links=$links, createdAt=$createdAt, id=$id, point=$point, type=$type]';
+  String toString() => 'Marker[links=$links, createdAt=$createdAt, id=$id, point=$point, type=$type]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^links\.').hasMatch(key))
+    )
+        r'_links':
+            links?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^links\.'))) {
+                previousValue.add(element.split(RegExp(r'^links\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      r'point': point.toJson(keys?.fold<List<String>>(<String>[],
-          (List<String> previousValue, String element) {
-        if (element.contains(RegExp(r'^point\.'))) {
-          previousValue.add(element.split(RegExp(r'^point\.')).last);
-        }
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    contains(r'createdAt')
+    )
+      r'createdAt': createdAt?.toUtc().toIso8601String(),
+    if (keys == null || keys.
+    contains(r'id')
+    )
+        r'id':
+          id,
+        r'point':
+            point.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^point\.'))) {
+                previousValue.add(element.split(RegExp(r'^point\.')).last);
+              }
 
-        return previousValue;
-      })),
-      if (keys == null || keys.contains(r'type')) r'type': type,
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    contains(r'type')
+    )
+        r'type':
+          type,
     };
   }
 }
+

@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class DocumentDataPermission {
   /// Returns a new [DocumentDataPermission] instance.
   DocumentDataPermission({
-    this.targetGroup,
+    this.targetGroup
+,
   });
 
   /// Returns a new [DocumentDataPermission] instance and imports its values from
@@ -17,12 +18,12 @@ class DocumentDataPermission {
       return null;
     }
 
-    return DocumentDataPermission(
-      targetGroup: json[r'targetGroup'],
+  return DocumentDataPermission(
+                  targetGroup: json[r'targetGroup'],
     );
   }
 
-  String? targetGroup;
+      String? targetGroup;
 
   @override
   bool operator ==(Object other) {
@@ -31,21 +32,23 @@ class DocumentDataPermission {
       return true;
     }
 
-    return other is DocumentDataPermission && other.targetGroup == targetGroup;
+    return other is DocumentDataPermission 
+          && other.targetGroup == targetGroup
+  ;
   }
+  
 
   @override
-  int get hashCode => (targetGroup == null ? 0 : targetGroup.hashCode);
+  int get hashCode =>
+    (targetGroup == null ? 0 : targetGroup.hashCode);
 
   static List<DocumentDataPermission> listFromJson(Iterable? json) {
     if (json == null) {
       return <DocumentDataPermission>[];
     }
 
-    return json.fold(<DocumentDataPermission>[],
-        (List<DocumentDataPermission> previousValue, element) {
-      final DocumentDataPermission? object =
-          DocumentDataPermission.fromJson(element);
+    return json.fold(<DocumentDataPermission>[], (List<DocumentDataPermission> previousValue, element) {
+      final DocumentDataPermission? object = DocumentDataPermission.fromJson(element);
       if (object is DocumentDataPermission) {
         previousValue.add(object);
       }
@@ -54,16 +57,13 @@ class DocumentDataPermission {
     });
   }
 
-  static Map<String, DocumentDataPermission> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, DocumentDataPermission> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, DocumentDataPermission>{};
     }
 
-    return json.entries.fold(<String, DocumentDataPermission>{},
-        (Map<String, DocumentDataPermission> previousValue, element) {
-      final DocumentDataPermission? object =
-          DocumentDataPermission.fromJson(element.value);
+    return json.entries.fold(<String, DocumentDataPermission>{}, (Map<String, DocumentDataPermission> previousValue, element) {
+      final DocumentDataPermission? object = DocumentDataPermission.fromJson(element.value);
       if (object is DocumentDataPermission) {
         previousValue[element.key] = object;
       }
@@ -73,15 +73,13 @@ class DocumentDataPermission {
   }
 
   // maps a json object with a list of DocumentDataPermission-objects as value to a dart map
-  static Map<String, List<DocumentDataPermission>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<DocumentDataPermission>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<DocumentDataPermission>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<DocumentDataPermission>>(
-          key, DocumentDataPermission.listFromJson(value));
+      return MapEntry<String, List<DocumentDataPermission>>(key, DocumentDataPermission.listFromJson(value));
     });
   }
 
@@ -90,8 +88,12 @@ class DocumentDataPermission {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'targetGroup'))
-        r'targetGroup': targetGroup,
+    if (keys == null || keys.
+    contains(r'targetGroup')
+    )
+        r'targetGroup':
+          targetGroup,
     };
   }
 }
+

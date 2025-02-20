@@ -11,9 +11,14 @@ void main() {
 
   group('test ServiceOfferJsonhalReadLinks', () {
     // GetPlaceCollection200ResponseLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
 
     // GetPlaceCollection200ResponseLinksSelf service
-    test('to test the property `service`', () async {});
+    test('to test the property `service`', () async {
+    });
+
+
   });
+
 }

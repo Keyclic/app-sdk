@@ -11,21 +11,30 @@ void main() {
 
   group('test Occupant', () {
     // BookmarkEmbedded embedded
-    test('to test the property `embedded`', () async {});
+    test('to test the property `embedded`', () async {
+    });
 
     // OccupantLinks links
-    test('to test the property `links`', () async {});
+    test('to test the property `links`', () async {
+    });
 
     // DateTime createdAt
-    test('to test the property `createdAt`', () async {});
+    test('to test the property `createdAt`', () async {
+    });
 
     // String id
-    test('to test the property `id`', () async {});
+    test('to test the property `id`', () async {
+    });
 
     // String type
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
 
     // DateTime updatedAt
-    test('to test the property `updatedAt`', () async {});
+    test('to test the property `updatedAt`', () async {
+    });
+
+
   });
+
 }

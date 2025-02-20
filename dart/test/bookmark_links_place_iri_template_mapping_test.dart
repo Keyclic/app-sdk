@@ -11,6 +11,10 @@ void main() {
 
   group('test BookmarkLinksPlaceIriTemplateMapping', () {
     // String place
-    test('to test the property `place`', () async {});
+    test('to test the property `place`', () async {
+    });
+
+
   });
+
 }

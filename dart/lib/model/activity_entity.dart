@@ -7,8 +7,10 @@ part of keyclic_sdk_api;
 class ActivityEntity {
   /// Returns a new [ActivityEntity] instance.
   ActivityEntity({
-    this.id,
-    this.type,
+    this.id
+,
+    this.type
+,
   });
 
   /// Returns a new [ActivityEntity] instance and imports its values from
@@ -18,15 +20,15 @@ class ActivityEntity {
       return null;
     }
 
-    return ActivityEntity(
-      id: json[r'id'],
-      type: json[r'type'],
+  return ActivityEntity(
+                  id: json[r'id'],
+                  type: json[r'type'],
     );
   }
 
-  final String? id;
+      final String? id;
 
-  String? type;
+      String? type;
 
   @override
   bool operator ==(Object other) {
@@ -35,20 +37,25 @@ class ActivityEntity {
       return true;
     }
 
-    return other is ActivityEntity && other.id == id && other.type == type;
+    return other is ActivityEntity 
+          && other.id == id
+  
+          && other.type == type
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (id == null ? 0 : id.hashCode) + (type == null ? 0 : type.hashCode);
+    (id == null ? 0 : id.hashCode) +
+    (type == null ? 0 : type.hashCode);
 
   static List<ActivityEntity> listFromJson(Iterable? json) {
     if (json == null) {
       return <ActivityEntity>[];
     }
 
-    return json.fold(<ActivityEntity>[],
-        (List<ActivityEntity> previousValue, element) {
+    return json.fold(<ActivityEntity>[], (List<ActivityEntity> previousValue, element) {
       final ActivityEntity? object = ActivityEntity.fromJson(element);
       if (object is ActivityEntity) {
         previousValue.add(object);
@@ -63,8 +70,7 @@ class ActivityEntity {
       return <String, ActivityEntity>{};
     }
 
-    return json.entries.fold(<String, ActivityEntity>{},
-        (Map<String, ActivityEntity> previousValue, element) {
+    return json.entries.fold(<String, ActivityEntity>{}, (Map<String, ActivityEntity> previousValue, element) {
       final ActivityEntity? object = ActivityEntity.fromJson(element.value);
       if (object is ActivityEntity) {
         previousValue[element.key] = object;
@@ -75,15 +81,13 @@ class ActivityEntity {
   }
 
   // maps a json object with a list of ActivityEntity-objects as value to a dart map
-  static Map<String, List<ActivityEntity>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<ActivityEntity>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ActivityEntity>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ActivityEntity>>(
-          key, ActivityEntity.listFromJson(value));
+      return MapEntry<String, List<ActivityEntity>>(key, ActivityEntity.listFromJson(value));
     });
   }
 
@@ -92,8 +96,17 @@ class ActivityEntity {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'type')) r'type': type,
+    if (keys == null || keys.
+    contains(r'id')
+    )
+        r'id':
+          id,
+    if (keys == null || keys.
+    contains(r'type')
+    )
+        r'type':
+          type,
     };
   }
 }
+

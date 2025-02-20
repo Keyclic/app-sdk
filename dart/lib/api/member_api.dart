@@ -4,21 +4,22 @@
 
 part of keyclic_sdk_api;
 
+
 class MemberApi {
   const MemberApi(this._apiClient);
 
   final ApiClient _apiClient;
 
   /// Remove one Member resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [member] - The identifier of the resource.
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -30,13 +31,14 @@ class MemberApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Remove one Member resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<void>> deleteMember({
+  Future<Response<void>> deleteMember({ 
     required String xKeyclicApp,
     required String member,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -44,8 +46,7 @@ class MemberApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path =
-        r'/members/{member}'.replaceAll('{' r'member' '}', member.toString());
+    final String path = r'/members/{member}'.replaceAll('{' r'member' '}', member.toString());
     final options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -53,16 +54,15 @@ class MemberApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -70,8 +70,11 @@ class MemberApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     return _apiClient.dio.request<Object>(
       path,
@@ -80,19 +83,19 @@ class MemberApi {
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
     );
-  }
 
+  }
   /// Edit one Member resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [member] - The identifier of the resource.
-  /// * [memberPatch]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [memberPatch] 
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -104,7 +107,7 @@ class MemberApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Edit one Member resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<Member>> patchMember({
+  Future<Response<Member>> patchMember({ 
     required String xKeyclicApp,
     required String member,
     required MemberPatch memberPatch,
@@ -120,8 +123,7 @@ class MemberApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path =
-        r'/members/{member}'.replaceAll('{' r'member' '}', member.toString());
+    final String path = r'/members/{member}'.replaceAll('{' r'member' '}', member.toString());
     final options = Options(
       method: r'PATCH',
       headers: <String, dynamic>{
@@ -129,16 +131,15 @@ class MemberApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -150,11 +151,12 @@ class MemberApi {
       validateStatus: validateStatus,
     );
 
+
     dynamic bodyData;
 
     try {
-      bodyData = memberPatch.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = memberPatch.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -178,8 +180,7 @@ class MemberApi {
     Member responseData;
 
     try {
-      responseData =
-          await _apiClient.deserializeAsync<Member>(response.data!, 'Member');
+            responseData = await _apiClient.deserializeAsync<Member>(response.data!, 'Member');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -201,17 +202,16 @@ class MemberApi {
       extra: response.extra,
     );
   }
-
   /// Create one Member resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
-  /// * [memberData]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [xKeyclicApp] 
+  /// * [memberData] 
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -223,7 +223,7 @@ class MemberApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Member resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<Member>> postMember({
+  Future<Response<Member>> postMember({ 
     required String xKeyclicApp,
     required MemberData memberData,
     String? acceptLanguage,
@@ -246,16 +246,15 @@ class MemberApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -267,11 +266,12 @@ class MemberApi {
       validateStatus: validateStatus,
     );
 
+
     dynamic bodyData;
 
     try {
-      bodyData = memberData.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = memberData.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -295,8 +295,7 @@ class MemberApi {
     Member responseData;
 
     try {
-      responseData =
-          await _apiClient.deserializeAsync<Member>(response.data!, 'Member');
+            responseData = await _apiClient.deserializeAsync<Member>(response.data!, 'Member');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

@@ -7,10 +7,22 @@ part of keyclic_sdk_api;
 class PublicationData {
   /// Returns a new [PublicationData] instance.
   PublicationData({
-    required this.message,
-    required this.feed,
-    required this.title,
-    required this.organization,
+      required 
+    this.message
+      
+    ,
+      required 
+    this.feed
+      
+    ,
+      required 
+    this.title
+      
+    ,
+      required 
+    this.organization
+      
+    ,
   });
 
   /// Returns a new [PublicationData] instance and imports its values from
@@ -20,21 +32,21 @@ class PublicationData {
       return null;
     }
 
-    return PublicationData(
-      message: json[r'message'],
-      feed: json[r'feed'],
-      title: json[r'title'],
-      organization: json[r'organization'],
+  return PublicationData(
+                  message: json[r'message'],
+                  feed: json[r'feed'],
+                  title: json[r'title'],
+                  organization: json[r'organization'],
     );
   }
 
-  String message;
+      String message;
 
-  String feed;
+      String feed;
 
-  String title;
+      String title;
 
-  String organization;
+      String organization;
 
   @override
   bool operator ==(Object other) {
@@ -43,24 +55,31 @@ class PublicationData {
       return true;
     }
 
-    return other is PublicationData &&
-        other.message == message &&
-        other.feed == feed &&
-        other.title == title &&
-        other.organization == organization;
+    return other is PublicationData 
+          && other.message == message
+  
+          && other.feed == feed
+  
+          && other.title == title
+  
+          && other.organization == organization
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      message.hashCode + feed.hashCode + title.hashCode + organization.hashCode;
+     message.hashCode +
+     feed.hashCode +
+     title.hashCode +
+     organization.hashCode;
 
   static List<PublicationData> listFromJson(Iterable? json) {
     if (json == null) {
       return <PublicationData>[];
     }
 
-    return json.fold(<PublicationData>[],
-        (List<PublicationData> previousValue, element) {
+    return json.fold(<PublicationData>[], (List<PublicationData> previousValue, element) {
       final PublicationData? object = PublicationData.fromJson(element);
       if (object is PublicationData) {
         previousValue.add(object);
@@ -75,8 +94,7 @@ class PublicationData {
       return <String, PublicationData>{};
     }
 
-    return json.entries.fold(<String, PublicationData>{},
-        (Map<String, PublicationData> previousValue, element) {
+    return json.entries.fold(<String, PublicationData>{}, (Map<String, PublicationData> previousValue, element) {
       final PublicationData? object = PublicationData.fromJson(element.value);
       if (object is PublicationData) {
         previousValue[element.key] = object;
@@ -87,28 +105,30 @@ class PublicationData {
   }
 
   // maps a json object with a list of PublicationData-objects as value to a dart map
-  static Map<String, List<PublicationData>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<PublicationData>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<PublicationData>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<PublicationData>>(
-          key, PublicationData.listFromJson(value));
+      return MapEntry<String, List<PublicationData>>(key, PublicationData.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'PublicationData[message=$message, feed=$feed, title=$title, organization=$organization]';
+  String toString() => 'PublicationData[message=$message, feed=$feed, title=$title, organization=$organization]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'message': message,
-      r'feed': feed,
-      r'title': title,
-      r'organization': organization,
+        r'message':
+          message,
+        r'feed':
+          feed,
+        r'title':
+          title,
+        r'organization':
+          organization,
     };
   }
 }
+

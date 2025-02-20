@@ -11,18 +11,26 @@ void main() {
 
   group('test OperationPriority', () {
     // String color
-    test('to test the property `color`', () async {});
+    test('to test the property `color`', () async {
+    });
 
     // String id
-    test('to test the property `id`', () async {});
+    test('to test the property `id`', () async {
+    });
 
     // String name
-    test('to test the property `name`', () async {});
+    test('to test the property `name`', () async {
+    });
 
     // int position
-    test('to test the property `position`', () async {});
+    test('to test the property `position`', () async {
+    });
 
     // String type
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
+
+
   });
+
 }

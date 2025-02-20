@@ -7,8 +7,12 @@ part of keyclic_sdk_api;
 class SignatureData {
   /// Returns a new [SignatureData] instance.
   SignatureData({
-    required this.image,
-    this.text,
+      required 
+    this.image
+      
+    ,
+    this.text
+,
   });
 
   /// Returns a new [SignatureData] instance and imports its values from
@@ -18,15 +22,15 @@ class SignatureData {
       return null;
     }
 
-    return SignatureData(
-      image: json[r'image'],
-      text: json[r'text'],
+  return SignatureData(
+                  image: json[r'image'],
+                  text: json[r'text'],
     );
   }
 
-  String image;
+      String image;
 
-  String? text;
+      String? text;
 
   @override
   bool operator ==(Object other) {
@@ -35,19 +39,25 @@ class SignatureData {
       return true;
     }
 
-    return other is SignatureData && other.image == image && other.text == text;
+    return other is SignatureData 
+          && other.image == image
+  
+          && other.text == text
+  ;
   }
+  
 
   @override
-  int get hashCode => image.hashCode + (text == null ? 0 : text.hashCode);
+  int get hashCode =>
+     image.hashCode +
+    (text == null ? 0 : text.hashCode);
 
   static List<SignatureData> listFromJson(Iterable? json) {
     if (json == null) {
       return <SignatureData>[];
     }
 
-    return json.fold(<SignatureData>[],
-        (List<SignatureData> previousValue, element) {
+    return json.fold(<SignatureData>[], (List<SignatureData> previousValue, element) {
       final SignatureData? object = SignatureData.fromJson(element);
       if (object is SignatureData) {
         previousValue.add(object);
@@ -62,8 +72,7 @@ class SignatureData {
       return <String, SignatureData>{};
     }
 
-    return json.entries.fold(<String, SignatureData>{},
-        (Map<String, SignatureData> previousValue, element) {
+    return json.entries.fold(<String, SignatureData>{}, (Map<String, SignatureData> previousValue, element) {
       final SignatureData? object = SignatureData.fromJson(element.value);
       if (object is SignatureData) {
         previousValue[element.key] = object;
@@ -74,15 +83,13 @@ class SignatureData {
   }
 
   // maps a json object with a list of SignatureData-objects as value to a dart map
-  static Map<String, List<SignatureData>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<SignatureData>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<SignatureData>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<SignatureData>>(
-          key, SignatureData.listFromJson(value));
+      return MapEntry<String, List<SignatureData>>(key, SignatureData.listFromJson(value));
     });
   }
 
@@ -91,8 +98,14 @@ class SignatureData {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'image': image,
-      if (keys == null || keys.contains(r'text')) r'text': text,
+        r'image':
+          image,
+    if (keys == null || keys.
+    contains(r'text')
+    )
+        r'text':
+          text,
     };
   }
 }
+

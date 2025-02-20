@@ -11,12 +11,18 @@ void main() {
 
   group('test WorkflowData', () {
     // String text
-    test('to test the property `text`', () async {});
+    test('to test the property `text`', () async {
+    });
 
     // String datetime
-    test('to test the property `datetime`', () async {});
+    test('to test the property `datetime`', () async {
+    });
 
     // String transition
-    test('to test the property `transition`', () async {});
+    test('to test the property `transition`', () async {
+    });
+
+
   });
+
 }

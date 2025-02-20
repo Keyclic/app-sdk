@@ -7,8 +7,10 @@ part of keyclic_sdk_api;
 class ReportLinksEquipments {
   /// Returns a new [ReportLinksEquipments] instance.
   ReportLinksEquipments({
-    this.href,
-    this.iriTemplate,
+    this.href
+,
+    this.iriTemplate
+,
   });
 
   /// Returns a new [ReportLinksEquipments] instance and imports its values from
@@ -18,17 +20,16 @@ class ReportLinksEquipments {
       return null;
     }
 
-    return ReportLinksEquipments(
-      href: json[r'href'],
-      iriTemplate:
-          ReportLinksEquipmentsIriTemplate.fromJson(json[r'iriTemplate']),
+  return ReportLinksEquipments(
+                  href: json[r'href'],
+        iriTemplate: ReportLinksEquipmentsIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
   /// The URI of the equipments associated to the given report.
-  String? href;
+      String? href;
 
-  ReportLinksEquipmentsIriTemplate? iriTemplate;
+      ReportLinksEquipmentsIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -37,25 +38,26 @@ class ReportLinksEquipments {
       return true;
     }
 
-    return other is ReportLinksEquipments &&
-        other.href == href &&
-        other.iriTemplate == iriTemplate;
+    return other is ReportLinksEquipments 
+          && other.href == href
+  
+          && other.iriTemplate == iriTemplate
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (href == null ? 0 : href.hashCode) +
-      (iriTemplate == null ? 0 : iriTemplate.hashCode);
+    (href == null ? 0 : href.hashCode) +
+    (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
   static List<ReportLinksEquipments> listFromJson(Iterable? json) {
     if (json == null) {
       return <ReportLinksEquipments>[];
     }
 
-    return json.fold(<ReportLinksEquipments>[],
-        (List<ReportLinksEquipments> previousValue, element) {
-      final ReportLinksEquipments? object =
-          ReportLinksEquipments.fromJson(element);
+    return json.fold(<ReportLinksEquipments>[], (List<ReportLinksEquipments> previousValue, element) {
+      final ReportLinksEquipments? object = ReportLinksEquipments.fromJson(element);
       if (object is ReportLinksEquipments) {
         previousValue.add(object);
       }
@@ -64,16 +66,13 @@ class ReportLinksEquipments {
     });
   }
 
-  static Map<String, ReportLinksEquipments> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, ReportLinksEquipments> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, ReportLinksEquipments>{};
     }
 
-    return json.entries.fold(<String, ReportLinksEquipments>{},
-        (Map<String, ReportLinksEquipments> previousValue, element) {
-      final ReportLinksEquipments? object =
-          ReportLinksEquipments.fromJson(element.value);
+    return json.entries.fold(<String, ReportLinksEquipments>{}, (Map<String, ReportLinksEquipments> previousValue, element) {
+      final ReportLinksEquipments? object = ReportLinksEquipments.fromJson(element.value);
       if (object is ReportLinksEquipments) {
         previousValue[element.key] = object;
       }
@@ -83,35 +82,38 @@ class ReportLinksEquipments {
   }
 
   // maps a json object with a list of ReportLinksEquipments-objects as value to a dart map
-  static Map<String, List<ReportLinksEquipments>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<ReportLinksEquipments>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ReportLinksEquipments>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ReportLinksEquipments>>(
-          key, ReportLinksEquipments.listFromJson(value));
+      return MapEntry<String, List<ReportLinksEquipments>>(key, ReportLinksEquipments.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'ReportLinksEquipments[href=$href, iriTemplate=$iriTemplate]';
+  String toString() => 'ReportLinksEquipments[href=$href, iriTemplate=$iriTemplate]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'href')) r'href': href,
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^iriTemplate\.').hasMatch(key)))
-        r'iriTemplate': iriTemplate?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^iriTemplate\.'))) {
-            previousValue.add(element.split(RegExp(r'^iriTemplate\.')).last);
-          }
+    if (keys == null || keys.
+    contains(r'href')
+    )
+        r'href':
+          href,
+    if (keys == null || keys.
+    any((key) => RegExp(r'^iriTemplate\.').hasMatch(key))
+    )
+        r'iriTemplate':
+            iriTemplate?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^iriTemplate\.'))) {
+                previousValue.add(element.split(RegExp(r'^iriTemplate\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

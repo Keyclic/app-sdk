@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class ArticleLinksSelfIriTemplateMapping {
   /// Returns a new [ArticleLinksSelfIriTemplateMapping] instance.
   ArticleLinksSelfIriTemplateMapping({
-    this.article,
+    this.article
+,
   });
 
   /// Returns a new [ArticleLinksSelfIriTemplateMapping] instance and imports its values from
@@ -17,12 +18,12 @@ class ArticleLinksSelfIriTemplateMapping {
       return null;
     }
 
-    return ArticleLinksSelfIriTemplateMapping(
-      article: json[r'article'],
+  return ArticleLinksSelfIriTemplateMapping(
+                  article: json[r'article'],
     );
   }
 
-  String? article;
+      String? article;
 
   @override
   bool operator ==(Object other) {
@@ -31,22 +32,23 @@ class ArticleLinksSelfIriTemplateMapping {
       return true;
     }
 
-    return other is ArticleLinksSelfIriTemplateMapping &&
-        other.article == article;
+    return other is ArticleLinksSelfIriTemplateMapping 
+          && other.article == article
+  ;
   }
+  
 
   @override
-  int get hashCode => (article == null ? 0 : article.hashCode);
+  int get hashCode =>
+    (article == null ? 0 : article.hashCode);
 
   static List<ArticleLinksSelfIriTemplateMapping> listFromJson(Iterable? json) {
     if (json == null) {
       return <ArticleLinksSelfIriTemplateMapping>[];
     }
 
-    return json.fold(<ArticleLinksSelfIriTemplateMapping>[],
-        (List<ArticleLinksSelfIriTemplateMapping> previousValue, element) {
-      final ArticleLinksSelfIriTemplateMapping? object =
-          ArticleLinksSelfIriTemplateMapping.fromJson(element);
+    return json.fold(<ArticleLinksSelfIriTemplateMapping>[], (List<ArticleLinksSelfIriTemplateMapping> previousValue, element) {
+      final ArticleLinksSelfIriTemplateMapping? object = ArticleLinksSelfIriTemplateMapping.fromJson(element);
       if (object is ArticleLinksSelfIriTemplateMapping) {
         previousValue.add(object);
       }
@@ -55,17 +57,13 @@ class ArticleLinksSelfIriTemplateMapping {
     });
   }
 
-  static Map<String, ArticleLinksSelfIriTemplateMapping> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, ArticleLinksSelfIriTemplateMapping> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, ArticleLinksSelfIriTemplateMapping>{};
     }
 
-    return json.entries.fold(<String, ArticleLinksSelfIriTemplateMapping>{},
-        (Map<String, ArticleLinksSelfIriTemplateMapping> previousValue,
-            element) {
-      final ArticleLinksSelfIriTemplateMapping? object =
-          ArticleLinksSelfIriTemplateMapping.fromJson(element.value);
+    return json.entries.fold(<String, ArticleLinksSelfIriTemplateMapping>{}, (Map<String, ArticleLinksSelfIriTemplateMapping> previousValue, element) {
+      final ArticleLinksSelfIriTemplateMapping? object = ArticleLinksSelfIriTemplateMapping.fromJson(element.value);
       if (object is ArticleLinksSelfIriTemplateMapping) {
         previousValue[element.key] = object;
       }
@@ -75,15 +73,13 @@ class ArticleLinksSelfIriTemplateMapping {
   }
 
   // maps a json object with a list of ArticleLinksSelfIriTemplateMapping-objects as value to a dart map
-  static Map<String, List<ArticleLinksSelfIriTemplateMapping>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<ArticleLinksSelfIriTemplateMapping>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ArticleLinksSelfIriTemplateMapping>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ArticleLinksSelfIriTemplateMapping>>(
-          key, ArticleLinksSelfIriTemplateMapping.listFromJson(value));
+      return MapEntry<String, List<ArticleLinksSelfIriTemplateMapping>>(key, ArticleLinksSelfIriTemplateMapping.listFromJson(value));
     });
   }
 
@@ -92,7 +88,12 @@ class ArticleLinksSelfIriTemplateMapping {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'article')) r'article': article,
+    if (keys == null || keys.
+    contains(r'article')
+    )
+        r'article':
+          article,
     };
   }
 }
+

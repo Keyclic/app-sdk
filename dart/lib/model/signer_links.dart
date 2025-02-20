@@ -7,9 +7,12 @@ part of keyclic_sdk_api;
 class SignerLinks {
   /// Returns a new [SignerLinks] instance.
   SignerLinks({
-    this.member,
-    this.procedure,
-    this.self,
+    this.member
+,
+    this.procedure
+,
+    this.self
+,
   });
 
   /// Returns a new [SignerLinks] instance and imports its values from
@@ -19,18 +22,18 @@ class SignerLinks {
       return null;
     }
 
-    return SignerLinks(
-      member: SignerLinksMember.fromJson(json[r'member']),
-      procedure: SignerLinksProcedure.fromJson(json[r'procedure']),
-      self: SignerLinksSelf.fromJson(json[r'self']),
+  return SignerLinks(
+        member: SignerLinksMember.fromJson(json[r'member']),
+        procedure: SignerLinksProcedure.fromJson(json[r'procedure']),
+        self: SignerLinksSelf.fromJson(json[r'self']),
     );
   }
 
-  SignerLinksMember? member;
+      SignerLinksMember? member;
 
-  SignerLinksProcedure? procedure;
+      SignerLinksProcedure? procedure;
 
-  SignerLinksSelf? self;
+      SignerLinksSelf? self;
 
   @override
   bool operator ==(Object other) {
@@ -39,25 +42,28 @@ class SignerLinks {
       return true;
     }
 
-    return other is SignerLinks &&
-        other.member == member &&
-        other.procedure == procedure &&
-        other.self == self;
+    return other is SignerLinks 
+          && other.member == member
+  
+          && other.procedure == procedure
+  
+          && other.self == self
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (member == null ? 0 : member.hashCode) +
-      (procedure == null ? 0 : procedure.hashCode) +
-      (self == null ? 0 : self.hashCode);
+    (member == null ? 0 : member.hashCode) +
+    (procedure == null ? 0 : procedure.hashCode) +
+    (self == null ? 0 : self.hashCode);
 
   static List<SignerLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <SignerLinks>[];
     }
 
-    return json.fold(<SignerLinks>[],
-        (List<SignerLinks> previousValue, element) {
+    return json.fold(<SignerLinks>[], (List<SignerLinks> previousValue, element) {
       final SignerLinks? object = SignerLinks.fromJson(element);
       if (object is SignerLinks) {
         previousValue.add(object);
@@ -72,8 +78,7 @@ class SignerLinks {
       return <String, SignerLinks>{};
     }
 
-    return json.entries.fold(<String, SignerLinks>{},
-        (Map<String, SignerLinks> previousValue, element) {
+    return json.entries.fold(<String, SignerLinks>{}, (Map<String, SignerLinks> previousValue, element) {
       final SignerLinks? object = SignerLinks.fromJson(element.value);
       if (object is SignerLinks) {
         previousValue[element.key] = object;
@@ -84,52 +89,55 @@ class SignerLinks {
   }
 
   // maps a json object with a list of SignerLinks-objects as value to a dart map
-  static Map<String, List<SignerLinks>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<SignerLinks>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<SignerLinks>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<SignerLinks>>(
-          key, SignerLinks.listFromJson(value));
+      return MapEntry<String, List<SignerLinks>>(key, SignerLinks.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'SignerLinks[member=$member, procedure=$procedure, self=$self]';
+  String toString() => 'SignerLinks[member=$member, procedure=$procedure, self=$self]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^member\.').hasMatch(key)))
-        r'member': member?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^member\.'))) {
-            previousValue.add(element.split(RegExp(r'^member\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^member\.').hasMatch(key))
+    )
+        r'member':
+            member?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^member\.'))) {
+                previousValue.add(element.split(RegExp(r'^member\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^procedure\.').hasMatch(key)))
-        r'procedure': procedure?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^procedure\.'))) {
-            previousValue.add(element.split(RegExp(r'^procedure\.')).last);
-          }
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    any((key) => RegExp(r'^procedure\.').hasMatch(key))
+    )
+        r'procedure':
+            procedure?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^procedure\.'))) {
+                previousValue.add(element.split(RegExp(r'^procedure\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
-        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^self\.'))) {
-            previousValue.add(element.split(RegExp(r'^self\.')).last);
-          }
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    any((key) => RegExp(r'^self\.').hasMatch(key))
+    )
+        r'self':
+            self?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^self\.'))) {
+                previousValue.add(element.split(RegExp(r'^self\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

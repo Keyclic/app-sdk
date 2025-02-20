@@ -11,6 +11,10 @@ void main() {
 
   group('test DocumentLinksFileIriTemplateMapping', () {
     // String document
-    test('to test the property `document`', () async {});
+    test('to test the property `document`', () async {
+    });
+
+
   });
+
 }

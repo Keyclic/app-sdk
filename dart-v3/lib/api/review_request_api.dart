@@ -4,6 +4,7 @@
 
 part of keyclic_sdk_api_platform;
 
+
 class ReviewRequestApi {
   const ReviewRequestApi(this._apiClient);
 
@@ -14,11 +15,11 @@ class ReviewRequestApi {
   ///
   /// Parameters:
   /// * [identifier] - ReviewRequest identifier
-  /// * [xKeyclicApp] -
-  /// * [acceptLanguage] -
-  /// * [xDateTime] -
-  /// * [xKeyclicAppPlatform] -
-  /// * [xKeyclicAppVersion] -
+  /// * [xKeyclicApp] - 
+  /// * [acceptLanguage] - 
+  /// * [xDateTime] - 
+  /// * [xKeyclicAppPlatform] - 
+  /// * [xKeyclicAppVersion] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -28,13 +29,14 @@ class ReviewRequestApi {
   ///
   /// Returns a [Future] containing a [Response] with a [ReviewRequestJsonhalRead] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<ReviewRequestJsonhalRead>> getReviewRequest({
+  Future<Response<ReviewRequestJsonhalRead>> getReviewRequest({ 
     required String identifier,
     required String xKeyclicApp,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -42,8 +44,7 @@ class ReviewRequestApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/review-requests/{identifier}'
-        .replaceAll('{' r'identifier' '}', identifier.toString());
+    final String path = r'/review-requests/{identifier}'.replaceAll('{' r'identifier' '}', identifier.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -51,16 +52,15 @@ class ReviewRequestApi {
         if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
         if (xDateTime != null) r'X-Date-Time': xDateTime,
         r'X-Keyclic-App': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'X-Keyclic-App-Version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -68,8 +68,11 @@ class ReviewRequestApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -82,9 +85,7 @@ class ReviewRequestApi {
     ReviewRequestJsonhalRead responseData;
 
     try {
-      responseData =
-          await _apiClient.deserializeAsync<ReviewRequestJsonhalRead>(
-              response.data!, 'ReviewRequestJsonhalRead');
+            responseData = await _apiClient.deserializeAsync<ReviewRequestJsonhalRead>(response.data!, 'ReviewRequestJsonhalRead');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -106,19 +107,18 @@ class ReviewRequestApi {
       extra: response.extra,
     );
   }
-
   /// Retrieves the collection of ReviewRequest resources.
   /// Retrieves the collection of ReviewRequest resources.
   ///
   /// Parameters:
-  /// * [xKeyclicApp] -
+  /// * [xKeyclicApp] - 
   /// * [page] - The collection page number
   /// * [limit] - The number of items per page
   /// * [pagination] - Enable or disable pagination
-  /// * [acceptLanguage] -
-  /// * [xDateTime] -
-  /// * [xKeyclicAppPlatform] -
-  /// * [xKeyclicAppVersion] -
+  /// * [acceptLanguage] - 
+  /// * [xDateTime] - 
+  /// * [xKeyclicAppPlatform] - 
+  /// * [xKeyclicAppVersion] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -128,8 +128,7 @@ class ReviewRequestApi {
   ///
   /// Returns a [Future] containing a [Response] with a [GetReviewRequestCollection200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetReviewRequestCollection200Response>>
-      getReviewRequestCollection({
+  Future<Response<GetReviewRequestCollection200Response>> getReviewRequestCollection({ 
     required String xKeyclicApp,
     int? page,
     int? limit,
@@ -138,6 +137,7 @@ class ReviewRequestApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -153,16 +153,15 @@ class ReviewRequestApi {
         if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
         if (xDateTime != null) r'X-Date-Time': xDateTime,
         r'X-Keyclic-App': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'X-Keyclic-App-Version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -170,14 +169,25 @@ class ReviewRequestApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
 
     final queryParameters = <String, dynamic>{
-      if (page != null) r'page': encodeQueryParameter(page),
-      if (limit != null) r'limit': encodeQueryParameter(limit),
-      if (pagination != null) r'pagination': encodeQueryParameter(pagination),
+      if (page != null) r'page':
+        encodeQueryParameter(
+        page
+        ),
+      if (limit != null) r'limit':
+        encodeQueryParameter(
+        limit
+        ),
+      if (pagination != null) r'pagination':
+        encodeQueryParameter(
+        pagination
+        ),
     };
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -191,9 +201,7 @@ class ReviewRequestApi {
     GetReviewRequestCollection200Response responseData;
 
     try {
-      responseData = await _apiClient
-          .deserializeAsync<GetReviewRequestCollection200Response>(
-              response.data!, 'GetReviewRequestCollection200Response');
+            responseData = await _apiClient.deserializeAsync<GetReviewRequestCollection200Response>(response.data!, 'GetReviewRequestCollection200Response');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

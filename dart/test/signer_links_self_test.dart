@@ -12,9 +12,14 @@ void main() {
   group('test SignerLinksSelf', () {
     // The URI of the self associated to the given signer.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // SignerLinksSelfIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

@@ -11,24 +11,34 @@ void main() {
 
   group('test IntegrationLinkCreateLinkCommandWrite', () {
     // Map<String, dynamic> data (default value: const {})
-    test('to test the property `data`', () async {});
+    test('to test the property `data`', () async {
+    });
 
     // String integration
-    test('to test the property `integration`', () async {});
+    test('to test the property `integration`', () async {
+    });
 
     // Map<String, dynamic> metadata (default value: const {})
-    test('to test the property `metadata`', () async {});
+    test('to test the property `metadata`', () async {
+    });
 
     // String name
-    test('to test the property `name`', () async {});
+    test('to test the property `name`', () async {
+    });
 
     // String source_
-    test('to test the property `source_`', () async {});
+    test('to test the property `source_`', () async {
+    });
 
     // String state
-    test('to test the property `state`', () async {});
+    test('to test the property `state`', () async {
+    });
 
     // String target
-    test('to test the property `target`', () async {});
+    test('to test the property `target`', () async {
+    });
+
+
   });
+
 }

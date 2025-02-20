@@ -11,9 +11,14 @@ void main() {
 
   group('test FeedbackLinksPlansIriTemplateMapping', () {
     // String plan
-    test('to test the property `plan`', () async {});
+    test('to test the property `plan`', () async {
+    });
 
     // String feedback
-    test('to test the property `feedback`', () async {});
+    test('to test the property `feedback`', () async {
+    });
+
+
   });
+
 }

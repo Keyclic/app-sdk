@@ -11,9 +11,14 @@ void main() {
 
   group('test MarkerLinks', () {
     // MarkerLinksPlan plan
-    test('to test the property `plan`', () async {});
+    test('to test the property `plan`', () async {
+    });
 
     // MarkerLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
+
+
   });
+
 }

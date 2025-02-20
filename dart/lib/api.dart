@@ -604,6 +604,7 @@ part 'model/workflow_links_self_iri_template.dart';
 part 'model/workflow_state.dart';
 part 'model/workflow_transition.dart';
 
+
 final _regList = RegExp(r'^List<(.*)>$');
 final _regSet = RegExp(r'^Set<(.*)>$');
 final _regMap = RegExp(r'^Map<String,(.*)>$');

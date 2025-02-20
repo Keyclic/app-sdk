@@ -12,10 +12,15 @@ void main() {
   group('test WarrantyWrite', () {
     // The duration of the warranty in ISO 8601 duration format.
     // String duration
-    test('to test the property `duration`', () async {});
+    test('to test the property `duration`', () async {
+    });
 
     // The start date of the warranty, in ISO 8601 format.
     // DateTime startDate
-    test('to test the property `startDate`', () async {});
+    test('to test the property `startDate`', () async {
+    });
+
+
   });
+
 }

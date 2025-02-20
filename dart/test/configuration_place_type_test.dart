@@ -11,12 +11,18 @@ void main() {
 
   group('test ConfigurationPlaceType', () {
     // String id
-    test('to test the property `id`', () async {});
+    test('to test the property `id`', () async {
+    });
 
     // String type
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
 
     // PlaceTypeWorkflow workflow
-    test('to test the property `workflow`', () async {});
+    test('to test the property `workflow`', () async {
+    });
+
+
   });
+
 }

@@ -11,6 +11,10 @@ void main() {
 
   group('test InternalServiceEmbedded', () {
     // Member manager
-    test('to test the property `manager`', () async {});
+    test('to test the property `manager`', () async {
+    });
+
+
   });
+
 }

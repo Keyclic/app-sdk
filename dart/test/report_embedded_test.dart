@@ -11,27 +11,38 @@ void main() {
 
   group('test ReportEmbedded', () {
     // Assignment assignment
-    test('to test the property `assignment`', () async {});
+    test('to test the property `assignment`', () async {
+    });
 
     // Category category
-    test('to test the property `category`', () async {});
+    test('to test the property `category`', () async {
+    });
 
     // List<Operation> children (default value: const [])
-    test('to test the property `children`', () async {});
+    test('to test the property `children`', () async {
+    });
 
     // List<Document> documents (default value: const [])
-    test('to test the property `documents`', () async {});
+    test('to test the property `documents`', () async {
+    });
 
     // Feedback feedback
-    test('to test the property `feedback`', () async {});
+    test('to test the property `feedback`', () async {
+    });
 
     // Place place
-    test('to test the property `place`', () async {});
+    test('to test the property `place`', () async {
+    });
 
     // List<TargetGroup> targetGroups (default value: const [])
-    test('to test the property `targetGroups`', () async {});
+    test('to test the property `targetGroups`', () async {
+    });
 
     // OperationEmbeddedWorkflow workflow
-    test('to test the property `workflow`', () async {});
+    test('to test the property `workflow`', () async {
+    });
+
+
   });
+
 }

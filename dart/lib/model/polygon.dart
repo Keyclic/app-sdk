@@ -7,8 +7,10 @@ part of keyclic_sdk_api;
 class Polygon {
   /// Returns a new [Polygon] instance.
   Polygon({
-    this.type,
-    this.features,
+    this.type
+,
+    this.features
+,
   });
 
   /// Returns a new [Polygon] instance and imports its values from
@@ -18,15 +20,16 @@ class Polygon {
       return null;
     }
 
-    return Polygon(
-      type: json[r'type'],
-      features: Feature.listFromJson(json[r'features']),
+  return Polygon(
+                  type: json[r'type'],
+        features: 
+          Feature.listFromJson(json[r'features']),
     );
   }
 
-  String? type;
+      String? type;
 
-  List<Feature>? features;
+        List<Feature>? features;
 
   @override
   bool operator ==(Object other) {
@@ -35,15 +38,18 @@ class Polygon {
       return true;
     }
 
-    return other is Polygon &&
-        other.type == type &&
-        DeepCollectionEquality.unordered().equals(features, other.features);
+    return other is Polygon 
+          && other.type == type
+  
+          && DeepCollectionEquality.unordered().equals(features, other.features)
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (type == null ? 0 : type.hashCode) +
-      (features == null ? 0 : features.hashCode);
+    (type == null ? 0 : type.hashCode) +
+    (features == null ? 0 : features.hashCode);
 
   static List<Polygon> listFromJson(Iterable? json) {
     if (json == null) {
@@ -65,8 +71,7 @@ class Polygon {
       return <String, Polygon>{};
     }
 
-    return json.entries.fold(<String, Polygon>{},
-        (Map<String, Polygon> previousValue, element) {
+    return json.entries.fold(<String, Polygon>{}, (Map<String, Polygon> previousValue, element) {
       final Polygon? object = Polygon.fromJson(element.value);
       if (object is Polygon) {
         previousValue[element.key] = object;
@@ -77,8 +82,7 @@ class Polygon {
   }
 
   // maps a json object with a list of Polygon-objects as value to a dart map
-  static Map<String, List<Polygon>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<Polygon>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<Polygon>>{};
     }
@@ -93,8 +97,17 @@ class Polygon {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'type')) r'type': type,
-      if (keys == null || keys.contains(r'features')) r'features': features,
+    if (keys == null || keys.
+    contains(r'type')
+    )
+        r'type':
+          type,
+    if (keys == null || keys.
+    contains(r'features')
+    )
+        r'features':
+            features,
     };
   }
 }
+

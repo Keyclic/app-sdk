@@ -12,9 +12,14 @@ void main() {
   group('test OrganizationLinksApplication', () {
     // The URI of the application associated to the given organization.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // OrganizationLinksApplicationIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

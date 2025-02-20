@@ -11,6 +11,10 @@ void main() {
 
   group('test GetOccupantCollection200ResponseEmbedded', () {
     // List<OccupantJsonhalRead> item (default value: const [])
-    test('to test the property `item`', () async {});
+    test('to test the property `item`', () async {
+    });
+
+
   });
+
 }

@@ -7,8 +7,10 @@ part of keyclic_sdk_api;
 class ProcedureLinksCreatedBy {
   /// Returns a new [ProcedureLinksCreatedBy] instance.
   ProcedureLinksCreatedBy({
-    this.href,
-    this.iriTemplate,
+    this.href
+,
+    this.iriTemplate
+,
   });
 
   /// Returns a new [ProcedureLinksCreatedBy] instance and imports its values from
@@ -18,17 +20,16 @@ class ProcedureLinksCreatedBy {
       return null;
     }
 
-    return ProcedureLinksCreatedBy(
-      href: json[r'href'],
-      iriTemplate:
-          ProcedureLinksCreatedByIriTemplate.fromJson(json[r'iriTemplate']),
+  return ProcedureLinksCreatedBy(
+                  href: json[r'href'],
+        iriTemplate: ProcedureLinksCreatedByIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
   /// The URI of the createdBy associated to the given procedure.
-  String? href;
+      String? href;
 
-  ProcedureLinksCreatedByIriTemplate? iriTemplate;
+      ProcedureLinksCreatedByIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -37,25 +38,26 @@ class ProcedureLinksCreatedBy {
       return true;
     }
 
-    return other is ProcedureLinksCreatedBy &&
-        other.href == href &&
-        other.iriTemplate == iriTemplate;
+    return other is ProcedureLinksCreatedBy 
+          && other.href == href
+  
+          && other.iriTemplate == iriTemplate
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (href == null ? 0 : href.hashCode) +
-      (iriTemplate == null ? 0 : iriTemplate.hashCode);
+    (href == null ? 0 : href.hashCode) +
+    (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
   static List<ProcedureLinksCreatedBy> listFromJson(Iterable? json) {
     if (json == null) {
       return <ProcedureLinksCreatedBy>[];
     }
 
-    return json.fold(<ProcedureLinksCreatedBy>[],
-        (List<ProcedureLinksCreatedBy> previousValue, element) {
-      final ProcedureLinksCreatedBy? object =
-          ProcedureLinksCreatedBy.fromJson(element);
+    return json.fold(<ProcedureLinksCreatedBy>[], (List<ProcedureLinksCreatedBy> previousValue, element) {
+      final ProcedureLinksCreatedBy? object = ProcedureLinksCreatedBy.fromJson(element);
       if (object is ProcedureLinksCreatedBy) {
         previousValue.add(object);
       }
@@ -64,16 +66,13 @@ class ProcedureLinksCreatedBy {
     });
   }
 
-  static Map<String, ProcedureLinksCreatedBy> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, ProcedureLinksCreatedBy> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, ProcedureLinksCreatedBy>{};
     }
 
-    return json.entries.fold(<String, ProcedureLinksCreatedBy>{},
-        (Map<String, ProcedureLinksCreatedBy> previousValue, element) {
-      final ProcedureLinksCreatedBy? object =
-          ProcedureLinksCreatedBy.fromJson(element.value);
+    return json.entries.fold(<String, ProcedureLinksCreatedBy>{}, (Map<String, ProcedureLinksCreatedBy> previousValue, element) {
+      final ProcedureLinksCreatedBy? object = ProcedureLinksCreatedBy.fromJson(element.value);
       if (object is ProcedureLinksCreatedBy) {
         previousValue[element.key] = object;
       }
@@ -83,35 +82,38 @@ class ProcedureLinksCreatedBy {
   }
 
   // maps a json object with a list of ProcedureLinksCreatedBy-objects as value to a dart map
-  static Map<String, List<ProcedureLinksCreatedBy>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<ProcedureLinksCreatedBy>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ProcedureLinksCreatedBy>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ProcedureLinksCreatedBy>>(
-          key, ProcedureLinksCreatedBy.listFromJson(value));
+      return MapEntry<String, List<ProcedureLinksCreatedBy>>(key, ProcedureLinksCreatedBy.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'ProcedureLinksCreatedBy[href=$href, iriTemplate=$iriTemplate]';
+  String toString() => 'ProcedureLinksCreatedBy[href=$href, iriTemplate=$iriTemplate]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'href')) r'href': href,
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^iriTemplate\.').hasMatch(key)))
-        r'iriTemplate': iriTemplate?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^iriTemplate\.'))) {
-            previousValue.add(element.split(RegExp(r'^iriTemplate\.')).last);
-          }
+    if (keys == null || keys.
+    contains(r'href')
+    )
+        r'href':
+          href,
+    if (keys == null || keys.
+    any((key) => RegExp(r'^iriTemplate\.').hasMatch(key))
+    )
+        r'iriTemplate':
+            iriTemplate?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^iriTemplate\.'))) {
+                previousValue.add(element.split(RegExp(r'^iriTemplate\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

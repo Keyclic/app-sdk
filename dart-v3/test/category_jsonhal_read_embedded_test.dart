@@ -11,9 +11,14 @@ void main() {
 
   group('test CategoryJsonhalReadEmbedded', () {
     // CategoryTypeJsonhalRead type
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
 
     // List<CategoryJsonhalRead> children (default value: const [])
-    test('to test the property `children`', () async {});
+    test('to test the property `children`', () async {
+    });
+
+
   });
+
 }

@@ -4,21 +4,22 @@
 
 part of keyclic_sdk_api;
 
+
 class BookmarkApi {
   const BookmarkApi(this._apiClient);
 
   final ApiClient _apiClient;
 
   /// Remove one Bookmark resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [bookmark] - The identifier of the resource.
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -30,13 +31,14 @@ class BookmarkApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Remove one Bookmark resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<void>> deleteBookmark({
+  Future<Response<void>> deleteBookmark({ 
     required String xKeyclicApp,
     required String bookmark,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -44,8 +46,7 @@ class BookmarkApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/bookmarks/{bookmark}'
-        .replaceAll('{' r'bookmark' '}', bookmark.toString());
+    final String path = r'/bookmarks/{bookmark}'.replaceAll('{' r'bookmark' '}', bookmark.toString());
     final options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -53,16 +54,15 @@ class BookmarkApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -70,8 +70,11 @@ class BookmarkApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     return _apiClient.dio.request<Object>(
       path,
@@ -80,18 +83,18 @@ class BookmarkApi {
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
     );
-  }
 
+  }
   /// Create one Bookmark resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
-  /// * [bookmarkData]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [xKeyclicApp] 
+  /// * [bookmarkData] 
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -103,7 +106,7 @@ class BookmarkApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Bookmark resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<Bookmark>> postBookmark({
+  Future<Response<Bookmark>> postBookmark({ 
     required String xKeyclicApp,
     required BookmarkData bookmarkData,
     String? acceptLanguage,
@@ -126,16 +129,15 @@ class BookmarkApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -147,11 +149,12 @@ class BookmarkApi {
       validateStatus: validateStatus,
     );
 
+
     dynamic bodyData;
 
     try {
-      bodyData = bookmarkData.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = bookmarkData.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -175,8 +178,7 @@ class BookmarkApi {
     Bookmark responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<Bookmark>(
-          response.data!, 'Bookmark');
+            responseData = await _apiClient.deserializeAsync<Bookmark>(response.data!, 'Bookmark');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

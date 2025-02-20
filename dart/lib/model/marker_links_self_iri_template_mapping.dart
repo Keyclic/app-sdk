@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class MarkerLinksSelfIriTemplateMapping {
   /// Returns a new [MarkerLinksSelfIriTemplateMapping] instance.
   MarkerLinksSelfIriTemplateMapping({
-    this.marker,
+    this.marker
+,
   });
 
   /// Returns a new [MarkerLinksSelfIriTemplateMapping] instance and imports its values from
@@ -17,12 +18,12 @@ class MarkerLinksSelfIriTemplateMapping {
       return null;
     }
 
-    return MarkerLinksSelfIriTemplateMapping(
-      marker: json[r'marker'],
+  return MarkerLinksSelfIriTemplateMapping(
+                  marker: json[r'marker'],
     );
   }
 
-  String? marker;
+      String? marker;
 
   @override
   bool operator ==(Object other) {
@@ -31,21 +32,23 @@ class MarkerLinksSelfIriTemplateMapping {
       return true;
     }
 
-    return other is MarkerLinksSelfIriTemplateMapping && other.marker == marker;
+    return other is MarkerLinksSelfIriTemplateMapping 
+          && other.marker == marker
+  ;
   }
+  
 
   @override
-  int get hashCode => (marker == null ? 0 : marker.hashCode);
+  int get hashCode =>
+    (marker == null ? 0 : marker.hashCode);
 
   static List<MarkerLinksSelfIriTemplateMapping> listFromJson(Iterable? json) {
     if (json == null) {
       return <MarkerLinksSelfIriTemplateMapping>[];
     }
 
-    return json.fold(<MarkerLinksSelfIriTemplateMapping>[],
-        (List<MarkerLinksSelfIriTemplateMapping> previousValue, element) {
-      final MarkerLinksSelfIriTemplateMapping? object =
-          MarkerLinksSelfIriTemplateMapping.fromJson(element);
+    return json.fold(<MarkerLinksSelfIriTemplateMapping>[], (List<MarkerLinksSelfIriTemplateMapping> previousValue, element) {
+      final MarkerLinksSelfIriTemplateMapping? object = MarkerLinksSelfIriTemplateMapping.fromJson(element);
       if (object is MarkerLinksSelfIriTemplateMapping) {
         previousValue.add(object);
       }
@@ -54,17 +57,13 @@ class MarkerLinksSelfIriTemplateMapping {
     });
   }
 
-  static Map<String, MarkerLinksSelfIriTemplateMapping> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, MarkerLinksSelfIriTemplateMapping> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, MarkerLinksSelfIriTemplateMapping>{};
     }
 
-    return json.entries.fold(<String, MarkerLinksSelfIriTemplateMapping>{},
-        (Map<String, MarkerLinksSelfIriTemplateMapping> previousValue,
-            element) {
-      final MarkerLinksSelfIriTemplateMapping? object =
-          MarkerLinksSelfIriTemplateMapping.fromJson(element.value);
+    return json.entries.fold(<String, MarkerLinksSelfIriTemplateMapping>{}, (Map<String, MarkerLinksSelfIriTemplateMapping> previousValue, element) {
+      final MarkerLinksSelfIriTemplateMapping? object = MarkerLinksSelfIriTemplateMapping.fromJson(element.value);
       if (object is MarkerLinksSelfIriTemplateMapping) {
         previousValue[element.key] = object;
       }
@@ -74,15 +73,13 @@ class MarkerLinksSelfIriTemplateMapping {
   }
 
   // maps a json object with a list of MarkerLinksSelfIriTemplateMapping-objects as value to a dart map
-  static Map<String, List<MarkerLinksSelfIriTemplateMapping>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<MarkerLinksSelfIriTemplateMapping>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<MarkerLinksSelfIriTemplateMapping>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<MarkerLinksSelfIriTemplateMapping>>(
-          key, MarkerLinksSelfIriTemplateMapping.listFromJson(value));
+      return MapEntry<String, List<MarkerLinksSelfIriTemplateMapping>>(key, MarkerLinksSelfIriTemplateMapping.listFromJson(value));
     });
   }
 
@@ -91,7 +88,12 @@ class MarkerLinksSelfIriTemplateMapping {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'marker')) r'marker': marker,
+    if (keys == null || keys.
+    contains(r'marker')
+    )
+        r'marker':
+          marker,
     };
   }
 }
+

@@ -11,6 +11,10 @@ void main() {
 
   group('test SectionLinksSelfIriTemplate', () {
     // ArticleLinksSectionIriTemplateMapping mapping
-    test('to test the property `mapping`', () async {});
+    test('to test the property `mapping`', () async {
+    });
+
+
   });
+
 }

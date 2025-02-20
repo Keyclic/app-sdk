@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class MarkerLinksPlanIriTemplateMapping {
   /// Returns a new [MarkerLinksPlanIriTemplateMapping] instance.
   MarkerLinksPlanIriTemplateMapping({
-    this.plan,
+    this.plan
+,
   });
 
   /// Returns a new [MarkerLinksPlanIriTemplateMapping] instance and imports its values from
@@ -17,12 +18,12 @@ class MarkerLinksPlanIriTemplateMapping {
       return null;
     }
 
-    return MarkerLinksPlanIriTemplateMapping(
-      plan: json[r'plan'],
+  return MarkerLinksPlanIriTemplateMapping(
+                  plan: json[r'plan'],
     );
   }
 
-  String? plan;
+      String? plan;
 
   @override
   bool operator ==(Object other) {
@@ -31,21 +32,23 @@ class MarkerLinksPlanIriTemplateMapping {
       return true;
     }
 
-    return other is MarkerLinksPlanIriTemplateMapping && other.plan == plan;
+    return other is MarkerLinksPlanIriTemplateMapping 
+          && other.plan == plan
+  ;
   }
+  
 
   @override
-  int get hashCode => (plan == null ? 0 : plan.hashCode);
+  int get hashCode =>
+    (plan == null ? 0 : plan.hashCode);
 
   static List<MarkerLinksPlanIriTemplateMapping> listFromJson(Iterable? json) {
     if (json == null) {
       return <MarkerLinksPlanIriTemplateMapping>[];
     }
 
-    return json.fold(<MarkerLinksPlanIriTemplateMapping>[],
-        (List<MarkerLinksPlanIriTemplateMapping> previousValue, element) {
-      final MarkerLinksPlanIriTemplateMapping? object =
-          MarkerLinksPlanIriTemplateMapping.fromJson(element);
+    return json.fold(<MarkerLinksPlanIriTemplateMapping>[], (List<MarkerLinksPlanIriTemplateMapping> previousValue, element) {
+      final MarkerLinksPlanIriTemplateMapping? object = MarkerLinksPlanIriTemplateMapping.fromJson(element);
       if (object is MarkerLinksPlanIriTemplateMapping) {
         previousValue.add(object);
       }
@@ -54,17 +57,13 @@ class MarkerLinksPlanIriTemplateMapping {
     });
   }
 
-  static Map<String, MarkerLinksPlanIriTemplateMapping> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, MarkerLinksPlanIriTemplateMapping> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, MarkerLinksPlanIriTemplateMapping>{};
     }
 
-    return json.entries.fold(<String, MarkerLinksPlanIriTemplateMapping>{},
-        (Map<String, MarkerLinksPlanIriTemplateMapping> previousValue,
-            element) {
-      final MarkerLinksPlanIriTemplateMapping? object =
-          MarkerLinksPlanIriTemplateMapping.fromJson(element.value);
+    return json.entries.fold(<String, MarkerLinksPlanIriTemplateMapping>{}, (Map<String, MarkerLinksPlanIriTemplateMapping> previousValue, element) {
+      final MarkerLinksPlanIriTemplateMapping? object = MarkerLinksPlanIriTemplateMapping.fromJson(element.value);
       if (object is MarkerLinksPlanIriTemplateMapping) {
         previousValue[element.key] = object;
       }
@@ -74,15 +73,13 @@ class MarkerLinksPlanIriTemplateMapping {
   }
 
   // maps a json object with a list of MarkerLinksPlanIriTemplateMapping-objects as value to a dart map
-  static Map<String, List<MarkerLinksPlanIriTemplateMapping>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<MarkerLinksPlanIriTemplateMapping>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<MarkerLinksPlanIriTemplateMapping>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<MarkerLinksPlanIriTemplateMapping>>(
-          key, MarkerLinksPlanIriTemplateMapping.listFromJson(value));
+      return MapEntry<String, List<MarkerLinksPlanIriTemplateMapping>>(key, MarkerLinksPlanIriTemplateMapping.listFromJson(value));
     });
   }
 
@@ -91,7 +88,12 @@ class MarkerLinksPlanIriTemplateMapping {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'plan')) r'plan': plan,
+    if (keys == null || keys.
+    contains(r'plan')
+    )
+        r'plan':
+          plan,
     };
   }
 }
+

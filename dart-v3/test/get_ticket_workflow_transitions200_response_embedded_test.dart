@@ -11,6 +11,10 @@ void main() {
 
   group('test GetTicketWorkflowTransitions200ResponseEmbedded', () {
     // List<WorkflowTransitionJsonhalRead> item (default value: const [])
-    test('to test the property `item`', () async {});
+    test('to test the property `item`', () async {
+    });
+
+
   });
+
 }

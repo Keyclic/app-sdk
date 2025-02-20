@@ -7,9 +7,12 @@ part of keyclic_sdk_api_platform;
 class PointJsonhalRead {
   /// Returns a new [PointJsonhalRead] instance.
   PointJsonhalRead({
-    this.srid,
-    this.latitude,
-    this.longitude,
+    this.srid
+,
+    this.latitude
+,
+    this.longitude
+,
   });
 
   /// Returns a new [PointJsonhalRead] instance and imports its values from
@@ -19,19 +22,22 @@ class PointJsonhalRead {
       return null;
     }
 
-    return PointJsonhalRead(
-      srid: json[r'srid'],
-      latitude: json[r'latitude'] == null ? null : json[r'latitude'].toDouble(),
-      longitude:
-          json[r'longitude'] == null ? null : json[r'longitude'].toDouble(),
+  return PointJsonhalRead(
+                  srid: json[r'srid'],
+        latitude: json[r'latitude'] == null ?
+          null :
+          json[r'latitude'].toDouble(),
+        longitude: json[r'longitude'] == null ?
+          null :
+          json[r'longitude'].toDouble(),
     );
   }
 
-  int? srid;
+      int? srid;
 
-  num? latitude;
+      num? latitude;
 
-  num? longitude;
+      num? longitude;
 
   @override
   bool operator ==(Object other) {
@@ -40,25 +46,28 @@ class PointJsonhalRead {
       return true;
     }
 
-    return other is PointJsonhalRead &&
-        other.srid == srid &&
-        other.latitude == latitude &&
-        other.longitude == longitude;
+    return other is PointJsonhalRead 
+          && other.srid == srid
+  
+          && other.latitude == latitude
+  
+          && other.longitude == longitude
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (srid == null ? 0 : srid.hashCode) +
-      (latitude == null ? 0 : latitude.hashCode) +
-      (longitude == null ? 0 : longitude.hashCode);
+    (srid == null ? 0 : srid.hashCode) +
+    (latitude == null ? 0 : latitude.hashCode) +
+    (longitude == null ? 0 : longitude.hashCode);
 
   static List<PointJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <PointJsonhalRead>[];
     }
 
-    return json.fold(<PointJsonhalRead>[],
-        (List<PointJsonhalRead> previousValue, element) {
+    return json.fold(<PointJsonhalRead>[], (List<PointJsonhalRead> previousValue, element) {
       final PointJsonhalRead? object = PointJsonhalRead.fromJson(element);
       if (object is PointJsonhalRead) {
         previousValue.add(object);
@@ -73,8 +82,7 @@ class PointJsonhalRead {
       return <String, PointJsonhalRead>{};
     }
 
-    return json.entries.fold(<String, PointJsonhalRead>{},
-        (Map<String, PointJsonhalRead> previousValue, element) {
+    return json.entries.fold(<String, PointJsonhalRead>{}, (Map<String, PointJsonhalRead> previousValue, element) {
       final PointJsonhalRead? object = PointJsonhalRead.fromJson(element.value);
       if (object is PointJsonhalRead) {
         previousValue[element.key] = object;
@@ -85,27 +93,37 @@ class PointJsonhalRead {
   }
 
   // maps a json object with a list of PointJsonhalRead-objects as value to a dart map
-  static Map<String, List<PointJsonhalRead>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<PointJsonhalRead>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<PointJsonhalRead>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<PointJsonhalRead>>(
-          key, PointJsonhalRead.listFromJson(value));
+      return MapEntry<String, List<PointJsonhalRead>>(key, PointJsonhalRead.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'PointJsonhalRead[srid=$srid, latitude=$latitude, longitude=$longitude]';
+  String toString() => 'PointJsonhalRead[srid=$srid, latitude=$latitude, longitude=$longitude]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'srid')) r'srid': srid,
-      if (keys == null || keys.contains(r'latitude')) r'latitude': latitude,
-      if (keys == null || keys.contains(r'longitude')) r'longitude': longitude,
+    if (keys == null || keys.
+    contains(r'srid')
+    )
+        r'srid':
+          srid,
+    if (keys == null || keys.
+    contains(r'latitude')
+    )
+        r'latitude':
+          latitude,
+    if (keys == null || keys.
+    contains(r'longitude')
+    )
+        r'longitude':
+          longitude,
     };
   }
 }
+

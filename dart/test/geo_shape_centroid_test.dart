@@ -11,9 +11,14 @@ void main() {
 
   group('test GeoShapeCentroid', () {
     // double latitude
-    test('to test the property `latitude`', () async {});
+    test('to test the property `latitude`', () async {
+    });
 
     // double longitude
-    test('to test the property `longitude`', () async {});
+    test('to test the property `longitude`', () async {
+    });
+
+
   });
+
 }

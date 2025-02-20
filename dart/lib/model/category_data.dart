@@ -7,10 +7,18 @@ part of keyclic_sdk_api;
 class CategoryData {
   /// Returns a new [CategoryData] instance.
   CategoryData({
-    required this.name,
-    required this.organization,
-    this.parent,
-    this.type,
+      required 
+    this.name
+      
+    ,
+      required 
+    this.organization
+      
+    ,
+    this.parent
+,
+    this.type
+,
   });
 
   /// Returns a new [CategoryData] instance and imports its values from
@@ -20,21 +28,21 @@ class CategoryData {
       return null;
     }
 
-    return CategoryData(
-      name: json[r'name'],
-      organization: json[r'organization'],
-      parent: json[r'parent'],
-      type: json[r'type'],
+  return CategoryData(
+                  name: json[r'name'],
+                  organization: json[r'organization'],
+                  parent: json[r'parent'],
+                  type: json[r'type'],
     );
   }
 
-  String name;
+      String name;
 
-  String organization;
+      String organization;
 
-  String? parent;
+      String? parent;
 
-  String? type;
+      String? type;
 
   @override
   bool operator ==(Object other) {
@@ -43,27 +51,31 @@ class CategoryData {
       return true;
     }
 
-    return other is CategoryData &&
-        other.name == name &&
-        other.organization == organization &&
-        other.parent == parent &&
-        other.type == type;
+    return other is CategoryData 
+          && other.name == name
+  
+          && other.organization == organization
+  
+          && other.parent == parent
+  
+          && other.type == type
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      name.hashCode +
-      organization.hashCode +
-      (parent == null ? 0 : parent.hashCode) +
-      (type == null ? 0 : type.hashCode);
+     name.hashCode +
+     organization.hashCode +
+    (parent == null ? 0 : parent.hashCode) +
+    (type == null ? 0 : type.hashCode);
 
   static List<CategoryData> listFromJson(Iterable? json) {
     if (json == null) {
       return <CategoryData>[];
     }
 
-    return json.fold(<CategoryData>[],
-        (List<CategoryData> previousValue, element) {
+    return json.fold(<CategoryData>[], (List<CategoryData> previousValue, element) {
       final CategoryData? object = CategoryData.fromJson(element);
       if (object is CategoryData) {
         previousValue.add(object);
@@ -78,8 +90,7 @@ class CategoryData {
       return <String, CategoryData>{};
     }
 
-    return json.entries.fold(<String, CategoryData>{},
-        (Map<String, CategoryData> previousValue, element) {
+    return json.entries.fold(<String, CategoryData>{}, (Map<String, CategoryData> previousValue, element) {
       final CategoryData? object = CategoryData.fromJson(element.value);
       if (object is CategoryData) {
         previousValue[element.key] = object;
@@ -90,28 +101,36 @@ class CategoryData {
   }
 
   // maps a json object with a list of CategoryData-objects as value to a dart map
-  static Map<String, List<CategoryData>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<CategoryData>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<CategoryData>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<CategoryData>>(
-          key, CategoryData.listFromJson(value));
+      return MapEntry<String, List<CategoryData>>(key, CategoryData.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'CategoryData[name=$name, organization=$organization, parent=$parent, type=$type]';
+  String toString() => 'CategoryData[name=$name, organization=$organization, parent=$parent, type=$type]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'name': name,
-      r'organization': organization,
-      if (keys == null || keys.contains(r'parent')) r'parent': parent,
-      if (keys == null || keys.contains(r'type')) r'type': type,
+        r'name':
+          name,
+        r'organization':
+          organization,
+    if (keys == null || keys.
+    contains(r'parent')
+    )
+        r'parent':
+          parent,
+    if (keys == null || keys.
+    contains(r'type')
+    )
+        r'type':
+          type,
     };
   }
 }
+

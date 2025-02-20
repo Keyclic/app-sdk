@@ -7,7 +7,10 @@ part of keyclic_sdk_api_platform;
 class GetAssetCollection200ResponseEmbedded {
   /// Returns a new [GetAssetCollection200ResponseEmbedded] instance.
   GetAssetCollection200ResponseEmbedded({
-    this.item = const [],
+      
+    this.item
+       = const []
+    ,
   });
 
   /// Returns a new [GetAssetCollection200ResponseEmbedded] instance and imports its values from
@@ -17,12 +20,13 @@ class GetAssetCollection200ResponseEmbedded {
       return null;
     }
 
-    return GetAssetCollection200ResponseEmbedded(
-      item: AssetJsonhalRead.listFromJson(json[r'item']),
+  return GetAssetCollection200ResponseEmbedded(
+        item: 
+          AssetJsonhalRead.listFromJson(json[r'item']),
     );
   }
 
-  List<AssetJsonhalRead> item;
+        List<AssetJsonhalRead> item;
 
   @override
   bool operator ==(Object other) {
@@ -31,23 +35,23 @@ class GetAssetCollection200ResponseEmbedded {
       return true;
     }
 
-    return other is GetAssetCollection200ResponseEmbedded &&
-        DeepCollectionEquality.unordered().equals(item, other.item);
+    return other is GetAssetCollection200ResponseEmbedded 
+          && DeepCollectionEquality.unordered().equals(item, other.item)
+  ;
   }
+  
 
   @override
-  int get hashCode => item.hashCode;
+  int get hashCode =>
+     item.hashCode;
 
-  static List<GetAssetCollection200ResponseEmbedded> listFromJson(
-      Iterable? json) {
+  static List<GetAssetCollection200ResponseEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
       return <GetAssetCollection200ResponseEmbedded>[];
     }
 
-    return json.fold(<GetAssetCollection200ResponseEmbedded>[],
-        (List<GetAssetCollection200ResponseEmbedded> previousValue, element) {
-      final GetAssetCollection200ResponseEmbedded? object =
-          GetAssetCollection200ResponseEmbedded.fromJson(element);
+    return json.fold(<GetAssetCollection200ResponseEmbedded>[], (List<GetAssetCollection200ResponseEmbedded> previousValue, element) {
+      final GetAssetCollection200ResponseEmbedded? object = GetAssetCollection200ResponseEmbedded.fromJson(element);
       if (object is GetAssetCollection200ResponseEmbedded) {
         previousValue.add(object);
       }
@@ -56,17 +60,13 @@ class GetAssetCollection200ResponseEmbedded {
     });
   }
 
-  static Map<String, GetAssetCollection200ResponseEmbedded> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, GetAssetCollection200ResponseEmbedded> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, GetAssetCollection200ResponseEmbedded>{};
     }
 
-    return json.entries.fold(<String, GetAssetCollection200ResponseEmbedded>{},
-        (Map<String, GetAssetCollection200ResponseEmbedded> previousValue,
-            element) {
-      final GetAssetCollection200ResponseEmbedded? object =
-          GetAssetCollection200ResponseEmbedded.fromJson(element.value);
+    return json.entries.fold(<String, GetAssetCollection200ResponseEmbedded>{}, (Map<String, GetAssetCollection200ResponseEmbedded> previousValue, element) {
+      final GetAssetCollection200ResponseEmbedded? object = GetAssetCollection200ResponseEmbedded.fromJson(element.value);
       if (object is GetAssetCollection200ResponseEmbedded) {
         previousValue[element.key] = object;
       }
@@ -76,15 +76,13 @@ class GetAssetCollection200ResponseEmbedded {
   }
 
   // maps a json object with a list of GetAssetCollection200ResponseEmbedded-objects as value to a dart map
-  static Map<String, List<GetAssetCollection200ResponseEmbedded>>
-      mapListFromJson(Map<String, dynamic>? json) {
+  static Map<String, List<GetAssetCollection200ResponseEmbedded>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<GetAssetCollection200ResponseEmbedded>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<GetAssetCollection200ResponseEmbedded>>(
-          key, GetAssetCollection200ResponseEmbedded.listFromJson(value));
+      return MapEntry<String, List<GetAssetCollection200ResponseEmbedded>>(key, GetAssetCollection200ResponseEmbedded.listFromJson(value));
     });
   }
 
@@ -93,7 +91,9 @@ class GetAssetCollection200ResponseEmbedded {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'item': item,
+        r'item':
+            item,
     };
   }
 }
+

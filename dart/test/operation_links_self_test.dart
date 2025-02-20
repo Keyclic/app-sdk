@@ -12,9 +12,14 @@ void main() {
   group('test OperationLinksSelf', () {
     // The URI of the self associated to the given operation.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // OperationLinksSelfIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

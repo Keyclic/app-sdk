@@ -11,12 +11,18 @@ void main() {
 
   group('test FeedbackDataGeoPoint', () {
     // num latitude
-    test('to test the property `latitude`', () async {});
+    test('to test the property `latitude`', () async {
+    });
 
     // num longitude
-    test('to test the property `longitude`', () async {});
+    test('to test the property `longitude`', () async {
+    });
 
     // num srid
-    test('to test the property `srid`', () async {});
+    test('to test the property `srid`', () async {
+    });
+
+
   });
+
 }

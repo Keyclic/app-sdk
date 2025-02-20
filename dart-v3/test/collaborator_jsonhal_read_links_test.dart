@@ -11,9 +11,14 @@ void main() {
 
   group('test CollaboratorJsonhalReadLinks', () {
     // GetPlaceCollection200ResponseLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
 
     // List<GetPlaceCollection200ResponseLinksSelf> roles (default value: const [])
-    test('to test the property `roles`', () async {});
+    test('to test the property `roles`', () async {
+    });
+
+
   });
+
 }

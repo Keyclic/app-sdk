@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class SectionLinks {
   /// Returns a new [SectionLinks] instance.
   SectionLinks({
-    this.self,
+    this.self
+,
   });
 
   /// Returns a new [SectionLinks] instance and imports its values from
@@ -17,12 +18,12 @@ class SectionLinks {
       return null;
     }
 
-    return SectionLinks(
-      self: SectionLinksSelf.fromJson(json[r'self']),
+  return SectionLinks(
+        self: SectionLinksSelf.fromJson(json[r'self']),
     );
   }
 
-  SectionLinksSelf? self;
+      SectionLinksSelf? self;
 
   @override
   bool operator ==(Object other) {
@@ -31,19 +32,22 @@ class SectionLinks {
       return true;
     }
 
-    return other is SectionLinks && other.self == self;
+    return other is SectionLinks 
+          && other.self == self
+  ;
   }
+  
 
   @override
-  int get hashCode => (self == null ? 0 : self.hashCode);
+  int get hashCode =>
+    (self == null ? 0 : self.hashCode);
 
   static List<SectionLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <SectionLinks>[];
     }
 
-    return json.fold(<SectionLinks>[],
-        (List<SectionLinks> previousValue, element) {
+    return json.fold(<SectionLinks>[], (List<SectionLinks> previousValue, element) {
       final SectionLinks? object = SectionLinks.fromJson(element);
       if (object is SectionLinks) {
         previousValue.add(object);
@@ -58,8 +62,7 @@ class SectionLinks {
       return <String, SectionLinks>{};
     }
 
-    return json.entries.fold(<String, SectionLinks>{},
-        (Map<String, SectionLinks> previousValue, element) {
+    return json.entries.fold(<String, SectionLinks>{}, (Map<String, SectionLinks> previousValue, element) {
       final SectionLinks? object = SectionLinks.fromJson(element.value);
       if (object is SectionLinks) {
         previousValue[element.key] = object;
@@ -70,15 +73,13 @@ class SectionLinks {
   }
 
   // maps a json object with a list of SectionLinks-objects as value to a dart map
-  static Map<String, List<SectionLinks>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<SectionLinks>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<SectionLinks>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<SectionLinks>>(
-          key, SectionLinks.listFromJson(value));
+      return MapEntry<String, List<SectionLinks>>(key, SectionLinks.listFromJson(value));
     });
   }
 
@@ -87,15 +88,18 @@ class SectionLinks {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
-        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^self\.'))) {
-            previousValue.add(element.split(RegExp(r'^self\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^self\.').hasMatch(key))
+    )
+        r'self':
+            self?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^self\.'))) {
+                previousValue.add(element.split(RegExp(r'^self\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

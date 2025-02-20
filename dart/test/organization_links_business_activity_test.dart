@@ -12,9 +12,14 @@ void main() {
   group('test OrganizationLinksBusinessActivity', () {
     // The URI of the businessActivity associated to the given organization.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // OrganizationLinksBusinessActivityIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

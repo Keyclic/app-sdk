@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class ReportLinksWorkflowIriTemplateMapping {
   /// Returns a new [ReportLinksWorkflowIriTemplateMapping] instance.
   ReportLinksWorkflowIriTemplateMapping({
-    this.workflow,
+    this.workflow
+,
   });
 
   /// Returns a new [ReportLinksWorkflowIriTemplateMapping] instance and imports its values from
@@ -17,12 +18,12 @@ class ReportLinksWorkflowIriTemplateMapping {
       return null;
     }
 
-    return ReportLinksWorkflowIriTemplateMapping(
-      workflow: json[r'workflow'],
+  return ReportLinksWorkflowIriTemplateMapping(
+                  workflow: json[r'workflow'],
     );
   }
 
-  String? workflow;
+      String? workflow;
 
   @override
   bool operator ==(Object other) {
@@ -31,23 +32,23 @@ class ReportLinksWorkflowIriTemplateMapping {
       return true;
     }
 
-    return other is ReportLinksWorkflowIriTemplateMapping &&
-        other.workflow == workflow;
+    return other is ReportLinksWorkflowIriTemplateMapping 
+          && other.workflow == workflow
+  ;
   }
+  
 
   @override
-  int get hashCode => (workflow == null ? 0 : workflow.hashCode);
+  int get hashCode =>
+    (workflow == null ? 0 : workflow.hashCode);
 
-  static List<ReportLinksWorkflowIriTemplateMapping> listFromJson(
-      Iterable? json) {
+  static List<ReportLinksWorkflowIriTemplateMapping> listFromJson(Iterable? json) {
     if (json == null) {
       return <ReportLinksWorkflowIriTemplateMapping>[];
     }
 
-    return json.fold(<ReportLinksWorkflowIriTemplateMapping>[],
-        (List<ReportLinksWorkflowIriTemplateMapping> previousValue, element) {
-      final ReportLinksWorkflowIriTemplateMapping? object =
-          ReportLinksWorkflowIriTemplateMapping.fromJson(element);
+    return json.fold(<ReportLinksWorkflowIriTemplateMapping>[], (List<ReportLinksWorkflowIriTemplateMapping> previousValue, element) {
+      final ReportLinksWorkflowIriTemplateMapping? object = ReportLinksWorkflowIriTemplateMapping.fromJson(element);
       if (object is ReportLinksWorkflowIriTemplateMapping) {
         previousValue.add(object);
       }
@@ -56,17 +57,13 @@ class ReportLinksWorkflowIriTemplateMapping {
     });
   }
 
-  static Map<String, ReportLinksWorkflowIriTemplateMapping> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, ReportLinksWorkflowIriTemplateMapping> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, ReportLinksWorkflowIriTemplateMapping>{};
     }
 
-    return json.entries.fold(<String, ReportLinksWorkflowIriTemplateMapping>{},
-        (Map<String, ReportLinksWorkflowIriTemplateMapping> previousValue,
-            element) {
-      final ReportLinksWorkflowIriTemplateMapping? object =
-          ReportLinksWorkflowIriTemplateMapping.fromJson(element.value);
+    return json.entries.fold(<String, ReportLinksWorkflowIriTemplateMapping>{}, (Map<String, ReportLinksWorkflowIriTemplateMapping> previousValue, element) {
+      final ReportLinksWorkflowIriTemplateMapping? object = ReportLinksWorkflowIriTemplateMapping.fromJson(element.value);
       if (object is ReportLinksWorkflowIriTemplateMapping) {
         previousValue[element.key] = object;
       }
@@ -76,25 +73,27 @@ class ReportLinksWorkflowIriTemplateMapping {
   }
 
   // maps a json object with a list of ReportLinksWorkflowIriTemplateMapping-objects as value to a dart map
-  static Map<String, List<ReportLinksWorkflowIriTemplateMapping>>
-      mapListFromJson(Map<String, dynamic>? json) {
+  static Map<String, List<ReportLinksWorkflowIriTemplateMapping>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ReportLinksWorkflowIriTemplateMapping>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ReportLinksWorkflowIriTemplateMapping>>(
-          key, ReportLinksWorkflowIriTemplateMapping.listFromJson(value));
+      return MapEntry<String, List<ReportLinksWorkflowIriTemplateMapping>>(key, ReportLinksWorkflowIriTemplateMapping.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'ReportLinksWorkflowIriTemplateMapping[workflow=$workflow]';
+  String toString() => 'ReportLinksWorkflowIriTemplateMapping[workflow=$workflow]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'workflow')) r'workflow': workflow,
+    if (keys == null || keys.
+    contains(r'workflow')
+    )
+        r'workflow':
+          workflow,
     };
   }
 }
+

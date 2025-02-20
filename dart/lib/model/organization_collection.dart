@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class OrganizationCollection {
   /// Returns a new [OrganizationCollection] instance.
   OrganizationCollection({
-    this.items,
+    this.items
+,
   });
 
   /// Returns a new [OrganizationCollection] instance and imports its values from
@@ -17,12 +18,13 @@ class OrganizationCollection {
       return null;
     }
 
-    return OrganizationCollection(
-      items: Organization.listFromJson(json[r'items']),
+  return OrganizationCollection(
+        items: 
+          Organization.listFromJson(json[r'items']),
     );
   }
 
-  List<Organization>? items;
+        List<Organization>? items;
 
   @override
   bool operator ==(Object other) {
@@ -31,22 +33,23 @@ class OrganizationCollection {
       return true;
     }
 
-    return other is OrganizationCollection &&
-        DeepCollectionEquality.unordered().equals(items, other.items);
+    return other is OrganizationCollection 
+          && DeepCollectionEquality.unordered().equals(items, other.items)
+  ;
   }
+  
 
   @override
-  int get hashCode => (items == null ? 0 : items.hashCode);
+  int get hashCode =>
+    (items == null ? 0 : items.hashCode);
 
   static List<OrganizationCollection> listFromJson(Iterable? json) {
     if (json == null) {
       return <OrganizationCollection>[];
     }
 
-    return json.fold(<OrganizationCollection>[],
-        (List<OrganizationCollection> previousValue, element) {
-      final OrganizationCollection? object =
-          OrganizationCollection.fromJson(element);
+    return json.fold(<OrganizationCollection>[], (List<OrganizationCollection> previousValue, element) {
+      final OrganizationCollection? object = OrganizationCollection.fromJson(element);
       if (object is OrganizationCollection) {
         previousValue.add(object);
       }
@@ -55,16 +58,13 @@ class OrganizationCollection {
     });
   }
 
-  static Map<String, OrganizationCollection> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, OrganizationCollection> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, OrganizationCollection>{};
     }
 
-    return json.entries.fold(<String, OrganizationCollection>{},
-        (Map<String, OrganizationCollection> previousValue, element) {
-      final OrganizationCollection? object =
-          OrganizationCollection.fromJson(element.value);
+    return json.entries.fold(<String, OrganizationCollection>{}, (Map<String, OrganizationCollection> previousValue, element) {
+      final OrganizationCollection? object = OrganizationCollection.fromJson(element.value);
       if (object is OrganizationCollection) {
         previousValue[element.key] = object;
       }
@@ -74,15 +74,13 @@ class OrganizationCollection {
   }
 
   // maps a json object with a list of OrganizationCollection-objects as value to a dart map
-  static Map<String, List<OrganizationCollection>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<OrganizationCollection>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<OrganizationCollection>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<OrganizationCollection>>(
-          key, OrganizationCollection.listFromJson(value));
+      return MapEntry<String, List<OrganizationCollection>>(key, OrganizationCollection.listFromJson(value));
     });
   }
 
@@ -91,7 +89,12 @@ class OrganizationCollection {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'items')) r'items': items,
+    if (keys == null || keys.
+    contains(r'items')
+    )
+        r'items':
+            items,
     };
   }
 }
+

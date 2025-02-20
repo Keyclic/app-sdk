@@ -4,6 +4,7 @@
 
 part of keyclic_sdk_api_platform;
 
+
 class AuthApi {
   const AuthApi(this._apiClient);
 
@@ -13,12 +14,12 @@ class AuthApi {
   /// Retrieve an access token and ID token.
   ///
   /// Parameters:
-  /// * [xKeyclicApp] -
+  /// * [xKeyclicApp] - 
   /// * [getAuthTokenRequest] - Retrieve an access token and ID token.
-  /// * [acceptLanguage] -
-  /// * [xDateTime] -
-  /// * [xKeyclicAppPlatform] -
-  /// * [xKeyclicAppVersion] -
+  /// * [acceptLanguage] - 
+  /// * [xDateTime] - 
+  /// * [xKeyclicAppPlatform] - 
+  /// * [xKeyclicAppVersion] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -28,7 +29,7 @@ class AuthApi {
   ///
   /// Returns a [Future] containing a [Response] with a [GetAuthToken200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetAuthToken200Response>> getAuthToken({
+  Future<Response<GetAuthToken200Response>> getAuthToken({ 
     required String xKeyclicApp,
     required GetAuthTokenRequest getAuthTokenRequest,
     String? acceptLanguage,
@@ -51,16 +52,15 @@ class AuthApi {
         if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
         if (xDateTime != null) r'X-Date-Time': xDateTime,
         r'X-Keyclic-App': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'X-Keyclic-App-Version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -72,11 +72,12 @@ class AuthApi {
       validateStatus: validateStatus,
     );
 
+
     dynamic bodyData;
 
     try {
-      bodyData = getAuthTokenRequest.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = getAuthTokenRequest.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -100,8 +101,7 @@ class AuthApi {
     GetAuthToken200Response responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<GetAuthToken200Response>(
-          response.data!, 'GetAuthToken200Response');
+            responseData = await _apiClient.deserializeAsync<GetAuthToken200Response>(response.data!, 'GetAuthToken200Response');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -123,17 +123,16 @@ class AuthApi {
       extra: response.extra,
     );
   }
-
   /// Creates a Profile resource.
   /// Creates a Profile resource.
   ///
   /// Parameters:
-  /// * [xKeyclicApp] -
+  /// * [xKeyclicApp] - 
   /// * [profileProfileInput] - The new Profile resource
-  /// * [acceptLanguage] -
-  /// * [xDateTime] -
-  /// * [xKeyclicAppPlatform] -
-  /// * [xKeyclicAppVersion] -
+  /// * [acceptLanguage] - 
+  /// * [xDateTime] - 
+  /// * [xKeyclicAppPlatform] - 
+  /// * [xKeyclicAppVersion] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -143,7 +142,7 @@ class AuthApi {
   ///
   /// Returns a [Future] containing a [Response] with a [ProfileJsonhalAuthProfileRead] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<ProfileJsonhalAuthProfileRead>> postAuthProfile({
+  Future<Response<ProfileJsonhalAuthProfileRead>> postAuthProfile({ 
     required String xKeyclicApp,
     required ProfileProfileInput profileProfileInput,
     String? acceptLanguage,
@@ -166,16 +165,15 @@ class AuthApi {
         if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
         if (xDateTime != null) r'X-Date-Time': xDateTime,
         r'X-Keyclic-App': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'X-Keyclic-App-Version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -187,11 +185,12 @@ class AuthApi {
       validateStatus: validateStatus,
     );
 
+
     dynamic bodyData;
 
     try {
-      bodyData = profileProfileInput.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = profileProfileInput.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -215,9 +214,7 @@ class AuthApi {
     ProfileJsonhalAuthProfileRead responseData;
 
     try {
-      responseData =
-          await _apiClient.deserializeAsync<ProfileJsonhalAuthProfileRead>(
-              response.data!, 'ProfileJsonhalAuthProfileRead');
+            responseData = await _apiClient.deserializeAsync<ProfileJsonhalAuthProfileRead>(response.data!, 'ProfileJsonhalAuthProfileRead');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

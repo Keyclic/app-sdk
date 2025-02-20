@@ -11,6 +11,10 @@ void main() {
 
   group('test ContributionCollection', () {
     // List<Contribution> items (default value: const [])
-    test('to test the property `items`', () async {});
+    test('to test the property `items`', () async {
+    });
+
+
   });
+
 }

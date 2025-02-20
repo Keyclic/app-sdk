@@ -4,21 +4,22 @@
 
 part of keyclic_sdk_api;
 
+
 class PdfApi {
   const PdfApi(this._apiClient);
 
   final ApiClient _apiClient;
 
   /// Retrieve all Image resources.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
-  /// * [fileData]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [xKeyclicApp] 
+  /// * [fileData] 
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [page] - Page of the overview.
   /// * [limit] - Page of the overview.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -32,7 +33,7 @@ class PdfApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Image resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<BinaryPagination>> cpostImage({
+  Future<Response<BinaryPagination>> cpostImage({ 
     required String xKeyclicApp,
     required FileData fileData,
     String? acceptLanguage,
@@ -57,16 +58,15 @@ class PdfApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -79,15 +79,21 @@ class PdfApi {
     );
 
     final queryParameters = <String, dynamic>{
-      if (page != null) r'page': encodeQueryParameter(page),
-      if (limit != null) r'limit': encodeQueryParameter(limit),
+      if (page != null) r'page':
+        encodeQueryParameter(
+        page
+        ),
+      if (limit != null) r'limit':
+        encodeQueryParameter(
+        limit
+        ),
     };
 
     dynamic bodyData;
 
     try {
-      bodyData = fileData.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = fileData.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -113,8 +119,7 @@ class PdfApi {
     BinaryPagination responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<BinaryPagination>(
-          response.data!, 'BinaryPagination');
+            responseData = await _apiClient.deserializeAsync<BinaryPagination>(response.data!, 'BinaryPagination');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

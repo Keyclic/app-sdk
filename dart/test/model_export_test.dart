@@ -11,24 +11,34 @@ void main() {
 
   group('test ModelExport', () {
     // String contentType
-    test('to test the property `contentType`', () async {});
+    test('to test the property `contentType`', () async {
+    });
 
     // DateTime createdAt
-    test('to test the property `createdAt`', () async {});
+    test('to test the property `createdAt`', () async {
+    });
 
     // String groupBy
-    test('to test the property `groupBy`', () async {});
+    test('to test the property `groupBy`', () async {
+    });
 
     // String id
-    test('to test the property `id`', () async {});
+    test('to test the property `id`', () async {
+    });
 
     // String name
-    test('to test the property `name`', () async {});
+    test('to test the property `name`', () async {
+    });
 
     // String type
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
 
     // DateTime updatedAt
-    test('to test the property `updatedAt`', () async {});
+    test('to test the property `updatedAt`', () async {
+    });
+
+
   });
+
 }

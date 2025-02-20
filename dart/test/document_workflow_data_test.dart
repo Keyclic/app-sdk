@@ -11,6 +11,10 @@ void main() {
 
   group('test DocumentWorkflowData', () {
     // String transition
-    test('to test the property `transition`', () async {});
+    test('to test the property `transition`', () async {
+    });
+
+
   });
+
 }

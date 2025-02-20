@@ -11,9 +11,14 @@ void main() {
 
   group('test OccupantJsonhalReadEmbedded', () {
     // AssetJsonhalRead place
-    test('to test the property `place`', () async {});
+    test('to test the property `place`', () async {
+    });
 
     // ContactJsonhalRead member
-    test('to test the property `member`', () async {});
+    test('to test the property `member`', () async {
+    });
+
+
   });
+
 }

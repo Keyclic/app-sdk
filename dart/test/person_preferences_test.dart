@@ -11,6 +11,10 @@ void main() {
 
   group('test PersonPreferences', () {
     // PreferencesNotification notification
-    test('to test the property `notification`', () async {});
+    test('to test the property `notification`', () async {
+    });
+
+
   });
+
 }

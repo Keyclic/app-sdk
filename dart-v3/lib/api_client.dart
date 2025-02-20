@@ -4,22 +4,22 @@
 
 part of keyclic_sdk_api_platform;
 
+
 class ApiPlatformClient {
   ApiPlatformClient({
     Dio? dio,
     String? basePathOverride,
     List<Interceptor>? interceptors,
-  }) : this.dio = dio ??
-            Dio(BaseOptions(
-              baseUrl: basePathOverride ?? basePath,
-            )) {
-    this.dio.interceptors.addAll(interceptors ??
-        [
-          OAuthInterceptor(),
-          BasicAuthInterceptor(),
-          BearerAuthInterceptor(),
-          ApiKeyAuthInterceptor(),
-        ]);
+  })  : this.dio = dio ??
+    Dio(BaseOptions(
+    baseUrl: basePathOverride ?? basePath,
+  )) {
+    this.dio.interceptors.addAll(interceptors ?? [
+      OAuthInterceptor(),
+      BasicAuthInterceptor(),
+      BearerAuthInterceptor(),
+      ApiKeyAuthInterceptor(),
+    ]);
   }
 
   static const String basePath = r'http://localhost';
@@ -55,7 +55,7 @@ class ApiPlatformClient {
   }
 
   void setApiKey(String name, String apiKey) {
-    // ApiKeyAuth('query', '');
+  // ApiKeyAuth('query', '');
     for (final interceptor in dio.interceptors) {
       if (interceptor is ApiKeyAuthInterceptor) {
         interceptor.apiKeys[name] = apiKey;
@@ -64,165 +64,135 @@ class ApiPlatformClient {
     }
   }
 
-  /// Get AssetApi instance
-  AssetApi getAssetApi() {
+  
+    /// Get AssetApi instance
+    AssetApi getAssetApi() {
     return AssetApi(this);
-  }
-
-  /// Get AssetTypeApi instance
-  AssetTypeApi getAssetTypeApi() {
+    }
+    /// Get AssetTypeApi instance
+    AssetTypeApi getAssetTypeApi() {
     return AssetTypeApi(this);
-  }
-
-  /// Get AuthApi instance
-  AuthApi getAuthApi() {
+    }
+    /// Get AuthApi instance
+    AuthApi getAuthApi() {
     return AuthApi(this);
-  }
-
-  /// Get BookmarkApi instance
-  BookmarkApi getBookmarkApi() {
+    }
+    /// Get BookmarkApi instance
+    BookmarkApi getBookmarkApi() {
     return BookmarkApi(this);
-  }
-
-  /// Get BrandApi instance
-  BrandApi getBrandApi() {
+    }
+    /// Get BrandApi instance
+    BrandApi getBrandApi() {
     return BrandApi(this);
-  }
-
-  /// Get BusinessHoursApi instance
-  BusinessHoursApi getBusinessHoursApi() {
+    }
+    /// Get BusinessHoursApi instance
+    BusinessHoursApi getBusinessHoursApi() {
     return BusinessHoursApi(this);
-  }
-
-  /// Get CategoryApi instance
-  CategoryApi getCategoryApi() {
+    }
+    /// Get CategoryApi instance
+    CategoryApi getCategoryApi() {
     return CategoryApi(this);
-  }
-
-  /// Get CategoryTypeApi instance
-  CategoryTypeApi getCategoryTypeApi() {
+    }
+    /// Get CategoryTypeApi instance
+    CategoryTypeApi getCategoryTypeApi() {
     return CategoryTypeApi(this);
-  }
-
-  /// Get ConnectorApi instance
-  ConnectorApi getConnectorApi() {
+    }
+    /// Get ConnectorApi instance
+    ConnectorApi getConnectorApi() {
     return ConnectorApi(this);
-  }
-
-  /// Get ContractApi instance
-  ContractApi getContractApi() {
+    }
+    /// Get ContractApi instance
+    ContractApi getContractApi() {
     return ContractApi(this);
-  }
-
-  /// Get ContractTypeApi instance
-  ContractTypeApi getContractTypeApi() {
+    }
+    /// Get ContractTypeApi instance
+    ContractTypeApi getContractTypeApi() {
     return ContractTypeApi(this);
-  }
-
-  /// Get DocumentApi instance
-  DocumentApi getDocumentApi() {
+    }
+    /// Get DocumentApi instance
+    DocumentApi getDocumentApi() {
     return DocumentApi(this);
-  }
-
-  /// Get DocumentTypeApi instance
-  DocumentTypeApi getDocumentTypeApi() {
+    }
+    /// Get DocumentTypeApi instance
+    DocumentTypeApi getDocumentTypeApi() {
     return DocumentTypeApi(this);
-  }
-
-  /// Get EquipmentApi instance
-  EquipmentApi getEquipmentApi() {
+    }
+    /// Get EquipmentApi instance
+    EquipmentApi getEquipmentApi() {
     return EquipmentApi(this);
-  }
-
-  /// Get ExportApi instance
-  ExportApi getExportApi() {
+    }
+    /// Get ExportApi instance
+    ExportApi getExportApi() {
     return ExportApi(this);
-  }
-
-  /// Get IntegrationApi instance
-  IntegrationApi getIntegrationApi() {
+    }
+    /// Get IntegrationApi instance
+    IntegrationApi getIntegrationApi() {
     return IntegrationApi(this);
-  }
-
-  /// Get IntegrationLinkApi instance
-  IntegrationLinkApi getIntegrationLinkApi() {
+    }
+    /// Get IntegrationLinkApi instance
+    IntegrationLinkApi getIntegrationLinkApi() {
     return IntegrationLinkApi(this);
-  }
-
-  /// Get MemberApi instance
-  MemberApi getMemberApi() {
+    }
+    /// Get MemberApi instance
+    MemberApi getMemberApi() {
     return MemberApi(this);
-  }
-
-  /// Get MetricApi instance
-  MetricApi getMetricApi() {
+    }
+    /// Get MetricApi instance
+    MetricApi getMetricApi() {
     return MetricApi(this);
-  }
-
-  /// Get OccupantApi instance
-  OccupantApi getOccupantApi() {
+    }
+    /// Get OccupantApi instance
+    OccupantApi getOccupantApi() {
     return OccupantApi(this);
-  }
-
-  /// Get PlaceApi instance
-  PlaceApi getPlaceApi() {
+    }
+    /// Get PlaceApi instance
+    PlaceApi getPlaceApi() {
     return PlaceApi(this);
-  }
-
-  /// Get PublicationApi instance
-  PublicationApi getPublicationApi() {
+    }
+    /// Get PublicationApi instance
+    PublicationApi getPublicationApi() {
     return PublicationApi(this);
-  }
-
-  /// Get ReviewApi instance
-  ReviewApi getReviewApi() {
+    }
+    /// Get ReviewApi instance
+    ReviewApi getReviewApi() {
     return ReviewApi(this);
-  }
-
-  /// Get ReviewRequestApi instance
-  ReviewRequestApi getReviewRequestApi() {
+    }
+    /// Get ReviewRequestApi instance
+    ReviewRequestApi getReviewRequestApi() {
     return ReviewRequestApi(this);
-  }
-
-  /// Get ServiceApi instance
-  ServiceApi getServiceApi() {
+    }
+    /// Get ServiceApi instance
+    ServiceApi getServiceApi() {
     return ServiceApi(this);
-  }
-
-  /// Get ServiceOfferApi instance
-  ServiceOfferApi getServiceOfferApi() {
+    }
+    /// Get ServiceOfferApi instance
+    ServiceOfferApi getServiceOfferApi() {
     return ServiceOfferApi(this);
-  }
-
-  /// Get SlaPolicyApi instance
-  SlaPolicyApi getSlaPolicyApi() {
+    }
+    /// Get SlaPolicyApi instance
+    SlaPolicyApi getSlaPolicyApi() {
     return SlaPolicyApi(this);
-  }
-
-  /// Get TargetGroupApi instance
-  TargetGroupApi getTargetGroupApi() {
+    }
+    /// Get TargetGroupApi instance
+    TargetGroupApi getTargetGroupApi() {
     return TargetGroupApi(this);
-  }
-
-  /// Get TicketApi instance
-  TicketApi getTicketApi() {
+    }
+    /// Get TicketApi instance
+    TicketApi getTicketApi() {
     return TicketApi(this);
-  }
-
-  /// Get TicketTypeApi instance
-  TicketTypeApi getTicketTypeApi() {
+    }
+    /// Get TicketTypeApi instance
+    TicketTypeApi getTicketTypeApi() {
     return TicketTypeApi(this);
-  }
-
-  /// Get WorkflowStateApi instance
-  WorkflowStateApi getWorkflowStateApi() {
+    }
+    /// Get WorkflowStateApi instance
+    WorkflowStateApi getWorkflowStateApi() {
     return WorkflowStateApi(this);
-  }
-
-  /// Get WorkflowTransitionApi instance
-  WorkflowTransitionApi getWorkflowTransitionApi() {
+    }
+    /// Get WorkflowTransitionApi instance
+    WorkflowTransitionApi getWorkflowTransitionApi() {
     return WorkflowTransitionApi(this);
-  }
+    }
 
   Future<Response<Object>> invokeAPI({
     required String path,
@@ -233,38 +203,33 @@ class ApiPlatformClient {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    return dio.request<Object>(
-      path,
-      data: body,
-      options: options,
-      queryParameters: queryParameters,
-      cancelToken: cancelToken,
-      onSendProgress: onSendProgress,
-      onReceiveProgress: onReceiveProgress,
-    );
+      return dio.request<Object>(
+        path,
+        data: body,
+        options: options,
+        queryParameters: queryParameters,
+        cancelToken: cancelToken,
+        onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
+      );
   }
 
-  Future<T> deserializeAsync<T>(dynamic json, String targetType,
-          {bool growable = false}) async =>
-      // ignore: deprecated_member_use_from_same_package
-      deserialize(json, targetType, growable: growable) as T;
+  Future<T> deserializeAsync<T>(dynamic json, String targetType, {bool growable = false}) async =>
+    // ignore: deprecated_member_use_from_same_package
+    deserialize(json, targetType, growable: growable) as T;
 
-  @Deprecated(
-      'Scheduled for removal in OpenAPI Generator 6.x. Use deserializeAsync() instead.')
-  dynamic deserialize(dynamic json, String targetType,
-      {bool growable = false}) {
+  @Deprecated('Scheduled for removal in OpenAPI Generator 6.x. Use deserializeAsync() instead.')
+  dynamic deserialize(dynamic json, String targetType, {bool growable = false}) {
     // Remove all spaces. Necessary for regular expressions as well.
-    targetType =
-        targetType.replaceAll(' ', ''); // ignore: parameter_assignments
+    targetType = targetType.replaceAll(' ', ''); // ignore: parameter_assignments
 
     // If the expected target type is String, nothing to do...
     return targetType == 'String'
-        ? jsonEncode(json)
-        : _deserialize(json, targetType, growable: growable == true);
+      ? jsonEncode(json)
+      : _deserialize(json, targetType, growable: growable == true);
   }
 
-  static dynamic _deserialize(dynamic value, String targetType,
-      {bool growable = false}) {
+  static dynamic _deserialize(dynamic value, String targetType, {bool growable = false}) {
     try {
       switch (targetType) {
         case 'String':
@@ -424,8 +389,7 @@ class ApiPlatformClient {
         case 'GetIntegrationLinkCollection200Response':
           return GetIntegrationLinkCollection200Response.fromJson(value);
         case 'GetIntegrationLinkCollection200ResponseEmbedded':
-          return GetIntegrationLinkCollection200ResponseEmbedded.fromJson(
-              value);
+          return GetIntegrationLinkCollection200ResponseEmbedded.fromJson(value);
         case 'GetMemberCollection200Response':
           return GetMemberCollection200Response.fromJson(value);
         case 'GetMemberCollection200ResponseEmbedded':
@@ -489,8 +453,7 @@ class ApiPlatformClient {
         case 'GetTicketWorkflowTransitions200Response':
           return GetTicketWorkflowTransitions200Response.fromJson(value);
         case 'GetTicketWorkflowTransitions200ResponseEmbedded':
-          return GetTicketWorkflowTransitions200ResponseEmbedded.fromJson(
-              value);
+          return GetTicketWorkflowTransitions200ResponseEmbedded.fromJson(value);
         case 'IntegrationJsonhalRead':
           return IntegrationJsonhalRead.fromJson(value);
         case 'IntegrationJsonhalReadLinks':
@@ -625,42 +588,30 @@ class ApiPlatformClient {
           return WorkflowTransitionJsonhalReadEmbedded.fromJson(value);
         default:
           Match? match;
-          if (value is List &&
-              (match = _regList.firstMatch(targetType)) != null) {
+          if (value is List && (match = _regList.firstMatch(targetType)) != null) {
             targetType = match![1]!; // ignore: parameter_assignments
             return value
-                .map((v) => _deserialize(v, targetType, growable: growable))
-                .toList(growable: growable);
+              .map((v) => _deserialize(v, targetType, growable: growable))
+              .toList(growable: growable);
           }
-          if (value is Set &&
-              (match = _regSet.firstMatch(targetType)) != null) {
+          if (value is Set && (match = _regSet.firstMatch(targetType)) != null) {
             targetType = match![1]!; // ignore: parameter_assignments
             return value
-                .map((v) => _deserialize(v, targetType, growable: growable))
-                .toSet();
+              .map((v) => _deserialize(v, targetType, growable: growable))
+              .toSet();
           }
-          if (value is Map &&
-              (match = _regMap.firstMatch(targetType)) != null) {
+          if (value is Map && (match = _regMap.firstMatch(targetType)) != null) {
             targetType = match![1]!; // ignore: parameter_assignments
             return Map.fromIterables(
               value.keys,
-              value.values
-                  .map((v) => _deserialize(v, targetType, growable: growable)),
+              value.values.map((v) => _deserialize(v, targetType, growable: growable)),
             );
           }
           break;
       }
     } on Exception catch (error, trace) {
-      throw ApiException.withInner(
-        HttpStatus.internalServerError,
-        'Exception during deserialization.',
-        error,
-        trace,
-      );
+      throw ApiException.withInner(HttpStatus.internalServerError, 'Exception during deserialization.', error, trace,);
     }
-    throw ApiException(
-      HttpStatus.internalServerError,
-      'Could not find a suitable class for deserialization',
-    );
+    throw ApiException(HttpStatus.internalServerError, 'Could not find a suitable class for deserialization',);
   }
 }

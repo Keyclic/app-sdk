@@ -11,6 +11,10 @@ void main() {
 
   group('test OrganizationPatchPreferences', () {
     // OrganizationPatchPreferencesReference reference
-    test('to test the property `reference`', () async {});
+    test('to test the property `reference`', () async {
+    });
+
+
   });
+
 }

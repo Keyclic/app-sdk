@@ -11,15 +11,22 @@ void main() {
 
   group('test Problem', () {
     // String type
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
 
     // String title
-    test('to test the property `title`', () async {});
+    test('to test the property `title`', () async {
+    });
 
     // String detail
-    test('to test the property `detail`', () async {});
+    test('to test the property `detail`', () async {
+    });
 
     // ProblemEmbedded embedded
-    test('to test the property `embedded`', () async {});
+    test('to test the property `embedded`', () async {
+    });
+
+
   });
+
 }

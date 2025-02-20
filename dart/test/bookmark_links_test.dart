@@ -11,12 +11,18 @@ void main() {
 
   group('test BookmarkLinks', () {
     // BookmarkLinksMember member
-    test('to test the property `member`', () async {});
+    test('to test the property `member`', () async {
+    });
 
     // BookmarkLinksPlace place
-    test('to test the property `place`', () async {});
+    test('to test the property `place`', () async {
+    });
 
     // BookmarkLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
+
+
   });
+
 }

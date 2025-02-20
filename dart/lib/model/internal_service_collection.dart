@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class InternalServiceCollection {
   /// Returns a new [InternalServiceCollection] instance.
   InternalServiceCollection({
-    this.items,
+    this.items
+,
   });
 
   /// Returns a new [InternalServiceCollection] instance and imports its values from
@@ -17,12 +18,13 @@ class InternalServiceCollection {
       return null;
     }
 
-    return InternalServiceCollection(
-      items: InternalService.listFromJson(json[r'items']),
+  return InternalServiceCollection(
+        items: 
+          InternalService.listFromJson(json[r'items']),
     );
   }
 
-  List<InternalService>? items;
+        List<InternalService>? items;
 
   @override
   bool operator ==(Object other) {
@@ -31,22 +33,23 @@ class InternalServiceCollection {
       return true;
     }
 
-    return other is InternalServiceCollection &&
-        DeepCollectionEquality.unordered().equals(items, other.items);
+    return other is InternalServiceCollection 
+          && DeepCollectionEquality.unordered().equals(items, other.items)
+  ;
   }
+  
 
   @override
-  int get hashCode => (items == null ? 0 : items.hashCode);
+  int get hashCode =>
+    (items == null ? 0 : items.hashCode);
 
   static List<InternalServiceCollection> listFromJson(Iterable? json) {
     if (json == null) {
       return <InternalServiceCollection>[];
     }
 
-    return json.fold(<InternalServiceCollection>[],
-        (List<InternalServiceCollection> previousValue, element) {
-      final InternalServiceCollection? object =
-          InternalServiceCollection.fromJson(element);
+    return json.fold(<InternalServiceCollection>[], (List<InternalServiceCollection> previousValue, element) {
+      final InternalServiceCollection? object = InternalServiceCollection.fromJson(element);
       if (object is InternalServiceCollection) {
         previousValue.add(object);
       }
@@ -55,16 +58,13 @@ class InternalServiceCollection {
     });
   }
 
-  static Map<String, InternalServiceCollection> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, InternalServiceCollection> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, InternalServiceCollection>{};
     }
 
-    return json.entries.fold(<String, InternalServiceCollection>{},
-        (Map<String, InternalServiceCollection> previousValue, element) {
-      final InternalServiceCollection? object =
-          InternalServiceCollection.fromJson(element.value);
+    return json.entries.fold(<String, InternalServiceCollection>{}, (Map<String, InternalServiceCollection> previousValue, element) {
+      final InternalServiceCollection? object = InternalServiceCollection.fromJson(element.value);
       if (object is InternalServiceCollection) {
         previousValue[element.key] = object;
       }
@@ -74,15 +74,13 @@ class InternalServiceCollection {
   }
 
   // maps a json object with a list of InternalServiceCollection-objects as value to a dart map
-  static Map<String, List<InternalServiceCollection>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<InternalServiceCollection>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<InternalServiceCollection>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<InternalServiceCollection>>(
-          key, InternalServiceCollection.listFromJson(value));
+      return MapEntry<String, List<InternalServiceCollection>>(key, InternalServiceCollection.listFromJson(value));
     });
   }
 
@@ -91,7 +89,12 @@ class InternalServiceCollection {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'items')) r'items': items,
+    if (keys == null || keys.
+    contains(r'items')
+    )
+        r'items':
+            items,
     };
   }
 }
+

@@ -12,9 +12,14 @@ void main() {
   group('test OrganizationLinksDispatcher', () {
     // The URI of the dispatcher associated to the given organization.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // OrganizationLinksDispatcherIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

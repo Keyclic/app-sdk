@@ -12,9 +12,14 @@ void main() {
   group('test ApplicationLinksKnowledgeBase', () {
     // The URI of the knowledgeBase associated to the given application.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // ApplicationLinksKnowledgeBaseIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

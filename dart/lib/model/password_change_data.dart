@@ -7,7 +7,10 @@ part of keyclic_sdk_api;
 class PasswordChangeData {
   /// Returns a new [PasswordChangeData] instance.
   PasswordChangeData({
-    required this.password,
+      required 
+    this.password
+      
+    ,
   });
 
   /// Returns a new [PasswordChangeData] instance and imports its values from
@@ -17,12 +20,12 @@ class PasswordChangeData {
       return null;
     }
 
-    return PasswordChangeData(
-      password: json[r'password'],
+  return PasswordChangeData(
+                  password: json[r'password'],
     );
   }
 
-  String password;
+      String password;
 
   @override
   bool operator ==(Object other) {
@@ -31,19 +34,22 @@ class PasswordChangeData {
       return true;
     }
 
-    return other is PasswordChangeData && other.password == password;
+    return other is PasswordChangeData 
+          && other.password == password
+  ;
   }
+  
 
   @override
-  int get hashCode => password.hashCode;
+  int get hashCode =>
+     password.hashCode;
 
   static List<PasswordChangeData> listFromJson(Iterable? json) {
     if (json == null) {
       return <PasswordChangeData>[];
     }
 
-    return json.fold(<PasswordChangeData>[],
-        (List<PasswordChangeData> previousValue, element) {
+    return json.fold(<PasswordChangeData>[], (List<PasswordChangeData> previousValue, element) {
       final PasswordChangeData? object = PasswordChangeData.fromJson(element);
       if (object is PasswordChangeData) {
         previousValue.add(object);
@@ -53,16 +59,13 @@ class PasswordChangeData {
     });
   }
 
-  static Map<String, PasswordChangeData> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, PasswordChangeData> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, PasswordChangeData>{};
     }
 
-    return json.entries.fold(<String, PasswordChangeData>{},
-        (Map<String, PasswordChangeData> previousValue, element) {
-      final PasswordChangeData? object =
-          PasswordChangeData.fromJson(element.value);
+    return json.entries.fold(<String, PasswordChangeData>{}, (Map<String, PasswordChangeData> previousValue, element) {
+      final PasswordChangeData? object = PasswordChangeData.fromJson(element.value);
       if (object is PasswordChangeData) {
         previousValue[element.key] = object;
       }
@@ -72,15 +75,13 @@ class PasswordChangeData {
   }
 
   // maps a json object with a list of PasswordChangeData-objects as value to a dart map
-  static Map<String, List<PasswordChangeData>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<PasswordChangeData>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<PasswordChangeData>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<PasswordChangeData>>(
-          key, PasswordChangeData.listFromJson(value));
+      return MapEntry<String, List<PasswordChangeData>>(key, PasswordChangeData.listFromJson(value));
     });
   }
 
@@ -89,7 +90,9 @@ class PasswordChangeData {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'password': password,
+        r'password':
+          password,
     };
   }
 }
+

@@ -11,37 +11,51 @@ void main() {
 
   group('test WorkflowStateJsonhalRead', () {
     // AssetTypeJsonhalReadLinks links
-    test('to test the property `links`', () async {});
+    test('to test the property `links`', () async {
+    });
 
     // bool allowAdd
-    test('to test the property `allowAdd`', () async {});
+    test('to test the property `allowAdd`', () async {
+    });
 
     // bool allowDispatch (default value: true)
-    test('to test the property `allowDispatch`', () async {});
+    test('to test the property `allowDispatch`', () async {
+    });
 
     // bool end
-    test('to test the property `end`', () async {});
+    test('to test the property `end`', () async {
+    });
 
     // String backgroundColor
-    test('to test the property `backgroundColor`', () async {});
+    test('to test the property `backgroundColor`', () async {
+    });
 
     // String color
-    test('to test the property `color`', () async {});
+    test('to test the property `color`', () async {
+    });
 
     // String description
-    test('to test the property `description`', () async {});
+    test('to test the property `description`', () async {
+    });
 
     // String name
-    test('to test the property `name`', () async {});
+    test('to test the property `name`', () async {
+    });
 
     // num progression
-    test('to test the property `progression`', () async {});
+    test('to test the property `progression`', () async {
+    });
 
     // String reference
-    test('to test the property `reference`', () async {});
+    test('to test the property `reference`', () async {
+    });
 
     // The resource identifier.
     // String id
-    test('to test the property `id`', () async {});
+    test('to test the property `id`', () async {
+    });
+
+
   });
+
 }

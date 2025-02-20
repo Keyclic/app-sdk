@@ -11,18 +11,26 @@ void main() {
 
   group('test ExportData', () {
     // String contentType
-    test('to test the property `contentType`', () async {});
+    test('to test the property `contentType`', () async {
+    });
 
     // String dataSource
-    test('to test the property `dataSource`', () async {});
+    test('to test the property `dataSource`', () async {
+    });
 
     // String groupBy
-    test('to test the property `groupBy`', () async {});
+    test('to test the property `groupBy`', () async {
+    });
 
     // String name
-    test('to test the property `name`', () async {});
+    test('to test the property `name`', () async {
+    });
 
     // String organization
-    test('to test the property `organization`', () async {});
+    test('to test the property `organization`', () async {
+    });
+
+
   });
+
 }

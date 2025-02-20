@@ -7,7 +7,10 @@ part of keyclic_sdk_api_platform;
 class GetTicketDocumentTypes200ResponseEmbedded {
   /// Returns a new [GetTicketDocumentTypes200ResponseEmbedded] instance.
   GetTicketDocumentTypes200ResponseEmbedded({
-    this.item = const [],
+      
+    this.item
+       = const []
+    ,
   });
 
   /// Returns a new [GetTicketDocumentTypes200ResponseEmbedded] instance and imports its values from
@@ -17,12 +20,13 @@ class GetTicketDocumentTypes200ResponseEmbedded {
       return null;
     }
 
-    return GetTicketDocumentTypes200ResponseEmbedded(
-      item: DocumentTypeJsonhalRead.listFromJson(json[r'item']),
+  return GetTicketDocumentTypes200ResponseEmbedded(
+        item: 
+          DocumentTypeJsonhalRead.listFromJson(json[r'item']),
     );
   }
 
-  List<DocumentTypeJsonhalRead> item;
+        List<DocumentTypeJsonhalRead> item;
 
   @override
   bool operator ==(Object other) {
@@ -31,24 +35,23 @@ class GetTicketDocumentTypes200ResponseEmbedded {
       return true;
     }
 
-    return other is GetTicketDocumentTypes200ResponseEmbedded &&
-        DeepCollectionEquality.unordered().equals(item, other.item);
+    return other is GetTicketDocumentTypes200ResponseEmbedded 
+          && DeepCollectionEquality.unordered().equals(item, other.item)
+  ;
   }
+  
 
   @override
-  int get hashCode => item.hashCode;
+  int get hashCode =>
+     item.hashCode;
 
-  static List<GetTicketDocumentTypes200ResponseEmbedded> listFromJson(
-      Iterable? json) {
+  static List<GetTicketDocumentTypes200ResponseEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
       return <GetTicketDocumentTypes200ResponseEmbedded>[];
     }
 
-    return json.fold(<GetTicketDocumentTypes200ResponseEmbedded>[],
-        (List<GetTicketDocumentTypes200ResponseEmbedded> previousValue,
-            element) {
-      final GetTicketDocumentTypes200ResponseEmbedded? object =
-          GetTicketDocumentTypes200ResponseEmbedded.fromJson(element);
+    return json.fold(<GetTicketDocumentTypes200ResponseEmbedded>[], (List<GetTicketDocumentTypes200ResponseEmbedded> previousValue, element) {
+      final GetTicketDocumentTypes200ResponseEmbedded? object = GetTicketDocumentTypes200ResponseEmbedded.fromJson(element);
       if (object is GetTicketDocumentTypes200ResponseEmbedded) {
         previousValue.add(object);
       }
@@ -57,18 +60,13 @@ class GetTicketDocumentTypes200ResponseEmbedded {
     });
   }
 
-  static Map<String, GetTicketDocumentTypes200ResponseEmbedded> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, GetTicketDocumentTypes200ResponseEmbedded> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, GetTicketDocumentTypes200ResponseEmbedded>{};
     }
 
-    return json.entries.fold(
-        <String, GetTicketDocumentTypes200ResponseEmbedded>{},
-        (Map<String, GetTicketDocumentTypes200ResponseEmbedded> previousValue,
-            element) {
-      final GetTicketDocumentTypes200ResponseEmbedded? object =
-          GetTicketDocumentTypes200ResponseEmbedded.fromJson(element.value);
+    return json.entries.fold(<String, GetTicketDocumentTypes200ResponseEmbedded>{}, (Map<String, GetTicketDocumentTypes200ResponseEmbedded> previousValue, element) {
+      final GetTicketDocumentTypes200ResponseEmbedded? object = GetTicketDocumentTypes200ResponseEmbedded.fromJson(element.value);
       if (object is GetTicketDocumentTypes200ResponseEmbedded) {
         previousValue[element.key] = object;
       }
@@ -78,15 +76,13 @@ class GetTicketDocumentTypes200ResponseEmbedded {
   }
 
   // maps a json object with a list of GetTicketDocumentTypes200ResponseEmbedded-objects as value to a dart map
-  static Map<String, List<GetTicketDocumentTypes200ResponseEmbedded>>
-      mapListFromJson(Map<String, dynamic>? json) {
+  static Map<String, List<GetTicketDocumentTypes200ResponseEmbedded>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<GetTicketDocumentTypes200ResponseEmbedded>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<GetTicketDocumentTypes200ResponseEmbedded>>(
-          key, GetTicketDocumentTypes200ResponseEmbedded.listFromJson(value));
+      return MapEntry<String, List<GetTicketDocumentTypes200ResponseEmbedded>>(key, GetTicketDocumentTypes200ResponseEmbedded.listFromJson(value));
     });
   }
 
@@ -95,7 +91,9 @@ class GetTicketDocumentTypes200ResponseEmbedded {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'item': item,
+        r'item':
+            item,
     };
   }
 }
+

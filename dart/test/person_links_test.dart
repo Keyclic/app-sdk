@@ -11,9 +11,14 @@ void main() {
 
   group('test PersonLinks', () {
     // PersonLinksImage image
-    test('to test the property `image`', () async {});
+    test('to test the property `image`', () async {
+    });
 
     // PersonLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
+
+
   });
+
 }

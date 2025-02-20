@@ -11,6 +11,10 @@ void main() {
 
   group('test ArticleLinksSelfIriTemplateMapping', () {
     // String article
-    test('to test the property `article`', () async {});
+    test('to test the property `article`', () async {
+    });
+
+
   });
+
 }

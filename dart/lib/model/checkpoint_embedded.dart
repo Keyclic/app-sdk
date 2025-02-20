@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class CheckpointEmbedded {
   /// Returns a new [CheckpointEmbedded] instance.
   CheckpointEmbedded({
-    this.createdBy,
+    this.createdBy
+,
   });
 
   /// Returns a new [CheckpointEmbedded] instance and imports its values from
@@ -17,12 +18,12 @@ class CheckpointEmbedded {
       return null;
     }
 
-    return CheckpointEmbedded(
-      createdBy: Person.fromJson(json[r'createdBy']),
+  return CheckpointEmbedded(
+        createdBy: Person.fromJson(json[r'createdBy']),
     );
   }
 
-  Person? createdBy;
+      Person? createdBy;
 
   @override
   bool operator ==(Object other) {
@@ -31,19 +32,22 @@ class CheckpointEmbedded {
       return true;
     }
 
-    return other is CheckpointEmbedded && other.createdBy == createdBy;
+    return other is CheckpointEmbedded 
+          && other.createdBy == createdBy
+  ;
   }
+  
 
   @override
-  int get hashCode => (createdBy == null ? 0 : createdBy.hashCode);
+  int get hashCode =>
+    (createdBy == null ? 0 : createdBy.hashCode);
 
   static List<CheckpointEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
       return <CheckpointEmbedded>[];
     }
 
-    return json.fold(<CheckpointEmbedded>[],
-        (List<CheckpointEmbedded> previousValue, element) {
+    return json.fold(<CheckpointEmbedded>[], (List<CheckpointEmbedded> previousValue, element) {
       final CheckpointEmbedded? object = CheckpointEmbedded.fromJson(element);
       if (object is CheckpointEmbedded) {
         previousValue.add(object);
@@ -53,16 +57,13 @@ class CheckpointEmbedded {
     });
   }
 
-  static Map<String, CheckpointEmbedded> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, CheckpointEmbedded> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, CheckpointEmbedded>{};
     }
 
-    return json.entries.fold(<String, CheckpointEmbedded>{},
-        (Map<String, CheckpointEmbedded> previousValue, element) {
-      final CheckpointEmbedded? object =
-          CheckpointEmbedded.fromJson(element.value);
+    return json.entries.fold(<String, CheckpointEmbedded>{}, (Map<String, CheckpointEmbedded> previousValue, element) {
+      final CheckpointEmbedded? object = CheckpointEmbedded.fromJson(element.value);
       if (object is CheckpointEmbedded) {
         previousValue[element.key] = object;
       }
@@ -72,15 +73,13 @@ class CheckpointEmbedded {
   }
 
   // maps a json object with a list of CheckpointEmbedded-objects as value to a dart map
-  static Map<String, List<CheckpointEmbedded>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<CheckpointEmbedded>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<CheckpointEmbedded>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<CheckpointEmbedded>>(
-          key, CheckpointEmbedded.listFromJson(value));
+      return MapEntry<String, List<CheckpointEmbedded>>(key, CheckpointEmbedded.listFromJson(value));
     });
   }
 
@@ -89,16 +88,18 @@ class CheckpointEmbedded {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^createdBy\.').hasMatch(key)))
-        r'createdBy': createdBy?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^createdBy\.'))) {
-            previousValue.add(element.split(RegExp(r'^createdBy\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^createdBy\.').hasMatch(key))
+    )
+        r'createdBy':
+            createdBy?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^createdBy\.'))) {
+                previousValue.add(element.split(RegExp(r'^createdBy\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

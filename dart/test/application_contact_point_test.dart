@@ -11,18 +11,26 @@ void main() {
 
   group('test ApplicationContactPoint', () {
     // String email
-    test('to test the property `email`', () async {});
+    test('to test the property `email`', () async {
+    });
 
     // String id
-    test('to test the property `id`', () async {});
+    test('to test the property `id`', () async {
+    });
 
     // String name
-    test('to test the property `name`', () async {});
+    test('to test the property `name`', () async {
+    });
 
     // String telephone
-    test('to test the property `telephone`', () async {});
+    test('to test the property `telephone`', () async {
+    });
 
     // String type
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
+
+
   });
+
 }

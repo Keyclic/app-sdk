@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class CheckpointLinksOrganizationIriTemplate {
   /// Returns a new [CheckpointLinksOrganizationIriTemplate] instance.
   CheckpointLinksOrganizationIriTemplate({
-    this.mapping,
+    this.mapping
+,
   });
 
   /// Returns a new [CheckpointLinksOrganizationIriTemplate] instance and imports its values from
@@ -17,13 +18,12 @@ class CheckpointLinksOrganizationIriTemplate {
       return null;
     }
 
-    return CheckpointLinksOrganizationIriTemplate(
-      mapping: CategoryLinksOrganizationIriTemplateMapping.fromJson(
-          json[r'mapping']),
+  return CheckpointLinksOrganizationIriTemplate(
+        mapping: CategoryLinksOrganizationIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
-  CategoryLinksOrganizationIriTemplateMapping? mapping;
+      CategoryLinksOrganizationIriTemplateMapping? mapping;
 
   @override
   bool operator ==(Object other) {
@@ -32,23 +32,23 @@ class CheckpointLinksOrganizationIriTemplate {
       return true;
     }
 
-    return other is CheckpointLinksOrganizationIriTemplate &&
-        other.mapping == mapping;
+    return other is CheckpointLinksOrganizationIriTemplate 
+          && other.mapping == mapping
+  ;
   }
+  
 
   @override
-  int get hashCode => (mapping == null ? 0 : mapping.hashCode);
+  int get hashCode =>
+    (mapping == null ? 0 : mapping.hashCode);
 
-  static List<CheckpointLinksOrganizationIriTemplate> listFromJson(
-      Iterable? json) {
+  static List<CheckpointLinksOrganizationIriTemplate> listFromJson(Iterable? json) {
     if (json == null) {
       return <CheckpointLinksOrganizationIriTemplate>[];
     }
 
-    return json.fold(<CheckpointLinksOrganizationIriTemplate>[],
-        (List<CheckpointLinksOrganizationIriTemplate> previousValue, element) {
-      final CheckpointLinksOrganizationIriTemplate? object =
-          CheckpointLinksOrganizationIriTemplate.fromJson(element);
+    return json.fold(<CheckpointLinksOrganizationIriTemplate>[], (List<CheckpointLinksOrganizationIriTemplate> previousValue, element) {
+      final CheckpointLinksOrganizationIriTemplate? object = CheckpointLinksOrganizationIriTemplate.fromJson(element);
       if (object is CheckpointLinksOrganizationIriTemplate) {
         previousValue.add(object);
       }
@@ -57,17 +57,13 @@ class CheckpointLinksOrganizationIriTemplate {
     });
   }
 
-  static Map<String, CheckpointLinksOrganizationIriTemplate> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, CheckpointLinksOrganizationIriTemplate> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, CheckpointLinksOrganizationIriTemplate>{};
     }
 
-    return json.entries.fold(<String, CheckpointLinksOrganizationIriTemplate>{},
-        (Map<String, CheckpointLinksOrganizationIriTemplate> previousValue,
-            element) {
-      final CheckpointLinksOrganizationIriTemplate? object =
-          CheckpointLinksOrganizationIriTemplate.fromJson(element.value);
+    return json.entries.fold(<String, CheckpointLinksOrganizationIriTemplate>{}, (Map<String, CheckpointLinksOrganizationIriTemplate> previousValue, element) {
+      final CheckpointLinksOrganizationIriTemplate? object = CheckpointLinksOrganizationIriTemplate.fromJson(element.value);
       if (object is CheckpointLinksOrganizationIriTemplate) {
         previousValue[element.key] = object;
       }
@@ -77,34 +73,33 @@ class CheckpointLinksOrganizationIriTemplate {
   }
 
   // maps a json object with a list of CheckpointLinksOrganizationIriTemplate-objects as value to a dart map
-  static Map<String, List<CheckpointLinksOrganizationIriTemplate>>
-      mapListFromJson(Map<String, dynamic>? json) {
+  static Map<String, List<CheckpointLinksOrganizationIriTemplate>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<CheckpointLinksOrganizationIriTemplate>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<CheckpointLinksOrganizationIriTemplate>>(
-          key, CheckpointLinksOrganizationIriTemplate.listFromJson(value));
+      return MapEntry<String, List<CheckpointLinksOrganizationIriTemplate>>(key, CheckpointLinksOrganizationIriTemplate.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'CheckpointLinksOrganizationIriTemplate[mapping=$mapping]';
+  String toString() => 'CheckpointLinksOrganizationIriTemplate[mapping=$mapping]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^mapping\.').hasMatch(key)))
-        r'mapping': mapping?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^mapping\.'))) {
-            previousValue.add(element.split(RegExp(r'^mapping\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^mapping\.').hasMatch(key))
+    )
+        r'mapping':
+            mapping?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^mapping\.'))) {
+                previousValue.add(element.split(RegExp(r'^mapping\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

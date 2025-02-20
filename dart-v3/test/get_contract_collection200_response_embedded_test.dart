@@ -11,6 +11,10 @@ void main() {
 
   group('test GetContractCollection200ResponseEmbedded', () {
     // List<ContractJsonhalRead> item (default value: const [])
-    test('to test the property `item`', () async {});
+    test('to test the property `item`', () async {
+    });
+
+
   });
+
 }

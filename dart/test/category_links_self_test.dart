@@ -12,9 +12,14 @@ void main() {
   group('test CategoryLinksSelf', () {
     // The URI of the self associated to the given category.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // CategoryLinksSelfIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

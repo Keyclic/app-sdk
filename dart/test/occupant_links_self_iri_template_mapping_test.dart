@@ -11,6 +11,10 @@ void main() {
 
   group('test OccupantLinksSelfIriTemplateMapping', () {
     // String occupant
-    test('to test the property `occupant`', () async {});
+    test('to test the property `occupant`', () async {
+    });
+
+
   });
+
 }

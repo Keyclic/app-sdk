@@ -12,9 +12,14 @@ void main() {
   group('test BookmarkLinksSelf', () {
     // The URI of the self associated to the given bookmark.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // BookmarkLinksSelfIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

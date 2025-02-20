@@ -7,8 +7,14 @@ part of keyclic_sdk_api;
 class LoginData {
   /// Returns a new [LoginData] instance.
   LoginData({
-    required this.login,
-    required this.password,
+      required 
+    this.login
+      
+    ,
+      required 
+    this.password
+      
+    ,
   });
 
   /// Returns a new [LoginData] instance and imports its values from
@@ -18,15 +24,15 @@ class LoginData {
       return null;
     }
 
-    return LoginData(
-      login: json[r'login'],
-      password: json[r'password'],
+  return LoginData(
+                  login: json[r'login'],
+                  password: json[r'password'],
     );
   }
 
-  String login;
+      String login;
 
-  String password;
+      String password;
 
   @override
   bool operator ==(Object other) {
@@ -35,13 +41,18 @@ class LoginData {
       return true;
     }
 
-    return other is LoginData &&
-        other.login == login &&
-        other.password == password;
+    return other is LoginData 
+          && other.login == login
+  
+          && other.password == password
+  ;
   }
+  
 
   @override
-  int get hashCode => login.hashCode + password.hashCode;
+  int get hashCode =>
+     login.hashCode +
+     password.hashCode;
 
   static List<LoginData> listFromJson(Iterable? json) {
     if (json == null) {
@@ -63,8 +74,7 @@ class LoginData {
       return <String, LoginData>{};
     }
 
-    return json.entries.fold(<String, LoginData>{},
-        (Map<String, LoginData> previousValue, element) {
+    return json.entries.fold(<String, LoginData>{}, (Map<String, LoginData> previousValue, element) {
       final LoginData? object = LoginData.fromJson(element.value);
       if (object is LoginData) {
         previousValue[element.key] = object;
@@ -75,15 +85,13 @@ class LoginData {
   }
 
   // maps a json object with a list of LoginData-objects as value to a dart map
-  static Map<String, List<LoginData>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<LoginData>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<LoginData>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<LoginData>>(
-          key, LoginData.listFromJson(value));
+      return MapEntry<String, List<LoginData>>(key, LoginData.listFromJson(value));
     });
   }
 
@@ -92,8 +100,11 @@ class LoginData {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'login': login,
-      r'password': password,
+        r'login':
+          login,
+        r'password':
+          password,
     };
   }
 }
+

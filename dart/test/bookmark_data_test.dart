@@ -11,9 +11,14 @@ void main() {
 
   group('test BookmarkData', () {
     // String asset
-    test('to test the property `asset`', () async {});
+    test('to test the property `asset`', () async {
+    });
 
     // String member
-    test('to test the property `member`', () async {});
+    test('to test the property `member`', () async {
+    });
+
+
   });
+
 }

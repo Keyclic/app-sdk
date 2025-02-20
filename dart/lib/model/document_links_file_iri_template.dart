@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class DocumentLinksFileIriTemplate {
   /// Returns a new [DocumentLinksFileIriTemplate] instance.
   DocumentLinksFileIriTemplate({
-    this.mapping,
+    this.mapping
+,
   });
 
   /// Returns a new [DocumentLinksFileIriTemplate] instance and imports its values from
@@ -17,12 +18,12 @@ class DocumentLinksFileIriTemplate {
       return null;
     }
 
-    return DocumentLinksFileIriTemplate(
-      mapping: DocumentLinksFileIriTemplateMapping.fromJson(json[r'mapping']),
+  return DocumentLinksFileIriTemplate(
+        mapping: DocumentLinksFileIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
-  DocumentLinksFileIriTemplateMapping? mapping;
+      DocumentLinksFileIriTemplateMapping? mapping;
 
   @override
   bool operator ==(Object other) {
@@ -31,21 +32,23 @@ class DocumentLinksFileIriTemplate {
       return true;
     }
 
-    return other is DocumentLinksFileIriTemplate && other.mapping == mapping;
+    return other is DocumentLinksFileIriTemplate 
+          && other.mapping == mapping
+  ;
   }
+  
 
   @override
-  int get hashCode => (mapping == null ? 0 : mapping.hashCode);
+  int get hashCode =>
+    (mapping == null ? 0 : mapping.hashCode);
 
   static List<DocumentLinksFileIriTemplate> listFromJson(Iterable? json) {
     if (json == null) {
       return <DocumentLinksFileIriTemplate>[];
     }
 
-    return json.fold(<DocumentLinksFileIriTemplate>[],
-        (List<DocumentLinksFileIriTemplate> previousValue, element) {
-      final DocumentLinksFileIriTemplate? object =
-          DocumentLinksFileIriTemplate.fromJson(element);
+    return json.fold(<DocumentLinksFileIriTemplate>[], (List<DocumentLinksFileIriTemplate> previousValue, element) {
+      final DocumentLinksFileIriTemplate? object = DocumentLinksFileIriTemplate.fromJson(element);
       if (object is DocumentLinksFileIriTemplate) {
         previousValue.add(object);
       }
@@ -54,16 +57,13 @@ class DocumentLinksFileIriTemplate {
     });
   }
 
-  static Map<String, DocumentLinksFileIriTemplate> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, DocumentLinksFileIriTemplate> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, DocumentLinksFileIriTemplate>{};
     }
 
-    return json.entries.fold(<String, DocumentLinksFileIriTemplate>{},
-        (Map<String, DocumentLinksFileIriTemplate> previousValue, element) {
-      final DocumentLinksFileIriTemplate? object =
-          DocumentLinksFileIriTemplate.fromJson(element.value);
+    return json.entries.fold(<String, DocumentLinksFileIriTemplate>{}, (Map<String, DocumentLinksFileIriTemplate> previousValue, element) {
+      final DocumentLinksFileIriTemplate? object = DocumentLinksFileIriTemplate.fromJson(element.value);
       if (object is DocumentLinksFileIriTemplate) {
         previousValue[element.key] = object;
       }
@@ -73,15 +73,13 @@ class DocumentLinksFileIriTemplate {
   }
 
   // maps a json object with a list of DocumentLinksFileIriTemplate-objects as value to a dart map
-  static Map<String, List<DocumentLinksFileIriTemplate>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<DocumentLinksFileIriTemplate>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<DocumentLinksFileIriTemplate>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<DocumentLinksFileIriTemplate>>(
-          key, DocumentLinksFileIriTemplate.listFromJson(value));
+      return MapEntry<String, List<DocumentLinksFileIriTemplate>>(key, DocumentLinksFileIriTemplate.listFromJson(value));
     });
   }
 
@@ -90,16 +88,18 @@ class DocumentLinksFileIriTemplate {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^mapping\.').hasMatch(key)))
-        r'mapping': mapping?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^mapping\.'))) {
-            previousValue.add(element.split(RegExp(r'^mapping\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^mapping\.').hasMatch(key))
+    )
+        r'mapping':
+            mapping?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^mapping\.'))) {
+                previousValue.add(element.split(RegExp(r'^mapping\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

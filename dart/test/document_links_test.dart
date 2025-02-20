@@ -11,15 +11,22 @@ void main() {
 
   group('test DocumentLinks', () {
     // DocumentLinksCreatedBy createdBy
-    test('to test the property `createdBy`', () async {});
+    test('to test the property `createdBy`', () async {
+    });
 
     // DocumentLinksFile file
-    test('to test the property `file`', () async {});
+    test('to test the property `file`', () async {
+    });
 
     // DocumentLinksProcedure procedure
-    test('to test the property `procedure`', () async {});
+    test('to test the property `procedure`', () async {
+    });
 
     // DocumentLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
+
+
   });
+
 }

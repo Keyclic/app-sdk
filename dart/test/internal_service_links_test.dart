@@ -11,9 +11,14 @@ void main() {
 
   group('test InternalServiceLinks', () {
     // InternalServiceLinksOrganization organization
-    test('to test the property `organization`', () async {});
+    test('to test the property `organization`', () async {
+    });
 
     // InternalServiceLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
+
+
   });
+
 }

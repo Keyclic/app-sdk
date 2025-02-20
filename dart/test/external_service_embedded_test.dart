@@ -11,6 +11,10 @@ void main() {
 
   group('test ExternalServiceEmbedded', () {
     // Organization provider
-    test('to test the property `provider`', () async {});
+    test('to test the property `provider`', () async {
+    });
+
+
   });
+
 }

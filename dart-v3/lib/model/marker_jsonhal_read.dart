@@ -7,8 +7,10 @@ part of keyclic_sdk_api_platform;
 class MarkerJsonhalRead {
   /// Returns a new [MarkerJsonhalRead] instance.
   MarkerJsonhalRead({
-    this.point,
-    this.id,
+    this.point
+,
+    this.id
+,
   });
 
   /// Returns a new [MarkerJsonhalRead] instance and imports its values from
@@ -18,16 +20,16 @@ class MarkerJsonhalRead {
       return null;
     }
 
-    return MarkerJsonhalRead(
-      point: PointJsonhalRead.fromJson(json[r'point']),
-      id: json[r'id'],
+  return MarkerJsonhalRead(
+        point: PointJsonhalRead.fromJson(json[r'point']),
+                  id: json[r'id'],
     );
   }
 
-  PointJsonhalRead? point;
+      PointJsonhalRead? point;
 
   /// The resource identifier.
-  final String? id;
+      final String? id;
 
   @override
   bool operator ==(Object other) {
@@ -36,20 +38,25 @@ class MarkerJsonhalRead {
       return true;
     }
 
-    return other is MarkerJsonhalRead && other.point == point && other.id == id;
+    return other is MarkerJsonhalRead 
+          && other.point == point
+  
+          && other.id == id
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (point == null ? 0 : point.hashCode) + (id == null ? 0 : id.hashCode);
+    (point == null ? 0 : point.hashCode) +
+    (id == null ? 0 : id.hashCode);
 
   static List<MarkerJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <MarkerJsonhalRead>[];
     }
 
-    return json.fold(<MarkerJsonhalRead>[],
-        (List<MarkerJsonhalRead> previousValue, element) {
+    return json.fold(<MarkerJsonhalRead>[], (List<MarkerJsonhalRead> previousValue, element) {
       final MarkerJsonhalRead? object = MarkerJsonhalRead.fromJson(element);
       if (object is MarkerJsonhalRead) {
         previousValue.add(object);
@@ -59,16 +66,13 @@ class MarkerJsonhalRead {
     });
   }
 
-  static Map<String, MarkerJsonhalRead> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, MarkerJsonhalRead> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, MarkerJsonhalRead>{};
     }
 
-    return json.entries.fold(<String, MarkerJsonhalRead>{},
-        (Map<String, MarkerJsonhalRead> previousValue, element) {
-      final MarkerJsonhalRead? object =
-          MarkerJsonhalRead.fromJson(element.value);
+    return json.entries.fold(<String, MarkerJsonhalRead>{}, (Map<String, MarkerJsonhalRead> previousValue, element) {
+      final MarkerJsonhalRead? object = MarkerJsonhalRead.fromJson(element.value);
       if (object is MarkerJsonhalRead) {
         previousValue[element.key] = object;
       }
@@ -78,15 +82,13 @@ class MarkerJsonhalRead {
   }
 
   // maps a json object with a list of MarkerJsonhalRead-objects as value to a dart map
-  static Map<String, List<MarkerJsonhalRead>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<MarkerJsonhalRead>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<MarkerJsonhalRead>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<MarkerJsonhalRead>>(
-          key, MarkerJsonhalRead.listFromJson(value));
+      return MapEntry<String, List<MarkerJsonhalRead>>(key, MarkerJsonhalRead.listFromJson(value));
     });
   }
 
@@ -95,16 +97,23 @@ class MarkerJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^point\.').hasMatch(key)))
-        r'point': point?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^point\.'))) {
-            previousValue.add(element.split(RegExp(r'^point\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^point\.').hasMatch(key))
+    )
+        r'point':
+            point?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^point\.'))) {
+                previousValue.add(element.split(RegExp(r'^point\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'id')) r'id': id,
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    contains(r'id')
+    )
+        r'id':
+          id,
     };
   }
 }
+

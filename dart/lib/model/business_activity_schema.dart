@@ -7,8 +7,10 @@ part of keyclic_sdk_api;
 class BusinessActivitySchema {
   /// Returns a new [BusinessActivitySchema] instance.
   BusinessActivitySchema({
-    this.properties,
-    this.required_,
+    this.properties
+,
+    this.required_
+,
   });
 
   /// Returns a new [BusinessActivitySchema] instance and imports its values from
@@ -18,17 +20,19 @@ class BusinessActivitySchema {
       return null;
     }
 
-    return BusinessActivitySchema(
-      properties: SchemaProperty.mapFromJson(json[r'properties']),
-      required_: json[r'required'] == null
-          ? null
-          : List<String>.from(json[r'required']),
+  return BusinessActivitySchema(
+            properties:
+              SchemaProperty.mapFromJson(json[r'properties']),
+        required_:
+            json[r'required'] == null ?
+              null :
+          List<String>.from(json[r'required']),
     );
   }
 
-  Map<String, SchemaProperty>? properties;
+      Map<String, SchemaProperty>? properties;
 
-  List<String>? required_;
+        List<String>? required_;
 
   @override
   bool operator ==(Object other) {
@@ -37,26 +41,26 @@ class BusinessActivitySchema {
       return true;
     }
 
-    return other is BusinessActivitySchema &&
-        DeepCollectionEquality.unordered()
-            .equals(properties, other.properties) &&
-        DeepCollectionEquality.unordered().equals(required_, other.required_);
+    return other is BusinessActivitySchema 
+          && DeepCollectionEquality.unordered().equals(properties, other.properties)
+  
+          && DeepCollectionEquality.unordered().equals(required_, other.required_)
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (properties == null ? 0 : properties.hashCode) +
-      (required_ == null ? 0 : required_.hashCode);
+    (properties == null ? 0 : properties.hashCode) +
+    (required_ == null ? 0 : required_.hashCode);
 
   static List<BusinessActivitySchema> listFromJson(Iterable? json) {
     if (json == null) {
       return <BusinessActivitySchema>[];
     }
 
-    return json.fold(<BusinessActivitySchema>[],
-        (List<BusinessActivitySchema> previousValue, element) {
-      final BusinessActivitySchema? object =
-          BusinessActivitySchema.fromJson(element);
+    return json.fold(<BusinessActivitySchema>[], (List<BusinessActivitySchema> previousValue, element) {
+      final BusinessActivitySchema? object = BusinessActivitySchema.fromJson(element);
       if (object is BusinessActivitySchema) {
         previousValue.add(object);
       }
@@ -65,16 +69,13 @@ class BusinessActivitySchema {
     });
   }
 
-  static Map<String, BusinessActivitySchema> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, BusinessActivitySchema> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, BusinessActivitySchema>{};
     }
 
-    return json.entries.fold(<String, BusinessActivitySchema>{},
-        (Map<String, BusinessActivitySchema> previousValue, element) {
-      final BusinessActivitySchema? object =
-          BusinessActivitySchema.fromJson(element.value);
+    return json.entries.fold(<String, BusinessActivitySchema>{}, (Map<String, BusinessActivitySchema> previousValue, element) {
+      final BusinessActivitySchema? object = BusinessActivitySchema.fromJson(element.value);
       if (object is BusinessActivitySchema) {
         previousValue[element.key] = object;
       }
@@ -84,27 +85,32 @@ class BusinessActivitySchema {
   }
 
   // maps a json object with a list of BusinessActivitySchema-objects as value to a dart map
-  static Map<String, List<BusinessActivitySchema>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<BusinessActivitySchema>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<BusinessActivitySchema>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<BusinessActivitySchema>>(
-          key, BusinessActivitySchema.listFromJson(value));
+      return MapEntry<String, List<BusinessActivitySchema>>(key, BusinessActivitySchema.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'BusinessActivitySchema[properties=$properties, required_=$required_]';
+  String toString() => 'BusinessActivitySchema[properties=$properties, required_=$required_]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'properties'))
-        r'properties': properties,
-      if (keys == null || keys.contains(r'required_')) r'required': required_,
+    if (keys == null || keys.
+    contains(r'properties')
+    )
+        r'properties':
+            properties,
+    if (keys == null || keys.
+    contains(r'required_')
+    )
+        r'required':
+          required_,
     };
   }
 }
+

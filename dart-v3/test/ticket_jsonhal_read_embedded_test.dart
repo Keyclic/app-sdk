@@ -11,30 +11,42 @@ void main() {
 
   group('test TicketJsonhalReadEmbedded', () {
     // List<AssignmentJsonhalRead> assignments (default value: const [])
-    test('to test the property `assignments`', () async {});
+    test('to test the property `assignments`', () async {
+    });
 
     // CategoryJsonhalRead category
-    test('to test the property `category`', () async {});
+    test('to test the property `category`', () async {
+    });
 
     // List<EquipmentJsonhalRead> equipments (default value: const [])
-    test('to test the property `equipments`', () async {});
+    test('to test the property `equipments`', () async {
+    });
 
     // WorkflowStateJsonhalRead phase
-    test('to test the property `phase`', () async {});
+    test('to test the property `phase`', () async {
+    });
 
     // PlaceJsonhalRead place
-    test('to test the property `place`', () async {});
+    test('to test the property `place`', () async {
+    });
 
     // TicketPriorityJsonhalRead priority
-    test('to test the property `priority`', () async {});
+    test('to test the property `priority`', () async {
+    });
 
     // FeedbackJsonhalRead feedback
-    test('to test the property `feedback`', () async {});
+    test('to test the property `feedback`', () async {
+    });
 
     // List<String> children (default value: const [])
-    test('to test the property `children`', () async {});
+    test('to test the property `children`', () async {
+    });
 
     // WorkflowStateJsonhalRead state
-    test('to test the property `state`', () async {});
+    test('to test the property `state`', () async {
+    });
+
+
   });
+
 }

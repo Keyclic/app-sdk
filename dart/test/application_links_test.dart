@@ -11,9 +11,14 @@ void main() {
 
   group('test ApplicationLinks', () {
     // ApplicationLinksKnowledgeBase knowledgeBase
-    test('to test the property `knowledgeBase`', () async {});
+    test('to test the property `knowledgeBase`', () async {
+    });
 
     // ApplicationLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
+
+
   });
+
 }

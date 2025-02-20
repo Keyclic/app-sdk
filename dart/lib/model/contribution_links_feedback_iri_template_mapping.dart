@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class ContributionLinksFeedbackIriTemplateMapping {
   /// Returns a new [ContributionLinksFeedbackIriTemplateMapping] instance.
   ContributionLinksFeedbackIriTemplateMapping({
-    this.feedback,
+    this.feedback
+,
   });
 
   /// Returns a new [ContributionLinksFeedbackIriTemplateMapping] instance and imports its values from
@@ -17,12 +18,12 @@ class ContributionLinksFeedbackIriTemplateMapping {
       return null;
     }
 
-    return ContributionLinksFeedbackIriTemplateMapping(
-      feedback: json[r'feedback'],
+  return ContributionLinksFeedbackIriTemplateMapping(
+                  feedback: json[r'feedback'],
     );
   }
 
-  String? feedback;
+      String? feedback;
 
   @override
   bool operator ==(Object other) {
@@ -31,24 +32,23 @@ class ContributionLinksFeedbackIriTemplateMapping {
       return true;
     }
 
-    return other is ContributionLinksFeedbackIriTemplateMapping &&
-        other.feedback == feedback;
+    return other is ContributionLinksFeedbackIriTemplateMapping 
+          && other.feedback == feedback
+  ;
   }
+  
 
   @override
-  int get hashCode => (feedback == null ? 0 : feedback.hashCode);
+  int get hashCode =>
+    (feedback == null ? 0 : feedback.hashCode);
 
-  static List<ContributionLinksFeedbackIriTemplateMapping> listFromJson(
-      Iterable? json) {
+  static List<ContributionLinksFeedbackIriTemplateMapping> listFromJson(Iterable? json) {
     if (json == null) {
       return <ContributionLinksFeedbackIriTemplateMapping>[];
     }
 
-    return json.fold(<ContributionLinksFeedbackIriTemplateMapping>[],
-        (List<ContributionLinksFeedbackIriTemplateMapping> previousValue,
-            element) {
-      final ContributionLinksFeedbackIriTemplateMapping? object =
-          ContributionLinksFeedbackIriTemplateMapping.fromJson(element);
+    return json.fold(<ContributionLinksFeedbackIriTemplateMapping>[], (List<ContributionLinksFeedbackIriTemplateMapping> previousValue, element) {
+      final ContributionLinksFeedbackIriTemplateMapping? object = ContributionLinksFeedbackIriTemplateMapping.fromJson(element);
       if (object is ContributionLinksFeedbackIriTemplateMapping) {
         previousValue.add(object);
       }
@@ -57,18 +57,13 @@ class ContributionLinksFeedbackIriTemplateMapping {
     });
   }
 
-  static Map<String, ContributionLinksFeedbackIriTemplateMapping> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, ContributionLinksFeedbackIriTemplateMapping> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, ContributionLinksFeedbackIriTemplateMapping>{};
     }
 
-    return json.entries.fold(
-        <String, ContributionLinksFeedbackIriTemplateMapping>{},
-        (Map<String, ContributionLinksFeedbackIriTemplateMapping> previousValue,
-            element) {
-      final ContributionLinksFeedbackIriTemplateMapping? object =
-          ContributionLinksFeedbackIriTemplateMapping.fromJson(element.value);
+    return json.entries.fold(<String, ContributionLinksFeedbackIriTemplateMapping>{}, (Map<String, ContributionLinksFeedbackIriTemplateMapping> previousValue, element) {
+      final ContributionLinksFeedbackIriTemplateMapping? object = ContributionLinksFeedbackIriTemplateMapping.fromJson(element.value);
       if (object is ContributionLinksFeedbackIriTemplateMapping) {
         previousValue[element.key] = object;
       }
@@ -78,26 +73,27 @@ class ContributionLinksFeedbackIriTemplateMapping {
   }
 
   // maps a json object with a list of ContributionLinksFeedbackIriTemplateMapping-objects as value to a dart map
-  static Map<String, List<ContributionLinksFeedbackIriTemplateMapping>>
-      mapListFromJson(Map<String, dynamic>? json) {
+  static Map<String, List<ContributionLinksFeedbackIriTemplateMapping>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ContributionLinksFeedbackIriTemplateMapping>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String,
-              List<ContributionLinksFeedbackIriTemplateMapping>>(
-          key, ContributionLinksFeedbackIriTemplateMapping.listFromJson(value));
+      return MapEntry<String, List<ContributionLinksFeedbackIriTemplateMapping>>(key, ContributionLinksFeedbackIriTemplateMapping.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'ContributionLinksFeedbackIriTemplateMapping[feedback=$feedback]';
+  String toString() => 'ContributionLinksFeedbackIriTemplateMapping[feedback=$feedback]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'feedback')) r'feedback': feedback,
+    if (keys == null || keys.
+    contains(r'feedback')
+    )
+        r'feedback':
+          feedback,
     };
   }
 }
+

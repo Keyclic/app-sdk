@@ -12,9 +12,14 @@ void main() {
   group('test PersonLinksImage', () {
     // The URI of the image associated to the given person.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // PersonLinksImageIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

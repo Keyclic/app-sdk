@@ -11,48 +11,66 @@ void main() {
 
   group('test Person', () {
     // PersonLinks links
-    test('to test the property `links`', () async {});
+    test('to test the property `links`', () async {
+    });
 
     // PersonAgreement agreement
-    test('to test the property `agreement`', () async {});
+    test('to test the property `agreement`', () async {
+    });
 
     // DateTime createdAt
-    test('to test the property `createdAt`', () async {});
+    test('to test the property `createdAt`', () async {
+    });
 
     // String email
-    test('to test the property `email`', () async {});
+    test('to test the property `email`', () async {
+    });
 
     // bool enabled
-    test('to test the property `enabled`', () async {});
+    test('to test the property `enabled`', () async {
+    });
 
     // String familyName
-    test('to test the property `familyName`', () async {});
+    test('to test the property `familyName`', () async {
+    });
 
     // String givenName
-    test('to test the property `givenName`', () async {});
+    test('to test the property `givenName`', () async {
+    });
 
     // String id
-    test('to test the property `id`', () async {});
+    test('to test the property `id`', () async {
+    });
 
     // String jobTitle
-    test('to test the property `jobTitle`', () async {});
+    test('to test the property `jobTitle`', () async {
+    });
 
     // bool optIn
-    test('to test the property `optIn`', () async {});
+    test('to test the property `optIn`', () async {
+    });
 
     // PersonPreferences preferences
-    test('to test the property `preferences`', () async {});
+    test('to test the property `preferences`', () async {
+    });
 
     // String telephone
-    test('to test the property `telephone`', () async {});
+    test('to test the property `telephone`', () async {
+    });
 
     // String type
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
 
     // DateTime updatedAt
-    test('to test the property `updatedAt`', () async {});
+    test('to test the property `updatedAt`', () async {
+    });
 
     // String username
-    test('to test the property `username`', () async {});
+    test('to test the property `username`', () async {
+    });
+
+
   });
+
 }

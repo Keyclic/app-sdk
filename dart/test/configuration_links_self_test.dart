@@ -12,9 +12,14 @@ void main() {
   group('test ConfigurationLinksSelf', () {
     // The URI of the self associated to the given configuration.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // ConfigurationLinksSelfIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

@@ -7,9 +7,12 @@ part of keyclic_sdk_api;
 class DocumentDataFile {
   /// Returns a new [DocumentDataFile] instance.
   DocumentDataFile({
-    this.content,
-    this.contentType,
-    this.name,
+    this.content
+,
+    this.contentType
+,
+    this.name
+,
   });
 
   /// Returns a new [DocumentDataFile] instance and imports its values from
@@ -19,18 +22,18 @@ class DocumentDataFile {
       return null;
     }
 
-    return DocumentDataFile(
-      content: json[r'content'],
-      contentType: json[r'contentType'],
-      name: json[r'name'],
+  return DocumentDataFile(
+                  content: json[r'content'],
+                  contentType: json[r'contentType'],
+                  name: json[r'name'],
     );
   }
 
-  String? content;
+      String? content;
 
-  String? contentType;
+      String? contentType;
 
-  String? name;
+      String? name;
 
   @override
   bool operator ==(Object other) {
@@ -39,25 +42,28 @@ class DocumentDataFile {
       return true;
     }
 
-    return other is DocumentDataFile &&
-        other.content == content &&
-        other.contentType == contentType &&
-        other.name == name;
+    return other is DocumentDataFile 
+          && other.content == content
+  
+          && other.contentType == contentType
+  
+          && other.name == name
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (content == null ? 0 : content.hashCode) +
-      (contentType == null ? 0 : contentType.hashCode) +
-      (name == null ? 0 : name.hashCode);
+    (content == null ? 0 : content.hashCode) +
+    (contentType == null ? 0 : contentType.hashCode) +
+    (name == null ? 0 : name.hashCode);
 
   static List<DocumentDataFile> listFromJson(Iterable? json) {
     if (json == null) {
       return <DocumentDataFile>[];
     }
 
-    return json.fold(<DocumentDataFile>[],
-        (List<DocumentDataFile> previousValue, element) {
+    return json.fold(<DocumentDataFile>[], (List<DocumentDataFile> previousValue, element) {
       final DocumentDataFile? object = DocumentDataFile.fromJson(element);
       if (object is DocumentDataFile) {
         previousValue.add(object);
@@ -72,8 +78,7 @@ class DocumentDataFile {
       return <String, DocumentDataFile>{};
     }
 
-    return json.entries.fold(<String, DocumentDataFile>{},
-        (Map<String, DocumentDataFile> previousValue, element) {
+    return json.entries.fold(<String, DocumentDataFile>{}, (Map<String, DocumentDataFile> previousValue, element) {
       final DocumentDataFile? object = DocumentDataFile.fromJson(element.value);
       if (object is DocumentDataFile) {
         previousValue[element.key] = object;
@@ -84,28 +89,37 @@ class DocumentDataFile {
   }
 
   // maps a json object with a list of DocumentDataFile-objects as value to a dart map
-  static Map<String, List<DocumentDataFile>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<DocumentDataFile>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<DocumentDataFile>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<DocumentDataFile>>(
-          key, DocumentDataFile.listFromJson(value));
+      return MapEntry<String, List<DocumentDataFile>>(key, DocumentDataFile.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'DocumentDataFile[content=$content, contentType=$contentType, name=$name]';
+  String toString() => 'DocumentDataFile[content=$content, contentType=$contentType, name=$name]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'content')) r'content': content,
-      if (keys == null || keys.contains(r'contentType'))
-        r'contentType': contentType,
-      if (keys == null || keys.contains(r'name')) r'name': name,
+    if (keys == null || keys.
+    contains(r'content')
+    )
+        r'content':
+          content,
+    if (keys == null || keys.
+    contains(r'contentType')
+    )
+        r'contentType':
+          contentType,
+    if (keys == null || keys.
+    contains(r'name')
+    )
+        r'name':
+          name,
     };
   }
 }
+

@@ -11,6 +11,10 @@ void main() {
 
   group('test OperationCollection', () {
     // List<Operation> items (default value: const [])
-    test('to test the property `items`', () async {});
+    test('to test the property `items`', () async {
+    });
+
+
   });
+
 }

@@ -11,6 +11,10 @@ void main() {
 
   group('test PriceWrite', () {
     // num value
-    test('to test the property `value`', () async {});
+    test('to test the property `value`', () async {
+    });
+
+
   });
+
 }

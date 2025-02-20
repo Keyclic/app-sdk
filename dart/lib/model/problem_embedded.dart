@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class ProblemEmbedded {
   /// Returns a new [ProblemEmbedded] instance.
   ProblemEmbedded({
-    this.errors,
+    this.errors
+,
   });
 
   /// Returns a new [ProblemEmbedded] instance and imports its values from
@@ -17,12 +18,13 @@ class ProblemEmbedded {
       return null;
     }
 
-    return ProblemEmbedded(
-      errors: Problem.listFromJson(json[r'errors']),
+  return ProblemEmbedded(
+        errors: 
+          Problem.listFromJson(json[r'errors']),
     );
   }
 
-  List<Problem>? errors;
+        List<Problem>? errors;
 
   @override
   bool operator ==(Object other) {
@@ -31,20 +33,22 @@ class ProblemEmbedded {
       return true;
     }
 
-    return other is ProblemEmbedded &&
-        DeepCollectionEquality.unordered().equals(errors, other.errors);
+    return other is ProblemEmbedded 
+          && DeepCollectionEquality.unordered().equals(errors, other.errors)
+  ;
   }
+  
 
   @override
-  int get hashCode => (errors == null ? 0 : errors.hashCode);
+  int get hashCode =>
+    (errors == null ? 0 : errors.hashCode);
 
   static List<ProblemEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
       return <ProblemEmbedded>[];
     }
 
-    return json.fold(<ProblemEmbedded>[],
-        (List<ProblemEmbedded> previousValue, element) {
+    return json.fold(<ProblemEmbedded>[], (List<ProblemEmbedded> previousValue, element) {
       final ProblemEmbedded? object = ProblemEmbedded.fromJson(element);
       if (object is ProblemEmbedded) {
         previousValue.add(object);
@@ -59,8 +63,7 @@ class ProblemEmbedded {
       return <String, ProblemEmbedded>{};
     }
 
-    return json.entries.fold(<String, ProblemEmbedded>{},
-        (Map<String, ProblemEmbedded> previousValue, element) {
+    return json.entries.fold(<String, ProblemEmbedded>{}, (Map<String, ProblemEmbedded> previousValue, element) {
       final ProblemEmbedded? object = ProblemEmbedded.fromJson(element.value);
       if (object is ProblemEmbedded) {
         previousValue[element.key] = object;
@@ -71,15 +74,13 @@ class ProblemEmbedded {
   }
 
   // maps a json object with a list of ProblemEmbedded-objects as value to a dart map
-  static Map<String, List<ProblemEmbedded>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<ProblemEmbedded>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ProblemEmbedded>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ProblemEmbedded>>(
-          key, ProblemEmbedded.listFromJson(value));
+      return MapEntry<String, List<ProblemEmbedded>>(key, ProblemEmbedded.listFromJson(value));
     });
   }
 
@@ -88,7 +89,12 @@ class ProblemEmbedded {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'errors')) r'errors': errors,
+    if (keys == null || keys.
+    contains(r'errors')
+    )
+        r'errors':
+            errors,
     };
   }
 }
+

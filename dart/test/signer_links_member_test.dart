@@ -12,9 +12,14 @@ void main() {
   group('test SignerLinksMember', () {
     // The URI of the member associated to the given signer.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // SignerLinksMemberIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

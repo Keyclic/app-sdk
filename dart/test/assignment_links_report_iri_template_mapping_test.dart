@@ -11,6 +11,10 @@ void main() {
 
   group('test AssignmentLinksReportIriTemplateMapping', () {
     // String report
-    test('to test the property `report`', () async {});
+    test('to test the property `report`', () async {
+    });
+
+
   });
+
 }

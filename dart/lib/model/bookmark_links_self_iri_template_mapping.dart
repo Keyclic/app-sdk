@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class BookmarkLinksSelfIriTemplateMapping {
   /// Returns a new [BookmarkLinksSelfIriTemplateMapping] instance.
   BookmarkLinksSelfIriTemplateMapping({
-    this.bookmark,
+    this.bookmark
+,
   });
 
   /// Returns a new [BookmarkLinksSelfIriTemplateMapping] instance and imports its values from
@@ -17,12 +18,12 @@ class BookmarkLinksSelfIriTemplateMapping {
       return null;
     }
 
-    return BookmarkLinksSelfIriTemplateMapping(
-      bookmark: json[r'bookmark'],
+  return BookmarkLinksSelfIriTemplateMapping(
+                  bookmark: json[r'bookmark'],
     );
   }
 
-  String? bookmark;
+      String? bookmark;
 
   @override
   bool operator ==(Object other) {
@@ -31,23 +32,23 @@ class BookmarkLinksSelfIriTemplateMapping {
       return true;
     }
 
-    return other is BookmarkLinksSelfIriTemplateMapping &&
-        other.bookmark == bookmark;
+    return other is BookmarkLinksSelfIriTemplateMapping 
+          && other.bookmark == bookmark
+  ;
   }
+  
 
   @override
-  int get hashCode => (bookmark == null ? 0 : bookmark.hashCode);
+  int get hashCode =>
+    (bookmark == null ? 0 : bookmark.hashCode);
 
-  static List<BookmarkLinksSelfIriTemplateMapping> listFromJson(
-      Iterable? json) {
+  static List<BookmarkLinksSelfIriTemplateMapping> listFromJson(Iterable? json) {
     if (json == null) {
       return <BookmarkLinksSelfIriTemplateMapping>[];
     }
 
-    return json.fold(<BookmarkLinksSelfIriTemplateMapping>[],
-        (List<BookmarkLinksSelfIriTemplateMapping> previousValue, element) {
-      final BookmarkLinksSelfIriTemplateMapping? object =
-          BookmarkLinksSelfIriTemplateMapping.fromJson(element);
+    return json.fold(<BookmarkLinksSelfIriTemplateMapping>[], (List<BookmarkLinksSelfIriTemplateMapping> previousValue, element) {
+      final BookmarkLinksSelfIriTemplateMapping? object = BookmarkLinksSelfIriTemplateMapping.fromJson(element);
       if (object is BookmarkLinksSelfIriTemplateMapping) {
         previousValue.add(object);
       }
@@ -56,17 +57,13 @@ class BookmarkLinksSelfIriTemplateMapping {
     });
   }
 
-  static Map<String, BookmarkLinksSelfIriTemplateMapping> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, BookmarkLinksSelfIriTemplateMapping> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, BookmarkLinksSelfIriTemplateMapping>{};
     }
 
-    return json.entries.fold(<String, BookmarkLinksSelfIriTemplateMapping>{},
-        (Map<String, BookmarkLinksSelfIriTemplateMapping> previousValue,
-            element) {
-      final BookmarkLinksSelfIriTemplateMapping? object =
-          BookmarkLinksSelfIriTemplateMapping.fromJson(element.value);
+    return json.entries.fold(<String, BookmarkLinksSelfIriTemplateMapping>{}, (Map<String, BookmarkLinksSelfIriTemplateMapping> previousValue, element) {
+      final BookmarkLinksSelfIriTemplateMapping? object = BookmarkLinksSelfIriTemplateMapping.fromJson(element.value);
       if (object is BookmarkLinksSelfIriTemplateMapping) {
         previousValue[element.key] = object;
       }
@@ -76,25 +73,27 @@ class BookmarkLinksSelfIriTemplateMapping {
   }
 
   // maps a json object with a list of BookmarkLinksSelfIriTemplateMapping-objects as value to a dart map
-  static Map<String, List<BookmarkLinksSelfIriTemplateMapping>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<BookmarkLinksSelfIriTemplateMapping>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<BookmarkLinksSelfIriTemplateMapping>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<BookmarkLinksSelfIriTemplateMapping>>(
-          key, BookmarkLinksSelfIriTemplateMapping.listFromJson(value));
+      return MapEntry<String, List<BookmarkLinksSelfIriTemplateMapping>>(key, BookmarkLinksSelfIriTemplateMapping.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'BookmarkLinksSelfIriTemplateMapping[bookmark=$bookmark]';
+  String toString() => 'BookmarkLinksSelfIriTemplateMapping[bookmark=$bookmark]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'bookmark')) r'bookmark': bookmark,
+    if (keys == null || keys.
+    contains(r'bookmark')
+    )
+        r'bookmark':
+          bookmark,
     };
   }
 }
+

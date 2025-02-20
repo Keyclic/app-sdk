@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class PlanCollection {
   /// Returns a new [PlanCollection] instance.
   PlanCollection({
-    this.items,
+    this.items
+,
   });
 
   /// Returns a new [PlanCollection] instance and imports its values from
@@ -17,12 +18,13 @@ class PlanCollection {
       return null;
     }
 
-    return PlanCollection(
-      items: Plan.listFromJson(json[r'items']),
+  return PlanCollection(
+        items: 
+          Plan.listFromJson(json[r'items']),
     );
   }
 
-  List<Plan>? items;
+        List<Plan>? items;
 
   @override
   bool operator ==(Object other) {
@@ -31,20 +33,22 @@ class PlanCollection {
       return true;
     }
 
-    return other is PlanCollection &&
-        DeepCollectionEquality.unordered().equals(items, other.items);
+    return other is PlanCollection 
+          && DeepCollectionEquality.unordered().equals(items, other.items)
+  ;
   }
+  
 
   @override
-  int get hashCode => (items == null ? 0 : items.hashCode);
+  int get hashCode =>
+    (items == null ? 0 : items.hashCode);
 
   static List<PlanCollection> listFromJson(Iterable? json) {
     if (json == null) {
       return <PlanCollection>[];
     }
 
-    return json.fold(<PlanCollection>[],
-        (List<PlanCollection> previousValue, element) {
+    return json.fold(<PlanCollection>[], (List<PlanCollection> previousValue, element) {
       final PlanCollection? object = PlanCollection.fromJson(element);
       if (object is PlanCollection) {
         previousValue.add(object);
@@ -59,8 +63,7 @@ class PlanCollection {
       return <String, PlanCollection>{};
     }
 
-    return json.entries.fold(<String, PlanCollection>{},
-        (Map<String, PlanCollection> previousValue, element) {
+    return json.entries.fold(<String, PlanCollection>{}, (Map<String, PlanCollection> previousValue, element) {
       final PlanCollection? object = PlanCollection.fromJson(element.value);
       if (object is PlanCollection) {
         previousValue[element.key] = object;
@@ -71,15 +74,13 @@ class PlanCollection {
   }
 
   // maps a json object with a list of PlanCollection-objects as value to a dart map
-  static Map<String, List<PlanCollection>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<PlanCollection>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<PlanCollection>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<PlanCollection>>(
-          key, PlanCollection.listFromJson(value));
+      return MapEntry<String, List<PlanCollection>>(key, PlanCollection.listFromJson(value));
     });
   }
 
@@ -88,7 +89,12 @@ class PlanCollection {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'items')) r'items': items,
+    if (keys == null || keys.
+    contains(r'items')
+    )
+        r'items':
+            items,
     };
   }
 }
+

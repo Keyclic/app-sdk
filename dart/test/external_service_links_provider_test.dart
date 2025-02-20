@@ -12,9 +12,14 @@ void main() {
   group('test ExternalServiceLinksProvider', () {
     // The URI of the provider associated to the given externalservice.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // ExternalServiceLinksProviderIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

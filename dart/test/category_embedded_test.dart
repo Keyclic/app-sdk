@@ -11,12 +11,18 @@ void main() {
 
   group('test CategoryEmbedded', () {
     // List<Category> children (default value: const [])
-    test('to test the property `children`', () async {});
+    test('to test the property `children`', () async {
+    });
 
     // List<NodePath> path (default value: const [])
-    test('to test the property `path`', () async {});
+    test('to test the property `path`', () async {
+    });
 
     // CategoryEmbeddedType type
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
+
+
   });
+
 }

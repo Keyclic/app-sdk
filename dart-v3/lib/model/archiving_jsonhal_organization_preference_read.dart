@@ -7,7 +7,8 @@ part of keyclic_sdk_api_platform;
 class ArchivingJsonhalOrganizationPreferenceRead {
   /// Returns a new [ArchivingJsonhalOrganizationPreferenceRead] instance.
   ArchivingJsonhalOrganizationPreferenceRead({
-    this.enabled,
+    this.enabled
+,
   });
 
   /// Returns a new [ArchivingJsonhalOrganizationPreferenceRead] instance and imports its values from
@@ -17,12 +18,12 @@ class ArchivingJsonhalOrganizationPreferenceRead {
       return null;
     }
 
-    return ArchivingJsonhalOrganizationPreferenceRead(
-      enabled: json[r'enabled'],
+  return ArchivingJsonhalOrganizationPreferenceRead(
+                  enabled: json[r'enabled'],
     );
   }
 
-  bool? enabled;
+      bool? enabled;
 
   @override
   bool operator ==(Object other) {
@@ -31,24 +32,23 @@ class ArchivingJsonhalOrganizationPreferenceRead {
       return true;
     }
 
-    return other is ArchivingJsonhalOrganizationPreferenceRead &&
-        other.enabled == enabled;
+    return other is ArchivingJsonhalOrganizationPreferenceRead 
+          && other.enabled == enabled
+  ;
   }
+  
 
   @override
-  int get hashCode => (enabled == null ? 0 : enabled.hashCode);
+  int get hashCode =>
+    (enabled == null ? 0 : enabled.hashCode);
 
-  static List<ArchivingJsonhalOrganizationPreferenceRead> listFromJson(
-      Iterable? json) {
+  static List<ArchivingJsonhalOrganizationPreferenceRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <ArchivingJsonhalOrganizationPreferenceRead>[];
     }
 
-    return json.fold(<ArchivingJsonhalOrganizationPreferenceRead>[],
-        (List<ArchivingJsonhalOrganizationPreferenceRead> previousValue,
-            element) {
-      final ArchivingJsonhalOrganizationPreferenceRead? object =
-          ArchivingJsonhalOrganizationPreferenceRead.fromJson(element);
+    return json.fold(<ArchivingJsonhalOrganizationPreferenceRead>[], (List<ArchivingJsonhalOrganizationPreferenceRead> previousValue, element) {
+      final ArchivingJsonhalOrganizationPreferenceRead? object = ArchivingJsonhalOrganizationPreferenceRead.fromJson(element);
       if (object is ArchivingJsonhalOrganizationPreferenceRead) {
         previousValue.add(object);
       }
@@ -57,18 +57,13 @@ class ArchivingJsonhalOrganizationPreferenceRead {
     });
   }
 
-  static Map<String, ArchivingJsonhalOrganizationPreferenceRead> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, ArchivingJsonhalOrganizationPreferenceRead> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, ArchivingJsonhalOrganizationPreferenceRead>{};
     }
 
-    return json.entries.fold(
-        <String, ArchivingJsonhalOrganizationPreferenceRead>{},
-        (Map<String, ArchivingJsonhalOrganizationPreferenceRead> previousValue,
-            element) {
-      final ArchivingJsonhalOrganizationPreferenceRead? object =
-          ArchivingJsonhalOrganizationPreferenceRead.fromJson(element.value);
+    return json.entries.fold(<String, ArchivingJsonhalOrganizationPreferenceRead>{}, (Map<String, ArchivingJsonhalOrganizationPreferenceRead> previousValue, element) {
+      final ArchivingJsonhalOrganizationPreferenceRead? object = ArchivingJsonhalOrganizationPreferenceRead.fromJson(element.value);
       if (object is ArchivingJsonhalOrganizationPreferenceRead) {
         previousValue[element.key] = object;
       }
@@ -78,25 +73,27 @@ class ArchivingJsonhalOrganizationPreferenceRead {
   }
 
   // maps a json object with a list of ArchivingJsonhalOrganizationPreferenceRead-objects as value to a dart map
-  static Map<String, List<ArchivingJsonhalOrganizationPreferenceRead>>
-      mapListFromJson(Map<String, dynamic>? json) {
+  static Map<String, List<ArchivingJsonhalOrganizationPreferenceRead>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ArchivingJsonhalOrganizationPreferenceRead>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ArchivingJsonhalOrganizationPreferenceRead>>(
-          key, ArchivingJsonhalOrganizationPreferenceRead.listFromJson(value));
+      return MapEntry<String, List<ArchivingJsonhalOrganizationPreferenceRead>>(key, ArchivingJsonhalOrganizationPreferenceRead.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'ArchivingJsonhalOrganizationPreferenceRead[enabled=$enabled]';
+  String toString() => 'ArchivingJsonhalOrganizationPreferenceRead[enabled=$enabled]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'enabled')) r'enabled': enabled,
+    if (keys == null || keys.
+    contains(r'enabled')
+    )
+        r'enabled':
+          enabled,
     };
   }
 }
+

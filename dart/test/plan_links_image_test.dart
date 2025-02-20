@@ -12,9 +12,14 @@ void main() {
   group('test PlanLinksImage', () {
     // The URI of the image associated to the given plan.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // PlanLinksImageIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

@@ -11,6 +11,10 @@ void main() {
 
   group('test ContributionLinksContributorIriTemplateMapping', () {
     // String person
-    test('to test the property `person`', () async {});
+    test('to test the property `person`', () async {
+    });
+
+
   });
+
 }

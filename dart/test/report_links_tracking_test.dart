@@ -12,9 +12,14 @@ void main() {
   group('test ReportLinksTracking', () {
     // The URI of the tracking associated to the given report.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // ReportLinksTrackingIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

@@ -11,12 +11,18 @@ void main() {
 
   group('test PointJsonhalRead', () {
     // int srid
-    test('to test the property `srid`', () async {});
+    test('to test the property `srid`', () async {
+    });
 
     // num latitude
-    test('to test the property `latitude`', () async {});
+    test('to test the property `latitude`', () async {
+    });
 
     // num longitude
-    test('to test the property `longitude`', () async {});
+    test('to test the property `longitude`', () async {
+    });
+
+
   });
+
 }

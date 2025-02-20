@@ -11,12 +11,18 @@ void main() {
 
   group('test ServiceJsonhalReadEmbedded', () {
     // OrganizationJsonhalRead provider
-    test('to test the property `provider`', () async {});
+    test('to test the property `provider`', () async {
+    });
 
     // CollaboratorJsonhalRead manager
-    test('to test the property `manager`', () async {});
+    test('to test the property `manager`', () async {
+    });
 
     // OrganizationJsonhalRead organization
-    test('to test the property `organization`', () async {});
+    test('to test the property `organization`', () async {
+    });
+
+
   });
+
 }

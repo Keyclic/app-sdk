@@ -11,6 +11,10 @@ void main() {
 
   group('test InvitationEmbedded', () {
     // Member member
-    test('to test the property `member`', () async {});
+    test('to test the property `member`', () async {
+    });
+
+
   });
+
 }

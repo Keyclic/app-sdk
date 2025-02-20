@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class PropertyItems {
   /// Returns a new [PropertyItems] instance.
   PropertyItems({
-    this.oneOf,
+    this.oneOf
+,
   });
 
   /// Returns a new [PropertyItems] instance and imports its values from
@@ -17,12 +18,13 @@ class PropertyItems {
       return null;
     }
 
-    return PropertyItems(
-      oneOf: ItemsChoice.listFromJson(json[r'oneOf']),
+  return PropertyItems(
+        oneOf: 
+          ItemsChoice.listFromJson(json[r'oneOf']),
     );
   }
 
-  List<ItemsChoice>? oneOf;
+        List<ItemsChoice>? oneOf;
 
   @override
   bool operator ==(Object other) {
@@ -31,20 +33,22 @@ class PropertyItems {
       return true;
     }
 
-    return other is PropertyItems &&
-        DeepCollectionEquality.unordered().equals(oneOf, other.oneOf);
+    return other is PropertyItems 
+          && DeepCollectionEquality.unordered().equals(oneOf, other.oneOf)
+  ;
   }
+  
 
   @override
-  int get hashCode => (oneOf == null ? 0 : oneOf.hashCode);
+  int get hashCode =>
+    (oneOf == null ? 0 : oneOf.hashCode);
 
   static List<PropertyItems> listFromJson(Iterable? json) {
     if (json == null) {
       return <PropertyItems>[];
     }
 
-    return json.fold(<PropertyItems>[],
-        (List<PropertyItems> previousValue, element) {
+    return json.fold(<PropertyItems>[], (List<PropertyItems> previousValue, element) {
       final PropertyItems? object = PropertyItems.fromJson(element);
       if (object is PropertyItems) {
         previousValue.add(object);
@@ -59,8 +63,7 @@ class PropertyItems {
       return <String, PropertyItems>{};
     }
 
-    return json.entries.fold(<String, PropertyItems>{},
-        (Map<String, PropertyItems> previousValue, element) {
+    return json.entries.fold(<String, PropertyItems>{}, (Map<String, PropertyItems> previousValue, element) {
       final PropertyItems? object = PropertyItems.fromJson(element.value);
       if (object is PropertyItems) {
         previousValue[element.key] = object;
@@ -71,15 +74,13 @@ class PropertyItems {
   }
 
   // maps a json object with a list of PropertyItems-objects as value to a dart map
-  static Map<String, List<PropertyItems>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<PropertyItems>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<PropertyItems>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<PropertyItems>>(
-          key, PropertyItems.listFromJson(value));
+      return MapEntry<String, List<PropertyItems>>(key, PropertyItems.listFromJson(value));
     });
   }
 
@@ -88,7 +89,12 @@ class PropertyItems {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'oneOf')) r'oneOf': oneOf,
+    if (keys == null || keys.
+    contains(r'oneOf')
+    )
+        r'oneOf':
+            oneOf,
     };
   }
 }
+

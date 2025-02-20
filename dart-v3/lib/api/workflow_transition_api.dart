@@ -4,6 +4,7 @@
 
 part of keyclic_sdk_api_platform;
 
+
 class WorkflowTransitionApi {
   const WorkflowTransitionApi(this._apiClient);
 
@@ -14,15 +15,15 @@ class WorkflowTransitionApi {
   ///
   /// Parameters:
   /// * [identifier] - Task identifier
-  /// * [xKeyclicApp] -
-  /// * [xOrganizationId] -
+  /// * [xKeyclicApp] - 
+  /// * [xOrganizationId] - 
   /// * [page] - The collection page number
   /// * [limit] - The number of items per page
   /// * [pagination] - Enable or disable pagination
-  /// * [acceptLanguage] -
-  /// * [xDateTime] -
-  /// * [xKeyclicAppPlatform] -
-  /// * [xKeyclicAppVersion] -
+  /// * [acceptLanguage] - 
+  /// * [xDateTime] - 
+  /// * [xKeyclicAppPlatform] - 
+  /// * [xKeyclicAppVersion] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -32,8 +33,7 @@ class WorkflowTransitionApi {
   ///
   /// Returns a [Future] containing a [Response] with a [GetTicketWorkflowTransitions200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetTicketWorkflowTransitions200Response>>
-      getTicketWorkflowTransitions({
+  Future<Response<GetTicketWorkflowTransitions200Response>> getTicketWorkflowTransitions({ 
     required String identifier,
     required String xKeyclicApp,
     required String xOrganizationId,
@@ -44,6 +44,7 @@ class WorkflowTransitionApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -51,8 +52,7 @@ class WorkflowTransitionApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/tickets/{identifier}/workflow-transitions'
-        .replaceAll('{' r'identifier' '}', identifier.toString());
+    final String path = r'/tickets/{identifier}/workflow-transitions'.replaceAll('{' r'identifier' '}', identifier.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -60,10 +60,8 @@ class WorkflowTransitionApi {
         if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
         if (xDateTime != null) r'X-Date-Time': xDateTime,
         r'X-Keyclic-App': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'X-Keyclic-App-Version': xKeyclicAppVersion,
         r'X-Organization-Id': xOrganizationId,
         ...?headers,
       },
@@ -71,6 +69,7 @@ class WorkflowTransitionApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -78,14 +77,25 @@ class WorkflowTransitionApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
 
     final queryParameters = <String, dynamic>{
-      if (page != null) r'page': encodeQueryParameter(page),
-      if (limit != null) r'limit': encodeQueryParameter(limit),
-      if (pagination != null) r'pagination': encodeQueryParameter(pagination),
+      if (page != null) r'page':
+        encodeQueryParameter(
+        page
+        ),
+      if (limit != null) r'limit':
+        encodeQueryParameter(
+        limit
+        ),
+      if (pagination != null) r'pagination':
+        encodeQueryParameter(
+        pagination
+        ),
     };
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -99,9 +109,7 @@ class WorkflowTransitionApi {
     GetTicketWorkflowTransitions200Response responseData;
 
     try {
-      responseData = await _apiClient
-          .deserializeAsync<GetTicketWorkflowTransitions200Response>(
-              response.data!, 'GetTicketWorkflowTransitions200Response');
+            responseData = await _apiClient.deserializeAsync<GetTicketWorkflowTransitions200Response>(response.data!, 'GetTicketWorkflowTransitions200Response');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -123,18 +131,17 @@ class WorkflowTransitionApi {
       extra: response.extra,
     );
   }
-
   /// Retrieves a WorkflowTransition resource.
   /// Retrieves a WorkflowTransition resource.
   ///
   /// Parameters:
   /// * [identifier] - Transition identifier
-  /// * [xKeyclicApp] -
-  /// * [xOrganizationId] -
-  /// * [acceptLanguage] -
-  /// * [xDateTime] -
-  /// * [xKeyclicAppPlatform] -
-  /// * [xKeyclicAppVersion] -
+  /// * [xKeyclicApp] - 
+  /// * [xOrganizationId] - 
+  /// * [acceptLanguage] - 
+  /// * [xDateTime] - 
+  /// * [xKeyclicAppPlatform] - 
+  /// * [xKeyclicAppVersion] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -144,7 +151,7 @@ class WorkflowTransitionApi {
   ///
   /// Returns a [Future] containing a [Response] with a [WorkflowTransitionJsonhalRead] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<WorkflowTransitionJsonhalRead>> getTransition({
+  Future<Response<WorkflowTransitionJsonhalRead>> getTransition({ 
     required String identifier,
     required String xKeyclicApp,
     required String xOrganizationId,
@@ -152,6 +159,7 @@ class WorkflowTransitionApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -159,8 +167,7 @@ class WorkflowTransitionApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/workflow-transitions/{identifier}'
-        .replaceAll('{' r'identifier' '}', identifier.toString());
+    final String path = r'/workflow-transitions/{identifier}'.replaceAll('{' r'identifier' '}', identifier.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -168,10 +175,8 @@ class WorkflowTransitionApi {
         if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
         if (xDateTime != null) r'X-Date-Time': xDateTime,
         r'X-Keyclic-App': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'X-Keyclic-App-Version': xKeyclicAppVersion,
         r'X-Organization-Id': xOrganizationId,
         ...?headers,
       },
@@ -179,6 +184,7 @@ class WorkflowTransitionApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -186,8 +192,11 @@ class WorkflowTransitionApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -200,9 +209,7 @@ class WorkflowTransitionApi {
     WorkflowTransitionJsonhalRead responseData;
 
     try {
-      responseData =
-          await _apiClient.deserializeAsync<WorkflowTransitionJsonhalRead>(
-              response.data!, 'WorkflowTransitionJsonhalRead');
+            responseData = await _apiClient.deserializeAsync<WorkflowTransitionJsonhalRead>(response.data!, 'WorkflowTransitionJsonhalRead');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

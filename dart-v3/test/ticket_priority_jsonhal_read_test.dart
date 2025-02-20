@@ -11,19 +11,27 @@ void main() {
 
   group('test TicketPriorityJsonhalRead', () {
     // AssetTypeJsonhalReadLinks links
-    test('to test the property `links`', () async {});
+    test('to test the property `links`', () async {
+    });
 
     // String color
-    test('to test the property `color`', () async {});
+    test('to test the property `color`', () async {
+    });
 
     // String name
-    test('to test the property `name`', () async {});
+    test('to test the property `name`', () async {
+    });
 
     // The resource identifier.
     // String id
-    test('to test the property `id`', () async {});
+    test('to test the property `id`', () async {
+    });
 
     // int position
-    test('to test the property `position`', () async {});
+    test('to test the property `position`', () async {
+    });
+
+
   });
+
 }

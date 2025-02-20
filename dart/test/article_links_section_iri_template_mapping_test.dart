@@ -11,6 +11,10 @@ void main() {
 
   group('test ArticleLinksSectionIriTemplateMapping', () {
     // String section
-    test('to test the property `section`', () async {});
+    test('to test the property `section`', () async {
+    });
+
+
   });
+
 }

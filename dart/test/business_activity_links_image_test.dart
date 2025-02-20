@@ -12,9 +12,14 @@ void main() {
   group('test BusinessActivityLinksImage', () {
     // The URI of the image associated to the given businessactivity.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // BusinessActivityLinksImageIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

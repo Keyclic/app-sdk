@@ -7,8 +7,14 @@ part of keyclic_sdk_api;
 class SignerData {
   /// Returns a new [SignerData] instance.
   SignerData({
-    required this.procedure,
-    required this.member,
+      required 
+    this.procedure
+      
+    ,
+      required 
+    this.member
+      
+    ,
   });
 
   /// Returns a new [SignerData] instance and imports its values from
@@ -18,15 +24,15 @@ class SignerData {
       return null;
     }
 
-    return SignerData(
-      procedure: json[r'procedure'],
-      member: json[r'member'],
+  return SignerData(
+                  procedure: json[r'procedure'],
+                  member: json[r'member'],
     );
   }
 
-  String procedure;
+      String procedure;
 
-  String member;
+      String member;
 
   @override
   bool operator ==(Object other) {
@@ -35,13 +41,18 @@ class SignerData {
       return true;
     }
 
-    return other is SignerData &&
-        other.procedure == procedure &&
-        other.member == member;
+    return other is SignerData 
+          && other.procedure == procedure
+  
+          && other.member == member
+  ;
   }
+  
 
   @override
-  int get hashCode => procedure.hashCode + member.hashCode;
+  int get hashCode =>
+     procedure.hashCode +
+     member.hashCode;
 
   static List<SignerData> listFromJson(Iterable? json) {
     if (json == null) {
@@ -63,8 +74,7 @@ class SignerData {
       return <String, SignerData>{};
     }
 
-    return json.entries.fold(<String, SignerData>{},
-        (Map<String, SignerData> previousValue, element) {
+    return json.entries.fold(<String, SignerData>{}, (Map<String, SignerData> previousValue, element) {
       final SignerData? object = SignerData.fromJson(element.value);
       if (object is SignerData) {
         previousValue[element.key] = object;
@@ -75,15 +85,13 @@ class SignerData {
   }
 
   // maps a json object with a list of SignerData-objects as value to a dart map
-  static Map<String, List<SignerData>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<SignerData>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<SignerData>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<SignerData>>(
-          key, SignerData.listFromJson(value));
+      return MapEntry<String, List<SignerData>>(key, SignerData.listFromJson(value));
     });
   }
 
@@ -92,8 +100,11 @@ class SignerData {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'procedure': procedure,
-      r'member': member,
+        r'procedure':
+          procedure,
+        r'member':
+          member,
     };
   }
 }
+

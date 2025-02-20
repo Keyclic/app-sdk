@@ -7,7 +7,10 @@ part of keyclic_sdk_api_platform;
 class GetExportCollection200ResponseEmbedded {
   /// Returns a new [GetExportCollection200ResponseEmbedded] instance.
   GetExportCollection200ResponseEmbedded({
-    this.item = const [],
+      
+    this.item
+       = const []
+    ,
   });
 
   /// Returns a new [GetExportCollection200ResponseEmbedded] instance and imports its values from
@@ -17,12 +20,13 @@ class GetExportCollection200ResponseEmbedded {
       return null;
     }
 
-    return GetExportCollection200ResponseEmbedded(
-      item: ExportJsonhalRead.listFromJson(json[r'item']),
+  return GetExportCollection200ResponseEmbedded(
+        item: 
+          ExportJsonhalRead.listFromJson(json[r'item']),
     );
   }
 
-  List<ExportJsonhalRead> item;
+        List<ExportJsonhalRead> item;
 
   @override
   bool operator ==(Object other) {
@@ -31,23 +35,23 @@ class GetExportCollection200ResponseEmbedded {
       return true;
     }
 
-    return other is GetExportCollection200ResponseEmbedded &&
-        DeepCollectionEquality.unordered().equals(item, other.item);
+    return other is GetExportCollection200ResponseEmbedded 
+          && DeepCollectionEquality.unordered().equals(item, other.item)
+  ;
   }
+  
 
   @override
-  int get hashCode => item.hashCode;
+  int get hashCode =>
+     item.hashCode;
 
-  static List<GetExportCollection200ResponseEmbedded> listFromJson(
-      Iterable? json) {
+  static List<GetExportCollection200ResponseEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
       return <GetExportCollection200ResponseEmbedded>[];
     }
 
-    return json.fold(<GetExportCollection200ResponseEmbedded>[],
-        (List<GetExportCollection200ResponseEmbedded> previousValue, element) {
-      final GetExportCollection200ResponseEmbedded? object =
-          GetExportCollection200ResponseEmbedded.fromJson(element);
+    return json.fold(<GetExportCollection200ResponseEmbedded>[], (List<GetExportCollection200ResponseEmbedded> previousValue, element) {
+      final GetExportCollection200ResponseEmbedded? object = GetExportCollection200ResponseEmbedded.fromJson(element);
       if (object is GetExportCollection200ResponseEmbedded) {
         previousValue.add(object);
       }
@@ -56,17 +60,13 @@ class GetExportCollection200ResponseEmbedded {
     });
   }
 
-  static Map<String, GetExportCollection200ResponseEmbedded> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, GetExportCollection200ResponseEmbedded> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, GetExportCollection200ResponseEmbedded>{};
     }
 
-    return json.entries.fold(<String, GetExportCollection200ResponseEmbedded>{},
-        (Map<String, GetExportCollection200ResponseEmbedded> previousValue,
-            element) {
-      final GetExportCollection200ResponseEmbedded? object =
-          GetExportCollection200ResponseEmbedded.fromJson(element.value);
+    return json.entries.fold(<String, GetExportCollection200ResponseEmbedded>{}, (Map<String, GetExportCollection200ResponseEmbedded> previousValue, element) {
+      final GetExportCollection200ResponseEmbedded? object = GetExportCollection200ResponseEmbedded.fromJson(element.value);
       if (object is GetExportCollection200ResponseEmbedded) {
         previousValue[element.key] = object;
       }
@@ -76,15 +76,13 @@ class GetExportCollection200ResponseEmbedded {
   }
 
   // maps a json object with a list of GetExportCollection200ResponseEmbedded-objects as value to a dart map
-  static Map<String, List<GetExportCollection200ResponseEmbedded>>
-      mapListFromJson(Map<String, dynamic>? json) {
+  static Map<String, List<GetExportCollection200ResponseEmbedded>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<GetExportCollection200ResponseEmbedded>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<GetExportCollection200ResponseEmbedded>>(
-          key, GetExportCollection200ResponseEmbedded.listFromJson(value));
+      return MapEntry<String, List<GetExportCollection200ResponseEmbedded>>(key, GetExportCollection200ResponseEmbedded.listFromJson(value));
     });
   }
 
@@ -93,7 +91,9 @@ class GetExportCollection200ResponseEmbedded {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'item': item,
+        r'item':
+            item,
     };
   }
 }
+

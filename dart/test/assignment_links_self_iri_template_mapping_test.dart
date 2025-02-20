@@ -11,6 +11,10 @@ void main() {
 
   group('test AssignmentLinksSelfIriTemplateMapping', () {
     // String assignment
-    test('to test the property `assignment`', () async {});
+    test('to test the property `assignment`', () async {
+    });
+
+
   });
+
 }

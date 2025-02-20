@@ -7,8 +7,14 @@ part of keyclic_sdk_api;
 class OccupantData {
   /// Returns a new [OccupantData] instance.
   OccupantData({
-    required this.asset,
-    required this.member,
+      required 
+    this.asset
+      
+    ,
+      required 
+    this.member
+      
+    ,
   });
 
   /// Returns a new [OccupantData] instance and imports its values from
@@ -18,15 +24,15 @@ class OccupantData {
       return null;
     }
 
-    return OccupantData(
-      asset: json[r'asset'],
-      member: json[r'member'],
+  return OccupantData(
+                  asset: json[r'asset'],
+                  member: json[r'member'],
     );
   }
 
-  String asset;
+      String asset;
 
-  String member;
+      String member;
 
   @override
   bool operator ==(Object other) {
@@ -35,21 +41,25 @@ class OccupantData {
       return true;
     }
 
-    return other is OccupantData &&
-        other.asset == asset &&
-        other.member == member;
+    return other is OccupantData 
+          && other.asset == asset
+  
+          && other.member == member
+  ;
   }
+  
 
   @override
-  int get hashCode => asset.hashCode + member.hashCode;
+  int get hashCode =>
+     asset.hashCode +
+     member.hashCode;
 
   static List<OccupantData> listFromJson(Iterable? json) {
     if (json == null) {
       return <OccupantData>[];
     }
 
-    return json.fold(<OccupantData>[],
-        (List<OccupantData> previousValue, element) {
+    return json.fold(<OccupantData>[], (List<OccupantData> previousValue, element) {
       final OccupantData? object = OccupantData.fromJson(element);
       if (object is OccupantData) {
         previousValue.add(object);
@@ -64,8 +74,7 @@ class OccupantData {
       return <String, OccupantData>{};
     }
 
-    return json.entries.fold(<String, OccupantData>{},
-        (Map<String, OccupantData> previousValue, element) {
+    return json.entries.fold(<String, OccupantData>{}, (Map<String, OccupantData> previousValue, element) {
       final OccupantData? object = OccupantData.fromJson(element.value);
       if (object is OccupantData) {
         previousValue[element.key] = object;
@@ -76,15 +85,13 @@ class OccupantData {
   }
 
   // maps a json object with a list of OccupantData-objects as value to a dart map
-  static Map<String, List<OccupantData>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<OccupantData>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<OccupantData>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<OccupantData>>(
-          key, OccupantData.listFromJson(value));
+      return MapEntry<String, List<OccupantData>>(key, OccupantData.listFromJson(value));
     });
   }
 
@@ -93,8 +100,11 @@ class OccupantData {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'asset': asset,
-      r'member': member,
+        r'asset':
+          asset,
+        r'member':
+          member,
     };
   }
 }
+

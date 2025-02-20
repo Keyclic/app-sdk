@@ -12,9 +12,14 @@ void main() {
   group('test DeviceLinksPerson', () {
     // The URI of the person associated to the given device.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // DeviceLinksPersonIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

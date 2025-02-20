@@ -11,6 +11,10 @@ void main() {
 
   group('test DeviceLinksSelfIriTemplateMapping', () {
     // String device
-    test('to test the property `device`', () async {});
+    test('to test the property `device`', () async {
+    });
+
+
   });
+
 }

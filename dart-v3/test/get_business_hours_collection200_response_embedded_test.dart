@@ -11,6 +11,10 @@ void main() {
 
   group('test GetBusinessHoursCollection200ResponseEmbedded', () {
     // List<BusinessHoursJsonhalRead> item (default value: const [])
-    test('to test the property `item`', () async {});
+    test('to test the property `item`', () async {
+    });
+
+
   });
+
 }

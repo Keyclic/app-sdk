@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class NotePatch {
   /// Returns a new [NotePatch] instance.
   NotePatch({
-    this.text,
+    this.text
+,
   });
 
   /// Returns a new [NotePatch] instance and imports its values from
@@ -17,14 +18,13 @@ class NotePatch {
       return null;
     }
 
-    return NotePatch(
-      text: json[r'text'] == null
-          ? null
-          : List<Map<String, Object?>>.from(json[r'text']),
+  return NotePatch(
+        text: 
+          json[r'text'] == null ? null : List<Map<String, Object?>>.from(json[r'text']),
     );
   }
 
-  List<Map<String, Object?>>? text;
+        List<Map<String, Object?>>? text;
 
   @override
   bool operator ==(Object other) {
@@ -33,12 +33,15 @@ class NotePatch {
       return true;
     }
 
-    return other is NotePatch &&
-        DeepCollectionEquality.unordered().equals(text, other.text);
+    return other is NotePatch 
+          && DeepCollectionEquality.unordered().equals(text, other.text)
+  ;
   }
+  
 
   @override
-  int get hashCode => (text == null ? 0 : text.hashCode);
+  int get hashCode =>
+    (text == null ? 0 : text.hashCode);
 
   static List<NotePatch> listFromJson(Iterable? json) {
     if (json == null) {
@@ -60,8 +63,7 @@ class NotePatch {
       return <String, NotePatch>{};
     }
 
-    return json.entries.fold(<String, NotePatch>{},
-        (Map<String, NotePatch> previousValue, element) {
+    return json.entries.fold(<String, NotePatch>{}, (Map<String, NotePatch> previousValue, element) {
       final NotePatch? object = NotePatch.fromJson(element.value);
       if (object is NotePatch) {
         previousValue[element.key] = object;
@@ -72,15 +74,13 @@ class NotePatch {
   }
 
   // maps a json object with a list of NotePatch-objects as value to a dart map
-  static Map<String, List<NotePatch>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<NotePatch>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<NotePatch>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<NotePatch>>(
-          key, NotePatch.listFromJson(value));
+      return MapEntry<String, List<NotePatch>>(key, NotePatch.listFromJson(value));
     });
   }
 
@@ -89,7 +89,12 @@ class NotePatch {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'text')) r'text': text,
+    if (keys == null || keys.
+    contains(r'text')
+    )
+        r'text':
+            text,
     };
   }
 }
+

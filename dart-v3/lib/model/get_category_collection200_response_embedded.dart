@@ -7,7 +7,10 @@ part of keyclic_sdk_api_platform;
 class GetCategoryCollection200ResponseEmbedded {
   /// Returns a new [GetCategoryCollection200ResponseEmbedded] instance.
   GetCategoryCollection200ResponseEmbedded({
-    this.item = const [],
+      
+    this.item
+       = const []
+    ,
   });
 
   /// Returns a new [GetCategoryCollection200ResponseEmbedded] instance and imports its values from
@@ -17,12 +20,13 @@ class GetCategoryCollection200ResponseEmbedded {
       return null;
     }
 
-    return GetCategoryCollection200ResponseEmbedded(
-      item: CategoryJsonhalRead.listFromJson(json[r'item']),
+  return GetCategoryCollection200ResponseEmbedded(
+        item: 
+          CategoryJsonhalRead.listFromJson(json[r'item']),
     );
   }
 
-  List<CategoryJsonhalRead> item;
+        List<CategoryJsonhalRead> item;
 
   @override
   bool operator ==(Object other) {
@@ -31,24 +35,23 @@ class GetCategoryCollection200ResponseEmbedded {
       return true;
     }
 
-    return other is GetCategoryCollection200ResponseEmbedded &&
-        DeepCollectionEquality.unordered().equals(item, other.item);
+    return other is GetCategoryCollection200ResponseEmbedded 
+          && DeepCollectionEquality.unordered().equals(item, other.item)
+  ;
   }
+  
 
   @override
-  int get hashCode => item.hashCode;
+  int get hashCode =>
+     item.hashCode;
 
-  static List<GetCategoryCollection200ResponseEmbedded> listFromJson(
-      Iterable? json) {
+  static List<GetCategoryCollection200ResponseEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
       return <GetCategoryCollection200ResponseEmbedded>[];
     }
 
-    return json.fold(<GetCategoryCollection200ResponseEmbedded>[],
-        (List<GetCategoryCollection200ResponseEmbedded> previousValue,
-            element) {
-      final GetCategoryCollection200ResponseEmbedded? object =
-          GetCategoryCollection200ResponseEmbedded.fromJson(element);
+    return json.fold(<GetCategoryCollection200ResponseEmbedded>[], (List<GetCategoryCollection200ResponseEmbedded> previousValue, element) {
+      final GetCategoryCollection200ResponseEmbedded? object = GetCategoryCollection200ResponseEmbedded.fromJson(element);
       if (object is GetCategoryCollection200ResponseEmbedded) {
         previousValue.add(object);
       }
@@ -57,18 +60,13 @@ class GetCategoryCollection200ResponseEmbedded {
     });
   }
 
-  static Map<String, GetCategoryCollection200ResponseEmbedded> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, GetCategoryCollection200ResponseEmbedded> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, GetCategoryCollection200ResponseEmbedded>{};
     }
 
-    return json.entries.fold(
-        <String, GetCategoryCollection200ResponseEmbedded>{},
-        (Map<String, GetCategoryCollection200ResponseEmbedded> previousValue,
-            element) {
-      final GetCategoryCollection200ResponseEmbedded? object =
-          GetCategoryCollection200ResponseEmbedded.fromJson(element.value);
+    return json.entries.fold(<String, GetCategoryCollection200ResponseEmbedded>{}, (Map<String, GetCategoryCollection200ResponseEmbedded> previousValue, element) {
+      final GetCategoryCollection200ResponseEmbedded? object = GetCategoryCollection200ResponseEmbedded.fromJson(element.value);
       if (object is GetCategoryCollection200ResponseEmbedded) {
         previousValue[element.key] = object;
       }
@@ -78,15 +76,13 @@ class GetCategoryCollection200ResponseEmbedded {
   }
 
   // maps a json object with a list of GetCategoryCollection200ResponseEmbedded-objects as value to a dart map
-  static Map<String, List<GetCategoryCollection200ResponseEmbedded>>
-      mapListFromJson(Map<String, dynamic>? json) {
+  static Map<String, List<GetCategoryCollection200ResponseEmbedded>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<GetCategoryCollection200ResponseEmbedded>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<GetCategoryCollection200ResponseEmbedded>>(
-          key, GetCategoryCollection200ResponseEmbedded.listFromJson(value));
+      return MapEntry<String, List<GetCategoryCollection200ResponseEmbedded>>(key, GetCategoryCollection200ResponseEmbedded.listFromJson(value));
     });
   }
 
@@ -95,7 +91,9 @@ class GetCategoryCollection200ResponseEmbedded {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'item': item,
+        r'item':
+            item,
     };
   }
 }
+

@@ -12,9 +12,14 @@ void main() {
   group('test OccupantLinksSelf', () {
     // The URI of the self associated to the given occupant.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // OccupantLinksSelfIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

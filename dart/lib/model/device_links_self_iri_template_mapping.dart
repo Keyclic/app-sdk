@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class DeviceLinksSelfIriTemplateMapping {
   /// Returns a new [DeviceLinksSelfIriTemplateMapping] instance.
   DeviceLinksSelfIriTemplateMapping({
-    this.device,
+    this.device
+,
   });
 
   /// Returns a new [DeviceLinksSelfIriTemplateMapping] instance and imports its values from
@@ -17,12 +18,12 @@ class DeviceLinksSelfIriTemplateMapping {
       return null;
     }
 
-    return DeviceLinksSelfIriTemplateMapping(
-      device: json[r'device'],
+  return DeviceLinksSelfIriTemplateMapping(
+                  device: json[r'device'],
     );
   }
 
-  String? device;
+      String? device;
 
   @override
   bool operator ==(Object other) {
@@ -31,21 +32,23 @@ class DeviceLinksSelfIriTemplateMapping {
       return true;
     }
 
-    return other is DeviceLinksSelfIriTemplateMapping && other.device == device;
+    return other is DeviceLinksSelfIriTemplateMapping 
+          && other.device == device
+  ;
   }
+  
 
   @override
-  int get hashCode => (device == null ? 0 : device.hashCode);
+  int get hashCode =>
+    (device == null ? 0 : device.hashCode);
 
   static List<DeviceLinksSelfIriTemplateMapping> listFromJson(Iterable? json) {
     if (json == null) {
       return <DeviceLinksSelfIriTemplateMapping>[];
     }
 
-    return json.fold(<DeviceLinksSelfIriTemplateMapping>[],
-        (List<DeviceLinksSelfIriTemplateMapping> previousValue, element) {
-      final DeviceLinksSelfIriTemplateMapping? object =
-          DeviceLinksSelfIriTemplateMapping.fromJson(element);
+    return json.fold(<DeviceLinksSelfIriTemplateMapping>[], (List<DeviceLinksSelfIriTemplateMapping> previousValue, element) {
+      final DeviceLinksSelfIriTemplateMapping? object = DeviceLinksSelfIriTemplateMapping.fromJson(element);
       if (object is DeviceLinksSelfIriTemplateMapping) {
         previousValue.add(object);
       }
@@ -54,17 +57,13 @@ class DeviceLinksSelfIriTemplateMapping {
     });
   }
 
-  static Map<String, DeviceLinksSelfIriTemplateMapping> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, DeviceLinksSelfIriTemplateMapping> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, DeviceLinksSelfIriTemplateMapping>{};
     }
 
-    return json.entries.fold(<String, DeviceLinksSelfIriTemplateMapping>{},
-        (Map<String, DeviceLinksSelfIriTemplateMapping> previousValue,
-            element) {
-      final DeviceLinksSelfIriTemplateMapping? object =
-          DeviceLinksSelfIriTemplateMapping.fromJson(element.value);
+    return json.entries.fold(<String, DeviceLinksSelfIriTemplateMapping>{}, (Map<String, DeviceLinksSelfIriTemplateMapping> previousValue, element) {
+      final DeviceLinksSelfIriTemplateMapping? object = DeviceLinksSelfIriTemplateMapping.fromJson(element.value);
       if (object is DeviceLinksSelfIriTemplateMapping) {
         previousValue[element.key] = object;
       }
@@ -74,15 +73,13 @@ class DeviceLinksSelfIriTemplateMapping {
   }
 
   // maps a json object with a list of DeviceLinksSelfIriTemplateMapping-objects as value to a dart map
-  static Map<String, List<DeviceLinksSelfIriTemplateMapping>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<DeviceLinksSelfIriTemplateMapping>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<DeviceLinksSelfIriTemplateMapping>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<DeviceLinksSelfIriTemplateMapping>>(
-          key, DeviceLinksSelfIriTemplateMapping.listFromJson(value));
+      return MapEntry<String, List<DeviceLinksSelfIriTemplateMapping>>(key, DeviceLinksSelfIriTemplateMapping.listFromJson(value));
     });
   }
 
@@ -91,7 +88,12 @@ class DeviceLinksSelfIriTemplateMapping {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'device')) r'device': device,
+    if (keys == null || keys.
+    contains(r'device')
+    )
+        r'device':
+          device,
     };
   }
 }
+

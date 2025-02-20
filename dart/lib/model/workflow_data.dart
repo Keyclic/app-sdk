@@ -7,9 +7,14 @@ part of keyclic_sdk_api;
 class WorkflowData {
   /// Returns a new [WorkflowData] instance.
   WorkflowData({
-    this.text,
-    this.datetime,
-    required this.transition,
+    this.text
+,
+    this.datetime
+,
+      required 
+    this.transition
+      
+    ,
   });
 
   /// Returns a new [WorkflowData] instance and imports its values from
@@ -19,18 +24,18 @@ class WorkflowData {
       return null;
     }
 
-    return WorkflowData(
-      text: json[r'text'],
-      datetime: json[r'datetime'],
-      transition: json[r'transition'],
+  return WorkflowData(
+                  text: json[r'text'],
+                  datetime: json[r'datetime'],
+                  transition: json[r'transition'],
     );
   }
 
-  String? text;
+      String? text;
 
-  String? datetime;
+      String? datetime;
 
-  String transition;
+      String transition;
 
   @override
   bool operator ==(Object other) {
@@ -39,25 +44,28 @@ class WorkflowData {
       return true;
     }
 
-    return other is WorkflowData &&
-        other.text == text &&
-        other.datetime == datetime &&
-        other.transition == transition;
+    return other is WorkflowData 
+          && other.text == text
+  
+          && other.datetime == datetime
+  
+          && other.transition == transition
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (text == null ? 0 : text.hashCode) +
-      (datetime == null ? 0 : datetime.hashCode) +
-      transition.hashCode;
+    (text == null ? 0 : text.hashCode) +
+    (datetime == null ? 0 : datetime.hashCode) +
+     transition.hashCode;
 
   static List<WorkflowData> listFromJson(Iterable? json) {
     if (json == null) {
       return <WorkflowData>[];
     }
 
-    return json.fold(<WorkflowData>[],
-        (List<WorkflowData> previousValue, element) {
+    return json.fold(<WorkflowData>[], (List<WorkflowData> previousValue, element) {
       final WorkflowData? object = WorkflowData.fromJson(element);
       if (object is WorkflowData) {
         previousValue.add(object);
@@ -72,8 +80,7 @@ class WorkflowData {
       return <String, WorkflowData>{};
     }
 
-    return json.entries.fold(<String, WorkflowData>{},
-        (Map<String, WorkflowData> previousValue, element) {
+    return json.entries.fold(<String, WorkflowData>{}, (Map<String, WorkflowData> previousValue, element) {
       final WorkflowData? object = WorkflowData.fromJson(element.value);
       if (object is WorkflowData) {
         previousValue[element.key] = object;
@@ -84,27 +91,34 @@ class WorkflowData {
   }
 
   // maps a json object with a list of WorkflowData-objects as value to a dart map
-  static Map<String, List<WorkflowData>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<WorkflowData>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<WorkflowData>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<WorkflowData>>(
-          key, WorkflowData.listFromJson(value));
+      return MapEntry<String, List<WorkflowData>>(key, WorkflowData.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'WorkflowData[text=$text, datetime=$datetime, transition=$transition]';
+  String toString() => 'WorkflowData[text=$text, datetime=$datetime, transition=$transition]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'text')) r'text': text,
-      if (keys == null || keys.contains(r'datetime')) r'datetime': datetime,
-      r'transition': transition,
+    if (keys == null || keys.
+    contains(r'text')
+    )
+        r'text':
+          text,
+    if (keys == null || keys.
+    contains(r'datetime')
+    )
+        r'datetime':
+          datetime,
+        r'transition':
+          transition,
     };
   }
 }
+

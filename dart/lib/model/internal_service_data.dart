@@ -7,12 +7,22 @@ part of keyclic_sdk_api;
 class InternalServiceData {
   /// Returns a new [InternalServiceData] instance.
   InternalServiceData({
-    this.address,
-    this.contactPoint,
-    this.description,
-    this.manager,
-    required this.name,
-    required this.organization,
+    this.address
+,
+    this.contactPoint
+,
+    this.description
+,
+    this.manager
+,
+      required 
+    this.name
+      
+    ,
+      required 
+    this.organization
+      
+    ,
   });
 
   /// Returns a new [InternalServiceData] instance and imports its values from
@@ -22,28 +32,27 @@ class InternalServiceData {
       return null;
     }
 
-    return InternalServiceData(
-      address: InternalServiceDataAddress.fromJson(json[r'address']),
-      contactPoint:
-          InternalServiceDataContactPoint.fromJson(json[r'contactPoint']),
-      description: json[r'description'],
-      manager: json[r'manager'],
-      name: json[r'name'],
-      organization: json[r'organization'],
+  return InternalServiceData(
+        address: InternalServiceDataAddress.fromJson(json[r'address']),
+        contactPoint: InternalServiceDataContactPoint.fromJson(json[r'contactPoint']),
+                  description: json[r'description'],
+                  manager: json[r'manager'],
+                  name: json[r'name'],
+                  organization: json[r'organization'],
     );
   }
 
-  InternalServiceDataAddress? address;
+      InternalServiceDataAddress? address;
 
-  InternalServiceDataContactPoint? contactPoint;
+      InternalServiceDataContactPoint? contactPoint;
 
-  String? description;
+      String? description;
 
-  String? manager;
+      String? manager;
 
-  String name;
+      String name;
 
-  String organization;
+      String organization;
 
   @override
   bool operator ==(Object other) {
@@ -52,31 +61,37 @@ class InternalServiceData {
       return true;
     }
 
-    return other is InternalServiceData &&
-        other.address == address &&
-        other.contactPoint == contactPoint &&
-        other.description == description &&
-        other.manager == manager &&
-        other.name == name &&
-        other.organization == organization;
+    return other is InternalServiceData 
+          && other.address == address
+  
+          && other.contactPoint == contactPoint
+  
+          && other.description == description
+  
+          && other.manager == manager
+  
+          && other.name == name
+  
+          && other.organization == organization
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (address == null ? 0 : address.hashCode) +
-      (contactPoint == null ? 0 : contactPoint.hashCode) +
-      (description == null ? 0 : description.hashCode) +
-      (manager == null ? 0 : manager.hashCode) +
-      name.hashCode +
-      organization.hashCode;
+    (address == null ? 0 : address.hashCode) +
+    (contactPoint == null ? 0 : contactPoint.hashCode) +
+    (description == null ? 0 : description.hashCode) +
+    (manager == null ? 0 : manager.hashCode) +
+     name.hashCode +
+     organization.hashCode;
 
   static List<InternalServiceData> listFromJson(Iterable? json) {
     if (json == null) {
       return <InternalServiceData>[];
     }
 
-    return json.fold(<InternalServiceData>[],
-        (List<InternalServiceData> previousValue, element) {
+    return json.fold(<InternalServiceData>[], (List<InternalServiceData> previousValue, element) {
       final InternalServiceData? object = InternalServiceData.fromJson(element);
       if (object is InternalServiceData) {
         previousValue.add(object);
@@ -86,16 +101,13 @@ class InternalServiceData {
     });
   }
 
-  static Map<String, InternalServiceData> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, InternalServiceData> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, InternalServiceData>{};
     }
 
-    return json.entries.fold(<String, InternalServiceData>{},
-        (Map<String, InternalServiceData> previousValue, element) {
-      final InternalServiceData? object =
-          InternalServiceData.fromJson(element.value);
+    return json.entries.fold(<String, InternalServiceData>{}, (Map<String, InternalServiceData> previousValue, element) {
+      final InternalServiceData? object = InternalServiceData.fromJson(element.value);
       if (object is InternalServiceData) {
         previousValue[element.key] = object;
       }
@@ -105,49 +117,58 @@ class InternalServiceData {
   }
 
   // maps a json object with a list of InternalServiceData-objects as value to a dart map
-  static Map<String, List<InternalServiceData>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<InternalServiceData>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<InternalServiceData>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<InternalServiceData>>(
-          key, InternalServiceData.listFromJson(value));
+      return MapEntry<String, List<InternalServiceData>>(key, InternalServiceData.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'InternalServiceData[address=$address, contactPoint=$contactPoint, description=$description, manager=$manager, name=$name, organization=$organization]';
+  String toString() => 'InternalServiceData[address=$address, contactPoint=$contactPoint, description=$description, manager=$manager, name=$name, organization=$organization]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^address\.').hasMatch(key)))
-        r'address': address?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^address\.'))) {
-            previousValue.add(element.split(RegExp(r'^address\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^address\.').hasMatch(key))
+    )
+        r'address':
+            address?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^address\.'))) {
+                previousValue.add(element.split(RegExp(r'^address\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^contactPoint\.').hasMatch(key)))
-        r'contactPoint': contactPoint?.toJson(keys?.fold<List<String>>(
-            <String>[], (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^contactPoint\.'))) {
-            previousValue.add(element.split(RegExp(r'^contactPoint\.')).last);
-          }
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    any((key) => RegExp(r'^contactPoint\.').hasMatch(key))
+    )
+        r'contactPoint':
+            contactPoint?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^contactPoint\.'))) {
+                previousValue.add(element.split(RegExp(r'^contactPoint\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'description'))
-        r'description': description,
-      if (keys == null || keys.contains(r'manager')) r'manager': manager,
-      r'name': name,
-      r'organization': organization,
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    contains(r'description')
+    )
+        r'description':
+          description,
+    if (keys == null || keys.
+    contains(r'manager')
+    )
+        r'manager':
+          manager,
+        r'name':
+          name,
+        r'organization':
+          organization,
     };
   }
 }
+

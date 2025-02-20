@@ -11,21 +11,30 @@ void main() {
 
   group('test Signer', () {
     // InvitationEmbedded embedded
-    test('to test the property `embedded`', () async {});
+    test('to test the property `embedded`', () async {
+    });
 
     // SignerLinks links
-    test('to test the property `links`', () async {});
+    test('to test the property `links`', () async {
+    });
 
     // String id
-    test('to test the property `id`', () async {});
+    test('to test the property `id`', () async {
+    });
 
     // SignerSignature signature
-    test('to test the property `signature`', () async {});
+    test('to test the property `signature`', () async {
+    });
 
     // String state
-    test('to test the property `state`', () async {});
+    test('to test the property `state`', () async {
+    });
 
     // String type
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
+
+
   });
+
 }

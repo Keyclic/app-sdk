@@ -7,9 +7,12 @@ part of keyclic_sdk_api_platform;
 class PostalAddressWriteCreate {
   /// Returns a new [PostalAddressWriteCreate] instance.
   PostalAddressWriteCreate({
-    this.locality,
-    this.postalCode,
-    this.streetAddress,
+    this.locality
+,
+    this.postalCode
+,
+    this.streetAddress
+,
   });
 
   /// Returns a new [PostalAddressWriteCreate] instance and imports its values from
@@ -19,18 +22,18 @@ class PostalAddressWriteCreate {
       return null;
     }
 
-    return PostalAddressWriteCreate(
-      locality: json[r'locality'],
-      postalCode: json[r'postalCode'],
-      streetAddress: json[r'streetAddress'],
+  return PostalAddressWriteCreate(
+                  locality: json[r'locality'],
+                  postalCode: json[r'postalCode'],
+                  streetAddress: json[r'streetAddress'],
     );
   }
 
-  String? locality;
+      String? locality;
 
-  String? postalCode;
+      String? postalCode;
 
-  String? streetAddress;
+      String? streetAddress;
 
   @override
   bool operator ==(Object other) {
@@ -39,27 +42,29 @@ class PostalAddressWriteCreate {
       return true;
     }
 
-    return other is PostalAddressWriteCreate &&
-        other.locality == locality &&
-        other.postalCode == postalCode &&
-        other.streetAddress == streetAddress;
+    return other is PostalAddressWriteCreate 
+          && other.locality == locality
+  
+          && other.postalCode == postalCode
+  
+          && other.streetAddress == streetAddress
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (locality == null ? 0 : locality.hashCode) +
-      (postalCode == null ? 0 : postalCode.hashCode) +
-      (streetAddress == null ? 0 : streetAddress.hashCode);
+    (locality == null ? 0 : locality.hashCode) +
+    (postalCode == null ? 0 : postalCode.hashCode) +
+    (streetAddress == null ? 0 : streetAddress.hashCode);
 
   static List<PostalAddressWriteCreate> listFromJson(Iterable? json) {
     if (json == null) {
       return <PostalAddressWriteCreate>[];
     }
 
-    return json.fold(<PostalAddressWriteCreate>[],
-        (List<PostalAddressWriteCreate> previousValue, element) {
-      final PostalAddressWriteCreate? object =
-          PostalAddressWriteCreate.fromJson(element);
+    return json.fold(<PostalAddressWriteCreate>[], (List<PostalAddressWriteCreate> previousValue, element) {
+      final PostalAddressWriteCreate? object = PostalAddressWriteCreate.fromJson(element);
       if (object is PostalAddressWriteCreate) {
         previousValue.add(object);
       }
@@ -68,16 +73,13 @@ class PostalAddressWriteCreate {
     });
   }
 
-  static Map<String, PostalAddressWriteCreate> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, PostalAddressWriteCreate> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, PostalAddressWriteCreate>{};
     }
 
-    return json.entries.fold(<String, PostalAddressWriteCreate>{},
-        (Map<String, PostalAddressWriteCreate> previousValue, element) {
-      final PostalAddressWriteCreate? object =
-          PostalAddressWriteCreate.fromJson(element.value);
+    return json.entries.fold(<String, PostalAddressWriteCreate>{}, (Map<String, PostalAddressWriteCreate> previousValue, element) {
+      final PostalAddressWriteCreate? object = PostalAddressWriteCreate.fromJson(element.value);
       if (object is PostalAddressWriteCreate) {
         previousValue[element.key] = object;
       }
@@ -87,29 +89,37 @@ class PostalAddressWriteCreate {
   }
 
   // maps a json object with a list of PostalAddressWriteCreate-objects as value to a dart map
-  static Map<String, List<PostalAddressWriteCreate>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<PostalAddressWriteCreate>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<PostalAddressWriteCreate>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<PostalAddressWriteCreate>>(
-          key, PostalAddressWriteCreate.listFromJson(value));
+      return MapEntry<String, List<PostalAddressWriteCreate>>(key, PostalAddressWriteCreate.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'PostalAddressWriteCreate[locality=$locality, postalCode=$postalCode, streetAddress=$streetAddress]';
+  String toString() => 'PostalAddressWriteCreate[locality=$locality, postalCode=$postalCode, streetAddress=$streetAddress]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'locality')) r'locality': locality,
-      if (keys == null || keys.contains(r'postalCode'))
-        r'postalCode': postalCode,
-      if (keys == null || keys.contains(r'streetAddress'))
-        r'streetAddress': streetAddress,
+    if (keys == null || keys.
+    contains(r'locality')
+    )
+        r'locality':
+          locality,
+    if (keys == null || keys.
+    contains(r'postalCode')
+    )
+        r'postalCode':
+          postalCode,
+    if (keys == null || keys.
+    contains(r'streetAddress')
+    )
+        r'streetAddress':
+          streetAddress,
     };
   }
 }
+

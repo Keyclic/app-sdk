@@ -11,6 +11,10 @@ void main() {
 
   group('test OperationLinksAssignmentsIriTemplateMapping', () {
     // String operation
-    test('to test the property `operation`', () async {});
+    test('to test the property `operation`', () async {
+    });
+
+
   });
+
 }

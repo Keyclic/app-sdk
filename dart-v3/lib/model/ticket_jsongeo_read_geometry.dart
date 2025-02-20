@@ -7,8 +7,10 @@ part of keyclic_sdk_api_platform;
 class TicketJsongeoReadGeometry {
   /// Returns a new [TicketJsongeoReadGeometry] instance.
   TicketJsongeoReadGeometry({
-    this.type,
-    this.coordinates,
+    this.type
+,
+    this.coordinates
+,
   });
 
   /// Returns a new [TicketJsongeoReadGeometry] instance and imports its values from
@@ -18,17 +20,18 @@ class TicketJsongeoReadGeometry {
       return null;
     }
 
-    return TicketJsongeoReadGeometry(
-      type: TicketJsongeoReadGeometryTypeEnum.fromJson(json[r'type']),
-      coordinates: json[r'coordinates'] == null
-          ? null
-          : List<num>.from(json[r'coordinates']),
+  return TicketJsongeoReadGeometry(
+              type: TicketJsongeoReadGeometryTypeEnum.fromJson(json[r'type']),
+        coordinates:
+            json[r'coordinates'] == null ?
+              null :
+          List<num>.from(json[r'coordinates']),
     );
   }
 
-  TicketJsongeoReadGeometryTypeEnum? type;
+      TicketJsongeoReadGeometryTypeEnum? type;
 
-  List<num>? coordinates;
+        List<num>? coordinates;
 
   @override
   bool operator ==(Object other) {
@@ -37,26 +40,26 @@ class TicketJsongeoReadGeometry {
       return true;
     }
 
-    return other is TicketJsongeoReadGeometry &&
-        other.type == type &&
-        DeepCollectionEquality.unordered()
-            .equals(coordinates, other.coordinates);
+    return other is TicketJsongeoReadGeometry 
+          && other.type == type
+  
+          && DeepCollectionEquality.unordered().equals(coordinates, other.coordinates)
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (type == null ? 0 : type.hashCode) +
-      (coordinates == null ? 0 : coordinates.hashCode);
+    (type == null ? 0 : type.hashCode) +
+    (coordinates == null ? 0 : coordinates.hashCode);
 
   static List<TicketJsongeoReadGeometry> listFromJson(Iterable? json) {
     if (json == null) {
       return <TicketJsongeoReadGeometry>[];
     }
 
-    return json.fold(<TicketJsongeoReadGeometry>[],
-        (List<TicketJsongeoReadGeometry> previousValue, element) {
-      final TicketJsongeoReadGeometry? object =
-          TicketJsongeoReadGeometry.fromJson(element);
+    return json.fold(<TicketJsongeoReadGeometry>[], (List<TicketJsongeoReadGeometry> previousValue, element) {
+      final TicketJsongeoReadGeometry? object = TicketJsongeoReadGeometry.fromJson(element);
       if (object is TicketJsongeoReadGeometry) {
         previousValue.add(object);
       }
@@ -65,16 +68,13 @@ class TicketJsongeoReadGeometry {
     });
   }
 
-  static Map<String, TicketJsongeoReadGeometry> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, TicketJsongeoReadGeometry> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, TicketJsongeoReadGeometry>{};
     }
 
-    return json.entries.fold(<String, TicketJsongeoReadGeometry>{},
-        (Map<String, TicketJsongeoReadGeometry> previousValue, element) {
-      final TicketJsongeoReadGeometry? object =
-          TicketJsongeoReadGeometry.fromJson(element.value);
+    return json.entries.fold(<String, TicketJsongeoReadGeometry>{}, (Map<String, TicketJsongeoReadGeometry> previousValue, element) {
+      final TicketJsongeoReadGeometry? object = TicketJsongeoReadGeometry.fromJson(element.value);
       if (object is TicketJsongeoReadGeometry) {
         previousValue[element.key] = object;
       }
@@ -84,30 +84,35 @@ class TicketJsongeoReadGeometry {
   }
 
   // maps a json object with a list of TicketJsongeoReadGeometry-objects as value to a dart map
-  static Map<String, List<TicketJsongeoReadGeometry>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<TicketJsongeoReadGeometry>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<TicketJsongeoReadGeometry>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<TicketJsongeoReadGeometry>>(
-          key, TicketJsongeoReadGeometry.listFromJson(value));
+      return MapEntry<String, List<TicketJsongeoReadGeometry>>(key, TicketJsongeoReadGeometry.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'TicketJsongeoReadGeometry[type=$type, coordinates=$coordinates]';
+  String toString() => 'TicketJsongeoReadGeometry[type=$type, coordinates=$coordinates]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'type')) r'type': type,
-      if (keys == null || keys.contains(r'coordinates'))
-        r'coordinates': coordinates,
+    if (keys == null || keys.
+    contains(r'type')
+    )
+        r'type':
+          type,
+    if (keys == null || keys.
+    contains(r'coordinates')
+    )
+        r'coordinates':
+          coordinates,
     };
   }
 }
+
 
 class TicketJsongeoReadGeometryTypeEnum {
   /// Instantiate a new enum with the provided [value].
@@ -129,16 +134,12 @@ class TicketJsongeoReadGeometryTypeEnum {
   ];
 
   static TicketJsongeoReadGeometryTypeEnum? fromJson(dynamic value) =>
-      TicketJsongeoReadGeometryTypeEnumTypeTransformer().decode(value);
+    TicketJsongeoReadGeometryTypeEnumTypeTransformer().decode(value);
 
-  static List<TicketJsongeoReadGeometryTypeEnum> listFromJson(
-      List<dynamic> json) {
-    return json
-        .map((value) {
-          return TicketJsongeoReadGeometryTypeEnum.fromJson(value);
-        })
-        .whereType<TicketJsongeoReadGeometryTypeEnum>()
-        .toList();
+  static List<TicketJsongeoReadGeometryTypeEnum> listFromJson(List<dynamic> json) {
+    return json.map((value) {
+      return TicketJsongeoReadGeometryTypeEnum.fromJson(value);
+    }).whereType<TicketJsongeoReadGeometryTypeEnum>().toList();
   }
 }
 
@@ -147,8 +148,7 @@ class TicketJsongeoReadGeometryTypeEnum {
 class TicketJsongeoReadGeometryTypeEnumTypeTransformer {
   const TicketJsongeoReadGeometryTypeEnumTypeTransformer._();
 
-  factory TicketJsongeoReadGeometryTypeEnumTypeTransformer() =>
-      _instance ??= TicketJsongeoReadGeometryTypeEnumTypeTransformer._();
+  factory TicketJsongeoReadGeometryTypeEnumTypeTransformer() => _instance ??= TicketJsongeoReadGeometryTypeEnumTypeTransformer._();
 
   String encode(TicketJsongeoReadGeometryTypeEnum data) => data.value;
 
@@ -160,11 +160,9 @@ class TicketJsongeoReadGeometryTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  TicketJsongeoReadGeometryTypeEnum? decode(dynamic data,
-      {bool allowNull = true}) {
+  TicketJsongeoReadGeometryTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
-      case r'Point':
-        return TicketJsongeoReadGeometryTypeEnum.point;
+      case r'Point': return TicketJsongeoReadGeometryTypeEnum.point;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
@@ -176,3 +174,4 @@ class TicketJsongeoReadGeometryTypeEnumTypeTransformer {
   /// Singleton [TicketJsongeoReadGeometryTypeEnumTypeTransformer] instance.
   static TicketJsongeoReadGeometryTypeEnumTypeTransformer? _instance;
 }
+

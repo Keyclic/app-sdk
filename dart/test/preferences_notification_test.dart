@@ -11,12 +11,18 @@ void main() {
 
   group('test PreferencesNotification', () {
     // bool inApp
-    test('to test the property `inApp`', () async {});
+    test('to test the property `inApp`', () async {
+    });
 
     // bool mail
-    test('to test the property `mail`', () async {});
+    test('to test the property `mail`', () async {
+    });
 
     // bool push
-    test('to test the property `push`', () async {});
+    test('to test the property `push`', () async {
+    });
+
+
   });
+
 }

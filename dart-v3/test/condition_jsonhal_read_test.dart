@@ -11,12 +11,18 @@ void main() {
 
   group('test ConditionJsonhalRead', () {
     // String propertyPath
-    test('to test the property `propertyPath`', () async {});
+    test('to test the property `propertyPath`', () async {
+    });
 
     // Map<String, String> values (default value: const {})
-    test('to test the property `values`', () async {});
+    test('to test the property `values`', () async {
+    });
 
     // String operator_
-    test('to test the property `operator_`', () async {});
+    test('to test the property `operator_`', () async {
+    });
+
+
   });
+
 }

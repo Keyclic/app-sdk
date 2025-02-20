@@ -12,9 +12,14 @@ void main() {
   group('test PlaceLinksOrganization', () {
     // The URI of the organization associated to the given place.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // PlaceLinksOrganizationIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

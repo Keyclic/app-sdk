@@ -11,12 +11,18 @@ void main() {
 
   group('test ReviewJsonhalReadLinks', () {
     // GetPlaceCollection200ResponseLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
 
     // GetPlaceCollection200ResponseLinksFirst itemReviewed
-    test('to test the property `itemReviewed`', () async {});
+    test('to test the property `itemReviewed`', () async {
+    });
 
     // GetPlaceCollection200ResponseLinksFirst author
-    test('to test the property `author`', () async {});
+    test('to test the property `author`', () async {
+    });
+
+
   });
+
 }

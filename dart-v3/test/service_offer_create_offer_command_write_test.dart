@@ -11,9 +11,14 @@ void main() {
 
   group('test ServiceOfferCreateOfferCommandWrite', () {
     // String name
-    test('to test the property `name`', () async {});
+    test('to test the property `name`', () async {
+    });
 
     // String service
-    test('to test the property `service`', () async {});
+    test('to test the property `service`', () async {
+    });
+
+
   });
+
 }

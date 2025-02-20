@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class BinaryCollection {
   /// Returns a new [BinaryCollection] instance.
   BinaryCollection({
-    this.items,
+    this.items
+,
   });
 
   /// Returns a new [BinaryCollection] instance and imports its values from
@@ -17,12 +18,13 @@ class BinaryCollection {
       return null;
     }
 
-    return BinaryCollection(
-      items: Binary.listFromJson(json[r'items']),
+  return BinaryCollection(
+        items: 
+          Binary.listFromJson(json[r'items']),
     );
   }
 
-  List<Binary>? items;
+        List<Binary>? items;
 
   @override
   bool operator ==(Object other) {
@@ -31,20 +33,22 @@ class BinaryCollection {
       return true;
     }
 
-    return other is BinaryCollection &&
-        DeepCollectionEquality.unordered().equals(items, other.items);
+    return other is BinaryCollection 
+          && DeepCollectionEquality.unordered().equals(items, other.items)
+  ;
   }
+  
 
   @override
-  int get hashCode => (items == null ? 0 : items.hashCode);
+  int get hashCode =>
+    (items == null ? 0 : items.hashCode);
 
   static List<BinaryCollection> listFromJson(Iterable? json) {
     if (json == null) {
       return <BinaryCollection>[];
     }
 
-    return json.fold(<BinaryCollection>[],
-        (List<BinaryCollection> previousValue, element) {
+    return json.fold(<BinaryCollection>[], (List<BinaryCollection> previousValue, element) {
       final BinaryCollection? object = BinaryCollection.fromJson(element);
       if (object is BinaryCollection) {
         previousValue.add(object);
@@ -59,8 +63,7 @@ class BinaryCollection {
       return <String, BinaryCollection>{};
     }
 
-    return json.entries.fold(<String, BinaryCollection>{},
-        (Map<String, BinaryCollection> previousValue, element) {
+    return json.entries.fold(<String, BinaryCollection>{}, (Map<String, BinaryCollection> previousValue, element) {
       final BinaryCollection? object = BinaryCollection.fromJson(element.value);
       if (object is BinaryCollection) {
         previousValue[element.key] = object;
@@ -71,15 +74,13 @@ class BinaryCollection {
   }
 
   // maps a json object with a list of BinaryCollection-objects as value to a dart map
-  static Map<String, List<BinaryCollection>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<BinaryCollection>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<BinaryCollection>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<BinaryCollection>>(
-          key, BinaryCollection.listFromJson(value));
+      return MapEntry<String, List<BinaryCollection>>(key, BinaryCollection.listFromJson(value));
     });
   }
 
@@ -88,7 +89,12 @@ class BinaryCollection {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'items')) r'items': items,
+    if (keys == null || keys.
+    contains(r'items')
+    )
+        r'items':
+            items,
     };
   }
 }
+

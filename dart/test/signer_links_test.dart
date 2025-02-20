@@ -11,12 +11,18 @@ void main() {
 
   group('test SignerLinks', () {
     // SignerLinksMember member
-    test('to test the property `member`', () async {});
+    test('to test the property `member`', () async {
+    });
 
     // SignerLinksProcedure procedure
-    test('to test the property `procedure`', () async {});
+    test('to test the property `procedure`', () async {
+    });
 
     // SignerLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
+
+
   });
+
 }

@@ -4,6 +4,7 @@
 
 part of keyclic_sdk_api_platform;
 
+
 class WorkflowStateApi {
   const WorkflowStateApi(this._apiClient);
 
@@ -14,12 +15,12 @@ class WorkflowStateApi {
   ///
   /// Parameters:
   /// * [identifier] - State identifier
-  /// * [xKeyclicApp] -
-  /// * [xOrganizationId] -
-  /// * [acceptLanguage] -
-  /// * [xDateTime] -
-  /// * [xKeyclicAppPlatform] -
-  /// * [xKeyclicAppVersion] -
+  /// * [xKeyclicApp] - 
+  /// * [xOrganizationId] - 
+  /// * [acceptLanguage] - 
+  /// * [xDateTime] - 
+  /// * [xKeyclicAppPlatform] - 
+  /// * [xKeyclicAppVersion] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -29,7 +30,7 @@ class WorkflowStateApi {
   ///
   /// Returns a [Future] containing a [Response] with a [WorkflowStateJsonhalRead] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<WorkflowStateJsonhalRead>> getState({
+  Future<Response<WorkflowStateJsonhalRead>> getState({ 
     required String identifier,
     required String xKeyclicApp,
     required String xOrganizationId,
@@ -37,6 +38,7 @@ class WorkflowStateApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -44,8 +46,7 @@ class WorkflowStateApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/workflow-states/{identifier}'
-        .replaceAll('{' r'identifier' '}', identifier.toString());
+    final String path = r'/workflow-states/{identifier}'.replaceAll('{' r'identifier' '}', identifier.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -53,10 +54,8 @@ class WorkflowStateApi {
         if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
         if (xDateTime != null) r'X-Date-Time': xDateTime,
         r'X-Keyclic-App': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'X-Keyclic-App-Version': xKeyclicAppVersion,
         r'X-Organization-Id': xOrganizationId,
         ...?headers,
       },
@@ -64,6 +63,7 @@ class WorkflowStateApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -71,8 +71,11 @@ class WorkflowStateApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -85,9 +88,7 @@ class WorkflowStateApi {
     WorkflowStateJsonhalRead responseData;
 
     try {
-      responseData =
-          await _apiClient.deserializeAsync<WorkflowStateJsonhalRead>(
-              response.data!, 'WorkflowStateJsonhalRead');
+            responseData = await _apiClient.deserializeAsync<WorkflowStateJsonhalRead>(response.data!, 'WorkflowStateJsonhalRead');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

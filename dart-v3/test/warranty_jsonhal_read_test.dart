@@ -12,14 +12,20 @@ void main() {
   group('test WarrantyJsonhalRead', () {
     // The duration of the warranty in ISO 8601 duration format.
     // String duration
-    test('to test the property `duration`', () async {});
+    test('to test the property `duration`', () async {
+    });
 
     // The end date of the warranty, in ISO 8601 format.
     // DateTime endDate
-    test('to test the property `endDate`', () async {});
+    test('to test the property `endDate`', () async {
+    });
 
     // The start date of the warranty, in ISO 8601 format.
     // DateTime startDate
-    test('to test the property `startDate`', () async {});
+    test('to test the property `startDate`', () async {
+    });
+
+
   });
+
 }

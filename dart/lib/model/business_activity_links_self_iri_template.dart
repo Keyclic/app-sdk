@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class BusinessActivityLinksSelfIriTemplate {
   /// Returns a new [BusinessActivityLinksSelfIriTemplate] instance.
   BusinessActivityLinksSelfIriTemplate({
-    this.mapping,
+    this.mapping
+,
   });
 
   /// Returns a new [BusinessActivityLinksSelfIriTemplate] instance and imports its values from
@@ -17,13 +18,12 @@ class BusinessActivityLinksSelfIriTemplate {
       return null;
     }
 
-    return BusinessActivityLinksSelfIriTemplate(
-      mapping: BusinessActivityLinksImageIriTemplateMapping.fromJson(
-          json[r'mapping']),
+  return BusinessActivityLinksSelfIriTemplate(
+        mapping: BusinessActivityLinksImageIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
-  BusinessActivityLinksImageIriTemplateMapping? mapping;
+      BusinessActivityLinksImageIriTemplateMapping? mapping;
 
   @override
   bool operator ==(Object other) {
@@ -32,23 +32,23 @@ class BusinessActivityLinksSelfIriTemplate {
       return true;
     }
 
-    return other is BusinessActivityLinksSelfIriTemplate &&
-        other.mapping == mapping;
+    return other is BusinessActivityLinksSelfIriTemplate 
+          && other.mapping == mapping
+  ;
   }
+  
 
   @override
-  int get hashCode => (mapping == null ? 0 : mapping.hashCode);
+  int get hashCode =>
+    (mapping == null ? 0 : mapping.hashCode);
 
-  static List<BusinessActivityLinksSelfIriTemplate> listFromJson(
-      Iterable? json) {
+  static List<BusinessActivityLinksSelfIriTemplate> listFromJson(Iterable? json) {
     if (json == null) {
       return <BusinessActivityLinksSelfIriTemplate>[];
     }
 
-    return json.fold(<BusinessActivityLinksSelfIriTemplate>[],
-        (List<BusinessActivityLinksSelfIriTemplate> previousValue, element) {
-      final BusinessActivityLinksSelfIriTemplate? object =
-          BusinessActivityLinksSelfIriTemplate.fromJson(element);
+    return json.fold(<BusinessActivityLinksSelfIriTemplate>[], (List<BusinessActivityLinksSelfIriTemplate> previousValue, element) {
+      final BusinessActivityLinksSelfIriTemplate? object = BusinessActivityLinksSelfIriTemplate.fromJson(element);
       if (object is BusinessActivityLinksSelfIriTemplate) {
         previousValue.add(object);
       }
@@ -57,17 +57,13 @@ class BusinessActivityLinksSelfIriTemplate {
     });
   }
 
-  static Map<String, BusinessActivityLinksSelfIriTemplate> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, BusinessActivityLinksSelfIriTemplate> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, BusinessActivityLinksSelfIriTemplate>{};
     }
 
-    return json.entries.fold(<String, BusinessActivityLinksSelfIriTemplate>{},
-        (Map<String, BusinessActivityLinksSelfIriTemplate> previousValue,
-            element) {
-      final BusinessActivityLinksSelfIriTemplate? object =
-          BusinessActivityLinksSelfIriTemplate.fromJson(element.value);
+    return json.entries.fold(<String, BusinessActivityLinksSelfIriTemplate>{}, (Map<String, BusinessActivityLinksSelfIriTemplate> previousValue, element) {
+      final BusinessActivityLinksSelfIriTemplate? object = BusinessActivityLinksSelfIriTemplate.fromJson(element.value);
       if (object is BusinessActivityLinksSelfIriTemplate) {
         previousValue[element.key] = object;
       }
@@ -77,15 +73,13 @@ class BusinessActivityLinksSelfIriTemplate {
   }
 
   // maps a json object with a list of BusinessActivityLinksSelfIriTemplate-objects as value to a dart map
-  static Map<String, List<BusinessActivityLinksSelfIriTemplate>>
-      mapListFromJson(Map<String, dynamic>? json) {
+  static Map<String, List<BusinessActivityLinksSelfIriTemplate>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<BusinessActivityLinksSelfIriTemplate>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<BusinessActivityLinksSelfIriTemplate>>(
-          key, BusinessActivityLinksSelfIriTemplate.listFromJson(value));
+      return MapEntry<String, List<BusinessActivityLinksSelfIriTemplate>>(key, BusinessActivityLinksSelfIriTemplate.listFromJson(value));
     });
   }
 
@@ -94,16 +88,18 @@ class BusinessActivityLinksSelfIriTemplate {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^mapping\.').hasMatch(key)))
-        r'mapping': mapping?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^mapping\.'))) {
-            previousValue.add(element.split(RegExp(r'^mapping\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^mapping\.').hasMatch(key))
+    )
+        r'mapping':
+            mapping?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^mapping\.'))) {
+                previousValue.add(element.split(RegExp(r'^mapping\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

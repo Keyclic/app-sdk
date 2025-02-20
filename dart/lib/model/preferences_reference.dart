@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class PreferencesReference {
   /// Returns a new [PreferencesReference] instance.
   PreferencesReference({
-    this.prefix,
+    this.prefix
+,
   });
 
   /// Returns a new [PreferencesReference] instance and imports its values from
@@ -17,12 +18,12 @@ class PreferencesReference {
       return null;
     }
 
-    return PreferencesReference(
-      prefix: json[r'prefix'],
+  return PreferencesReference(
+                  prefix: json[r'prefix'],
     );
   }
 
-  String? prefix;
+      String? prefix;
 
   @override
   bool operator ==(Object other) {
@@ -31,21 +32,23 @@ class PreferencesReference {
       return true;
     }
 
-    return other is PreferencesReference && other.prefix == prefix;
+    return other is PreferencesReference 
+          && other.prefix == prefix
+  ;
   }
+  
 
   @override
-  int get hashCode => (prefix == null ? 0 : prefix.hashCode);
+  int get hashCode =>
+    (prefix == null ? 0 : prefix.hashCode);
 
   static List<PreferencesReference> listFromJson(Iterable? json) {
     if (json == null) {
       return <PreferencesReference>[];
     }
 
-    return json.fold(<PreferencesReference>[],
-        (List<PreferencesReference> previousValue, element) {
-      final PreferencesReference? object =
-          PreferencesReference.fromJson(element);
+    return json.fold(<PreferencesReference>[], (List<PreferencesReference> previousValue, element) {
+      final PreferencesReference? object = PreferencesReference.fromJson(element);
       if (object is PreferencesReference) {
         previousValue.add(object);
       }
@@ -54,16 +57,13 @@ class PreferencesReference {
     });
   }
 
-  static Map<String, PreferencesReference> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, PreferencesReference> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, PreferencesReference>{};
     }
 
-    return json.entries.fold(<String, PreferencesReference>{},
-        (Map<String, PreferencesReference> previousValue, element) {
-      final PreferencesReference? object =
-          PreferencesReference.fromJson(element.value);
+    return json.entries.fold(<String, PreferencesReference>{}, (Map<String, PreferencesReference> previousValue, element) {
+      final PreferencesReference? object = PreferencesReference.fromJson(element.value);
       if (object is PreferencesReference) {
         previousValue[element.key] = object;
       }
@@ -73,15 +73,13 @@ class PreferencesReference {
   }
 
   // maps a json object with a list of PreferencesReference-objects as value to a dart map
-  static Map<String, List<PreferencesReference>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<PreferencesReference>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<PreferencesReference>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<PreferencesReference>>(
-          key, PreferencesReference.listFromJson(value));
+      return MapEntry<String, List<PreferencesReference>>(key, PreferencesReference.listFromJson(value));
     });
   }
 
@@ -90,7 +88,12 @@ class PreferencesReference {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'prefix')) r'prefix': prefix,
+    if (keys == null || keys.
+    contains(r'prefix')
+    )
+        r'prefix':
+          prefix,
     };
   }
 }
+

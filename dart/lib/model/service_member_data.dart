@@ -7,7 +7,10 @@ part of keyclic_sdk_api;
 class ServiceMemberData {
   /// Returns a new [ServiceMemberData] instance.
   ServiceMemberData({
-    required this.member,
+      required 
+    this.member
+      
+    ,
   });
 
   /// Returns a new [ServiceMemberData] instance and imports its values from
@@ -17,12 +20,12 @@ class ServiceMemberData {
       return null;
     }
 
-    return ServiceMemberData(
-      member: json[r'member'],
+  return ServiceMemberData(
+                  member: json[r'member'],
     );
   }
 
-  String member;
+      String member;
 
   @override
   bool operator ==(Object other) {
@@ -31,19 +34,22 @@ class ServiceMemberData {
       return true;
     }
 
-    return other is ServiceMemberData && other.member == member;
+    return other is ServiceMemberData 
+          && other.member == member
+  ;
   }
+  
 
   @override
-  int get hashCode => member.hashCode;
+  int get hashCode =>
+     member.hashCode;
 
   static List<ServiceMemberData> listFromJson(Iterable? json) {
     if (json == null) {
       return <ServiceMemberData>[];
     }
 
-    return json.fold(<ServiceMemberData>[],
-        (List<ServiceMemberData> previousValue, element) {
+    return json.fold(<ServiceMemberData>[], (List<ServiceMemberData> previousValue, element) {
       final ServiceMemberData? object = ServiceMemberData.fromJson(element);
       if (object is ServiceMemberData) {
         previousValue.add(object);
@@ -53,16 +59,13 @@ class ServiceMemberData {
     });
   }
 
-  static Map<String, ServiceMemberData> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, ServiceMemberData> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, ServiceMemberData>{};
     }
 
-    return json.entries.fold(<String, ServiceMemberData>{},
-        (Map<String, ServiceMemberData> previousValue, element) {
-      final ServiceMemberData? object =
-          ServiceMemberData.fromJson(element.value);
+    return json.entries.fold(<String, ServiceMemberData>{}, (Map<String, ServiceMemberData> previousValue, element) {
+      final ServiceMemberData? object = ServiceMemberData.fromJson(element.value);
       if (object is ServiceMemberData) {
         previousValue[element.key] = object;
       }
@@ -72,15 +75,13 @@ class ServiceMemberData {
   }
 
   // maps a json object with a list of ServiceMemberData-objects as value to a dart map
-  static Map<String, List<ServiceMemberData>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<ServiceMemberData>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ServiceMemberData>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ServiceMemberData>>(
-          key, ServiceMemberData.listFromJson(value));
+      return MapEntry<String, List<ServiceMemberData>>(key, ServiceMemberData.listFromJson(value));
     });
   }
 
@@ -89,7 +90,9 @@ class ServiceMemberData {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'member': member,
+        r'member':
+          member,
     };
   }
 }
+

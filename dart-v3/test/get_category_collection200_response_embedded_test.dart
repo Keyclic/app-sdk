@@ -11,6 +11,10 @@ void main() {
 
   group('test GetCategoryCollection200ResponseEmbedded', () {
     // List<CategoryJsonhalRead> item (default value: const [])
-    test('to test the property `item`', () async {});
+    test('to test the property `item`', () async {
+    });
+
+
   });
+
 }

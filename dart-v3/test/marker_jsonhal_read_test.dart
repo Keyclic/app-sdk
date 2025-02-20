@@ -11,10 +11,15 @@ void main() {
 
   group('test MarkerJsonhalRead', () {
     // PointJsonhalRead point
-    test('to test the property `point`', () async {});
+    test('to test the property `point`', () async {
+    });
 
     // The resource identifier.
     // String id
-    test('to test the property `id`', () async {});
+    test('to test the property `id`', () async {
+    });
+
+
   });
+
 }

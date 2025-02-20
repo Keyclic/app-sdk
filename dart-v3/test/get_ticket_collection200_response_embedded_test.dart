@@ -11,6 +11,10 @@ void main() {
 
   group('test GetTicketCollection200ResponseEmbedded', () {
     // List<TicketJsonhalRead> item (default value: const [])
-    test('to test the property `item`', () async {});
+    test('to test the property `item`', () async {
+    });
+
+
   });
+
 }

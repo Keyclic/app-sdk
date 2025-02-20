@@ -4,33 +4,34 @@
 
 part of keyclic_sdk_api;
 
+
 class InternalServiceApi {
   const InternalServiceApi(this._apiClient);
 
   final ApiClient _apiClient;
 
   /// Retrieve all Member resources.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [internalService] - The identifier of the resource.
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
-  /// * [orderLeftSquareBracketRightSquareBracket]
-  /// * [archived]
-  /// * [contactPointEmail]
-  /// * [after]
-  /// * [before]
-  /// * [organization]
-  /// * [organizationsLeftSquareBracketRightSquareBracket]
-  /// * [permission]
-  /// * [query]
-  /// * [role]
-  /// * [rolesLeftSquareBracketRightSquareBracket]
-  /// * [type]
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
+  /// * [orderLeftSquareBracketRightSquareBracket] 
+  /// * [archived] 
+  /// * [contactPointEmail] 
+  /// * [after] 
+  /// * [before] 
+  /// * [organization] 
+  /// * [organizationsLeftSquareBracketRightSquareBracket] 
+  /// * [permission] 
+  /// * [query] 
+  /// * [role] 
+  /// * [rolesLeftSquareBracketRightSquareBracket] 
+  /// * [type] 
   /// * [page] - Page of the overview.
   /// * [limit] - Page of the overview.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -44,7 +45,7 @@ class InternalServiceApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Member resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<MemberPagination>> cgetMembersByInternalService({
+  Future<Response<MemberPagination>> cgetMembersByInternalService({ 
     required String xKeyclicApp,
     required String internalService,
     String? acceptLanguage,
@@ -65,6 +66,7 @@ class InternalServiceApi {
     String? type,
     int? page,
     int? limit,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -72,8 +74,7 @@ class InternalServiceApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/internal-services/{internalService}/members'
-        .replaceAll('{' r'internalService' '}', internalService.toString());
+    final String path = r'/internal-services/{internalService}/members'.replaceAll('{' r'internalService' '}', internalService.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -81,16 +82,15 @@ class InternalServiceApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -98,36 +98,72 @@ class InternalServiceApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
 
     final queryParameters = <String, dynamic>{
-      if (orderLeftSquareBracketRightSquareBracket != null)
-        r'order[]': encodeCollectionQueryParameter(
-            orderLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (archived != null) r'archived': encodeQueryParameter(archived),
-      if (contactPointEmail != null)
-        r'contact_point_email': encodeQueryParameter(contactPointEmail),
-      if (after != null) r'after': encodeQueryParameter(after),
-      if (before != null) r'before': encodeQueryParameter(before),
-      if (organization != null)
-        r'organization': encodeQueryParameter(organization),
-      if (organizationsLeftSquareBracketRightSquareBracket != null)
-        r'organizations[]': encodeCollectionQueryParameter(
-            organizationsLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (permission != null) r'permission': encodeQueryParameter(permission),
-      if (query != null) r'query': encodeQueryParameter(query),
-      if (role != null) r'role': encodeQueryParameter(role),
-      if (rolesLeftSquareBracketRightSquareBracket != null)
-        r'roles[]': encodeCollectionQueryParameter(
-            rolesLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (type != null) r'type': encodeQueryParameter(type),
-      if (page != null) r'page': encodeQueryParameter(page),
-      if (limit != null) r'limit': encodeQueryParameter(limit),
+      if (orderLeftSquareBracketRightSquareBracket != null) r'order[]':
+        encodeCollectionQueryParameter(
+        orderLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (archived != null) r'archived':
+        encodeQueryParameter(
+        archived
+        ),
+      if (contactPointEmail != null) r'contact_point_email':
+        encodeQueryParameter(
+        contactPointEmail
+        ),
+      if (after != null) r'after':
+        encodeQueryParameter(
+        after
+        ),
+      if (before != null) r'before':
+        encodeQueryParameter(
+        before
+        ),
+      if (organization != null) r'organization':
+        encodeQueryParameter(
+        organization
+        ),
+      if (organizationsLeftSquareBracketRightSquareBracket != null) r'organizations[]':
+        encodeCollectionQueryParameter(
+        organizationsLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (permission != null) r'permission':
+        encodeQueryParameter(
+        permission
+        ),
+      if (query != null) r'query':
+        encodeQueryParameter(
+        query
+        ),
+      if (role != null) r'role':
+        encodeQueryParameter(
+        role
+        ),
+      if (rolesLeftSquareBracketRightSquareBracket != null) r'roles[]':
+        encodeCollectionQueryParameter(
+        rolesLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (type != null) r'type':
+        encodeQueryParameter(
+        type
+        ),
+      if (page != null) r'page':
+        encodeQueryParameter(
+        page
+        ),
+      if (limit != null) r'limit':
+        encodeQueryParameter(
+        limit
+        ),
     };
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -141,8 +177,7 @@ class InternalServiceApi {
     MemberPagination responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<MemberPagination>(
-          response.data!, 'MemberPagination');
+            responseData = await _apiClient.deserializeAsync<MemberPagination>(response.data!, 'MemberPagination');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -164,17 +199,16 @@ class InternalServiceApi {
       extra: response.extra,
     );
   }
-
   /// Remove one InternalService resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [internalService] - The identifier of the resource.
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -186,13 +220,14 @@ class InternalServiceApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Remove one InternalService resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<void>> deleteInternalService({
+  Future<Response<void>> deleteInternalService({ 
     required String xKeyclicApp,
     required String internalService,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -200,8 +235,7 @@ class InternalServiceApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/internal-services/{internalService}'
-        .replaceAll('{' r'internalService' '}', internalService.toString());
+    final String path = r'/internal-services/{internalService}'.replaceAll('{' r'internalService' '}', internalService.toString());
     final options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -209,16 +243,15 @@ class InternalServiceApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -226,8 +259,11 @@ class InternalServiceApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     return _apiClient.dio.request<Object>(
       path,
@@ -236,19 +272,19 @@ class InternalServiceApi {
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
     );
-  }
 
+  }
   /// Remove one Member resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [internalService] - The identifier of the resource.
   /// * [member] - The identifier of the resource.
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -260,7 +296,7 @@ class InternalServiceApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Remove one Member resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<void>> deleteMemberByInternalServiceAndMember({
+  Future<Response<void>> deleteMemberByInternalServiceAndMember({ 
     required String xKeyclicApp,
     required String internalService,
     required String member,
@@ -268,6 +304,7 @@ class InternalServiceApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -275,9 +312,7 @@ class InternalServiceApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/internal-services/{internalService}/members/{member}'
-        .replaceAll('{' r'internalService' '}', internalService.toString())
-        .replaceAll('{' r'member' '}', member.toString());
+    final String path = r'/internal-services/{internalService}/members/{member}'.replaceAll('{' r'internalService' '}', internalService.toString()).replaceAll('{' r'member' '}', member.toString());
     final options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -285,16 +320,15 @@ class InternalServiceApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -302,8 +336,11 @@ class InternalServiceApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     return _apiClient.dio.request<Object>(
       path,
@@ -312,18 +349,18 @@ class InternalServiceApi {
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
     );
-  }
 
+  }
   /// Retrieve one InternalService resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [internalService] - The identifier of the resource.
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -335,13 +372,14 @@ class InternalServiceApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one InternalService resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<InternalService>> getInternalService({
+  Future<Response<InternalService>> getInternalService({ 
     required String xKeyclicApp,
     required String internalService,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -349,8 +387,7 @@ class InternalServiceApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/internal-services/{internalService}'
-        .replaceAll('{' r'internalService' '}', internalService.toString());
+    final String path = r'/internal-services/{internalService}'.replaceAll('{' r'internalService' '}', internalService.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -358,16 +395,15 @@ class InternalServiceApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -375,8 +411,11 @@ class InternalServiceApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -389,8 +428,7 @@ class InternalServiceApi {
     InternalService responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<InternalService>(
-          response.data!, 'InternalService');
+            responseData = await _apiClient.deserializeAsync<InternalService>(response.data!, 'InternalService');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -412,18 +450,17 @@ class InternalServiceApi {
       extra: response.extra,
     );
   }
-
   /// Edit one InternalService resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [internalService] - The identifier of the resource.
-  /// * [internalServicePatch]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [internalServicePatch] 
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -435,7 +472,7 @@ class InternalServiceApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Edit one InternalService resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<InternalService>> patchInternalService({
+  Future<Response<InternalService>> patchInternalService({ 
     required String xKeyclicApp,
     required String internalService,
     required InternalServicePatch internalServicePatch,
@@ -451,8 +488,7 @@ class InternalServiceApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/internal-services/{internalService}'
-        .replaceAll('{' r'internalService' '}', internalService.toString());
+    final String path = r'/internal-services/{internalService}'.replaceAll('{' r'internalService' '}', internalService.toString());
     final options = Options(
       method: r'PATCH',
       headers: <String, dynamic>{
@@ -460,16 +496,15 @@ class InternalServiceApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -481,11 +516,12 @@ class InternalServiceApi {
       validateStatus: validateStatus,
     );
 
+
     dynamic bodyData;
 
     try {
-      bodyData = internalServicePatch.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = internalServicePatch.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -509,8 +545,7 @@ class InternalServiceApi {
     InternalService responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<InternalService>(
-          response.data!, 'InternalService');
+            responseData = await _apiClient.deserializeAsync<InternalService>(response.data!, 'InternalService');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -532,17 +567,16 @@ class InternalServiceApi {
       extra: response.extra,
     );
   }
-
   /// Create one InternalService resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
-  /// * [internalServiceData]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [xKeyclicApp] 
+  /// * [internalServiceData] 
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -554,7 +588,7 @@ class InternalServiceApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one InternalService resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<InternalService>> postInternalService({
+  Future<Response<InternalService>> postInternalService({ 
     required String xKeyclicApp,
     required InternalServiceData internalServiceData,
     String? acceptLanguage,
@@ -577,16 +611,15 @@ class InternalServiceApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -598,11 +631,12 @@ class InternalServiceApi {
       validateStatus: validateStatus,
     );
 
+
     dynamic bodyData;
 
     try {
-      bodyData = internalServiceData.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = internalServiceData.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -626,8 +660,7 @@ class InternalServiceApi {
     InternalService responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<InternalService>(
-          response.data!, 'InternalService');
+            responseData = await _apiClient.deserializeAsync<InternalService>(response.data!, 'InternalService');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -649,18 +682,17 @@ class InternalServiceApi {
       extra: response.extra,
     );
   }
-
   /// Create one Member resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [internalService] - The identifier of the resource.
-  /// * [serviceMemberData]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [serviceMemberData] 
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -672,7 +704,7 @@ class InternalServiceApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Member resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<InternalService>> postMemberByInternalService({
+  Future<Response<InternalService>> postMemberByInternalService({ 
     required String xKeyclicApp,
     required String internalService,
     required ServiceMemberData serviceMemberData,
@@ -688,8 +720,7 @@ class InternalServiceApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/internal-services/{internalService}/members'
-        .replaceAll('{' r'internalService' '}', internalService.toString());
+    final String path = r'/internal-services/{internalService}/members'.replaceAll('{' r'internalService' '}', internalService.toString());
     final options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -697,16 +728,15 @@ class InternalServiceApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -718,11 +748,12 @@ class InternalServiceApi {
       validateStatus: validateStatus,
     );
 
+
     dynamic bodyData;
 
     try {
-      bodyData = serviceMemberData.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = serviceMemberData.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -746,8 +777,7 @@ class InternalServiceApi {
     InternalService responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<InternalService>(
-          response.data!, 'InternalService');
+            responseData = await _apiClient.deserializeAsync<InternalService>(response.data!, 'InternalService');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

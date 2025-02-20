@@ -12,9 +12,14 @@ void main() {
   group('test RuleLinksSelf', () {
     // The URI of the self associated to the given rule.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // RuleLinksSelfIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

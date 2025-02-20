@@ -12,9 +12,14 @@ void main() {
   group('test FeedbackLinksBusinessActivity', () {
     // The URI of the businessActivity associated to the given feedback.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // FeedbackLinksBusinessActivityIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

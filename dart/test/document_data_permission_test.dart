@@ -11,6 +11,10 @@ void main() {
 
   group('test DocumentDataPermission', () {
     // String targetGroup
-    test('to test the property `targetGroup`', () async {});
+    test('to test the property `targetGroup`', () async {
+    });
+
+
   });
+
 }

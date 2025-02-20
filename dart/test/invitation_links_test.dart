@@ -11,9 +11,14 @@ void main() {
 
   group('test InvitationLinks', () {
     // InvitationLinksMember member
-    test('to test the property `member`', () async {});
+    test('to test the property `member`', () async {
+    });
 
     // InvitationLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
+
+
   });
+
 }

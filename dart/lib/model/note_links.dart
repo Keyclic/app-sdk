@@ -7,9 +7,12 @@ part of keyclic_sdk_api;
 class NoteLinks {
   /// Returns a new [NoteLinks] instance.
   NoteLinks({
-    this.about,
-    this.author,
-    this.self,
+    this.about
+,
+    this.author
+,
+    this.self
+,
   });
 
   /// Returns a new [NoteLinks] instance and imports its values from
@@ -19,18 +22,18 @@ class NoteLinks {
       return null;
     }
 
-    return NoteLinks(
-      about: NoteLinksAbout.fromJson(json[r'about']),
-      author: NoteLinksAuthor.fromJson(json[r'author']),
-      self: NoteLinksSelf.fromJson(json[r'self']),
+  return NoteLinks(
+        about: NoteLinksAbout.fromJson(json[r'about']),
+        author: NoteLinksAuthor.fromJson(json[r'author']),
+        self: NoteLinksSelf.fromJson(json[r'self']),
     );
   }
 
-  NoteLinksAbout? about;
+      NoteLinksAbout? about;
 
-  NoteLinksAuthor? author;
+      NoteLinksAuthor? author;
 
-  NoteLinksSelf? self;
+      NoteLinksSelf? self;
 
   @override
   bool operator ==(Object other) {
@@ -39,17 +42,21 @@ class NoteLinks {
       return true;
     }
 
-    return other is NoteLinks &&
-        other.about == about &&
-        other.author == author &&
-        other.self == self;
+    return other is NoteLinks 
+          && other.about == about
+  
+          && other.author == author
+  
+          && other.self == self
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (about == null ? 0 : about.hashCode) +
-      (author == null ? 0 : author.hashCode) +
-      (self == null ? 0 : self.hashCode);
+    (about == null ? 0 : about.hashCode) +
+    (author == null ? 0 : author.hashCode) +
+    (self == null ? 0 : self.hashCode);
 
   static List<NoteLinks> listFromJson(Iterable? json) {
     if (json == null) {
@@ -71,8 +78,7 @@ class NoteLinks {
       return <String, NoteLinks>{};
     }
 
-    return json.entries.fold(<String, NoteLinks>{},
-        (Map<String, NoteLinks> previousValue, element) {
+    return json.entries.fold(<String, NoteLinks>{}, (Map<String, NoteLinks> previousValue, element) {
       final NoteLinks? object = NoteLinks.fromJson(element.value);
       if (object is NoteLinks) {
         previousValue[element.key] = object;
@@ -83,15 +89,13 @@ class NoteLinks {
   }
 
   // maps a json object with a list of NoteLinks-objects as value to a dart map
-  static Map<String, List<NoteLinks>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<NoteLinks>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<NoteLinks>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<NoteLinks>>(
-          key, NoteLinks.listFromJson(value));
+      return MapEntry<String, List<NoteLinks>>(key, NoteLinks.listFromJson(value));
     });
   }
 
@@ -100,33 +104,40 @@ class NoteLinks {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^about\.').hasMatch(key)))
-        r'about': about?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^about\.'))) {
-            previousValue.add(element.split(RegExp(r'^about\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^about\.').hasMatch(key))
+    )
+        r'about':
+            about?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^about\.'))) {
+                previousValue.add(element.split(RegExp(r'^about\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.any((key) => RegExp(r'^author\.').hasMatch(key)))
-        r'author': author?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^author\.'))) {
-            previousValue.add(element.split(RegExp(r'^author\.')).last);
-          }
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    any((key) => RegExp(r'^author\.').hasMatch(key))
+    )
+        r'author':
+            author?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^author\.'))) {
+                previousValue.add(element.split(RegExp(r'^author\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
-        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^self\.'))) {
-            previousValue.add(element.split(RegExp(r'^self\.')).last);
-          }
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    any((key) => RegExp(r'^self\.').hasMatch(key))
+    )
+        r'self':
+            self?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^self\.'))) {
+                previousValue.add(element.split(RegExp(r'^self\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

@@ -12,9 +12,14 @@ void main() {
   group('test FeedbackLinksImages', () {
     // The URI of the images associated to the given feedback.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // FeedbackLinksImagesIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

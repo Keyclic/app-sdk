@@ -7,8 +7,10 @@ part of keyclic_sdk_api;
 class DocumentFile {
   /// Returns a new [DocumentFile] instance.
   DocumentFile({
-    this.contentType,
-    this.name,
+    this.contentType
+,
+    this.name
+,
   });
 
   /// Returns a new [DocumentFile] instance and imports its values from
@@ -18,15 +20,15 @@ class DocumentFile {
       return null;
     }
 
-    return DocumentFile(
-      contentType: DocumentFileContentTypeEnum.fromJson(json[r'contentType']),
-      name: json[r'name'],
+  return DocumentFile(
+              contentType: DocumentFileContentTypeEnum.fromJson(json[r'contentType']),
+                  name: json[r'name'],
     );
   }
 
-  DocumentFileContentTypeEnum? contentType;
+      DocumentFileContentTypeEnum? contentType;
 
-  String? name;
+      String? name;
 
   @override
   bool operator ==(Object other) {
@@ -35,23 +37,25 @@ class DocumentFile {
       return true;
     }
 
-    return other is DocumentFile &&
-        other.contentType == contentType &&
-        other.name == name;
+    return other is DocumentFile 
+          && other.contentType == contentType
+  
+          && other.name == name
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (contentType == null ? 0 : contentType.hashCode) +
-      (name == null ? 0 : name.hashCode);
+    (contentType == null ? 0 : contentType.hashCode) +
+    (name == null ? 0 : name.hashCode);
 
   static List<DocumentFile> listFromJson(Iterable? json) {
     if (json == null) {
       return <DocumentFile>[];
     }
 
-    return json.fold(<DocumentFile>[],
-        (List<DocumentFile> previousValue, element) {
+    return json.fold(<DocumentFile>[], (List<DocumentFile> previousValue, element) {
       final DocumentFile? object = DocumentFile.fromJson(element);
       if (object is DocumentFile) {
         previousValue.add(object);
@@ -66,8 +70,7 @@ class DocumentFile {
       return <String, DocumentFile>{};
     }
 
-    return json.entries.fold(<String, DocumentFile>{},
-        (Map<String, DocumentFile> previousValue, element) {
+    return json.entries.fold(<String, DocumentFile>{}, (Map<String, DocumentFile> previousValue, element) {
       final DocumentFile? object = DocumentFile.fromJson(element.value);
       if (object is DocumentFile) {
         previousValue[element.key] = object;
@@ -78,15 +81,13 @@ class DocumentFile {
   }
 
   // maps a json object with a list of DocumentFile-objects as value to a dart map
-  static Map<String, List<DocumentFile>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<DocumentFile>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<DocumentFile>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<DocumentFile>>(
-          key, DocumentFile.listFromJson(value));
+      return MapEntry<String, List<DocumentFile>>(key, DocumentFile.listFromJson(value));
     });
   }
 
@@ -95,12 +96,20 @@ class DocumentFile {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'contentType'))
-        r'contentType': contentType,
-      if (keys == null || keys.contains(r'name')) r'name': name,
+    if (keys == null || keys.
+    contains(r'contentType')
+    )
+        r'contentType':
+          contentType,
+    if (keys == null || keys.
+    contains(r'name')
+    )
+        r'name':
+          name,
     };
   }
 }
+
 
 class DocumentFileContentTypeEnum {
   /// Instantiate a new enum with the provided [value].
@@ -115,28 +124,18 @@ class DocumentFileContentTypeEnum {
   String toJson() => value;
 
   static const textSlashCsv = DocumentFileContentTypeEnum._(r'text/csv');
-  static const applicationSlashMsword =
-      DocumentFileContentTypeEnum._(r'application/msword');
-  static const applicationSlashVndPeriodOpenxmlformatsOfficedocumentPeriodWordprocessingmlPeriodDocument =
-      DocumentFileContentTypeEnum._(
-          r'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+  static const applicationSlashMsword = DocumentFileContentTypeEnum._(r'application/msword');
+  static const applicationSlashVndPeriodOpenxmlformatsOfficedocumentPeriodWordprocessingmlPeriodDocument = DocumentFileContentTypeEnum._(r'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
   static const imageSlashJpeg = DocumentFileContentTypeEnum._(r'image/jpeg');
   static const imageSlashJpg = DocumentFileContentTypeEnum._(r'image/jpg');
-  static const applicationSlashJson =
-      DocumentFileContentTypeEnum._(r'application/json');
-  static const applicationSlashOctetStream =
-      DocumentFileContentTypeEnum._(r'application/octet-stream');
-  static const applicationSlashPdf =
-      DocumentFileContentTypeEnum._(r'application/pdf');
+  static const applicationSlashJson = DocumentFileContentTypeEnum._(r'application/json');
+  static const applicationSlashOctetStream = DocumentFileContentTypeEnum._(r'application/octet-stream');
+  static const applicationSlashPdf = DocumentFileContentTypeEnum._(r'application/pdf');
   static const imageSlashPng = DocumentFileContentTypeEnum._(r'image/png');
   static const textSlashPlain = DocumentFileContentTypeEnum._(r'text/plain');
-  static const applicationSlashVndPeriodMsExcel =
-      DocumentFileContentTypeEnum._(r'application/vnd.ms-excel');
-  static const applicationSlashVndPeriodOpenxmlformatsOfficedocumentPeriodSpreadsheetmlPeriodSheet =
-      DocumentFileContentTypeEnum._(
-          r'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-  static const applicationSlashZip =
-      DocumentFileContentTypeEnum._(r'application/zip');
+  static const applicationSlashVndPeriodMsExcel = DocumentFileContentTypeEnum._(r'application/vnd.ms-excel');
+  static const applicationSlashVndPeriodOpenxmlformatsOfficedocumentPeriodSpreadsheetmlPeriodSheet = DocumentFileContentTypeEnum._(r'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+  static const applicationSlashZip = DocumentFileContentTypeEnum._(r'application/zip');
 
   /// List of all possible values in this [enum][DocumentFileContentTypeEnum].
   static const values = <DocumentFileContentTypeEnum>[
@@ -156,15 +155,12 @@ class DocumentFileContentTypeEnum {
   ];
 
   static DocumentFileContentTypeEnum? fromJson(dynamic value) =>
-      DocumentFileContentTypeEnumTypeTransformer().decode(value);
+    DocumentFileContentTypeEnumTypeTransformer().decode(value);
 
   static List<DocumentFileContentTypeEnum> listFromJson(List<dynamic> json) {
-    return json
-        .map((value) {
-          return DocumentFileContentTypeEnum.fromJson(value);
-        })
-        .whereType<DocumentFileContentTypeEnum>()
-        .toList();
+    return json.map((value) {
+      return DocumentFileContentTypeEnum.fromJson(value);
+    }).whereType<DocumentFileContentTypeEnum>().toList();
   }
 }
 
@@ -173,8 +169,7 @@ class DocumentFileContentTypeEnum {
 class DocumentFileContentTypeEnumTypeTransformer {
   const DocumentFileContentTypeEnumTypeTransformer._();
 
-  factory DocumentFileContentTypeEnumTypeTransformer() =>
-      _instance ??= DocumentFileContentTypeEnumTypeTransformer._();
+  factory DocumentFileContentTypeEnumTypeTransformer() => _instance ??= DocumentFileContentTypeEnumTypeTransformer._();
 
   String encode(DocumentFileContentTypeEnum data) => data.value;
 
@@ -188,34 +183,19 @@ class DocumentFileContentTypeEnumTypeTransformer {
   /// and users are still using an old app with the old code.
   DocumentFileContentTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
-      case r'text/csv':
-        return DocumentFileContentTypeEnum.textSlashCsv;
-      case r'application/msword':
-        return DocumentFileContentTypeEnum.applicationSlashMsword;
-      case r'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
-        return DocumentFileContentTypeEnum
-            .applicationSlashVndPeriodOpenxmlformatsOfficedocumentPeriodWordprocessingmlPeriodDocument;
-      case r'image/jpeg':
-        return DocumentFileContentTypeEnum.imageSlashJpeg;
-      case r'image/jpg':
-        return DocumentFileContentTypeEnum.imageSlashJpg;
-      case r'application/json':
-        return DocumentFileContentTypeEnum.applicationSlashJson;
-      case r'application/octet-stream':
-        return DocumentFileContentTypeEnum.applicationSlashOctetStream;
-      case r'application/pdf':
-        return DocumentFileContentTypeEnum.applicationSlashPdf;
-      case r'image/png':
-        return DocumentFileContentTypeEnum.imageSlashPng;
-      case r'text/plain':
-        return DocumentFileContentTypeEnum.textSlashPlain;
-      case r'application/vnd.ms-excel':
-        return DocumentFileContentTypeEnum.applicationSlashVndPeriodMsExcel;
-      case r'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
-        return DocumentFileContentTypeEnum
-            .applicationSlashVndPeriodOpenxmlformatsOfficedocumentPeriodSpreadsheetmlPeriodSheet;
-      case r'application/zip':
-        return DocumentFileContentTypeEnum.applicationSlashZip;
+      case r'text/csv': return DocumentFileContentTypeEnum.textSlashCsv;
+      case r'application/msword': return DocumentFileContentTypeEnum.applicationSlashMsword;
+      case r'application/vnd.openxmlformats-officedocument.wordprocessingml.document': return DocumentFileContentTypeEnum.applicationSlashVndPeriodOpenxmlformatsOfficedocumentPeriodWordprocessingmlPeriodDocument;
+      case r'image/jpeg': return DocumentFileContentTypeEnum.imageSlashJpeg;
+      case r'image/jpg': return DocumentFileContentTypeEnum.imageSlashJpg;
+      case r'application/json': return DocumentFileContentTypeEnum.applicationSlashJson;
+      case r'application/octet-stream': return DocumentFileContentTypeEnum.applicationSlashOctetStream;
+      case r'application/pdf': return DocumentFileContentTypeEnum.applicationSlashPdf;
+      case r'image/png': return DocumentFileContentTypeEnum.imageSlashPng;
+      case r'text/plain': return DocumentFileContentTypeEnum.textSlashPlain;
+      case r'application/vnd.ms-excel': return DocumentFileContentTypeEnum.applicationSlashVndPeriodMsExcel;
+      case r'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': return DocumentFileContentTypeEnum.applicationSlashVndPeriodOpenxmlformatsOfficedocumentPeriodSpreadsheetmlPeriodSheet;
+      case r'application/zip': return DocumentFileContentTypeEnum.applicationSlashZip;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
@@ -227,3 +207,4 @@ class DocumentFileContentTypeEnumTypeTransformer {
   /// Singleton [DocumentFileContentTypeEnumTypeTransformer] instance.
   static DocumentFileContentTypeEnumTypeTransformer? _instance;
 }
+

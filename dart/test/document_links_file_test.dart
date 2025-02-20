@@ -12,9 +12,14 @@ void main() {
   group('test DocumentLinksFile', () {
     // The URI of the file associated to the given document.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // DocumentLinksFileIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

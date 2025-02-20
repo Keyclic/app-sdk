@@ -7,7 +7,8 @@ part of keyclic_sdk_api_platform;
 class PriceWrite {
   /// Returns a new [PriceWrite] instance.
   PriceWrite({
-    this.value,
+    this.value
+,
   });
 
   /// Returns a new [PriceWrite] instance and imports its values from
@@ -17,13 +18,15 @@ class PriceWrite {
       return null;
     }
 
-    return PriceWrite(
-      value: json[r'value'] == null ? null : json[r'value'].toDouble(),
+  return PriceWrite(
+        value: json[r'value'] == null ?
+          null :
+          json[r'value'].toDouble(),
     );
   }
 
   // minimum: 0
-  num? value;
+      num? value;
 
   @override
   bool operator ==(Object other) {
@@ -32,11 +35,15 @@ class PriceWrite {
       return true;
     }
 
-    return other is PriceWrite && other.value == value;
+    return other is PriceWrite 
+          && other.value == value
+  ;
   }
+  
 
   @override
-  int get hashCode => (value == null ? 0 : value.hashCode);
+  int get hashCode =>
+    (value == null ? 0 : value.hashCode);
 
   static List<PriceWrite> listFromJson(Iterable? json) {
     if (json == null) {
@@ -58,8 +65,7 @@ class PriceWrite {
       return <String, PriceWrite>{};
     }
 
-    return json.entries.fold(<String, PriceWrite>{},
-        (Map<String, PriceWrite> previousValue, element) {
+    return json.entries.fold(<String, PriceWrite>{}, (Map<String, PriceWrite> previousValue, element) {
       final PriceWrite? object = PriceWrite.fromJson(element.value);
       if (object is PriceWrite) {
         previousValue[element.key] = object;
@@ -70,15 +76,13 @@ class PriceWrite {
   }
 
   // maps a json object with a list of PriceWrite-objects as value to a dart map
-  static Map<String, List<PriceWrite>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<PriceWrite>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<PriceWrite>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<PriceWrite>>(
-          key, PriceWrite.listFromJson(value));
+      return MapEntry<String, List<PriceWrite>>(key, PriceWrite.listFromJson(value));
     });
   }
 
@@ -87,7 +91,12 @@ class PriceWrite {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'value')) r'value': value,
+    if (keys == null || keys.
+    contains(r'value')
+    )
+        r'value':
+          value,
     };
   }
 }
+

@@ -11,9 +11,14 @@ void main() {
 
   group('test MessageData', () {
     // List<Map<String, Object>> text (default value: const [])
-    test('to test the property `text`', () async {});
+    test('to test the property `text`', () async {
+    });
 
     // String task
-    test('to test the property `task`', () async {});
+    test('to test the property `task`', () async {
+    });
+
+
   });
+
 }

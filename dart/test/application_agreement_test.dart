@@ -11,12 +11,18 @@ void main() {
 
   group('test ApplicationAgreement', () {
     // AgreementOlderThan olderThan
-    test('to test the property `olderThan`', () async {});
+    test('to test the property `olderThan`', () async {
+    });
 
     // AgreementPrivacyPolicy privacyPolicy
-    test('to test the property `privacyPolicy`', () async {});
+    test('to test the property `privacyPolicy`', () async {
+    });
 
     // AgreementTermsOfService termsOfService
-    test('to test the property `termsOfService`', () async {});
+    test('to test the property `termsOfService`', () async {
+    });
+
+
   });
+
 }

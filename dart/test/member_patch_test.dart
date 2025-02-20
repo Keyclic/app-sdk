@@ -11,9 +11,14 @@ void main() {
 
   group('test MemberPatch', () {
     // MemberPatchContactPoint contactPoint
-    test('to test the property `contactPoint`', () async {});
+    test('to test the property `contactPoint`', () async {
+    });
 
     // List<String> roles (default value: const [])
-    test('to test the property `roles`', () async {});
+    test('to test the property `roles`', () async {
+    });
+
+
   });
+
 }

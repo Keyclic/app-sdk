@@ -11,25 +11,35 @@ void main() {
 
   group('test WorkflowTransitionJsonhalRead', () {
     // AssetTypeJsonhalReadLinks links
-    test('to test the property `links`', () async {});
+    test('to test the property `links`', () async {
+    });
 
     // String description
-    test('to test the property `description`', () async {});
+    test('to test the property `description`', () async {
+    });
 
     // List<String> fields (default value: const [])
-    test('to test the property `fields`', () async {});
+    test('to test the property `fields`', () async {
+    });
 
     // String name
-    test('to test the property `name`', () async {});
+    test('to test the property `name`', () async {
+    });
 
     // List<String> required_ (default value: const [])
-    test('to test the property `required_`', () async {});
+    test('to test the property `required_`', () async {
+    });
 
     // The resource identifier.
     // String id
-    test('to test the property `id`', () async {});
+    test('to test the property `id`', () async {
+    });
 
     // WorkflowTransitionJsonhalReadEmbedded embedded
-    test('to test the property `embedded`', () async {});
+    test('to test the property `embedded`', () async {
+    });
+
+
   });
+
 }

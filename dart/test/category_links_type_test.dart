@@ -12,9 +12,14 @@ void main() {
   group('test CategoryLinksType', () {
     // The URI of the type associated to the given category.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // CategoryLinksTypeIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

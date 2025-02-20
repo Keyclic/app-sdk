@@ -7,8 +7,10 @@ part of keyclic_sdk_api_platform;
 class NodeJsonhalRead {
   /// Returns a new [NodeJsonhalRead] instance.
   NodeJsonhalRead({
-    this.id,
-    this.name,
+    this.id
+,
+    this.name
+,
   });
 
   /// Returns a new [NodeJsonhalRead] instance and imports its values from
@@ -18,15 +20,15 @@ class NodeJsonhalRead {
       return null;
     }
 
-    return NodeJsonhalRead(
-      id: json[r'id'],
-      name: json[r'name'],
+  return NodeJsonhalRead(
+                  id: json[r'id'],
+                  name: json[r'name'],
     );
   }
 
-  String? id;
+      String? id;
 
-  String? name;
+      String? name;
 
   @override
   bool operator ==(Object other) {
@@ -35,20 +37,25 @@ class NodeJsonhalRead {
       return true;
     }
 
-    return other is NodeJsonhalRead && other.id == id && other.name == name;
+    return other is NodeJsonhalRead 
+          && other.id == id
+  
+          && other.name == name
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (id == null ? 0 : id.hashCode) + (name == null ? 0 : name.hashCode);
+    (id == null ? 0 : id.hashCode) +
+    (name == null ? 0 : name.hashCode);
 
   static List<NodeJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <NodeJsonhalRead>[];
     }
 
-    return json.fold(<NodeJsonhalRead>[],
-        (List<NodeJsonhalRead> previousValue, element) {
+    return json.fold(<NodeJsonhalRead>[], (List<NodeJsonhalRead> previousValue, element) {
       final NodeJsonhalRead? object = NodeJsonhalRead.fromJson(element);
       if (object is NodeJsonhalRead) {
         previousValue.add(object);
@@ -63,8 +70,7 @@ class NodeJsonhalRead {
       return <String, NodeJsonhalRead>{};
     }
 
-    return json.entries.fold(<String, NodeJsonhalRead>{},
-        (Map<String, NodeJsonhalRead> previousValue, element) {
+    return json.entries.fold(<String, NodeJsonhalRead>{}, (Map<String, NodeJsonhalRead> previousValue, element) {
       final NodeJsonhalRead? object = NodeJsonhalRead.fromJson(element.value);
       if (object is NodeJsonhalRead) {
         previousValue[element.key] = object;
@@ -75,15 +81,13 @@ class NodeJsonhalRead {
   }
 
   // maps a json object with a list of NodeJsonhalRead-objects as value to a dart map
-  static Map<String, List<NodeJsonhalRead>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<NodeJsonhalRead>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<NodeJsonhalRead>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<NodeJsonhalRead>>(
-          key, NodeJsonhalRead.listFromJson(value));
+      return MapEntry<String, List<NodeJsonhalRead>>(key, NodeJsonhalRead.listFromJson(value));
     });
   }
 
@@ -92,8 +96,17 @@ class NodeJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'name')) r'name': name,
+    if (keys == null || keys.
+    contains(r'id')
+    )
+        r'id':
+          id,
+    if (keys == null || keys.
+    contains(r'name')
+    )
+        r'name':
+          name,
     };
   }
 }
+

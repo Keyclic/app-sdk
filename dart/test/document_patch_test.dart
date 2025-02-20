@@ -11,18 +11,26 @@ void main() {
 
   group('test DocumentPatch', () {
     // List<Map<String, Object>> body (default value: const [])
-    test('to test the property `body`', () async {});
+    test('to test the property `body`', () async {
+    });
 
     // DocumentPatchFile file
-    test('to test the property `file`', () async {});
+    test('to test the property `file`', () async {
+    });
 
     // DocumentPatchPermission permission
-    test('to test the property `permission`', () async {});
+    test('to test the property `permission`', () async {
+    });
 
     // String text
-    test('to test the property `text`', () async {});
+    test('to test the property `text`', () async {
+    });
 
     // List<String> tags (default value: const [])
-    test('to test the property `tags`', () async {});
+    test('to test the property `tags`', () async {
+    });
+
+
   });
+
 }

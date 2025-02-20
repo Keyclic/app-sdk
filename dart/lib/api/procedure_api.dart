@@ -4,24 +4,25 @@
 
 part of keyclic_sdk_api;
 
+
 class ProcedureApi {
   const ProcedureApi(this._apiClient);
 
   final ApiClient _apiClient;
 
   /// Retrieve all Signer resources.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [procedure] - The identifier of the resource.
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
-  /// * [after]
-  /// * [before]
-  /// * [orderLeftSquareBracketRightSquareBracket]
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
+  /// * [after] 
+  /// * [before] 
+  /// * [orderLeftSquareBracketRightSquareBracket] 
   /// * [page] - Page of the overview.
   /// * [limit] - Page of the overview.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -35,7 +36,7 @@ class ProcedureApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Signer resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<SignerPagination>> cgetSignersByProcedure({
+  Future<Response<SignerPagination>> cgetSignersByProcedure({ 
     required String xKeyclicApp,
     required String procedure,
     String? acceptLanguage,
@@ -47,6 +48,7 @@ class ProcedureApi {
     List<String>? orderLeftSquareBracketRightSquareBracket,
     int? page,
     int? limit,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -54,8 +56,7 @@ class ProcedureApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/procedures/{procedure}/signers'
-        .replaceAll('{' r'procedure' '}', procedure.toString());
+    final String path = r'/procedures/{procedure}/signers'.replaceAll('{' r'procedure' '}', procedure.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -63,16 +64,15 @@ class ProcedureApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -80,19 +80,34 @@ class ProcedureApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
 
     final queryParameters = <String, dynamic>{
-      if (after != null) r'after': encodeQueryParameter(after),
-      if (before != null) r'before': encodeQueryParameter(before),
-      if (orderLeftSquareBracketRightSquareBracket != null)
-        r'order[]': encodeCollectionQueryParameter(
-            orderLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (page != null) r'page': encodeQueryParameter(page),
-      if (limit != null) r'limit': encodeQueryParameter(limit),
+      if (after != null) r'after':
+        encodeQueryParameter(
+        after
+        ),
+      if (before != null) r'before':
+        encodeQueryParameter(
+        before
+        ),
+      if (orderLeftSquareBracketRightSquareBracket != null) r'order[]':
+        encodeCollectionQueryParameter(
+        orderLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (page != null) r'page':
+        encodeQueryParameter(
+        page
+        ),
+      if (limit != null) r'limit':
+        encodeQueryParameter(
+        limit
+        ),
     };
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -106,8 +121,7 @@ class ProcedureApi {
     SignerPagination responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<SignerPagination>(
-          response.data!, 'SignerPagination');
+            responseData = await _apiClient.deserializeAsync<SignerPagination>(response.data!, 'SignerPagination');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -129,17 +143,16 @@ class ProcedureApi {
       extra: response.extra,
     );
   }
-
   /// Retrieve one Procedure resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [procedure] - The identifier of the resource.
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -151,13 +164,14 @@ class ProcedureApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one Procedure resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<Procedure>> getProcedure({
+  Future<Response<Procedure>> getProcedure({ 
     required String xKeyclicApp,
     required String procedure,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -165,8 +179,7 @@ class ProcedureApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/procedures/{procedure}'
-        .replaceAll('{' r'procedure' '}', procedure.toString());
+    final String path = r'/procedures/{procedure}'.replaceAll('{' r'procedure' '}', procedure.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -174,16 +187,15 @@ class ProcedureApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -191,8 +203,11 @@ class ProcedureApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -205,8 +220,7 @@ class ProcedureApi {
     Procedure responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<Procedure>(
-          response.data!, 'Procedure');
+            responseData = await _apiClient.deserializeAsync<Procedure>(response.data!, 'Procedure');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -228,17 +242,16 @@ class ProcedureApi {
       extra: response.extra,
     );
   }
-
   /// Create one Procedure resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
-  /// * [procedureData]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [xKeyclicApp] 
+  /// * [procedureData] 
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -250,7 +263,7 @@ class ProcedureApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Procedure resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<Procedure>> postProcedure({
+  Future<Response<Procedure>> postProcedure({ 
     required String xKeyclicApp,
     required ProcedureData procedureData,
     String? acceptLanguage,
@@ -273,16 +286,15 @@ class ProcedureApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -294,11 +306,12 @@ class ProcedureApi {
       validateStatus: validateStatus,
     );
 
+
     dynamic bodyData;
 
     try {
-      bodyData = procedureData.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = procedureData.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -322,8 +335,7 @@ class ProcedureApi {
     Procedure responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<Procedure>(
-          response.data!, 'Procedure');
+            responseData = await _apiClient.deserializeAsync<Procedure>(response.data!, 'Procedure');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -345,18 +357,17 @@ class ProcedureApi {
       extra: response.extra,
     );
   }
-
   /// Create one Workflow resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [procedure] - The identifier of the resource.
-  /// * [procedureWorkflowData]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [procedureWorkflowData] 
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -368,7 +379,7 @@ class ProcedureApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Workflow resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<Procedure>> postWorkflowByProcedure({
+  Future<Response<Procedure>> postWorkflowByProcedure({ 
     required String xKeyclicApp,
     required String procedure,
     required ProcedureWorkflowData procedureWorkflowData,
@@ -384,8 +395,7 @@ class ProcedureApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/procedures/{procedure}/workflow'
-        .replaceAll('{' r'procedure' '}', procedure.toString());
+    final String path = r'/procedures/{procedure}/workflow'.replaceAll('{' r'procedure' '}', procedure.toString());
     final options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -393,16 +403,15 @@ class ProcedureApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -414,11 +423,12 @@ class ProcedureApi {
       validateStatus: validateStatus,
     );
 
+
     dynamic bodyData;
 
     try {
-      bodyData = procedureWorkflowData.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = procedureWorkflowData.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -442,8 +452,7 @@ class ProcedureApi {
     Procedure responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<Procedure>(
-          response.data!, 'Procedure');
+            responseData = await _apiClient.deserializeAsync<Procedure>(response.data!, 'Procedure');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

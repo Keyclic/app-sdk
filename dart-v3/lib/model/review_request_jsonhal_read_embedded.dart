@@ -7,7 +7,8 @@ part of keyclic_sdk_api_platform;
 class ReviewRequestJsonhalReadEmbedded {
   /// Returns a new [ReviewRequestJsonhalReadEmbedded] instance.
   ReviewRequestJsonhalReadEmbedded({
-    this.review,
+    this.review
+,
   });
 
   /// Returns a new [ReviewRequestJsonhalReadEmbedded] instance and imports its values from
@@ -17,12 +18,12 @@ class ReviewRequestJsonhalReadEmbedded {
       return null;
     }
 
-    return ReviewRequestJsonhalReadEmbedded(
-      review: ReviewJsonhalRead.fromJson(json[r'review']),
+  return ReviewRequestJsonhalReadEmbedded(
+        review: ReviewJsonhalRead.fromJson(json[r'review']),
     );
   }
 
-  ReviewJsonhalRead? review;
+      ReviewJsonhalRead? review;
 
   @override
   bool operator ==(Object other) {
@@ -31,21 +32,23 @@ class ReviewRequestJsonhalReadEmbedded {
       return true;
     }
 
-    return other is ReviewRequestJsonhalReadEmbedded && other.review == review;
+    return other is ReviewRequestJsonhalReadEmbedded 
+          && other.review == review
+  ;
   }
+  
 
   @override
-  int get hashCode => (review == null ? 0 : review.hashCode);
+  int get hashCode =>
+    (review == null ? 0 : review.hashCode);
 
   static List<ReviewRequestJsonhalReadEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
       return <ReviewRequestJsonhalReadEmbedded>[];
     }
 
-    return json.fold(<ReviewRequestJsonhalReadEmbedded>[],
-        (List<ReviewRequestJsonhalReadEmbedded> previousValue, element) {
-      final ReviewRequestJsonhalReadEmbedded? object =
-          ReviewRequestJsonhalReadEmbedded.fromJson(element);
+    return json.fold(<ReviewRequestJsonhalReadEmbedded>[], (List<ReviewRequestJsonhalReadEmbedded> previousValue, element) {
+      final ReviewRequestJsonhalReadEmbedded? object = ReviewRequestJsonhalReadEmbedded.fromJson(element);
       if (object is ReviewRequestJsonhalReadEmbedded) {
         previousValue.add(object);
       }
@@ -54,16 +57,13 @@ class ReviewRequestJsonhalReadEmbedded {
     });
   }
 
-  static Map<String, ReviewRequestJsonhalReadEmbedded> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, ReviewRequestJsonhalReadEmbedded> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, ReviewRequestJsonhalReadEmbedded>{};
     }
 
-    return json.entries.fold(<String, ReviewRequestJsonhalReadEmbedded>{},
-        (Map<String, ReviewRequestJsonhalReadEmbedded> previousValue, element) {
-      final ReviewRequestJsonhalReadEmbedded? object =
-          ReviewRequestJsonhalReadEmbedded.fromJson(element.value);
+    return json.entries.fold(<String, ReviewRequestJsonhalReadEmbedded>{}, (Map<String, ReviewRequestJsonhalReadEmbedded> previousValue, element) {
+      final ReviewRequestJsonhalReadEmbedded? object = ReviewRequestJsonhalReadEmbedded.fromJson(element.value);
       if (object is ReviewRequestJsonhalReadEmbedded) {
         previousValue[element.key] = object;
       }
@@ -73,15 +73,13 @@ class ReviewRequestJsonhalReadEmbedded {
   }
 
   // maps a json object with a list of ReviewRequestJsonhalReadEmbedded-objects as value to a dart map
-  static Map<String, List<ReviewRequestJsonhalReadEmbedded>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<ReviewRequestJsonhalReadEmbedded>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ReviewRequestJsonhalReadEmbedded>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ReviewRequestJsonhalReadEmbedded>>(
-          key, ReviewRequestJsonhalReadEmbedded.listFromJson(value));
+      return MapEntry<String, List<ReviewRequestJsonhalReadEmbedded>>(key, ReviewRequestJsonhalReadEmbedded.listFromJson(value));
     });
   }
 
@@ -90,15 +88,18 @@ class ReviewRequestJsonhalReadEmbedded {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^review\.').hasMatch(key)))
-        r'review': review?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^review\.'))) {
-            previousValue.add(element.split(RegExp(r'^review\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^review\.').hasMatch(key))
+    )
+        r'review':
+            review?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^review\.'))) {
+                previousValue.add(element.split(RegExp(r'^review\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

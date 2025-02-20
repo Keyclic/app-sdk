@@ -11,6 +11,10 @@ void main() {
 
   group('test PlaceLinksChildrenIriTemplate', () {
     // PlaceLinksChildrenIriTemplateMapping mapping
-    test('to test the property `mapping`', () async {});
+    test('to test the property `mapping`', () async {
+    });
+
+
   });
+
 }

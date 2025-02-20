@@ -7,8 +7,10 @@ part of keyclic_sdk_api_platform;
 class UserJsonhalAuthProfileRead {
   /// Returns a new [UserJsonhalAuthProfileRead] instance.
   UserJsonhalAuthProfileRead({
-    this.email,
-    this.username,
+    this.email
+,
+    this.username
+,
   });
 
   /// Returns a new [UserJsonhalAuthProfileRead] instance and imports its values from
@@ -18,15 +20,15 @@ class UserJsonhalAuthProfileRead {
       return null;
     }
 
-    return UserJsonhalAuthProfileRead(
-      email: json[r'email'],
-      username: json[r'username'],
+  return UserJsonhalAuthProfileRead(
+                  email: json[r'email'],
+                  username: json[r'username'],
     );
   }
 
-  String? email;
+      String? email;
 
-  String? username;
+      String? username;
 
   @override
   bool operator ==(Object other) {
@@ -35,25 +37,26 @@ class UserJsonhalAuthProfileRead {
       return true;
     }
 
-    return other is UserJsonhalAuthProfileRead &&
-        other.email == email &&
-        other.username == username;
+    return other is UserJsonhalAuthProfileRead 
+          && other.email == email
+  
+          && other.username == username
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (email == null ? 0 : email.hashCode) +
-      (username == null ? 0 : username.hashCode);
+    (email == null ? 0 : email.hashCode) +
+    (username == null ? 0 : username.hashCode);
 
   static List<UserJsonhalAuthProfileRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <UserJsonhalAuthProfileRead>[];
     }
 
-    return json.fold(<UserJsonhalAuthProfileRead>[],
-        (List<UserJsonhalAuthProfileRead> previousValue, element) {
-      final UserJsonhalAuthProfileRead? object =
-          UserJsonhalAuthProfileRead.fromJson(element);
+    return json.fold(<UserJsonhalAuthProfileRead>[], (List<UserJsonhalAuthProfileRead> previousValue, element) {
+      final UserJsonhalAuthProfileRead? object = UserJsonhalAuthProfileRead.fromJson(element);
       if (object is UserJsonhalAuthProfileRead) {
         previousValue.add(object);
       }
@@ -62,16 +65,13 @@ class UserJsonhalAuthProfileRead {
     });
   }
 
-  static Map<String, UserJsonhalAuthProfileRead> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, UserJsonhalAuthProfileRead> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, UserJsonhalAuthProfileRead>{};
     }
 
-    return json.entries.fold(<String, UserJsonhalAuthProfileRead>{},
-        (Map<String, UserJsonhalAuthProfileRead> previousValue, element) {
-      final UserJsonhalAuthProfileRead? object =
-          UserJsonhalAuthProfileRead.fromJson(element.value);
+    return json.entries.fold(<String, UserJsonhalAuthProfileRead>{}, (Map<String, UserJsonhalAuthProfileRead> previousValue, element) {
+      final UserJsonhalAuthProfileRead? object = UserJsonhalAuthProfileRead.fromJson(element.value);
       if (object is UserJsonhalAuthProfileRead) {
         previousValue[element.key] = object;
       }
@@ -81,26 +81,32 @@ class UserJsonhalAuthProfileRead {
   }
 
   // maps a json object with a list of UserJsonhalAuthProfileRead-objects as value to a dart map
-  static Map<String, List<UserJsonhalAuthProfileRead>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<UserJsonhalAuthProfileRead>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<UserJsonhalAuthProfileRead>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<UserJsonhalAuthProfileRead>>(
-          key, UserJsonhalAuthProfileRead.listFromJson(value));
+      return MapEntry<String, List<UserJsonhalAuthProfileRead>>(key, UserJsonhalAuthProfileRead.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'UserJsonhalAuthProfileRead[email=$email, username=$username]';
+  String toString() => 'UserJsonhalAuthProfileRead[email=$email, username=$username]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'email')) r'email': email,
-      if (keys == null || keys.contains(r'username')) r'username': username,
+    if (keys == null || keys.
+    contains(r'email')
+    )
+        r'email':
+          email,
+    if (keys == null || keys.
+    contains(r'username')
+    )
+        r'username':
+          username,
     };
   }
 }
+

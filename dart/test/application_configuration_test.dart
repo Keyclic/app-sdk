@@ -11,6 +11,10 @@ void main() {
 
   group('test ApplicationConfiguration', () {
     // bool public
-    test('to test the property `public`', () async {});
+    test('to test the property `public`', () async {
+    });
+
+
   });
+
 }

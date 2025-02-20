@@ -7,9 +7,16 @@ part of keyclic_sdk_api;
 class Feature {
   /// Returns a new [Feature] instance.
   Feature({
-    this.type = 'Feature',
-    required this.geometry,
-    this.properties,
+      
+    this.type
+       = 'Feature'
+    ,
+      required 
+    this.geometry
+      
+    ,
+    this.properties
+,
   });
 
   /// Returns a new [Feature] instance and imports its values from
@@ -19,20 +26,22 @@ class Feature {
       return null;
     }
 
-    return Feature(
-      type: json[r'type'],
-      geometry: Map<String, Object?>.from(json[r'geometry']),
-      properties: json[r'properties'] == null
-          ? null
-          : List<String>.from(json[r'properties']),
+  return Feature(
+                  type: json[r'type'],
+                geometry: 
+                Map<String, Object?>.from(json[r'geometry']),
+        properties:
+            json[r'properties'] == null ?
+              null :
+          List<String>.from(json[r'properties']),
     );
   }
 
-  String type;
+      String type;
 
-  Map<String, Object?> geometry;
+    Map<String, Object?> geometry;
 
-  List<String>? properties;
+        List<String>? properties;
 
   @override
   bool operator ==(Object other) {
@@ -41,17 +50,21 @@ class Feature {
       return true;
     }
 
-    return other is Feature &&
-        other.type == type &&
-        other.geometry == geometry &&
-        DeepCollectionEquality.unordered().equals(properties, other.properties);
+    return other is Feature 
+          && other.type == type
+  
+          && other.geometry == geometry
+  
+          && DeepCollectionEquality.unordered().equals(properties, other.properties)
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      type.hashCode +
-      geometry.hashCode +
-      (properties == null ? 0 : properties.hashCode);
+     type.hashCode +
+     geometry.hashCode +
+    (properties == null ? 0 : properties.hashCode);
 
   static List<Feature> listFromJson(Iterable? json) {
     if (json == null) {
@@ -73,8 +86,7 @@ class Feature {
       return <String, Feature>{};
     }
 
-    return json.entries.fold(<String, Feature>{},
-        (Map<String, Feature> previousValue, element) {
+    return json.entries.fold(<String, Feature>{}, (Map<String, Feature> previousValue, element) {
       final Feature? object = Feature.fromJson(element.value);
       if (object is Feature) {
         previousValue[element.key] = object;
@@ -85,8 +97,7 @@ class Feature {
   }
 
   // maps a json object with a list of Feature-objects as value to a dart map
-  static Map<String, List<Feature>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<Feature>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<Feature>>{};
     }
@@ -97,15 +108,20 @@ class Feature {
   }
 
   @override
-  String toString() =>
-      'Feature[type=$type, geometry=$geometry, properties=$properties]';
+  String toString() => 'Feature[type=$type, geometry=$geometry, properties=$properties]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'type': type,
-      r'geometry': geometry,
-      if (keys == null || keys.contains(r'properties'))
-        r'properties': properties,
+        r'type':
+          type,
+        r'geometry':
+          geometry,
+    if (keys == null || keys.
+    contains(r'properties')
+    )
+        r'properties':
+          properties,
     };
   }
 }
+

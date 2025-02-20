@@ -12,9 +12,14 @@ void main() {
   group('test OrganizationLinksConfiguration', () {
     // The URI of the configuration associated to the given organization.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // OrganizationLinksConfigurationIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

@@ -7,9 +7,16 @@ part of keyclic_sdk_api;
 class ReviewData {
   /// Returns a new [ReviewData] instance.
   ReviewData({
-    this.reviewBody,
-    required this.reviewRating,
-    required this.reviewRequest,
+    this.reviewBody
+,
+      required 
+    this.reviewRating
+      
+    ,
+      required 
+    this.reviewRequest
+      
+    ,
   });
 
   /// Returns a new [ReviewData] instance and imports its values from
@@ -19,20 +26,20 @@ class ReviewData {
       return null;
     }
 
-    return ReviewData(
-      reviewBody: json[r'reviewBody'],
-      reviewRating: json[r'reviewRating'] == null
-          ? null
-          : json[r'reviewRating'].toDouble(),
-      reviewRequest: json[r'reviewRequest'],
+  return ReviewData(
+                  reviewBody: json[r'reviewBody'],
+        reviewRating: json[r'reviewRating'] == null ?
+          null :
+          json[r'reviewRating'].toDouble(),
+                  reviewRequest: json[r'reviewRequest'],
     );
   }
 
-  String? reviewBody;
+      String? reviewBody;
 
-  num reviewRating;
+      num reviewRating;
 
-  String reviewRequest;
+      String reviewRequest;
 
   @override
   bool operator ==(Object other) {
@@ -41,17 +48,21 @@ class ReviewData {
       return true;
     }
 
-    return other is ReviewData &&
-        other.reviewBody == reviewBody &&
-        other.reviewRating == reviewRating &&
-        other.reviewRequest == reviewRequest;
+    return other is ReviewData 
+          && other.reviewBody == reviewBody
+  
+          && other.reviewRating == reviewRating
+  
+          && other.reviewRequest == reviewRequest
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (reviewBody == null ? 0 : reviewBody.hashCode) +
-      reviewRating.hashCode +
-      reviewRequest.hashCode;
+    (reviewBody == null ? 0 : reviewBody.hashCode) +
+     reviewRating.hashCode +
+     reviewRequest.hashCode;
 
   static List<ReviewData> listFromJson(Iterable? json) {
     if (json == null) {
@@ -73,8 +84,7 @@ class ReviewData {
       return <String, ReviewData>{};
     }
 
-    return json.entries.fold(<String, ReviewData>{},
-        (Map<String, ReviewData> previousValue, element) {
+    return json.entries.fold(<String, ReviewData>{}, (Map<String, ReviewData> previousValue, element) {
       final ReviewData? object = ReviewData.fromJson(element.value);
       if (object is ReviewData) {
         previousValue[element.key] = object;
@@ -85,28 +95,31 @@ class ReviewData {
   }
 
   // maps a json object with a list of ReviewData-objects as value to a dart map
-  static Map<String, List<ReviewData>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<ReviewData>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ReviewData>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ReviewData>>(
-          key, ReviewData.listFromJson(value));
+      return MapEntry<String, List<ReviewData>>(key, ReviewData.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'ReviewData[reviewBody=$reviewBody, reviewRating=$reviewRating, reviewRequest=$reviewRequest]';
+  String toString() => 'ReviewData[reviewBody=$reviewBody, reviewRating=$reviewRating, reviewRequest=$reviewRequest]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'reviewBody'))
-        r'reviewBody': reviewBody,
-      r'reviewRating': reviewRating,
-      r'reviewRequest': reviewRequest,
+    if (keys == null || keys.
+    contains(r'reviewBody')
+    )
+        r'reviewBody':
+          reviewBody,
+        r'reviewRating':
+          reviewRating,
+        r'reviewRequest':
+          reviewRequest,
     };
   }
 }
+

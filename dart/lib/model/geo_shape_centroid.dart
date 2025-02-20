@@ -7,8 +7,14 @@ part of keyclic_sdk_api;
 class GeoShapeCentroid {
   /// Returns a new [GeoShapeCentroid] instance.
   GeoShapeCentroid({
-    required this.latitude,
-    required this.longitude,
+      required 
+    this.latitude
+      
+    ,
+      required 
+    this.longitude
+      
+    ,
   });
 
   /// Returns a new [GeoShapeCentroid] instance and imports its values from
@@ -18,15 +24,15 @@ class GeoShapeCentroid {
       return null;
     }
 
-    return GeoShapeCentroid(
-      latitude: json[r'latitude'].toDouble(),
-      longitude: json[r'longitude'].toDouble(),
+  return GeoShapeCentroid(
+                  latitude: json[r'latitude'].toDouble(),
+                  longitude: json[r'longitude'].toDouble(),
     );
   }
 
-  double latitude;
+      double latitude;
 
-  double longitude;
+      double longitude;
 
   @override
   bool operator ==(Object other) {
@@ -35,21 +41,25 @@ class GeoShapeCentroid {
       return true;
     }
 
-    return other is GeoShapeCentroid &&
-        other.latitude == latitude &&
-        other.longitude == longitude;
+    return other is GeoShapeCentroid 
+          && other.latitude == latitude
+  
+          && other.longitude == longitude
+  ;
   }
+  
 
   @override
-  int get hashCode => latitude.hashCode + longitude.hashCode;
+  int get hashCode =>
+     latitude.hashCode +
+     longitude.hashCode;
 
   static List<GeoShapeCentroid> listFromJson(Iterable? json) {
     if (json == null) {
       return <GeoShapeCentroid>[];
     }
 
-    return json.fold(<GeoShapeCentroid>[],
-        (List<GeoShapeCentroid> previousValue, element) {
+    return json.fold(<GeoShapeCentroid>[], (List<GeoShapeCentroid> previousValue, element) {
       final GeoShapeCentroid? object = GeoShapeCentroid.fromJson(element);
       if (object is GeoShapeCentroid) {
         previousValue.add(object);
@@ -64,8 +74,7 @@ class GeoShapeCentroid {
       return <String, GeoShapeCentroid>{};
     }
 
-    return json.entries.fold(<String, GeoShapeCentroid>{},
-        (Map<String, GeoShapeCentroid> previousValue, element) {
+    return json.entries.fold(<String, GeoShapeCentroid>{}, (Map<String, GeoShapeCentroid> previousValue, element) {
       final GeoShapeCentroid? object = GeoShapeCentroid.fromJson(element.value);
       if (object is GeoShapeCentroid) {
         previousValue[element.key] = object;
@@ -76,26 +85,26 @@ class GeoShapeCentroid {
   }
 
   // maps a json object with a list of GeoShapeCentroid-objects as value to a dart map
-  static Map<String, List<GeoShapeCentroid>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<GeoShapeCentroid>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<GeoShapeCentroid>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<GeoShapeCentroid>>(
-          key, GeoShapeCentroid.listFromJson(value));
+      return MapEntry<String, List<GeoShapeCentroid>>(key, GeoShapeCentroid.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'GeoShapeCentroid[latitude=$latitude, longitude=$longitude]';
+  String toString() => 'GeoShapeCentroid[latitude=$latitude, longitude=$longitude]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'latitude': latitude,
-      r'longitude': longitude,
+        r'latitude':
+          latitude,
+        r'longitude':
+          longitude,
     };
   }
 }
+

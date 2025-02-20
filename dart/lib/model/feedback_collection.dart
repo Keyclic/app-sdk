@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class FeedbackCollection {
   /// Returns a new [FeedbackCollection] instance.
   FeedbackCollection({
-    this.items,
+    this.items
+,
   });
 
   /// Returns a new [FeedbackCollection] instance and imports its values from
@@ -17,12 +18,13 @@ class FeedbackCollection {
       return null;
     }
 
-    return FeedbackCollection(
-      items: Feedback.listFromJson(json[r'items']),
+  return FeedbackCollection(
+        items: 
+          Feedback.listFromJson(json[r'items']),
     );
   }
 
-  List<Feedback>? items;
+        List<Feedback>? items;
 
   @override
   bool operator ==(Object other) {
@@ -31,20 +33,22 @@ class FeedbackCollection {
       return true;
     }
 
-    return other is FeedbackCollection &&
-        DeepCollectionEquality.unordered().equals(items, other.items);
+    return other is FeedbackCollection 
+          && DeepCollectionEquality.unordered().equals(items, other.items)
+  ;
   }
+  
 
   @override
-  int get hashCode => (items == null ? 0 : items.hashCode);
+  int get hashCode =>
+    (items == null ? 0 : items.hashCode);
 
   static List<FeedbackCollection> listFromJson(Iterable? json) {
     if (json == null) {
       return <FeedbackCollection>[];
     }
 
-    return json.fold(<FeedbackCollection>[],
-        (List<FeedbackCollection> previousValue, element) {
+    return json.fold(<FeedbackCollection>[], (List<FeedbackCollection> previousValue, element) {
       final FeedbackCollection? object = FeedbackCollection.fromJson(element);
       if (object is FeedbackCollection) {
         previousValue.add(object);
@@ -54,16 +58,13 @@ class FeedbackCollection {
     });
   }
 
-  static Map<String, FeedbackCollection> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, FeedbackCollection> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, FeedbackCollection>{};
     }
 
-    return json.entries.fold(<String, FeedbackCollection>{},
-        (Map<String, FeedbackCollection> previousValue, element) {
-      final FeedbackCollection? object =
-          FeedbackCollection.fromJson(element.value);
+    return json.entries.fold(<String, FeedbackCollection>{}, (Map<String, FeedbackCollection> previousValue, element) {
+      final FeedbackCollection? object = FeedbackCollection.fromJson(element.value);
       if (object is FeedbackCollection) {
         previousValue[element.key] = object;
       }
@@ -73,15 +74,13 @@ class FeedbackCollection {
   }
 
   // maps a json object with a list of FeedbackCollection-objects as value to a dart map
-  static Map<String, List<FeedbackCollection>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<FeedbackCollection>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<FeedbackCollection>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<FeedbackCollection>>(
-          key, FeedbackCollection.listFromJson(value));
+      return MapEntry<String, List<FeedbackCollection>>(key, FeedbackCollection.listFromJson(value));
     });
   }
 
@@ -90,7 +89,12 @@ class FeedbackCollection {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'items')) r'items': items,
+    if (keys == null || keys.
+    contains(r'items')
+    )
+        r'items':
+            items,
     };
   }
 }
+

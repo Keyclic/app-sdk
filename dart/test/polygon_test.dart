@@ -11,9 +11,14 @@ void main() {
 
   group('test Polygon', () {
     // String type (default value: 'FeatureCollection')
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
 
     // List<Feature> features (default value: const [])
-    test('to test the property `features`', () async {});
+    test('to test the property `features`', () async {
+    });
+
+
   });
+
 }

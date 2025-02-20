@@ -11,15 +11,22 @@ void main() {
 
   group('test GetTicketGeoCollection200Response', () {
     // String type (default value: 'FeatureCollection')
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
 
     // List<TicketJsongeoRead> features (default value: const [])
-    test('to test the property `features`', () async {});
+    test('to test the property `features`', () async {
+    });
 
     // int totalItems
-    test('to test the property `totalItems`', () async {});
+    test('to test the property `totalItems`', () async {
+    });
 
     // int itemsPerPage
-    test('to test the property `itemsPerPage`', () async {});
+    test('to test the property `itemsPerPage`', () async {
+    });
+
+
   });
+
 }

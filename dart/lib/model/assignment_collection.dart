@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class AssignmentCollection {
   /// Returns a new [AssignmentCollection] instance.
   AssignmentCollection({
-    this.items,
+    this.items
+,
   });
 
   /// Returns a new [AssignmentCollection] instance and imports its values from
@@ -17,12 +18,13 @@ class AssignmentCollection {
       return null;
     }
 
-    return AssignmentCollection(
-      items: Assignment.listFromJson(json[r'items']),
+  return AssignmentCollection(
+        items: 
+          Assignment.listFromJson(json[r'items']),
     );
   }
 
-  List<Assignment>? items;
+        List<Assignment>? items;
 
   @override
   bool operator ==(Object other) {
@@ -31,22 +33,23 @@ class AssignmentCollection {
       return true;
     }
 
-    return other is AssignmentCollection &&
-        DeepCollectionEquality.unordered().equals(items, other.items);
+    return other is AssignmentCollection 
+          && DeepCollectionEquality.unordered().equals(items, other.items)
+  ;
   }
+  
 
   @override
-  int get hashCode => (items == null ? 0 : items.hashCode);
+  int get hashCode =>
+    (items == null ? 0 : items.hashCode);
 
   static List<AssignmentCollection> listFromJson(Iterable? json) {
     if (json == null) {
       return <AssignmentCollection>[];
     }
 
-    return json.fold(<AssignmentCollection>[],
-        (List<AssignmentCollection> previousValue, element) {
-      final AssignmentCollection? object =
-          AssignmentCollection.fromJson(element);
+    return json.fold(<AssignmentCollection>[], (List<AssignmentCollection> previousValue, element) {
+      final AssignmentCollection? object = AssignmentCollection.fromJson(element);
       if (object is AssignmentCollection) {
         previousValue.add(object);
       }
@@ -55,16 +58,13 @@ class AssignmentCollection {
     });
   }
 
-  static Map<String, AssignmentCollection> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, AssignmentCollection> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, AssignmentCollection>{};
     }
 
-    return json.entries.fold(<String, AssignmentCollection>{},
-        (Map<String, AssignmentCollection> previousValue, element) {
-      final AssignmentCollection? object =
-          AssignmentCollection.fromJson(element.value);
+    return json.entries.fold(<String, AssignmentCollection>{}, (Map<String, AssignmentCollection> previousValue, element) {
+      final AssignmentCollection? object = AssignmentCollection.fromJson(element.value);
       if (object is AssignmentCollection) {
         previousValue[element.key] = object;
       }
@@ -74,15 +74,13 @@ class AssignmentCollection {
   }
 
   // maps a json object with a list of AssignmentCollection-objects as value to a dart map
-  static Map<String, List<AssignmentCollection>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<AssignmentCollection>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<AssignmentCollection>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<AssignmentCollection>>(
-          key, AssignmentCollection.listFromJson(value));
+      return MapEntry<String, List<AssignmentCollection>>(key, AssignmentCollection.listFromJson(value));
     });
   }
 
@@ -91,7 +89,12 @@ class AssignmentCollection {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'items')) r'items': items,
+    if (keys == null || keys.
+    contains(r'items')
+    )
+        r'items':
+            items,
     };
   }
 }
+

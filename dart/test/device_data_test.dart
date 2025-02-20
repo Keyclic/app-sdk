@@ -11,12 +11,18 @@ void main() {
 
   group('test DeviceData', () {
     // String token
-    test('to test the property `token`', () async {});
+    test('to test the property `token`', () async {
+    });
 
     // String platform
-    test('to test the property `platform`', () async {});
+    test('to test the property `platform`', () async {
+    });
 
     // String person
-    test('to test the property `person`', () async {});
+    test('to test the property `person`', () async {
+    });
+
+
   });
+
 }

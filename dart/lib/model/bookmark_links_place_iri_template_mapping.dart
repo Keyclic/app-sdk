@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class BookmarkLinksPlaceIriTemplateMapping {
   /// Returns a new [BookmarkLinksPlaceIriTemplateMapping] instance.
   BookmarkLinksPlaceIriTemplateMapping({
-    this.place,
+    this.place
+,
   });
 
   /// Returns a new [BookmarkLinksPlaceIriTemplateMapping] instance and imports its values from
@@ -17,12 +18,12 @@ class BookmarkLinksPlaceIriTemplateMapping {
       return null;
     }
 
-    return BookmarkLinksPlaceIriTemplateMapping(
-      place: json[r'place'],
+  return BookmarkLinksPlaceIriTemplateMapping(
+                  place: json[r'place'],
     );
   }
 
-  String? place;
+      String? place;
 
   @override
   bool operator ==(Object other) {
@@ -31,23 +32,23 @@ class BookmarkLinksPlaceIriTemplateMapping {
       return true;
     }
 
-    return other is BookmarkLinksPlaceIriTemplateMapping &&
-        other.place == place;
+    return other is BookmarkLinksPlaceIriTemplateMapping 
+          && other.place == place
+  ;
   }
+  
 
   @override
-  int get hashCode => (place == null ? 0 : place.hashCode);
+  int get hashCode =>
+    (place == null ? 0 : place.hashCode);
 
-  static List<BookmarkLinksPlaceIriTemplateMapping> listFromJson(
-      Iterable? json) {
+  static List<BookmarkLinksPlaceIriTemplateMapping> listFromJson(Iterable? json) {
     if (json == null) {
       return <BookmarkLinksPlaceIriTemplateMapping>[];
     }
 
-    return json.fold(<BookmarkLinksPlaceIriTemplateMapping>[],
-        (List<BookmarkLinksPlaceIriTemplateMapping> previousValue, element) {
-      final BookmarkLinksPlaceIriTemplateMapping? object =
-          BookmarkLinksPlaceIriTemplateMapping.fromJson(element);
+    return json.fold(<BookmarkLinksPlaceIriTemplateMapping>[], (List<BookmarkLinksPlaceIriTemplateMapping> previousValue, element) {
+      final BookmarkLinksPlaceIriTemplateMapping? object = BookmarkLinksPlaceIriTemplateMapping.fromJson(element);
       if (object is BookmarkLinksPlaceIriTemplateMapping) {
         previousValue.add(object);
       }
@@ -56,17 +57,13 @@ class BookmarkLinksPlaceIriTemplateMapping {
     });
   }
 
-  static Map<String, BookmarkLinksPlaceIriTemplateMapping> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, BookmarkLinksPlaceIriTemplateMapping> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, BookmarkLinksPlaceIriTemplateMapping>{};
     }
 
-    return json.entries.fold(<String, BookmarkLinksPlaceIriTemplateMapping>{},
-        (Map<String, BookmarkLinksPlaceIriTemplateMapping> previousValue,
-            element) {
-      final BookmarkLinksPlaceIriTemplateMapping? object =
-          BookmarkLinksPlaceIriTemplateMapping.fromJson(element.value);
+    return json.entries.fold(<String, BookmarkLinksPlaceIriTemplateMapping>{}, (Map<String, BookmarkLinksPlaceIriTemplateMapping> previousValue, element) {
+      final BookmarkLinksPlaceIriTemplateMapping? object = BookmarkLinksPlaceIriTemplateMapping.fromJson(element.value);
       if (object is BookmarkLinksPlaceIriTemplateMapping) {
         previousValue[element.key] = object;
       }
@@ -76,15 +73,13 @@ class BookmarkLinksPlaceIriTemplateMapping {
   }
 
   // maps a json object with a list of BookmarkLinksPlaceIriTemplateMapping-objects as value to a dart map
-  static Map<String, List<BookmarkLinksPlaceIriTemplateMapping>>
-      mapListFromJson(Map<String, dynamic>? json) {
+  static Map<String, List<BookmarkLinksPlaceIriTemplateMapping>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<BookmarkLinksPlaceIriTemplateMapping>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<BookmarkLinksPlaceIriTemplateMapping>>(
-          key, BookmarkLinksPlaceIriTemplateMapping.listFromJson(value));
+      return MapEntry<String, List<BookmarkLinksPlaceIriTemplateMapping>>(key, BookmarkLinksPlaceIriTemplateMapping.listFromJson(value));
     });
   }
 
@@ -93,7 +88,12 @@ class BookmarkLinksPlaceIriTemplateMapping {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'place')) r'place': place,
+    if (keys == null || keys.
+    contains(r'place')
+    )
+        r'place':
+          place,
     };
   }
 }
+

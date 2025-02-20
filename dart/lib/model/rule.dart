@@ -7,11 +7,16 @@ part of keyclic_sdk_api;
 class Rule {
   /// Returns a new [Rule] instance.
   Rule({
-    this.links,
-    this.description,
-    this.id,
-    this.name,
-    this.type,
+    this.links
+,
+    this.description
+,
+    this.id
+,
+    this.name
+,
+    this.type
+,
   });
 
   /// Returns a new [Rule] instance and imports its values from
@@ -21,24 +26,24 @@ class Rule {
       return null;
     }
 
-    return Rule(
-      links: RuleLinks.fromJson(json[r'_links']),
-      description: json[r'description'],
-      id: json[r'id'],
-      name: json[r'name'],
-      type: json[r'type'],
+  return Rule(
+        links: RuleLinks.fromJson(json[r'_links']),
+                  description: json[r'description'],
+                  id: json[r'id'],
+                  name: json[r'name'],
+                  type: json[r'type'],
     );
   }
 
-  RuleLinks? links;
+      RuleLinks? links;
 
-  String? description;
+      String? description;
 
-  final String? id;
+      final String? id;
 
-  String? name;
+      String? name;
 
-  String? type;
+      String? type;
 
   @override
   bool operator ==(Object other) {
@@ -47,21 +52,27 @@ class Rule {
       return true;
     }
 
-    return other is Rule &&
-        other.links == links &&
-        other.description == description &&
-        other.id == id &&
-        other.name == name &&
-        other.type == type;
+    return other is Rule 
+          && other.links == links
+  
+          && other.description == description
+  
+          && other.id == id
+  
+          && other.name == name
+  
+          && other.type == type
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
-      (description == null ? 0 : description.hashCode) +
-      (id == null ? 0 : id.hashCode) +
-      (name == null ? 0 : name.hashCode) +
-      (type == null ? 0 : type.hashCode);
+    (links == null ? 0 : links.hashCode) +
+    (description == null ? 0 : description.hashCode) +
+    (id == null ? 0 : id.hashCode) +
+    (name == null ? 0 : name.hashCode) +
+    (type == null ? 0 : type.hashCode);
 
   static List<Rule> listFromJson(Iterable? json) {
     if (json == null) {
@@ -83,8 +94,7 @@ class Rule {
       return <String, Rule>{};
     }
 
-    return json.entries.fold(<String, Rule>{},
-        (Map<String, Rule> previousValue, element) {
+    return json.entries.fold(<String, Rule>{}, (Map<String, Rule> previousValue, element) {
       final Rule? object = Rule.fromJson(element.value);
       if (object is Rule) {
         previousValue[element.key] = object;
@@ -106,25 +116,42 @@ class Rule {
   }
 
   @override
-  String toString() =>
-      'Rule[links=$links, description=$description, id=$id, name=$name, type=$type]';
+  String toString() => 'Rule[links=$links, description=$description, id=$id, name=$name, type=$type]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^links\.').hasMatch(key))
+    )
+        r'_links':
+            links?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^links\.'))) {
+                previousValue.add(element.split(RegExp(r'^links\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'description'))
-        r'description': description,
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'name')) r'name': name,
-      if (keys == null || keys.contains(r'type')) r'type': type,
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    contains(r'description')
+    )
+        r'description':
+          description,
+    if (keys == null || keys.
+    contains(r'id')
+    )
+        r'id':
+          id,
+    if (keys == null || keys.
+    contains(r'name')
+    )
+        r'name':
+          name,
+    if (keys == null || keys.
+    contains(r'type')
+    )
+        r'type':
+          type,
     };
   }
 }
+

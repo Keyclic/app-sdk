@@ -7,8 +7,10 @@ part of keyclic_sdk_api;
 class NoteLinksSelf {
   /// Returns a new [NoteLinksSelf] instance.
   NoteLinksSelf({
-    this.href,
-    this.iriTemplate,
+    this.href
+,
+    this.iriTemplate
+,
   });
 
   /// Returns a new [NoteLinksSelf] instance and imports its values from
@@ -18,16 +20,16 @@ class NoteLinksSelf {
       return null;
     }
 
-    return NoteLinksSelf(
-      href: json[r'href'],
-      iriTemplate: NoteLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+  return NoteLinksSelf(
+                  href: json[r'href'],
+        iriTemplate: NoteLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
   /// The URI of the self associated to the given note.
-  String? href;
+      String? href;
 
-  NoteLinksSelfIriTemplate? iriTemplate;
+      NoteLinksSelfIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -36,23 +38,25 @@ class NoteLinksSelf {
       return true;
     }
 
-    return other is NoteLinksSelf &&
-        other.href == href &&
-        other.iriTemplate == iriTemplate;
+    return other is NoteLinksSelf 
+          && other.href == href
+  
+          && other.iriTemplate == iriTemplate
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (href == null ? 0 : href.hashCode) +
-      (iriTemplate == null ? 0 : iriTemplate.hashCode);
+    (href == null ? 0 : href.hashCode) +
+    (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
   static List<NoteLinksSelf> listFromJson(Iterable? json) {
     if (json == null) {
       return <NoteLinksSelf>[];
     }
 
-    return json.fold(<NoteLinksSelf>[],
-        (List<NoteLinksSelf> previousValue, element) {
+    return json.fold(<NoteLinksSelf>[], (List<NoteLinksSelf> previousValue, element) {
       final NoteLinksSelf? object = NoteLinksSelf.fromJson(element);
       if (object is NoteLinksSelf) {
         previousValue.add(object);
@@ -67,8 +71,7 @@ class NoteLinksSelf {
       return <String, NoteLinksSelf>{};
     }
 
-    return json.entries.fold(<String, NoteLinksSelf>{},
-        (Map<String, NoteLinksSelf> previousValue, element) {
+    return json.entries.fold(<String, NoteLinksSelf>{}, (Map<String, NoteLinksSelf> previousValue, element) {
       final NoteLinksSelf? object = NoteLinksSelf.fromJson(element.value);
       if (object is NoteLinksSelf) {
         previousValue[element.key] = object;
@@ -79,15 +82,13 @@ class NoteLinksSelf {
   }
 
   // maps a json object with a list of NoteLinksSelf-objects as value to a dart map
-  static Map<String, List<NoteLinksSelf>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<NoteLinksSelf>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<NoteLinksSelf>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<NoteLinksSelf>>(
-          key, NoteLinksSelf.listFromJson(value));
+      return MapEntry<String, List<NoteLinksSelf>>(key, NoteLinksSelf.listFromJson(value));
     });
   }
 
@@ -96,17 +97,23 @@ class NoteLinksSelf {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'href')) r'href': href,
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^iriTemplate\.').hasMatch(key)))
-        r'iriTemplate': iriTemplate?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^iriTemplate\.'))) {
-            previousValue.add(element.split(RegExp(r'^iriTemplate\.')).last);
-          }
+    if (keys == null || keys.
+    contains(r'href')
+    )
+        r'href':
+          href,
+    if (keys == null || keys.
+    any((key) => RegExp(r'^iriTemplate\.').hasMatch(key))
+    )
+        r'iriTemplate':
+            iriTemplate?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^iriTemplate\.'))) {
+                previousValue.add(element.split(RegExp(r'^iriTemplate\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

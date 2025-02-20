@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class BusinessActivityCollection {
   /// Returns a new [BusinessActivityCollection] instance.
   BusinessActivityCollection({
-    this.items,
+    this.items
+,
   });
 
   /// Returns a new [BusinessActivityCollection] instance and imports its values from
@@ -17,12 +18,13 @@ class BusinessActivityCollection {
       return null;
     }
 
-    return BusinessActivityCollection(
-      items: BusinessActivity.listFromJson(json[r'items']),
+  return BusinessActivityCollection(
+        items: 
+          BusinessActivity.listFromJson(json[r'items']),
     );
   }
 
-  List<BusinessActivity>? items;
+        List<BusinessActivity>? items;
 
   @override
   bool operator ==(Object other) {
@@ -31,22 +33,23 @@ class BusinessActivityCollection {
       return true;
     }
 
-    return other is BusinessActivityCollection &&
-        DeepCollectionEquality.unordered().equals(items, other.items);
+    return other is BusinessActivityCollection 
+          && DeepCollectionEquality.unordered().equals(items, other.items)
+  ;
   }
+  
 
   @override
-  int get hashCode => (items == null ? 0 : items.hashCode);
+  int get hashCode =>
+    (items == null ? 0 : items.hashCode);
 
   static List<BusinessActivityCollection> listFromJson(Iterable? json) {
     if (json == null) {
       return <BusinessActivityCollection>[];
     }
 
-    return json.fold(<BusinessActivityCollection>[],
-        (List<BusinessActivityCollection> previousValue, element) {
-      final BusinessActivityCollection? object =
-          BusinessActivityCollection.fromJson(element);
+    return json.fold(<BusinessActivityCollection>[], (List<BusinessActivityCollection> previousValue, element) {
+      final BusinessActivityCollection? object = BusinessActivityCollection.fromJson(element);
       if (object is BusinessActivityCollection) {
         previousValue.add(object);
       }
@@ -55,16 +58,13 @@ class BusinessActivityCollection {
     });
   }
 
-  static Map<String, BusinessActivityCollection> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, BusinessActivityCollection> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, BusinessActivityCollection>{};
     }
 
-    return json.entries.fold(<String, BusinessActivityCollection>{},
-        (Map<String, BusinessActivityCollection> previousValue, element) {
-      final BusinessActivityCollection? object =
-          BusinessActivityCollection.fromJson(element.value);
+    return json.entries.fold(<String, BusinessActivityCollection>{}, (Map<String, BusinessActivityCollection> previousValue, element) {
+      final BusinessActivityCollection? object = BusinessActivityCollection.fromJson(element.value);
       if (object is BusinessActivityCollection) {
         previousValue[element.key] = object;
       }
@@ -74,15 +74,13 @@ class BusinessActivityCollection {
   }
 
   // maps a json object with a list of BusinessActivityCollection-objects as value to a dart map
-  static Map<String, List<BusinessActivityCollection>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<BusinessActivityCollection>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<BusinessActivityCollection>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<BusinessActivityCollection>>(
-          key, BusinessActivityCollection.listFromJson(value));
+      return MapEntry<String, List<BusinessActivityCollection>>(key, BusinessActivityCollection.listFromJson(value));
     });
   }
 
@@ -91,7 +89,12 @@ class BusinessActivityCollection {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'items')) r'items': items,
+    if (keys == null || keys.
+    contains(r'items')
+    )
+        r'items':
+            items,
     };
   }
 }
+

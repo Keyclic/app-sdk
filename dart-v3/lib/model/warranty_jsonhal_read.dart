@@ -7,9 +7,12 @@ part of keyclic_sdk_api_platform;
 class WarrantyJsonhalRead {
   /// Returns a new [WarrantyJsonhalRead] instance.
   WarrantyJsonhalRead({
-    this.duration,
-    this.endDate,
-    this.startDate,
+    this.duration
+,
+    this.endDate
+,
+    this.startDate
+,
   });
 
   /// Returns a new [WarrantyJsonhalRead] instance and imports its values from
@@ -19,21 +22,21 @@ class WarrantyJsonhalRead {
       return null;
     }
 
-    return WarrantyJsonhalRead(
-      duration: json[r'duration'],
-      endDate: mapToDateTime(json[r'endDate']),
-      startDate: mapToDateTime(json[r'startDate']),
+  return WarrantyJsonhalRead(
+                  duration: json[r'duration'],
+        endDate: mapToDateTime(json[r'endDate']),
+        startDate: mapToDateTime(json[r'startDate']),
     );
   }
 
   /// The duration of the warranty in ISO 8601 duration format.
-  String? duration;
+      String? duration;
 
   /// The end date of the warranty, in ISO 8601 format.
-  final DateTime? endDate;
+      final DateTime? endDate;
 
   /// The start date of the warranty, in ISO 8601 format.
-  DateTime? startDate;
+      DateTime? startDate;
 
   @override
   bool operator ==(Object other) {
@@ -42,25 +45,28 @@ class WarrantyJsonhalRead {
       return true;
     }
 
-    return other is WarrantyJsonhalRead &&
-        other.duration == duration &&
-        other.endDate == endDate &&
-        other.startDate == startDate;
+    return other is WarrantyJsonhalRead 
+          && other.duration == duration
+  
+          && other.endDate == endDate
+  
+          && other.startDate == startDate
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (duration == null ? 0 : duration.hashCode) +
-      (endDate == null ? 0 : endDate.hashCode) +
-      (startDate == null ? 0 : startDate.hashCode);
+    (duration == null ? 0 : duration.hashCode) +
+    (endDate == null ? 0 : endDate.hashCode) +
+    (startDate == null ? 0 : startDate.hashCode);
 
   static List<WarrantyJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <WarrantyJsonhalRead>[];
     }
 
-    return json.fold(<WarrantyJsonhalRead>[],
-        (List<WarrantyJsonhalRead> previousValue, element) {
+    return json.fold(<WarrantyJsonhalRead>[], (List<WarrantyJsonhalRead> previousValue, element) {
       final WarrantyJsonhalRead? object = WarrantyJsonhalRead.fromJson(element);
       if (object is WarrantyJsonhalRead) {
         previousValue.add(object);
@@ -70,16 +76,13 @@ class WarrantyJsonhalRead {
     });
   }
 
-  static Map<String, WarrantyJsonhalRead> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, WarrantyJsonhalRead> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, WarrantyJsonhalRead>{};
     }
 
-    return json.entries.fold(<String, WarrantyJsonhalRead>{},
-        (Map<String, WarrantyJsonhalRead> previousValue, element) {
-      final WarrantyJsonhalRead? object =
-          WarrantyJsonhalRead.fromJson(element.value);
+    return json.entries.fold(<String, WarrantyJsonhalRead>{}, (Map<String, WarrantyJsonhalRead> previousValue, element) {
+      final WarrantyJsonhalRead? object = WarrantyJsonhalRead.fromJson(element.value);
       if (object is WarrantyJsonhalRead) {
         previousValue[element.key] = object;
       }
@@ -89,29 +92,35 @@ class WarrantyJsonhalRead {
   }
 
   // maps a json object with a list of WarrantyJsonhalRead-objects as value to a dart map
-  static Map<String, List<WarrantyJsonhalRead>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<WarrantyJsonhalRead>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<WarrantyJsonhalRead>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<WarrantyJsonhalRead>>(
-          key, WarrantyJsonhalRead.listFromJson(value));
+      return MapEntry<String, List<WarrantyJsonhalRead>>(key, WarrantyJsonhalRead.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'WarrantyJsonhalRead[duration=$duration, endDate=$endDate, startDate=$startDate]';
+  String toString() => 'WarrantyJsonhalRead[duration=$duration, endDate=$endDate, startDate=$startDate]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'duration')) r'duration': duration,
-      if (keys == null || keys.contains(r'endDate'))
-        r'endDate': endDate?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'startDate'))
-        r'startDate': startDate?.toUtc().toIso8601String(),
+    if (keys == null || keys.
+    contains(r'duration')
+    )
+        r'duration':
+          duration,
+    if (keys == null || keys.
+    contains(r'endDate')
+    )
+      r'endDate': endDate?.toUtc().toIso8601String(),
+    if (keys == null || keys.
+    contains(r'startDate')
+    )
+      r'startDate': startDate?.toUtc().toIso8601String(),
     };
   }
 }
+

@@ -12,9 +12,14 @@ void main() {
   group('test PriceJsonhalRead', () {
     // The currency code, in ISO 4217 format.
     // String currencyCode (default value: 'EUR')
-    test('to test the property `currencyCode`', () async {});
+    test('to test the property `currencyCode`', () async {
+    });
 
     // num value
-    test('to test the property `value`', () async {});
+    test('to test the property `value`', () async {
+    });
+
+
   });
+
 }

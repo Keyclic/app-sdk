@@ -7,8 +7,10 @@ part of keyclic_sdk_api;
 class MarkerDataPoint {
   /// Returns a new [MarkerDataPoint] instance.
   MarkerDataPoint({
-    this.x,
-    this.y,
+    this.x
+,
+    this.y
+,
   });
 
   /// Returns a new [MarkerDataPoint] instance and imports its values from
@@ -18,15 +20,19 @@ class MarkerDataPoint {
       return null;
     }
 
-    return MarkerDataPoint(
-      x: json[r'x'] == null ? null : json[r'x'].toDouble(),
-      y: json[r'y'] == null ? null : json[r'y'].toDouble(),
+  return MarkerDataPoint(
+        x: json[r'x'] == null ?
+          null :
+          json[r'x'].toDouble(),
+        y: json[r'y'] == null ?
+          null :
+          json[r'y'].toDouble(),
     );
   }
 
-  num? x;
+      num? x;
 
-  num? y;
+      num? y;
 
   @override
   bool operator ==(Object other) {
@@ -35,20 +41,25 @@ class MarkerDataPoint {
       return true;
     }
 
-    return other is MarkerDataPoint && other.x == x && other.y == y;
+    return other is MarkerDataPoint 
+          && other.x == x
+  
+          && other.y == y
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (x == null ? 0 : x.hashCode) + (y == null ? 0 : y.hashCode);
+    (x == null ? 0 : x.hashCode) +
+    (y == null ? 0 : y.hashCode);
 
   static List<MarkerDataPoint> listFromJson(Iterable? json) {
     if (json == null) {
       return <MarkerDataPoint>[];
     }
 
-    return json.fold(<MarkerDataPoint>[],
-        (List<MarkerDataPoint> previousValue, element) {
+    return json.fold(<MarkerDataPoint>[], (List<MarkerDataPoint> previousValue, element) {
       final MarkerDataPoint? object = MarkerDataPoint.fromJson(element);
       if (object is MarkerDataPoint) {
         previousValue.add(object);
@@ -63,8 +74,7 @@ class MarkerDataPoint {
       return <String, MarkerDataPoint>{};
     }
 
-    return json.entries.fold(<String, MarkerDataPoint>{},
-        (Map<String, MarkerDataPoint> previousValue, element) {
+    return json.entries.fold(<String, MarkerDataPoint>{}, (Map<String, MarkerDataPoint> previousValue, element) {
       final MarkerDataPoint? object = MarkerDataPoint.fromJson(element.value);
       if (object is MarkerDataPoint) {
         previousValue[element.key] = object;
@@ -75,15 +85,13 @@ class MarkerDataPoint {
   }
 
   // maps a json object with a list of MarkerDataPoint-objects as value to a dart map
-  static Map<String, List<MarkerDataPoint>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<MarkerDataPoint>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<MarkerDataPoint>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<MarkerDataPoint>>(
-          key, MarkerDataPoint.listFromJson(value));
+      return MapEntry<String, List<MarkerDataPoint>>(key, MarkerDataPoint.listFromJson(value));
     });
   }
 
@@ -92,8 +100,17 @@ class MarkerDataPoint {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'x')) r'x': x,
-      if (keys == null || keys.contains(r'y')) r'y': y,
+    if (keys == null || keys.
+    contains(r'x')
+    )
+        r'x':
+          x,
+    if (keys == null || keys.
+    contains(r'y')
+    )
+        r'y':
+          y,
     };
   }
 }
+

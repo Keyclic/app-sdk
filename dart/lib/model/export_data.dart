@@ -7,11 +7,20 @@ part of keyclic_sdk_api;
 class ExportData {
   /// Returns a new [ExportData] instance.
   ExportData({
-    this.contentType,
-    required this.dataSource,
-    this.groupBy,
-    this.name,
-    required this.organization,
+    this.contentType
+,
+      required 
+    this.dataSource
+      
+    ,
+    this.groupBy
+,
+    this.name
+,
+      required 
+    this.organization
+      
+    ,
   });
 
   /// Returns a new [ExportData] instance and imports its values from
@@ -21,24 +30,24 @@ class ExportData {
       return null;
     }
 
-    return ExportData(
-      contentType: ExportDataContentTypeEnum.fromJson(json[r'contentType']),
-      dataSource: ExportDataDataSourceEnum.fromJson(json[r'dataSource'])!,
-      groupBy: ExportDataGroupByEnum.fromJson(json[r'groupBy']),
-      name: json[r'name'],
-      organization: json[r'organization'],
+  return ExportData(
+              contentType: ExportDataContentTypeEnum.fromJson(json[r'contentType']),
+              dataSource: ExportDataDataSourceEnum.fromJson(json[r'dataSource'])!,
+              groupBy: ExportDataGroupByEnum.fromJson(json[r'groupBy']),
+                  name: json[r'name'],
+                  organization: json[r'organization'],
     );
   }
 
-  ExportDataContentTypeEnum? contentType;
+      ExportDataContentTypeEnum? contentType;
 
-  ExportDataDataSourceEnum dataSource;
+      ExportDataDataSourceEnum dataSource;
 
-  ExportDataGroupByEnum? groupBy;
+      ExportDataGroupByEnum? groupBy;
 
-  String? name;
+      String? name;
 
-  String organization;
+      String organization;
 
   @override
   bool operator ==(Object other) {
@@ -47,21 +56,27 @@ class ExportData {
       return true;
     }
 
-    return other is ExportData &&
-        other.contentType == contentType &&
-        other.dataSource == dataSource &&
-        other.groupBy == groupBy &&
-        other.name == name &&
-        other.organization == organization;
+    return other is ExportData 
+          && other.contentType == contentType
+  
+          && other.dataSource == dataSource
+  
+          && other.groupBy == groupBy
+  
+          && other.name == name
+  
+          && other.organization == organization
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (contentType == null ? 0 : contentType.hashCode) +
-      dataSource.hashCode +
-      (groupBy == null ? 0 : groupBy.hashCode) +
-      (name == null ? 0 : name.hashCode) +
-      organization.hashCode;
+    (contentType == null ? 0 : contentType.hashCode) +
+     dataSource.hashCode +
+    (groupBy == null ? 0 : groupBy.hashCode) +
+    (name == null ? 0 : name.hashCode) +
+     organization.hashCode;
 
   static List<ExportData> listFromJson(Iterable? json) {
     if (json == null) {
@@ -83,8 +98,7 @@ class ExportData {
       return <String, ExportData>{};
     }
 
-    return json.entries.fold(<String, ExportData>{},
-        (Map<String, ExportData> previousValue, element) {
+    return json.entries.fold(<String, ExportData>{}, (Map<String, ExportData> previousValue, element) {
       final ExportData? object = ExportData.fromJson(element.value);
       if (object is ExportData) {
         previousValue[element.key] = object;
@@ -95,33 +109,44 @@ class ExportData {
   }
 
   // maps a json object with a list of ExportData-objects as value to a dart map
-  static Map<String, List<ExportData>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<ExportData>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ExportData>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ExportData>>(
-          key, ExportData.listFromJson(value));
+      return MapEntry<String, List<ExportData>>(key, ExportData.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'ExportData[contentType=$contentType, dataSource=$dataSource, groupBy=$groupBy, name=$name, organization=$organization]';
+  String toString() => 'ExportData[contentType=$contentType, dataSource=$dataSource, groupBy=$groupBy, name=$name, organization=$organization]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'contentType'))
-        r'contentType': contentType,
-      r'dataSource': dataSource,
-      if (keys == null || keys.contains(r'groupBy')) r'groupBy': groupBy,
-      if (keys == null || keys.contains(r'name')) r'name': name,
-      r'organization': organization,
+    if (keys == null || keys.
+    contains(r'contentType')
+    )
+        r'contentType':
+          contentType,
+        r'dataSource':
+          dataSource,
+    if (keys == null || keys.
+    contains(r'groupBy')
+    )
+        r'groupBy':
+          groupBy,
+    if (keys == null || keys.
+    contains(r'name')
+    )
+        r'name':
+          name,
+        r'organization':
+          organization,
     };
   }
 }
+
 
 class ExportDataContentTypeEnum {
   /// Instantiate a new enum with the provided [value].
@@ -136,9 +161,7 @@ class ExportDataContentTypeEnum {
   String toJson() => value;
 
   static const pdf = ExportDataContentTypeEnum._(r'application/pdf');
-  static const vndPeriodOpenxmlformatsOfficedocumentPeriodSpreadsheetmlPeriodSheet =
-      ExportDataContentTypeEnum._(
-          r'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+  static const vndPeriodOpenxmlformatsOfficedocumentPeriodSpreadsheetmlPeriodSheet = ExportDataContentTypeEnum._(r'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 
   /// List of all possible values in this [enum][ExportDataContentTypeEnum].
   static const values = <ExportDataContentTypeEnum>[
@@ -147,15 +170,12 @@ class ExportDataContentTypeEnum {
   ];
 
   static ExportDataContentTypeEnum? fromJson(dynamic value) =>
-      ExportDataContentTypeEnumTypeTransformer().decode(value);
+    ExportDataContentTypeEnumTypeTransformer().decode(value);
 
   static List<ExportDataContentTypeEnum> listFromJson(List<dynamic> json) {
-    return json
-        .map((value) {
-          return ExportDataContentTypeEnum.fromJson(value);
-        })
-        .whereType<ExportDataContentTypeEnum>()
-        .toList();
+    return json.map((value) {
+      return ExportDataContentTypeEnum.fromJson(value);
+    }).whereType<ExportDataContentTypeEnum>().toList();
   }
 }
 
@@ -164,8 +184,7 @@ class ExportDataContentTypeEnum {
 class ExportDataContentTypeEnumTypeTransformer {
   const ExportDataContentTypeEnumTypeTransformer._();
 
-  factory ExportDataContentTypeEnumTypeTransformer() =>
-      _instance ??= ExportDataContentTypeEnumTypeTransformer._();
+  factory ExportDataContentTypeEnumTypeTransformer() => _instance ??= ExportDataContentTypeEnumTypeTransformer._();
 
   String encode(ExportDataContentTypeEnum data) => data.value;
 
@@ -179,11 +198,8 @@ class ExportDataContentTypeEnumTypeTransformer {
   /// and users are still using an old app with the old code.
   ExportDataContentTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
-      case r'application/pdf':
-        return ExportDataContentTypeEnum.pdf;
-      case r'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
-        return ExportDataContentTypeEnum
-            .vndPeriodOpenxmlformatsOfficedocumentPeriodSpreadsheetmlPeriodSheet;
+      case r'application/pdf': return ExportDataContentTypeEnum.pdf;
+      case r'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': return ExportDataContentTypeEnum.vndPeriodOpenxmlformatsOfficedocumentPeriodSpreadsheetmlPeriodSheet;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
@@ -195,6 +211,7 @@ class ExportDataContentTypeEnumTypeTransformer {
   /// Singleton [ExportDataContentTypeEnumTypeTransformer] instance.
   static ExportDataContentTypeEnumTypeTransformer? _instance;
 }
+
 
 class ExportDataDataSourceEnum {
   /// Instantiate a new enum with the provided [value].
@@ -218,15 +235,12 @@ class ExportDataDataSourceEnum {
   ];
 
   static ExportDataDataSourceEnum? fromJson(dynamic value) =>
-      ExportDataDataSourceEnumTypeTransformer().decode(value);
+    ExportDataDataSourceEnumTypeTransformer().decode(value);
 
   static List<ExportDataDataSourceEnum> listFromJson(List<dynamic> json) {
-    return json
-        .map((value) {
-          return ExportDataDataSourceEnum.fromJson(value);
-        })
-        .whereType<ExportDataDataSourceEnum>()
-        .toList();
+    return json.map((value) {
+      return ExportDataDataSourceEnum.fromJson(value);
+    }).whereType<ExportDataDataSourceEnum>().toList();
   }
 }
 
@@ -235,8 +249,7 @@ class ExportDataDataSourceEnum {
 class ExportDataDataSourceEnumTypeTransformer {
   const ExportDataDataSourceEnumTypeTransformer._();
 
-  factory ExportDataDataSourceEnumTypeTransformer() =>
-      _instance ??= ExportDataDataSourceEnumTypeTransformer._();
+  factory ExportDataDataSourceEnumTypeTransformer() => _instance ??= ExportDataDataSourceEnumTypeTransformer._();
 
   String encode(ExportDataDataSourceEnum data) => data.value;
 
@@ -250,10 +263,8 @@ class ExportDataDataSourceEnumTypeTransformer {
   /// and users are still using an old app with the old code.
   ExportDataDataSourceEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
-      case r'/places':
-        return ExportDataDataSourceEnum.places;
-      case r'/reports':
-        return ExportDataDataSourceEnum.reports;
+      case r'/places': return ExportDataDataSourceEnum.places;
+      case r'/reports': return ExportDataDataSourceEnum.reports;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
@@ -265,6 +276,7 @@ class ExportDataDataSourceEnumTypeTransformer {
   /// Singleton [ExportDataDataSourceEnumTypeTransformer] instance.
   static ExportDataDataSourceEnumTypeTransformer? _instance;
 }
+
 
 class ExportDataGroupByEnum {
   /// Instantiate a new enum with the provided [value].
@@ -288,15 +300,12 @@ class ExportDataGroupByEnum {
   ];
 
   static ExportDataGroupByEnum? fromJson(dynamic value) =>
-      ExportDataGroupByEnumTypeTransformer().decode(value);
+    ExportDataGroupByEnumTypeTransformer().decode(value);
 
   static List<ExportDataGroupByEnum> listFromJson(List<dynamic> json) {
-    return json
-        .map((value) {
-          return ExportDataGroupByEnum.fromJson(value);
-        })
-        .whereType<ExportDataGroupByEnum>()
-        .toList();
+    return json.map((value) {
+      return ExportDataGroupByEnum.fromJson(value);
+    }).whereType<ExportDataGroupByEnum>().toList();
   }
 }
 
@@ -305,8 +314,7 @@ class ExportDataGroupByEnum {
 class ExportDataGroupByEnumTypeTransformer {
   const ExportDataGroupByEnumTypeTransformer._();
 
-  factory ExportDataGroupByEnumTypeTransformer() =>
-      _instance ??= ExportDataGroupByEnumTypeTransformer._();
+  factory ExportDataGroupByEnumTypeTransformer() => _instance ??= ExportDataGroupByEnumTypeTransformer._();
 
   String encode(ExportDataGroupByEnum data) => data.value;
 
@@ -320,10 +328,8 @@ class ExportDataGroupByEnumTypeTransformer {
   /// and users are still using an old app with the old code.
   ExportDataGroupByEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
-      case r'category':
-        return ExportDataGroupByEnum.category;
-      case r'place':
-        return ExportDataGroupByEnum.place;
+      case r'category': return ExportDataGroupByEnum.category;
+      case r'place': return ExportDataGroupByEnum.place;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
@@ -335,3 +341,4 @@ class ExportDataGroupByEnumTypeTransformer {
   /// Singleton [ExportDataGroupByEnumTypeTransformer] instance.
   static ExportDataGroupByEnumTypeTransformer? _instance;
 }
+

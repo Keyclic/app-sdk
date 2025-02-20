@@ -11,12 +11,18 @@ void main() {
 
   group('test SlaPolicyJsonhalReadLinks', () {
     // GetPlaceCollection200ResponseLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
 
     // List<GetPlaceCollection200ResponseLinksSelf> fromStates (default value: const [])
-    test('to test the property `fromStates`', () async {});
+    test('to test the property `fromStates`', () async {
+    });
 
     // List<GetPlaceCollection200ResponseLinksSelf> toStates (default value: const [])
-    test('to test the property `toStates`', () async {});
+    test('to test the property `toStates`', () async {
+    });
+
+
   });
+
 }

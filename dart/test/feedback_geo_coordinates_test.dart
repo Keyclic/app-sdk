@@ -11,9 +11,14 @@ void main() {
 
   group('test FeedbackGeoCoordinates', () {
     // double elevation
-    test('to test the property `elevation`', () async {});
+    test('to test the property `elevation`', () async {
+    });
 
     // Point point
-    test('to test the property `point`', () async {});
+    test('to test the property `point`', () async {
+    });
+
+
   });
+
 }

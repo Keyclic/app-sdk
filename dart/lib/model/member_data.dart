@@ -7,10 +7,16 @@ part of keyclic_sdk_api;
 class MemberData {
   /// Returns a new [MemberData] instance.
   MemberData({
-    this.contactPoint,
-    required this.organization,
-    this.person,
-    this.type,
+    this.contactPoint
+,
+      required 
+    this.organization
+      
+    ,
+    this.person
+,
+    this.type
+,
   });
 
   /// Returns a new [MemberData] instance and imports its values from
@@ -20,22 +26,21 @@ class MemberData {
       return null;
     }
 
-    return MemberData(
-      contactPoint:
-          InternalServiceDataContactPoint.fromJson(json[r'contactPoint']),
-      organization: json[r'organization'],
-      person: json[r'person'],
-      type: MemberDataTypeEnum.fromJson(json[r'type']),
+  return MemberData(
+        contactPoint: InternalServiceDataContactPoint.fromJson(json[r'contactPoint']),
+                  organization: json[r'organization'],
+                  person: json[r'person'],
+              type: MemberDataTypeEnum.fromJson(json[r'type']),
     );
   }
 
-  InternalServiceDataContactPoint? contactPoint;
+      InternalServiceDataContactPoint? contactPoint;
 
-  String organization;
+      String organization;
 
-  String? person;
+      String? person;
 
-  MemberDataTypeEnum? type;
+      MemberDataTypeEnum? type;
 
   @override
   bool operator ==(Object other) {
@@ -44,19 +49,24 @@ class MemberData {
       return true;
     }
 
-    return other is MemberData &&
-        other.contactPoint == contactPoint &&
-        other.organization == organization &&
-        other.person == person &&
-        other.type == type;
+    return other is MemberData 
+          && other.contactPoint == contactPoint
+  
+          && other.organization == organization
+  
+          && other.person == person
+  
+          && other.type == type
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (contactPoint == null ? 0 : contactPoint.hashCode) +
-      organization.hashCode +
-      (person == null ? 0 : person.hashCode) +
-      (type == null ? 0 : type.hashCode);
+    (contactPoint == null ? 0 : contactPoint.hashCode) +
+     organization.hashCode +
+    (person == null ? 0 : person.hashCode) +
+    (type == null ? 0 : type.hashCode);
 
   static List<MemberData> listFromJson(Iterable? json) {
     if (json == null) {
@@ -78,8 +88,7 @@ class MemberData {
       return <String, MemberData>{};
     }
 
-    return json.entries.fold(<String, MemberData>{},
-        (Map<String, MemberData> previousValue, element) {
+    return json.entries.fold(<String, MemberData>{}, (Map<String, MemberData> previousValue, element) {
       final MemberData? object = MemberData.fromJson(element.value);
       if (object is MemberData) {
         previousValue[element.key] = object;
@@ -90,40 +99,48 @@ class MemberData {
   }
 
   // maps a json object with a list of MemberData-objects as value to a dart map
-  static Map<String, List<MemberData>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<MemberData>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<MemberData>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<MemberData>>(
-          key, MemberData.listFromJson(value));
+      return MapEntry<String, List<MemberData>>(key, MemberData.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'MemberData[contactPoint=$contactPoint, organization=$organization, person=$person, type=$type]';
+  String toString() => 'MemberData[contactPoint=$contactPoint, organization=$organization, person=$person, type=$type]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^contactPoint\.').hasMatch(key)))
-        r'contactPoint': contactPoint?.toJson(keys?.fold<List<String>>(
-            <String>[], (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^contactPoint\.'))) {
-            previousValue.add(element.split(RegExp(r'^contactPoint\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^contactPoint\.').hasMatch(key))
+    )
+        r'contactPoint':
+            contactPoint?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^contactPoint\.'))) {
+                previousValue.add(element.split(RegExp(r'^contactPoint\.')).last);
+              }
 
-          return previousValue;
-        })),
-      r'organization': organization,
-      if (keys == null || keys.contains(r'person')) r'person': person,
-      if (keys == null || keys.contains(r'type')) r'type': type,
+              return previousValue;
+            })),
+        r'organization':
+          organization,
+    if (keys == null || keys.
+    contains(r'person')
+    )
+        r'person':
+          person,
+    if (keys == null || keys.
+    contains(r'type')
+    )
+        r'type':
+          type,
     };
   }
 }
+
 
 class MemberDataTypeEnum {
   /// Instantiate a new enum with the provided [value].
@@ -147,15 +164,12 @@ class MemberDataTypeEnum {
   ];
 
   static MemberDataTypeEnum? fromJson(dynamic value) =>
-      MemberDataTypeEnumTypeTransformer().decode(value);
+    MemberDataTypeEnumTypeTransformer().decode(value);
 
   static List<MemberDataTypeEnum> listFromJson(List<dynamic> json) {
-    return json
-        .map((value) {
-          return MemberDataTypeEnum.fromJson(value);
-        })
-        .whereType<MemberDataTypeEnum>()
-        .toList();
+    return json.map((value) {
+      return MemberDataTypeEnum.fromJson(value);
+    }).whereType<MemberDataTypeEnum>().toList();
   }
 }
 
@@ -164,8 +178,7 @@ class MemberDataTypeEnum {
 class MemberDataTypeEnumTypeTransformer {
   const MemberDataTypeEnumTypeTransformer._();
 
-  factory MemberDataTypeEnumTypeTransformer() =>
-      _instance ??= MemberDataTypeEnumTypeTransformer._();
+  factory MemberDataTypeEnumTypeTransformer() => _instance ??= MemberDataTypeEnumTypeTransformer._();
 
   String encode(MemberDataTypeEnum data) => data.value;
 
@@ -179,10 +192,8 @@ class MemberDataTypeEnumTypeTransformer {
   /// and users are still using an old app with the old code.
   MemberDataTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
-      case r'Collaborator':
-        return MemberDataTypeEnum.collaborator;
-      case r'Contact':
-        return MemberDataTypeEnum.contact;
+      case r'Collaborator': return MemberDataTypeEnum.collaborator;
+      case r'Contact': return MemberDataTypeEnum.contact;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
@@ -194,3 +205,4 @@ class MemberDataTypeEnumTypeTransformer {
   /// Singleton [MemberDataTypeEnumTypeTransformer] instance.
   static MemberDataTypeEnumTypeTransformer? _instance;
 }
+

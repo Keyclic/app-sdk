@@ -11,6 +11,10 @@ void main() {
 
   group('test PersonPatchPreferences', () {
     // PersonPatchPreferencesNotification notification
-    test('to test the property `notification`', () async {});
+    test('to test the property `notification`', () async {
+    });
+
+
   });
+
 }

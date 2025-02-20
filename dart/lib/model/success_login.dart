@@ -7,9 +7,12 @@ part of keyclic_sdk_api;
 class SuccessLogin {
   /// Returns a new [SuccessLogin] instance.
   SuccessLogin({
-    this.accessToken,
-    this.idToken,
-    this.tokenType,
+    this.accessToken
+,
+    this.idToken
+,
+    this.tokenType
+,
   });
 
   /// Returns a new [SuccessLogin] instance and imports its values from
@@ -19,18 +22,18 @@ class SuccessLogin {
       return null;
     }
 
-    return SuccessLogin(
-      accessToken: json[r'accessToken'],
-      idToken: json[r'idToken'],
-      tokenType: json[r'tokenType'],
+  return SuccessLogin(
+                  accessToken: json[r'accessToken'],
+                  idToken: json[r'idToken'],
+                  tokenType: json[r'tokenType'],
     );
   }
 
-  String? accessToken;
+      String? accessToken;
 
-  String? idToken;
+      String? idToken;
 
-  String? tokenType;
+      String? tokenType;
 
   @override
   bool operator ==(Object other) {
@@ -39,25 +42,28 @@ class SuccessLogin {
       return true;
     }
 
-    return other is SuccessLogin &&
-        other.accessToken == accessToken &&
-        other.idToken == idToken &&
-        other.tokenType == tokenType;
+    return other is SuccessLogin 
+          && other.accessToken == accessToken
+  
+          && other.idToken == idToken
+  
+          && other.tokenType == tokenType
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (accessToken == null ? 0 : accessToken.hashCode) +
-      (idToken == null ? 0 : idToken.hashCode) +
-      (tokenType == null ? 0 : tokenType.hashCode);
+    (accessToken == null ? 0 : accessToken.hashCode) +
+    (idToken == null ? 0 : idToken.hashCode) +
+    (tokenType == null ? 0 : tokenType.hashCode);
 
   static List<SuccessLogin> listFromJson(Iterable? json) {
     if (json == null) {
       return <SuccessLogin>[];
     }
 
-    return json.fold(<SuccessLogin>[],
-        (List<SuccessLogin> previousValue, element) {
+    return json.fold(<SuccessLogin>[], (List<SuccessLogin> previousValue, element) {
       final SuccessLogin? object = SuccessLogin.fromJson(element);
       if (object is SuccessLogin) {
         previousValue.add(object);
@@ -72,8 +78,7 @@ class SuccessLogin {
       return <String, SuccessLogin>{};
     }
 
-    return json.entries.fold(<String, SuccessLogin>{},
-        (Map<String, SuccessLogin> previousValue, element) {
+    return json.entries.fold(<String, SuccessLogin>{}, (Map<String, SuccessLogin> previousValue, element) {
       final SuccessLogin? object = SuccessLogin.fromJson(element.value);
       if (object is SuccessLogin) {
         previousValue[element.key] = object;
@@ -84,28 +89,37 @@ class SuccessLogin {
   }
 
   // maps a json object with a list of SuccessLogin-objects as value to a dart map
-  static Map<String, List<SuccessLogin>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<SuccessLogin>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<SuccessLogin>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<SuccessLogin>>(
-          key, SuccessLogin.listFromJson(value));
+      return MapEntry<String, List<SuccessLogin>>(key, SuccessLogin.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'SuccessLogin[accessToken=$accessToken, idToken=$idToken, tokenType=$tokenType]';
+  String toString() => 'SuccessLogin[accessToken=$accessToken, idToken=$idToken, tokenType=$tokenType]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'accessToken'))
-        r'accessToken': accessToken,
-      if (keys == null || keys.contains(r'idToken')) r'idToken': idToken,
-      if (keys == null || keys.contains(r'tokenType')) r'tokenType': tokenType,
+    if (keys == null || keys.
+    contains(r'accessToken')
+    )
+        r'accessToken':
+          accessToken,
+    if (keys == null || keys.
+    contains(r'idToken')
+    )
+        r'idToken':
+          idToken,
+    if (keys == null || keys.
+    contains(r'tokenType')
+    )
+        r'tokenType':
+          tokenType,
     };
   }
 }
+

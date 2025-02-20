@@ -11,12 +11,18 @@ void main() {
 
   group('test Point', () {
     // double latitude
-    test('to test the property `latitude`', () async {});
+    test('to test the property `latitude`', () async {
+    });
 
     // double longitude
-    test('to test the property `longitude`', () async {});
+    test('to test the property `longitude`', () async {
+    });
 
     // int srid
-    test('to test the property `srid`', () async {});
+    test('to test the property `srid`', () async {
+    });
+
+
   });
+
 }

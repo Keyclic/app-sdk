@@ -11,9 +11,14 @@ void main() {
 
   group('test SignerData', () {
     // String procedure
-    test('to test the property `procedure`', () async {});
+    test('to test the property `procedure`', () async {
+    });
 
     // String member
-    test('to test the property `member`', () async {});
+    test('to test the property `member`', () async {
+    });
+
+
   });
+
 }

@@ -12,9 +12,14 @@ void main() {
   group('test ExternalServiceLinksSelf', () {
     // The URI of the self associated to the given externalservice.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // ExternalServiceLinksSelfIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

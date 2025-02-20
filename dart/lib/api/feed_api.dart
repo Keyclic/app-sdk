@@ -4,21 +4,22 @@
 
 part of keyclic_sdk_api;
 
+
 class FeedApi {
   const FeedApi(this._apiClient);
 
   final ApiClient _apiClient;
 
   /// Retrieve all Activity resources.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
-  /// * [feed]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [xKeyclicApp] 
+  /// * [feed] 
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [page] - Page of the overview.
   /// * [limit] - Page of the overview.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -32,7 +33,7 @@ class FeedApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Activity resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<ActivityAggregatedPagination>> cgetActivitiesByFeed({
+  Future<Response<ActivityAggregatedPagination>> cgetActivitiesByFeed({ 
     required String xKeyclicApp,
     required String feed,
     String? acceptLanguage,
@@ -41,6 +42,7 @@ class FeedApi {
     String? xKeyclicAppVersion,
     int? page,
     int? limit,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -48,8 +50,7 @@ class FeedApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path =
-        r'/feeds/{feed}'.replaceAll('{' r'feed' '}', feed.toString());
+    final String path = r'/feeds/{feed}'.replaceAll('{' r'feed' '}', feed.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -57,16 +58,15 @@ class FeedApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -74,13 +74,21 @@ class FeedApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
 
     final queryParameters = <String, dynamic>{
-      if (page != null) r'page': encodeQueryParameter(page),
-      if (limit != null) r'limit': encodeQueryParameter(limit),
+      if (page != null) r'page':
+        encodeQueryParameter(
+        page
+        ),
+      if (limit != null) r'limit':
+        encodeQueryParameter(
+        limit
+        ),
     };
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -94,9 +102,7 @@ class FeedApi {
     ActivityAggregatedPagination responseData;
 
     try {
-      responseData =
-          await _apiClient.deserializeAsync<ActivityAggregatedPagination>(
-              response.data!, 'ActivityAggregatedPagination');
+            responseData = await _apiClient.deserializeAsync<ActivityAggregatedPagination>(response.data!, 'ActivityAggregatedPagination');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -118,18 +124,17 @@ class FeedApi {
       extra: response.extra,
     );
   }
-
   /// Create one Read resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
-  /// * [feed]
-  /// * [group]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [xKeyclicApp] 
+  /// * [feed] 
+  /// * [group] 
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -141,7 +146,7 @@ class FeedApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Read resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<void>> postReadByFeedAndGroup({
+  Future<Response<void>> postReadByFeedAndGroup({ 
     required String xKeyclicApp,
     required String feed,
     required String group,
@@ -149,6 +154,7 @@ class FeedApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -156,9 +162,7 @@ class FeedApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/feeds/{feed}/read/{group}'
-        .replaceAll('{' r'feed' '}', feed.toString())
-        .replaceAll('{' r'group' '}', group.toString());
+    final String path = r'/feeds/{feed}/read/{group}'.replaceAll('{' r'feed' '}', feed.toString()).replaceAll('{' r'group' '}', group.toString());
     final options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -166,16 +170,15 @@ class FeedApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -183,8 +186,11 @@ class FeedApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     return _apiClient.dio.request<Object>(
       path,
@@ -193,5 +199,6 @@ class FeedApi {
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
     );
+
   }
 }

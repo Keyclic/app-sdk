@@ -12,9 +12,14 @@ void main() {
   group('test MemberLinksPerson', () {
     // The URI of the person associated to the given member.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // MemberLinksPersonIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

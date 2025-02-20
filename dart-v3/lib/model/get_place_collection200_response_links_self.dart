@@ -7,7 +7,8 @@ part of keyclic_sdk_api_platform;
 class GetPlaceCollection200ResponseLinksSelf {
   /// Returns a new [GetPlaceCollection200ResponseLinksSelf] instance.
   GetPlaceCollection200ResponseLinksSelf({
-    this.href,
+    this.href
+,
   });
 
   /// Returns a new [GetPlaceCollection200ResponseLinksSelf] instance and imports its values from
@@ -17,12 +18,12 @@ class GetPlaceCollection200ResponseLinksSelf {
       return null;
     }
 
-    return GetPlaceCollection200ResponseLinksSelf(
-      href: json[r'href'],
+  return GetPlaceCollection200ResponseLinksSelf(
+                  href: json[r'href'],
     );
   }
 
-  String? href;
+      String? href;
 
   @override
   bool operator ==(Object other) {
@@ -31,23 +32,23 @@ class GetPlaceCollection200ResponseLinksSelf {
       return true;
     }
 
-    return other is GetPlaceCollection200ResponseLinksSelf &&
-        other.href == href;
+    return other is GetPlaceCollection200ResponseLinksSelf 
+          && other.href == href
+  ;
   }
+  
 
   @override
-  int get hashCode => (href == null ? 0 : href.hashCode);
+  int get hashCode =>
+    (href == null ? 0 : href.hashCode);
 
-  static List<GetPlaceCollection200ResponseLinksSelf> listFromJson(
-      Iterable? json) {
+  static List<GetPlaceCollection200ResponseLinksSelf> listFromJson(Iterable? json) {
     if (json == null) {
       return <GetPlaceCollection200ResponseLinksSelf>[];
     }
 
-    return json.fold(<GetPlaceCollection200ResponseLinksSelf>[],
-        (List<GetPlaceCollection200ResponseLinksSelf> previousValue, element) {
-      final GetPlaceCollection200ResponseLinksSelf? object =
-          GetPlaceCollection200ResponseLinksSelf.fromJson(element);
+    return json.fold(<GetPlaceCollection200ResponseLinksSelf>[], (List<GetPlaceCollection200ResponseLinksSelf> previousValue, element) {
+      final GetPlaceCollection200ResponseLinksSelf? object = GetPlaceCollection200ResponseLinksSelf.fromJson(element);
       if (object is GetPlaceCollection200ResponseLinksSelf) {
         previousValue.add(object);
       }
@@ -56,17 +57,13 @@ class GetPlaceCollection200ResponseLinksSelf {
     });
   }
 
-  static Map<String, GetPlaceCollection200ResponseLinksSelf> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, GetPlaceCollection200ResponseLinksSelf> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, GetPlaceCollection200ResponseLinksSelf>{};
     }
 
-    return json.entries.fold(<String, GetPlaceCollection200ResponseLinksSelf>{},
-        (Map<String, GetPlaceCollection200ResponseLinksSelf> previousValue,
-            element) {
-      final GetPlaceCollection200ResponseLinksSelf? object =
-          GetPlaceCollection200ResponseLinksSelf.fromJson(element.value);
+    return json.entries.fold(<String, GetPlaceCollection200ResponseLinksSelf>{}, (Map<String, GetPlaceCollection200ResponseLinksSelf> previousValue, element) {
+      final GetPlaceCollection200ResponseLinksSelf? object = GetPlaceCollection200ResponseLinksSelf.fromJson(element.value);
       if (object is GetPlaceCollection200ResponseLinksSelf) {
         previousValue[element.key] = object;
       }
@@ -76,15 +73,13 @@ class GetPlaceCollection200ResponseLinksSelf {
   }
 
   // maps a json object with a list of GetPlaceCollection200ResponseLinksSelf-objects as value to a dart map
-  static Map<String, List<GetPlaceCollection200ResponseLinksSelf>>
-      mapListFromJson(Map<String, dynamic>? json) {
+  static Map<String, List<GetPlaceCollection200ResponseLinksSelf>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<GetPlaceCollection200ResponseLinksSelf>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<GetPlaceCollection200ResponseLinksSelf>>(
-          key, GetPlaceCollection200ResponseLinksSelf.listFromJson(value));
+      return MapEntry<String, List<GetPlaceCollection200ResponseLinksSelf>>(key, GetPlaceCollection200ResponseLinksSelf.listFromJson(value));
     });
   }
 
@@ -93,7 +88,12 @@ class GetPlaceCollection200ResponseLinksSelf {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'href')) r'href': href,
+    if (keys == null || keys.
+    contains(r'href')
+    )
+        r'href':
+          href,
     };
   }
 }
+

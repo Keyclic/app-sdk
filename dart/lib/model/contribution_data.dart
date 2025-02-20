@@ -7,7 +7,10 @@ part of keyclic_sdk_api;
 class ContributionData {
   /// Returns a new [ContributionData] instance.
   ContributionData({
-    required this.feedback,
+      required 
+    this.feedback
+      
+    ,
   });
 
   /// Returns a new [ContributionData] instance and imports its values from
@@ -17,12 +20,12 @@ class ContributionData {
       return null;
     }
 
-    return ContributionData(
-      feedback: json[r'feedback'],
+  return ContributionData(
+                  feedback: json[r'feedback'],
     );
   }
 
-  String feedback;
+      String feedback;
 
   @override
   bool operator ==(Object other) {
@@ -31,19 +34,22 @@ class ContributionData {
       return true;
     }
 
-    return other is ContributionData && other.feedback == feedback;
+    return other is ContributionData 
+          && other.feedback == feedback
+  ;
   }
+  
 
   @override
-  int get hashCode => feedback.hashCode;
+  int get hashCode =>
+     feedback.hashCode;
 
   static List<ContributionData> listFromJson(Iterable? json) {
     if (json == null) {
       return <ContributionData>[];
     }
 
-    return json.fold(<ContributionData>[],
-        (List<ContributionData> previousValue, element) {
+    return json.fold(<ContributionData>[], (List<ContributionData> previousValue, element) {
       final ContributionData? object = ContributionData.fromJson(element);
       if (object is ContributionData) {
         previousValue.add(object);
@@ -58,8 +64,7 @@ class ContributionData {
       return <String, ContributionData>{};
     }
 
-    return json.entries.fold(<String, ContributionData>{},
-        (Map<String, ContributionData> previousValue, element) {
+    return json.entries.fold(<String, ContributionData>{}, (Map<String, ContributionData> previousValue, element) {
       final ContributionData? object = ContributionData.fromJson(element.value);
       if (object is ContributionData) {
         previousValue[element.key] = object;
@@ -70,15 +75,13 @@ class ContributionData {
   }
 
   // maps a json object with a list of ContributionData-objects as value to a dart map
-  static Map<String, List<ContributionData>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<ContributionData>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ContributionData>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ContributionData>>(
-          key, ContributionData.listFromJson(value));
+      return MapEntry<String, List<ContributionData>>(key, ContributionData.listFromJson(value));
     });
   }
 
@@ -87,7 +90,9 @@ class ContributionData {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'feedback': feedback,
+        r'feedback':
+          feedback,
     };
   }
 }
+

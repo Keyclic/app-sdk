@@ -11,18 +11,26 @@ void main() {
 
   group('test TrackingCheckpoint', () {
     // DateTime createdAt
-    test('to test the property `createdAt`', () async {});
+    test('to test the property `createdAt`', () async {
+    });
 
     // CheckpointState data
-    test('to test the property `data`', () async {});
+    test('to test the property `data`', () async {
+    });
 
     // List<String> state (default value: const [])
-    test('to test the property `state`', () async {});
+    test('to test the property `state`', () async {
+    });
 
     // CheckpointLinks links
-    test('to test the property `links`', () async {});
+    test('to test the property `links`', () async {
+    });
 
     // CheckpointEmbedded embedded
-    test('to test the property `embedded`', () async {});
+    test('to test the property `embedded`', () async {
+    });
+
+
   });
+
 }

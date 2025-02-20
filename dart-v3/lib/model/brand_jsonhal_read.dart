@@ -7,10 +7,16 @@ part of keyclic_sdk_api_platform;
 class BrandJsonhalRead {
   /// Returns a new [BrandJsonhalRead] instance.
   BrandJsonhalRead({
-    this.links,
-    this.description,
-    required this.name,
-    this.id,
+    this.links
+,
+    this.description
+,
+      required 
+    this.name
+      
+    ,
+    this.id
+,
   });
 
   /// Returns a new [BrandJsonhalRead] instance and imports its values from
@@ -20,24 +26,24 @@ class BrandJsonhalRead {
       return null;
     }
 
-    return BrandJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
-      description: json[r'description'],
-      name: json[r'name'],
-      id: json[r'id'],
+  return BrandJsonhalRead(
+        links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+                  description: json[r'description'],
+                  name: json[r'name'],
+                  id: json[r'id'],
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+      AssetTypeJsonhalReadLinks? links;
 
   /// Detailed description of brand.
-  String? description;
+      String? description;
 
   /// Name of the brand.
-  String name;
+      String name;
 
   /// The resource identifier.
-  final String? id;
+      final String? id;
 
   @override
   bool operator ==(Object other) {
@@ -46,27 +52,31 @@ class BrandJsonhalRead {
       return true;
     }
 
-    return other is BrandJsonhalRead &&
-        other.links == links &&
-        other.description == description &&
-        other.name == name &&
-        other.id == id;
+    return other is BrandJsonhalRead 
+          && other.links == links
+  
+          && other.description == description
+  
+          && other.name == name
+  
+          && other.id == id
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
-      (description == null ? 0 : description.hashCode) +
-      name.hashCode +
-      (id == null ? 0 : id.hashCode);
+    (links == null ? 0 : links.hashCode) +
+    (description == null ? 0 : description.hashCode) +
+     name.hashCode +
+    (id == null ? 0 : id.hashCode);
 
   static List<BrandJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <BrandJsonhalRead>[];
     }
 
-    return json.fold(<BrandJsonhalRead>[],
-        (List<BrandJsonhalRead> previousValue, element) {
+    return json.fold(<BrandJsonhalRead>[], (List<BrandJsonhalRead> previousValue, element) {
       final BrandJsonhalRead? object = BrandJsonhalRead.fromJson(element);
       if (object is BrandJsonhalRead) {
         previousValue.add(object);
@@ -81,8 +91,7 @@ class BrandJsonhalRead {
       return <String, BrandJsonhalRead>{};
     }
 
-    return json.entries.fold(<String, BrandJsonhalRead>{},
-        (Map<String, BrandJsonhalRead> previousValue, element) {
+    return json.entries.fold(<String, BrandJsonhalRead>{}, (Map<String, BrandJsonhalRead> previousValue, element) {
       final BrandJsonhalRead? object = BrandJsonhalRead.fromJson(element.value);
       if (object is BrandJsonhalRead) {
         previousValue[element.key] = object;
@@ -93,37 +102,45 @@ class BrandJsonhalRead {
   }
 
   // maps a json object with a list of BrandJsonhalRead-objects as value to a dart map
-  static Map<String, List<BrandJsonhalRead>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<BrandJsonhalRead>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<BrandJsonhalRead>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<BrandJsonhalRead>>(
-          key, BrandJsonhalRead.listFromJson(value));
+      return MapEntry<String, List<BrandJsonhalRead>>(key, BrandJsonhalRead.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'BrandJsonhalRead[links=$links, description=$description, name=$name, id=$id]';
+  String toString() => 'BrandJsonhalRead[links=$links, description=$description, name=$name, id=$id]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^links\.').hasMatch(key))
+    )
+        r'_links':
+            links?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^links\.'))) {
+                previousValue.add(element.split(RegExp(r'^links\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'description'))
-        r'description': description,
-      r'name': name,
-      if (keys == null || keys.contains(r'id')) r'id': id,
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    contains(r'description')
+    )
+        r'description':
+          description,
+        r'name':
+          name,
+    if (keys == null || keys.
+    contains(r'id')
+    )
+        r'id':
+          id,
     };
   }
 }
+

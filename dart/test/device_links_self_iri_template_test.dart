@@ -11,6 +11,10 @@ void main() {
 
   group('test DeviceLinksSelfIriTemplate', () {
     // DeviceLinksSelfIriTemplateMapping mapping
-    test('to test the property `mapping`', () async {});
+    test('to test the property `mapping`', () async {
+    });
+
+
   });
+
 }

@@ -7,13 +7,22 @@ part of keyclic_sdk_api;
 class Role {
   /// Returns a new [Role] instance.
   Role({
-    this.createdAt,
-    this.description,
-    this.id,
-    required this.name,
-    this.permissions,
-    this.type,
-    this.updatedAt,
+    this.createdAt
+,
+    this.description
+,
+    this.id
+,
+      required 
+    this.name
+      
+    ,
+    this.permissions
+,
+    this.type
+,
+    this.updatedAt
+,
   });
 
   /// Returns a new [Role] instance and imports its values from
@@ -23,32 +32,33 @@ class Role {
       return null;
     }
 
-    return Role(
-      createdAt: mapToDateTime(json[r'createdAt']),
-      description: json[r'description'],
-      id: json[r'id'],
-      name: json[r'name'],
-      permissions: json[r'permissions'] == null
-          ? null
-          : List<String>.from(json[r'permissions']),
-      type: json[r'type'],
-      updatedAt: mapToDateTime(json[r'updatedAt']),
+  return Role(
+        createdAt: mapToDateTime(json[r'createdAt']),
+                  description: json[r'description'],
+                  id: json[r'id'],
+                  name: json[r'name'],
+        permissions:
+            json[r'permissions'] == null ?
+              null :
+          List<String>.from(json[r'permissions']),
+                  type: json[r'type'],
+        updatedAt: mapToDateTime(json[r'updatedAt']),
     );
   }
 
-  final DateTime? createdAt;
+      final DateTime? createdAt;
 
-  String? description;
+      String? description;
 
-  final String? id;
+      final String? id;
 
-  String name;
+      String name;
 
-  List<String>? permissions;
+        List<String>? permissions;
 
-  String? type;
+      String? type;
 
-  final DateTime? updatedAt;
+      final DateTime? updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -57,26 +67,33 @@ class Role {
       return true;
     }
 
-    return other is Role &&
-        other.createdAt == createdAt &&
-        other.description == description &&
-        other.id == id &&
-        other.name == name &&
-        DeepCollectionEquality.unordered()
-            .equals(permissions, other.permissions) &&
-        other.type == type &&
-        other.updatedAt == updatedAt;
+    return other is Role 
+          && other.createdAt == createdAt
+  
+          && other.description == description
+  
+          && other.id == id
+  
+          && other.name == name
+  
+          && DeepCollectionEquality.unordered().equals(permissions, other.permissions)
+  
+          && other.type == type
+  
+          && other.updatedAt == updatedAt
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (description == null ? 0 : description.hashCode) +
-      (id == null ? 0 : id.hashCode) +
-      name.hashCode +
-      (permissions == null ? 0 : permissions.hashCode) +
-      (type == null ? 0 : type.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode);
+    (createdAt == null ? 0 : createdAt.hashCode) +
+    (description == null ? 0 : description.hashCode) +
+    (id == null ? 0 : id.hashCode) +
+     name.hashCode +
+    (permissions == null ? 0 : permissions.hashCode) +
+    (type == null ? 0 : type.hashCode) +
+    (updatedAt == null ? 0 : updatedAt.hashCode);
 
   static List<Role> listFromJson(Iterable? json) {
     if (json == null) {
@@ -98,8 +115,7 @@ class Role {
       return <String, Role>{};
     }
 
-    return json.entries.fold(<String, Role>{},
-        (Map<String, Role> previousValue, element) {
+    return json.entries.fold(<String, Role>{}, (Map<String, Role> previousValue, element) {
       final Role? object = Role.fromJson(element.value);
       if (object is Role) {
         previousValue[element.key] = object;
@@ -121,22 +137,41 @@ class Role {
   }
 
   @override
-  String toString() =>
-      'Role[createdAt=$createdAt, description=$description, id=$id, name=$name, permissions=$permissions, type=$type, updatedAt=$updatedAt]';
+  String toString() => 'Role[createdAt=$createdAt, description=$description, id=$id, name=$name, permissions=$permissions, type=$type, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'description'))
-        r'description': description,
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      r'name': name,
-      if (keys == null || keys.contains(r'permissions'))
-        r'permissions': permissions,
-      if (keys == null || keys.contains(r'type')) r'type': type,
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+    if (keys == null || keys.
+    contains(r'createdAt')
+    )
+      r'createdAt': createdAt?.toUtc().toIso8601String(),
+    if (keys == null || keys.
+    contains(r'description')
+    )
+        r'description':
+          description,
+    if (keys == null || keys.
+    contains(r'id')
+    )
+        r'id':
+          id,
+        r'name':
+          name,
+    if (keys == null || keys.
+    contains(r'permissions')
+    )
+        r'permissions':
+          permissions,
+    if (keys == null || keys.
+    contains(r'type')
+    )
+        r'type':
+          type,
+    if (keys == null || keys.
+    contains(r'updatedAt')
+    )
+      r'updatedAt': updatedAt?.toUtc().toIso8601String(),
     };
   }
 }
+

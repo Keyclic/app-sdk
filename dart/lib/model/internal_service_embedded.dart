@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class InternalServiceEmbedded {
   /// Returns a new [InternalServiceEmbedded] instance.
   InternalServiceEmbedded({
-    this.manager,
+    this.manager
+,
   });
 
   /// Returns a new [InternalServiceEmbedded] instance and imports its values from
@@ -17,12 +18,12 @@ class InternalServiceEmbedded {
       return null;
     }
 
-    return InternalServiceEmbedded(
-      manager: Member.fromJson(json[r'manager']),
+  return InternalServiceEmbedded(
+        manager: Member.fromJson(json[r'manager']),
     );
   }
 
-  Member? manager;
+      Member? manager;
 
   @override
   bool operator ==(Object other) {
@@ -31,21 +32,23 @@ class InternalServiceEmbedded {
       return true;
     }
 
-    return other is InternalServiceEmbedded && other.manager == manager;
+    return other is InternalServiceEmbedded 
+          && other.manager == manager
+  ;
   }
+  
 
   @override
-  int get hashCode => (manager == null ? 0 : manager.hashCode);
+  int get hashCode =>
+    (manager == null ? 0 : manager.hashCode);
 
   static List<InternalServiceEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
       return <InternalServiceEmbedded>[];
     }
 
-    return json.fold(<InternalServiceEmbedded>[],
-        (List<InternalServiceEmbedded> previousValue, element) {
-      final InternalServiceEmbedded? object =
-          InternalServiceEmbedded.fromJson(element);
+    return json.fold(<InternalServiceEmbedded>[], (List<InternalServiceEmbedded> previousValue, element) {
+      final InternalServiceEmbedded? object = InternalServiceEmbedded.fromJson(element);
       if (object is InternalServiceEmbedded) {
         previousValue.add(object);
       }
@@ -54,16 +57,13 @@ class InternalServiceEmbedded {
     });
   }
 
-  static Map<String, InternalServiceEmbedded> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, InternalServiceEmbedded> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, InternalServiceEmbedded>{};
     }
 
-    return json.entries.fold(<String, InternalServiceEmbedded>{},
-        (Map<String, InternalServiceEmbedded> previousValue, element) {
-      final InternalServiceEmbedded? object =
-          InternalServiceEmbedded.fromJson(element.value);
+    return json.entries.fold(<String, InternalServiceEmbedded>{}, (Map<String, InternalServiceEmbedded> previousValue, element) {
+      final InternalServiceEmbedded? object = InternalServiceEmbedded.fromJson(element.value);
       if (object is InternalServiceEmbedded) {
         previousValue[element.key] = object;
       }
@@ -73,15 +73,13 @@ class InternalServiceEmbedded {
   }
 
   // maps a json object with a list of InternalServiceEmbedded-objects as value to a dart map
-  static Map<String, List<InternalServiceEmbedded>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<InternalServiceEmbedded>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<InternalServiceEmbedded>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<InternalServiceEmbedded>>(
-          key, InternalServiceEmbedded.listFromJson(value));
+      return MapEntry<String, List<InternalServiceEmbedded>>(key, InternalServiceEmbedded.listFromJson(value));
     });
   }
 
@@ -90,16 +88,18 @@ class InternalServiceEmbedded {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^manager\.').hasMatch(key)))
-        r'manager': manager?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^manager\.'))) {
-            previousValue.add(element.split(RegExp(r'^manager\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^manager\.').hasMatch(key))
+    )
+        r'manager':
+            manager?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^manager\.'))) {
+                previousValue.add(element.split(RegExp(r'^manager\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

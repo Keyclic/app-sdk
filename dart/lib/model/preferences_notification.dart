@@ -7,9 +7,12 @@ part of keyclic_sdk_api;
 class PreferencesNotification {
   /// Returns a new [PreferencesNotification] instance.
   PreferencesNotification({
-    this.inApp,
-    this.mail,
-    this.push,
+    this.inApp
+,
+    this.mail
+,
+    this.push
+,
   });
 
   /// Returns a new [PreferencesNotification] instance and imports its values from
@@ -19,18 +22,18 @@ class PreferencesNotification {
       return null;
     }
 
-    return PreferencesNotification(
-      inApp: json[r'inApp'],
-      mail: json[r'mail'],
-      push: json[r'push'],
+  return PreferencesNotification(
+                  inApp: json[r'inApp'],
+                  mail: json[r'mail'],
+                  push: json[r'push'],
     );
   }
 
-  bool? inApp;
+      bool? inApp;
 
-  bool? mail;
+      bool? mail;
 
-  bool? push;
+      bool? push;
 
   @override
   bool operator ==(Object other) {
@@ -39,27 +42,29 @@ class PreferencesNotification {
       return true;
     }
 
-    return other is PreferencesNotification &&
-        other.inApp == inApp &&
-        other.mail == mail &&
-        other.push == push;
+    return other is PreferencesNotification 
+          && other.inApp == inApp
+  
+          && other.mail == mail
+  
+          && other.push == push
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (inApp == null ? 0 : inApp.hashCode) +
-      (mail == null ? 0 : mail.hashCode) +
-      (push == null ? 0 : push.hashCode);
+    (inApp == null ? 0 : inApp.hashCode) +
+    (mail == null ? 0 : mail.hashCode) +
+    (push == null ? 0 : push.hashCode);
 
   static List<PreferencesNotification> listFromJson(Iterable? json) {
     if (json == null) {
       return <PreferencesNotification>[];
     }
 
-    return json.fold(<PreferencesNotification>[],
-        (List<PreferencesNotification> previousValue, element) {
-      final PreferencesNotification? object =
-          PreferencesNotification.fromJson(element);
+    return json.fold(<PreferencesNotification>[], (List<PreferencesNotification> previousValue, element) {
+      final PreferencesNotification? object = PreferencesNotification.fromJson(element);
       if (object is PreferencesNotification) {
         previousValue.add(object);
       }
@@ -68,16 +73,13 @@ class PreferencesNotification {
     });
   }
 
-  static Map<String, PreferencesNotification> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, PreferencesNotification> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, PreferencesNotification>{};
     }
 
-    return json.entries.fold(<String, PreferencesNotification>{},
-        (Map<String, PreferencesNotification> previousValue, element) {
-      final PreferencesNotification? object =
-          PreferencesNotification.fromJson(element.value);
+    return json.entries.fold(<String, PreferencesNotification>{}, (Map<String, PreferencesNotification> previousValue, element) {
+      final PreferencesNotification? object = PreferencesNotification.fromJson(element.value);
       if (object is PreferencesNotification) {
         previousValue[element.key] = object;
       }
@@ -87,27 +89,37 @@ class PreferencesNotification {
   }
 
   // maps a json object with a list of PreferencesNotification-objects as value to a dart map
-  static Map<String, List<PreferencesNotification>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<PreferencesNotification>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<PreferencesNotification>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<PreferencesNotification>>(
-          key, PreferencesNotification.listFromJson(value));
+      return MapEntry<String, List<PreferencesNotification>>(key, PreferencesNotification.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'PreferencesNotification[inApp=$inApp, mail=$mail, push=$push]';
+  String toString() => 'PreferencesNotification[inApp=$inApp, mail=$mail, push=$push]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'inApp')) r'inApp': inApp,
-      if (keys == null || keys.contains(r'mail')) r'mail': mail,
-      if (keys == null || keys.contains(r'push')) r'push': push,
+    if (keys == null || keys.
+    contains(r'inApp')
+    )
+        r'inApp':
+          inApp,
+    if (keys == null || keys.
+    contains(r'mail')
+    )
+        r'mail':
+          mail,
+    if (keys == null || keys.
+    contains(r'push')
+    )
+        r'push':
+          push,
     };
   }
 }
+

@@ -11,9 +11,14 @@ void main() {
 
   group('test ReportLinksChildrenIriTemplateMapping', () {
     // String organization
-    test('to test the property `organization`', () async {});
+    test('to test the property `organization`', () async {
+    });
 
     // String parent
-    test('to test the property `parent`', () async {});
+    test('to test the property `parent`', () async {
+    });
+
+
   });
+
 }

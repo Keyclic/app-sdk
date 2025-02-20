@@ -11,27 +11,37 @@ void main() {
 
   group('test CollaboratorJsonhalRead', () {
     // CollaboratorJsonhalReadLinks links
-    test('to test the property `links`', () async {});
+    test('to test the property `links`', () async {
+    });
 
     // The resource identifier.
     // String id
-    test('to test the property `id`', () async {});
+    test('to test the property `id`', () async {
+    });
 
     // The date and time when the resource was created, in UTC format.
     // DateTime createdAt
-    test('to test the property `createdAt`', () async {});
+    test('to test the property `createdAt`', () async {
+    });
 
     // The date and time when the resource was updated, in UTC format.
     // DateTime updatedAt
-    test('to test the property `updatedAt`', () async {});
+    test('to test the property `updatedAt`', () async {
+    });
 
     // ContactPointJsonhalRead contactPoint
-    test('to test the property `contactPoint`', () async {});
+    test('to test the property `contactPoint`', () async {
+    });
 
     // String type
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
 
     // CollaboratorJsonhalReadEmbedded embedded
-    test('to test the property `embedded`', () async {});
+    test('to test the property `embedded`', () async {
+    });
+
+
   });
+
 }

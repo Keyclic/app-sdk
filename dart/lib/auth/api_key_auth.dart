@@ -4,18 +4,18 @@
 
 part of keyclic_sdk_api;
 
+
 class ApiKeyAuthInterceptor extends AuthInterceptor {
   final Map<String, String> apiKeys = {};
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    final authInfo =
-        getAuthInfo(options, (secure) => secure['type'] == 'apiKey');
+    final authInfo = getAuthInfo(options, (secure) => secure['type'] == 'apiKey');
 
     for (final info in authInfo) {
       final String authName = info['name']!;
       final apiKey = apiKeys[authName];
-
+    
       if (apiKey == null) {
         continue;
       }

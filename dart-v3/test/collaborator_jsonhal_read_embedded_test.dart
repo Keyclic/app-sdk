@@ -11,12 +11,18 @@ void main() {
 
   group('test CollaboratorJsonhalReadEmbedded', () {
     // OrganizationJsonhalRead organization
-    test('to test the property `organization`', () async {});
+    test('to test the property `organization`', () async {
+    });
 
     // PersonJsonhalRead person
-    test('to test the property `person`', () async {});
+    test('to test the property `person`', () async {
+    });
 
     // List<RoleJsonhalRead> roles (default value: const [])
-    test('to test the property `roles`', () async {});
+    test('to test the property `roles`', () async {
+    });
+
+
   });
+
 }

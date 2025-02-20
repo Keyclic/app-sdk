@@ -7,7 +7,8 @@ part of keyclic_sdk_api_platform;
 class AssetTypeJsonhalReadLinks {
   /// Returns a new [AssetTypeJsonhalReadLinks] instance.
   AssetTypeJsonhalReadLinks({
-    this.self,
+    this.self
+,
   });
 
   /// Returns a new [AssetTypeJsonhalReadLinks] instance and imports its values from
@@ -17,12 +18,12 @@ class AssetTypeJsonhalReadLinks {
       return null;
     }
 
-    return AssetTypeJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
+  return AssetTypeJsonhalReadLinks(
+        self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
     );
   }
 
-  GetPlaceCollection200ResponseLinksSelf? self;
+      GetPlaceCollection200ResponseLinksSelf? self;
 
   @override
   bool operator ==(Object other) {
@@ -31,21 +32,23 @@ class AssetTypeJsonhalReadLinks {
       return true;
     }
 
-    return other is AssetTypeJsonhalReadLinks && other.self == self;
+    return other is AssetTypeJsonhalReadLinks 
+          && other.self == self
+  ;
   }
+  
 
   @override
-  int get hashCode => (self == null ? 0 : self.hashCode);
+  int get hashCode =>
+    (self == null ? 0 : self.hashCode);
 
   static List<AssetTypeJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <AssetTypeJsonhalReadLinks>[];
     }
 
-    return json.fold(<AssetTypeJsonhalReadLinks>[],
-        (List<AssetTypeJsonhalReadLinks> previousValue, element) {
-      final AssetTypeJsonhalReadLinks? object =
-          AssetTypeJsonhalReadLinks.fromJson(element);
+    return json.fold(<AssetTypeJsonhalReadLinks>[], (List<AssetTypeJsonhalReadLinks> previousValue, element) {
+      final AssetTypeJsonhalReadLinks? object = AssetTypeJsonhalReadLinks.fromJson(element);
       if (object is AssetTypeJsonhalReadLinks) {
         previousValue.add(object);
       }
@@ -54,16 +57,13 @@ class AssetTypeJsonhalReadLinks {
     });
   }
 
-  static Map<String, AssetTypeJsonhalReadLinks> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, AssetTypeJsonhalReadLinks> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, AssetTypeJsonhalReadLinks>{};
     }
 
-    return json.entries.fold(<String, AssetTypeJsonhalReadLinks>{},
-        (Map<String, AssetTypeJsonhalReadLinks> previousValue, element) {
-      final AssetTypeJsonhalReadLinks? object =
-          AssetTypeJsonhalReadLinks.fromJson(element.value);
+    return json.entries.fold(<String, AssetTypeJsonhalReadLinks>{}, (Map<String, AssetTypeJsonhalReadLinks> previousValue, element) {
+      final AssetTypeJsonhalReadLinks? object = AssetTypeJsonhalReadLinks.fromJson(element.value);
       if (object is AssetTypeJsonhalReadLinks) {
         previousValue[element.key] = object;
       }
@@ -73,15 +73,13 @@ class AssetTypeJsonhalReadLinks {
   }
 
   // maps a json object with a list of AssetTypeJsonhalReadLinks-objects as value to a dart map
-  static Map<String, List<AssetTypeJsonhalReadLinks>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<AssetTypeJsonhalReadLinks>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<AssetTypeJsonhalReadLinks>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<AssetTypeJsonhalReadLinks>>(
-          key, AssetTypeJsonhalReadLinks.listFromJson(value));
+      return MapEntry<String, List<AssetTypeJsonhalReadLinks>>(key, AssetTypeJsonhalReadLinks.listFromJson(value));
     });
   }
 
@@ -90,15 +88,18 @@ class AssetTypeJsonhalReadLinks {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
-        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^self\.'))) {
-            previousValue.add(element.split(RegExp(r'^self\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^self\.').hasMatch(key))
+    )
+        r'self':
+            self?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^self\.'))) {
+                previousValue.add(element.split(RegExp(r'^self\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

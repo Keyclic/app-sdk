@@ -11,15 +11,22 @@ void main() {
 
   group('test PublicationData', () {
     // String message
-    test('to test the property `message`', () async {});
+    test('to test the property `message`', () async {
+    });
 
     // String feed
-    test('to test the property `feed`', () async {});
+    test('to test the property `feed`', () async {
+    });
 
     // String title
-    test('to test the property `title`', () async {});
+    test('to test the property `title`', () async {
+    });
 
     // String organization
-    test('to test the property `organization`', () async {});
+    test('to test the property `organization`', () async {
+    });
+
+
   });
+
 }

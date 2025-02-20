@@ -12,9 +12,14 @@ void main() {
   group('test OperationLinksReport', () {
     // The URI of the report associated to the given operation.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // OperationLinksReportIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

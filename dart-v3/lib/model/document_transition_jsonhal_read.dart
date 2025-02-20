@@ -7,7 +7,8 @@ part of keyclic_sdk_api_platform;
 class DocumentTransitionJsonhalRead {
   /// Returns a new [DocumentTransitionJsonhalRead] instance.
   DocumentTransitionJsonhalRead({
-    this.name,
+    this.name
+,
   });
 
   /// Returns a new [DocumentTransitionJsonhalRead] instance and imports its values from
@@ -17,13 +18,13 @@ class DocumentTransitionJsonhalRead {
       return null;
     }
 
-    return DocumentTransitionJsonhalRead(
-      name: DocumentTransitionJsonhalReadNameEnum.fromJson(json[r'name']),
+  return DocumentTransitionJsonhalRead(
+              name: DocumentTransitionJsonhalReadNameEnum.fromJson(json[r'name']),
     );
   }
 
   /// Transition name.
-  DocumentTransitionJsonhalReadNameEnum? name;
+      DocumentTransitionJsonhalReadNameEnum? name;
 
   @override
   bool operator ==(Object other) {
@@ -32,21 +33,23 @@ class DocumentTransitionJsonhalRead {
       return true;
     }
 
-    return other is DocumentTransitionJsonhalRead && other.name == name;
+    return other is DocumentTransitionJsonhalRead 
+          && other.name == name
+  ;
   }
+  
 
   @override
-  int get hashCode => (name == null ? 0 : name.hashCode);
+  int get hashCode =>
+    (name == null ? 0 : name.hashCode);
 
   static List<DocumentTransitionJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <DocumentTransitionJsonhalRead>[];
     }
 
-    return json.fold(<DocumentTransitionJsonhalRead>[],
-        (List<DocumentTransitionJsonhalRead> previousValue, element) {
-      final DocumentTransitionJsonhalRead? object =
-          DocumentTransitionJsonhalRead.fromJson(element);
+    return json.fold(<DocumentTransitionJsonhalRead>[], (List<DocumentTransitionJsonhalRead> previousValue, element) {
+      final DocumentTransitionJsonhalRead? object = DocumentTransitionJsonhalRead.fromJson(element);
       if (object is DocumentTransitionJsonhalRead) {
         previousValue.add(object);
       }
@@ -55,16 +58,13 @@ class DocumentTransitionJsonhalRead {
     });
   }
 
-  static Map<String, DocumentTransitionJsonhalRead> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, DocumentTransitionJsonhalRead> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, DocumentTransitionJsonhalRead>{};
     }
 
-    return json.entries.fold(<String, DocumentTransitionJsonhalRead>{},
-        (Map<String, DocumentTransitionJsonhalRead> previousValue, element) {
-      final DocumentTransitionJsonhalRead? object =
-          DocumentTransitionJsonhalRead.fromJson(element.value);
+    return json.entries.fold(<String, DocumentTransitionJsonhalRead>{}, (Map<String, DocumentTransitionJsonhalRead> previousValue, element) {
+      final DocumentTransitionJsonhalRead? object = DocumentTransitionJsonhalRead.fromJson(element.value);
       if (object is DocumentTransitionJsonhalRead) {
         previousValue[element.key] = object;
       }
@@ -74,15 +74,13 @@ class DocumentTransitionJsonhalRead {
   }
 
   // maps a json object with a list of DocumentTransitionJsonhalRead-objects as value to a dart map
-  static Map<String, List<DocumentTransitionJsonhalRead>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<DocumentTransitionJsonhalRead>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<DocumentTransitionJsonhalRead>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<DocumentTransitionJsonhalRead>>(
-          key, DocumentTransitionJsonhalRead.listFromJson(value));
+      return MapEntry<String, List<DocumentTransitionJsonhalRead>>(key, DocumentTransitionJsonhalRead.listFromJson(value));
     });
   }
 
@@ -91,7 +89,11 @@ class DocumentTransitionJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'name')) r'name': name,
+    if (keys == null || keys.
+    contains(r'name')
+    )
+        r'name':
+          name,
     };
   }
 }
@@ -119,16 +121,12 @@ class DocumentTransitionJsonhalReadNameEnum {
   ];
 
   static DocumentTransitionJsonhalReadNameEnum? fromJson(dynamic value) =>
-      DocumentTransitionJsonhalReadNameEnumTypeTransformer().decode(value);
+    DocumentTransitionJsonhalReadNameEnumTypeTransformer().decode(value);
 
-  static List<DocumentTransitionJsonhalReadNameEnum> listFromJson(
-      List<dynamic> json) {
-    return json
-        .map((value) {
-          return DocumentTransitionJsonhalReadNameEnum.fromJson(value);
-        })
-        .whereType<DocumentTransitionJsonhalReadNameEnum>()
-        .toList();
+  static List<DocumentTransitionJsonhalReadNameEnum> listFromJson(List<dynamic> json) {
+    return json.map((value) {
+      return DocumentTransitionJsonhalReadNameEnum.fromJson(value);
+    }).whereType<DocumentTransitionJsonhalReadNameEnum>().toList();
   }
 }
 
@@ -137,8 +135,7 @@ class DocumentTransitionJsonhalReadNameEnum {
 class DocumentTransitionJsonhalReadNameEnumTypeTransformer {
   const DocumentTransitionJsonhalReadNameEnumTypeTransformer._();
 
-  factory DocumentTransitionJsonhalReadNameEnumTypeTransformer() =>
-      _instance ??= DocumentTransitionJsonhalReadNameEnumTypeTransformer._();
+  factory DocumentTransitionJsonhalReadNameEnumTypeTransformer() => _instance ??= DocumentTransitionJsonhalReadNameEnumTypeTransformer._();
 
   String encode(DocumentTransitionJsonhalReadNameEnum data) => data.value;
 
@@ -150,13 +147,10 @@ class DocumentTransitionJsonhalReadNameEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  DocumentTransitionJsonhalReadNameEnum? decode(dynamic data,
-      {bool allowNull = true}) {
+  DocumentTransitionJsonhalReadNameEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
-      case r'review':
-        return DocumentTransitionJsonhalReadNameEnum.review;
-      case r'publish':
-        return DocumentTransitionJsonhalReadNameEnum.publish;
+      case r'review': return DocumentTransitionJsonhalReadNameEnum.review;
+      case r'publish': return DocumentTransitionJsonhalReadNameEnum.publish;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
@@ -168,3 +162,4 @@ class DocumentTransitionJsonhalReadNameEnumTypeTransformer {
   /// Singleton [DocumentTransitionJsonhalReadNameEnumTypeTransformer] instance.
   static DocumentTransitionJsonhalReadNameEnumTypeTransformer? _instance;
 }
+

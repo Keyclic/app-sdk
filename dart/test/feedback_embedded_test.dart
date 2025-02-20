@@ -11,21 +11,30 @@ void main() {
 
   group('test FeedbackEmbedded', () {
     // Category category
-    test('to test the property `category`', () async {});
+    test('to test the property `category`', () async {
+    });
 
     // List<Marker> markers (default value: const [])
-    test('to test the property `markers`', () async {});
+    test('to test the property `markers`', () async {
+    });
 
     // Member member
-    test('to test the property `member`', () async {});
+    test('to test the property `member`', () async {
+    });
 
     // Person reporter
-    test('to test the property `reporter`', () async {});
+    test('to test the property `reporter`', () async {
+    });
 
     // List<String> stateTransitions (default value: const [])
-    test('to test the property `stateTransitions`', () async {});
+    test('to test the property `stateTransitions`', () async {
+    });
 
     // String tracking
-    test('to test the property `tracking`', () async {});
+    test('to test the property `tracking`', () async {
+    });
+
+
   });
+
 }

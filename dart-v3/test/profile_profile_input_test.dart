@@ -11,6 +11,10 @@ void main() {
 
   group('test ProfileProfileInput', () {
     // String username
-    test('to test the property `username`', () async {});
+    test('to test the property `username`', () async {
+    });
+
+
   });
+
 }

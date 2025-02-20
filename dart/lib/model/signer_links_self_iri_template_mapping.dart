@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class SignerLinksSelfIriTemplateMapping {
   /// Returns a new [SignerLinksSelfIriTemplateMapping] instance.
   SignerLinksSelfIriTemplateMapping({
-    this.signer,
+    this.signer
+,
   });
 
   /// Returns a new [SignerLinksSelfIriTemplateMapping] instance and imports its values from
@@ -17,12 +18,12 @@ class SignerLinksSelfIriTemplateMapping {
       return null;
     }
 
-    return SignerLinksSelfIriTemplateMapping(
-      signer: json[r'signer'],
+  return SignerLinksSelfIriTemplateMapping(
+                  signer: json[r'signer'],
     );
   }
 
-  String? signer;
+      String? signer;
 
   @override
   bool operator ==(Object other) {
@@ -31,21 +32,23 @@ class SignerLinksSelfIriTemplateMapping {
       return true;
     }
 
-    return other is SignerLinksSelfIriTemplateMapping && other.signer == signer;
+    return other is SignerLinksSelfIriTemplateMapping 
+          && other.signer == signer
+  ;
   }
+  
 
   @override
-  int get hashCode => (signer == null ? 0 : signer.hashCode);
+  int get hashCode =>
+    (signer == null ? 0 : signer.hashCode);
 
   static List<SignerLinksSelfIriTemplateMapping> listFromJson(Iterable? json) {
     if (json == null) {
       return <SignerLinksSelfIriTemplateMapping>[];
     }
 
-    return json.fold(<SignerLinksSelfIriTemplateMapping>[],
-        (List<SignerLinksSelfIriTemplateMapping> previousValue, element) {
-      final SignerLinksSelfIriTemplateMapping? object =
-          SignerLinksSelfIriTemplateMapping.fromJson(element);
+    return json.fold(<SignerLinksSelfIriTemplateMapping>[], (List<SignerLinksSelfIriTemplateMapping> previousValue, element) {
+      final SignerLinksSelfIriTemplateMapping? object = SignerLinksSelfIriTemplateMapping.fromJson(element);
       if (object is SignerLinksSelfIriTemplateMapping) {
         previousValue.add(object);
       }
@@ -54,17 +57,13 @@ class SignerLinksSelfIriTemplateMapping {
     });
   }
 
-  static Map<String, SignerLinksSelfIriTemplateMapping> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, SignerLinksSelfIriTemplateMapping> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, SignerLinksSelfIriTemplateMapping>{};
     }
 
-    return json.entries.fold(<String, SignerLinksSelfIriTemplateMapping>{},
-        (Map<String, SignerLinksSelfIriTemplateMapping> previousValue,
-            element) {
-      final SignerLinksSelfIriTemplateMapping? object =
-          SignerLinksSelfIriTemplateMapping.fromJson(element.value);
+    return json.entries.fold(<String, SignerLinksSelfIriTemplateMapping>{}, (Map<String, SignerLinksSelfIriTemplateMapping> previousValue, element) {
+      final SignerLinksSelfIriTemplateMapping? object = SignerLinksSelfIriTemplateMapping.fromJson(element.value);
       if (object is SignerLinksSelfIriTemplateMapping) {
         previousValue[element.key] = object;
       }
@@ -74,15 +73,13 @@ class SignerLinksSelfIriTemplateMapping {
   }
 
   // maps a json object with a list of SignerLinksSelfIriTemplateMapping-objects as value to a dart map
-  static Map<String, List<SignerLinksSelfIriTemplateMapping>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<SignerLinksSelfIriTemplateMapping>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<SignerLinksSelfIriTemplateMapping>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<SignerLinksSelfIriTemplateMapping>>(
-          key, SignerLinksSelfIriTemplateMapping.listFromJson(value));
+      return MapEntry<String, List<SignerLinksSelfIriTemplateMapping>>(key, SignerLinksSelfIriTemplateMapping.listFromJson(value));
     });
   }
 
@@ -91,7 +88,12 @@ class SignerLinksSelfIriTemplateMapping {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'signer')) r'signer': signer,
+    if (keys == null || keys.
+    contains(r'signer')
+    )
+        r'signer':
+          signer,
     };
   }
 }
+

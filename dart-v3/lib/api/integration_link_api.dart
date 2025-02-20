@@ -4,6 +4,7 @@
 
 part of keyclic_sdk_api_platform;
 
+
 class IntegrationLinkApi {
   const IntegrationLinkApi(this._apiClient);
 
@@ -14,7 +15,7 @@ class IntegrationLinkApi {
   ///
   /// Parameters:
   /// * [identifier] - Link identifier
-  /// * [acceptLanguage] -
+  /// * [acceptLanguage] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -24,9 +25,10 @@ class IntegrationLinkApi {
   ///
   /// Returns a [Future]
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<void>> deleteIntegrationLink({
+  Future<Response<void>> deleteIntegrationLink({ 
     required String identifier,
     String? acceptLanguage,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -34,8 +36,7 @@ class IntegrationLinkApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/integration-links/{identifier}'
-        .replaceAll('{' r'identifier' '}', identifier.toString());
+    final String path = r'/integration-links/{identifier}'.replaceAll('{' r'identifier' '}', identifier.toString());
     final options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -47,6 +48,7 @@ class IntegrationLinkApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -54,8 +56,11 @@ class IntegrationLinkApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     return _apiClient.dio.request<Object>(
       path,
@@ -64,14 +69,14 @@ class IntegrationLinkApi {
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
     );
-  }
 
+  }
   /// Retrieves a IntegrationLink resource.
   /// Retrieves a IntegrationLink resource.
   ///
   /// Parameters:
   /// * [identifier] - Link identifier
-  /// * [acceptLanguage] -
+  /// * [acceptLanguage] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -81,9 +86,10 @@ class IntegrationLinkApi {
   ///
   /// Returns a [Future] containing a [Response] with a [IntegrationLinkJsonhalRead] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<IntegrationLinkJsonhalRead>> getIntegrationLink({
+  Future<Response<IntegrationLinkJsonhalRead>> getIntegrationLink({ 
     required String identifier,
     String? acceptLanguage,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -91,8 +97,7 @@ class IntegrationLinkApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/integration-links/{identifier}'
-        .replaceAll('{' r'identifier' '}', identifier.toString());
+    final String path = r'/integration-links/{identifier}'.replaceAll('{' r'identifier' '}', identifier.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -104,6 +109,7 @@ class IntegrationLinkApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -111,8 +117,11 @@ class IntegrationLinkApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -125,9 +134,7 @@ class IntegrationLinkApi {
     IntegrationLinkJsonhalRead responseData;
 
     try {
-      responseData =
-          await _apiClient.deserializeAsync<IntegrationLinkJsonhalRead>(
-              response.data!, 'IntegrationLinkJsonhalRead');
+            responseData = await _apiClient.deserializeAsync<IntegrationLinkJsonhalRead>(response.data!, 'IntegrationLinkJsonhalRead');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -149,7 +156,6 @@ class IntegrationLinkApi {
       extra: response.extra,
     );
   }
-
   /// Retrieves the collection of IntegrationLink resources.
   /// Retrieves the collection of IntegrationLink resources.
   ///
@@ -157,18 +163,18 @@ class IntegrationLinkApi {
   /// * [page] - The collection page number
   /// * [limit] - The number of items per page
   /// * [pagination] - Enable or disable pagination
-  /// * [existsLeftSquareBracketTargetRightSquareBracket] -
-  /// * [jsonData] -
-  /// * [jsonMetadata] -
-  /// * [integration] -
-  /// * [integrationLeftSquareBracketRightSquareBracket] -
-  /// * [source_] -
-  /// * [sourceLeftSquareBracketRightSquareBracket] -
-  /// * [state] -
-  /// * [stateLeftSquareBracketRightSquareBracket] -
-  /// * [target] -
-  /// * [targetLeftSquareBracketRightSquareBracket] -
-  /// * [acceptLanguage] -
+  /// * [existsLeftSquareBracketTargetRightSquareBracket] - 
+  /// * [jsonData] - 
+  /// * [jsonMetadata] - 
+  /// * [integration] - 
+  /// * [integrationLeftSquareBracketRightSquareBracket] - 
+  /// * [source_] - 
+  /// * [sourceLeftSquareBracketRightSquareBracket] - 
+  /// * [state] - 
+  /// * [stateLeftSquareBracketRightSquareBracket] - 
+  /// * [target] - 
+  /// * [targetLeftSquareBracketRightSquareBracket] - 
+  /// * [acceptLanguage] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -178,8 +184,7 @@ class IntegrationLinkApi {
   ///
   /// Returns a [Future] containing a [Response] with a [GetIntegrationLinkCollection200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetIntegrationLinkCollection200Response>>
-      getIntegrationLinkCollection({
+  Future<Response<GetIntegrationLinkCollection200Response>> getIntegrationLinkCollection({ 
     int? page,
     int? limit,
     bool? pagination,
@@ -195,6 +200,7 @@ class IntegrationLinkApi {
     String? target,
     List<String>? targetLeftSquareBracketRightSquareBracket,
     String? acceptLanguage,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -214,6 +220,7 @@ class IntegrationLinkApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -221,44 +228,75 @@ class IntegrationLinkApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
 
     final queryParameters = <String, dynamic>{
-      if (page != null) r'page': encodeQueryParameter(page),
-      if (limit != null) r'limit': encodeQueryParameter(limit),
-      if (pagination != null) r'pagination': encodeQueryParameter(pagination),
-      if (existsLeftSquareBracketTargetRightSquareBracket != null)
-        r'exists[target]': encodeQueryParameter(
-            existsLeftSquareBracketTargetRightSquareBracket),
-      if (jsonData != null)
-        r'json_data':
-            encodeCollectionQueryParameter(jsonData, format: ListFormat.csv),
-      if (jsonMetadata != null)
-        r'json_metadata': encodeCollectionQueryParameter(jsonMetadata,
-            format: ListFormat.csv),
-      if (integration != null)
-        r'integration': encodeQueryParameter(integration),
-      if (integrationLeftSquareBracketRightSquareBracket != null)
-        r'integration[]': encodeCollectionQueryParameter(
-            integrationLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (source_ != null) r'source': encodeQueryParameter(source_),
-      if (sourceLeftSquareBracketRightSquareBracket != null)
-        r'source[]': encodeCollectionQueryParameter(
-            sourceLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (state != null) r'state': encodeQueryParameter(state),
-      if (stateLeftSquareBracketRightSquareBracket != null)
-        r'state[]': encodeCollectionQueryParameter(
-            stateLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (target != null) r'target': encodeQueryParameter(target),
-      if (targetLeftSquareBracketRightSquareBracket != null)
-        r'target[]': encodeCollectionQueryParameter(
-            targetLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
+      if (page != null) r'page':
+        encodeQueryParameter(
+        page
+        ),
+      if (limit != null) r'limit':
+        encodeQueryParameter(
+        limit
+        ),
+      if (pagination != null) r'pagination':
+        encodeQueryParameter(
+        pagination
+        ),
+      if (existsLeftSquareBracketTargetRightSquareBracket != null) r'exists[target]':
+        encodeQueryParameter(
+        existsLeftSquareBracketTargetRightSquareBracket
+        ),
+      if (jsonData != null) r'json_data':
+        encodeCollectionQueryParameter(
+        jsonData,
+        format: ListFormat.csv
+        ),
+      if (jsonMetadata != null) r'json_metadata':
+        encodeCollectionQueryParameter(
+        jsonMetadata,
+        format: ListFormat.csv
+        ),
+      if (integration != null) r'integration':
+        encodeQueryParameter(
+        integration
+        ),
+      if (integrationLeftSquareBracketRightSquareBracket != null) r'integration[]':
+        encodeCollectionQueryParameter(
+        integrationLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (source_ != null) r'source':
+        encodeQueryParameter(
+        source_
+        ),
+      if (sourceLeftSquareBracketRightSquareBracket != null) r'source[]':
+        encodeCollectionQueryParameter(
+        sourceLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (state != null) r'state':
+        encodeQueryParameter(
+        state
+        ),
+      if (stateLeftSquareBracketRightSquareBracket != null) r'state[]':
+        encodeCollectionQueryParameter(
+        stateLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (target != null) r'target':
+        encodeQueryParameter(
+        target
+        ),
+      if (targetLeftSquareBracketRightSquareBracket != null) r'target[]':
+        encodeCollectionQueryParameter(
+        targetLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
     };
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -272,9 +310,7 @@ class IntegrationLinkApi {
     GetIntegrationLinkCollection200Response responseData;
 
     try {
-      responseData = await _apiClient
-          .deserializeAsync<GetIntegrationLinkCollection200Response>(
-              response.data!, 'GetIntegrationLinkCollection200Response');
+            responseData = await _apiClient.deserializeAsync<GetIntegrationLinkCollection200Response>(response.data!, 'GetIntegrationLinkCollection200Response');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -296,14 +332,13 @@ class IntegrationLinkApi {
       extra: response.extra,
     );
   }
-
   /// Updates the IntegrationLink resource.
   /// Updates the IntegrationLink resource.
   ///
   /// Parameters:
   /// * [identifier] - Link identifier
   /// * [integrationLinkEditLinkCommandWrite] - The updated IntegrationLink resource
-  /// * [acceptLanguage] -
+  /// * [acceptLanguage] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -313,10 +348,9 @@ class IntegrationLinkApi {
   ///
   /// Returns a [Future] containing a [Response] with a [IntegrationLinkJsonhalRead] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<IntegrationLinkJsonhalRead>> patchIntegrationLink({
+  Future<Response<IntegrationLinkJsonhalRead>> patchIntegrationLink({ 
     required String identifier,
-    required IntegrationLinkEditLinkCommandWrite
-        integrationLinkEditLinkCommandWrite,
+    required IntegrationLinkEditLinkCommandWrite integrationLinkEditLinkCommandWrite,
     String? acceptLanguage,
     Iterable<String>? bodyParameters,
     CancelToken? cancelToken,
@@ -326,8 +360,7 @@ class IntegrationLinkApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/integration-links/{identifier}'
-        .replaceAll('{' r'identifier' '}', identifier.toString());
+    final String path = r'/integration-links/{identifier}'.replaceAll('{' r'identifier' '}', identifier.toString());
     final options = Options(
       method: r'PATCH',
       headers: <String, dynamic>{
@@ -339,6 +372,7 @@ class IntegrationLinkApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -350,11 +384,12 @@ class IntegrationLinkApi {
       validateStatus: validateStatus,
     );
 
+
     dynamic bodyData;
 
     try {
-      bodyData = integrationLinkEditLinkCommandWrite.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = integrationLinkEditLinkCommandWrite.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -378,9 +413,7 @@ class IntegrationLinkApi {
     IntegrationLinkJsonhalRead responseData;
 
     try {
-      responseData =
-          await _apiClient.deserializeAsync<IntegrationLinkJsonhalRead>(
-              response.data!, 'IntegrationLinkJsonhalRead');
+            responseData = await _apiClient.deserializeAsync<IntegrationLinkJsonhalRead>(response.data!, 'IntegrationLinkJsonhalRead');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -402,13 +435,12 @@ class IntegrationLinkApi {
       extra: response.extra,
     );
   }
-
   /// Creates a IntegrationLink resource.
   /// Creates a IntegrationLink resource.
   ///
   /// Parameters:
   /// * [integrationLinkCreateLinkCommandWrite] - The new IntegrationLink resource
-  /// * [acceptLanguage] -
+  /// * [acceptLanguage] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -418,9 +450,8 @@ class IntegrationLinkApi {
   ///
   /// Returns a [Future] containing a [Response] with a [IntegrationLinkJsonhalRead] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<IntegrationLinkJsonhalRead>> postIntegrationLink({
-    required IntegrationLinkCreateLinkCommandWrite
-        integrationLinkCreateLinkCommandWrite,
+  Future<Response<IntegrationLinkJsonhalRead>> postIntegrationLink({ 
+    required IntegrationLinkCreateLinkCommandWrite integrationLinkCreateLinkCommandWrite,
     String? acceptLanguage,
     Iterable<String>? bodyParameters,
     CancelToken? cancelToken,
@@ -442,6 +473,7 @@ class IntegrationLinkApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -453,11 +485,12 @@ class IntegrationLinkApi {
       validateStatus: validateStatus,
     );
 
+
     dynamic bodyData;
 
     try {
-      bodyData = integrationLinkCreateLinkCommandWrite.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = integrationLinkCreateLinkCommandWrite.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -481,9 +514,7 @@ class IntegrationLinkApi {
     IntegrationLinkJsonhalRead responseData;
 
     try {
-      responseData =
-          await _apiClient.deserializeAsync<IntegrationLinkJsonhalRead>(
-              response.data!, 'IntegrationLinkJsonhalRead');
+            responseData = await _apiClient.deserializeAsync<IntegrationLinkJsonhalRead>(response.data!, 'IntegrationLinkJsonhalRead');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

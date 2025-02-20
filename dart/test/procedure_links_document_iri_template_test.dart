@@ -11,6 +11,10 @@ void main() {
 
   group('test ProcedureLinksDocumentIriTemplate', () {
     // DocumentLinksFileIriTemplateMapping mapping
-    test('to test the property `mapping`', () async {});
+    test('to test the property `mapping`', () async {
+    });
+
+
   });
+
 }

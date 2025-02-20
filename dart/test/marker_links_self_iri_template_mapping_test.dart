@@ -11,6 +11,10 @@ void main() {
 
   group('test MarkerLinksSelfIriTemplateMapping', () {
     // String marker
-    test('to test the property `marker`', () async {});
+    test('to test the property `marker`', () async {
+    });
+
+
   });
+
 }

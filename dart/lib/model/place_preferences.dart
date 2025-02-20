@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class PlacePreferences {
   /// Returns a new [PlacePreferences] instance.
   PlacePreferences({
-    this.visibility,
+    this.visibility
+,
   });
 
   /// Returns a new [PlacePreferences] instance and imports its values from
@@ -17,12 +18,12 @@ class PlacePreferences {
       return null;
     }
 
-    return PlacePreferences(
-      visibility: PlacePreferencesVisibilityEnum.fromJson(json[r'visibility']),
+  return PlacePreferences(
+              visibility: PlacePreferencesVisibilityEnum.fromJson(json[r'visibility']),
     );
   }
 
-  PlacePreferencesVisibilityEnum? visibility;
+      PlacePreferencesVisibilityEnum? visibility;
 
   @override
   bool operator ==(Object other) {
@@ -31,19 +32,22 @@ class PlacePreferences {
       return true;
     }
 
-    return other is PlacePreferences && other.visibility == visibility;
+    return other is PlacePreferences 
+          && other.visibility == visibility
+  ;
   }
+  
 
   @override
-  int get hashCode => (visibility == null ? 0 : visibility.hashCode);
+  int get hashCode =>
+    (visibility == null ? 0 : visibility.hashCode);
 
   static List<PlacePreferences> listFromJson(Iterable? json) {
     if (json == null) {
       return <PlacePreferences>[];
     }
 
-    return json.fold(<PlacePreferences>[],
-        (List<PlacePreferences> previousValue, element) {
+    return json.fold(<PlacePreferences>[], (List<PlacePreferences> previousValue, element) {
       final PlacePreferences? object = PlacePreferences.fromJson(element);
       if (object is PlacePreferences) {
         previousValue.add(object);
@@ -58,8 +62,7 @@ class PlacePreferences {
       return <String, PlacePreferences>{};
     }
 
-    return json.entries.fold(<String, PlacePreferences>{},
-        (Map<String, PlacePreferences> previousValue, element) {
+    return json.entries.fold(<String, PlacePreferences>{}, (Map<String, PlacePreferences> previousValue, element) {
       final PlacePreferences? object = PlacePreferences.fromJson(element.value);
       if (object is PlacePreferences) {
         previousValue[element.key] = object;
@@ -70,15 +73,13 @@ class PlacePreferences {
   }
 
   // maps a json object with a list of PlacePreferences-objects as value to a dart map
-  static Map<String, List<PlacePreferences>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<PlacePreferences>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<PlacePreferences>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<PlacePreferences>>(
-          key, PlacePreferences.listFromJson(value));
+      return MapEntry<String, List<PlacePreferences>>(key, PlacePreferences.listFromJson(value));
     });
   }
 
@@ -87,11 +88,15 @@ class PlacePreferences {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'visibility'))
-        r'visibility': visibility,
+    if (keys == null || keys.
+    contains(r'visibility')
+    )
+        r'visibility':
+          visibility,
     };
   }
 }
+
 
 class PlacePreferencesVisibilityEnum {
   /// Instantiate a new enum with the provided [value].
@@ -105,8 +110,7 @@ class PlacePreferencesVisibilityEnum {
 
   String toJson() => value;
 
-  static const PRIVATE =
-      PlacePreferencesVisibilityEnum._(r'VISIBILITY_PRIVATE');
+  static const PRIVATE = PlacePreferencesVisibilityEnum._(r'VISIBILITY_PRIVATE');
   static const PUBLIC = PlacePreferencesVisibilityEnum._(r'VISIBILITY_PUBLIC');
   static const SHARED = PlacePreferencesVisibilityEnum._(r'VISIBILITY_SHARED');
 
@@ -118,15 +122,12 @@ class PlacePreferencesVisibilityEnum {
   ];
 
   static PlacePreferencesVisibilityEnum? fromJson(dynamic value) =>
-      PlacePreferencesVisibilityEnumTypeTransformer().decode(value);
+    PlacePreferencesVisibilityEnumTypeTransformer().decode(value);
 
   static List<PlacePreferencesVisibilityEnum> listFromJson(List<dynamic> json) {
-    return json
-        .map((value) {
-          return PlacePreferencesVisibilityEnum.fromJson(value);
-        })
-        .whereType<PlacePreferencesVisibilityEnum>()
-        .toList();
+    return json.map((value) {
+      return PlacePreferencesVisibilityEnum.fromJson(value);
+    }).whereType<PlacePreferencesVisibilityEnum>().toList();
   }
 }
 
@@ -135,8 +136,7 @@ class PlacePreferencesVisibilityEnum {
 class PlacePreferencesVisibilityEnumTypeTransformer {
   const PlacePreferencesVisibilityEnumTypeTransformer._();
 
-  factory PlacePreferencesVisibilityEnumTypeTransformer() =>
-      _instance ??= PlacePreferencesVisibilityEnumTypeTransformer._();
+  factory PlacePreferencesVisibilityEnumTypeTransformer() => _instance ??= PlacePreferencesVisibilityEnumTypeTransformer._();
 
   String encode(PlacePreferencesVisibilityEnum data) => data.value;
 
@@ -148,15 +148,11 @@ class PlacePreferencesVisibilityEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  PlacePreferencesVisibilityEnum? decode(dynamic data,
-      {bool allowNull = true}) {
+  PlacePreferencesVisibilityEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
-      case r'VISIBILITY_PRIVATE':
-        return PlacePreferencesVisibilityEnum.PRIVATE;
-      case r'VISIBILITY_PUBLIC':
-        return PlacePreferencesVisibilityEnum.PUBLIC;
-      case r'VISIBILITY_SHARED':
-        return PlacePreferencesVisibilityEnum.SHARED;
+      case r'VISIBILITY_PRIVATE': return PlacePreferencesVisibilityEnum.PRIVATE;
+      case r'VISIBILITY_PUBLIC': return PlacePreferencesVisibilityEnum.PUBLIC;
+      case r'VISIBILITY_SHARED': return PlacePreferencesVisibilityEnum.SHARED;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
@@ -168,3 +164,4 @@ class PlacePreferencesVisibilityEnumTypeTransformer {
   /// Singleton [PlacePreferencesVisibilityEnumTypeTransformer] instance.
   static PlacePreferencesVisibilityEnumTypeTransformer? _instance;
 }
+

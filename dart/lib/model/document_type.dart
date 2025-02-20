@@ -7,13 +7,20 @@ part of keyclic_sdk_api;
 class DocumentType {
   /// Returns a new [DocumentType] instance.
   DocumentType({
-    this.id,
-    this.code,
-    this.description,
-    this.name,
-    this.permissions,
-    this.signed,
-    this.type,
+    this.id
+,
+    this.code
+,
+    this.description
+,
+    this.name
+,
+    this.permissions
+,
+    this.signed
+,
+    this.type
+,
   });
 
   /// Returns a new [DocumentType] instance and imports its values from
@@ -23,32 +30,33 @@ class DocumentType {
       return null;
     }
 
-    return DocumentType(
-      id: json[r'id'],
-      code: json[r'code'],
-      description: json[r'description'],
-      name: json[r'name'],
-      permissions: json[r'permissions'] == null
-          ? null
-          : List<String>.from(json[r'permissions']),
-      signed: json[r'signed'],
-      type: json[r'type'],
+  return DocumentType(
+                  id: json[r'id'],
+                  code: json[r'code'],
+                  description: json[r'description'],
+                  name: json[r'name'],
+        permissions:
+            json[r'permissions'] == null ?
+              null :
+          List<String>.from(json[r'permissions']),
+                  signed: json[r'signed'],
+                  type: json[r'type'],
     );
   }
 
-  String? id;
+      String? id;
 
-  String? code;
+      String? code;
 
-  String? description;
+      String? description;
 
-  String? name;
+      String? name;
 
-  List<String>? permissions;
+        List<String>? permissions;
 
-  bool? signed;
+      bool? signed;
 
-  String? type;
+      String? type;
 
   @override
   bool operator ==(Object other) {
@@ -57,34 +65,40 @@ class DocumentType {
       return true;
     }
 
-    return other is DocumentType &&
-        other.id == id &&
-        other.code == code &&
-        other.description == description &&
-        other.name == name &&
-        DeepCollectionEquality.unordered()
-            .equals(permissions, other.permissions) &&
-        other.signed == signed &&
-        other.type == type;
+    return other is DocumentType 
+          && other.id == id
+  
+          && other.code == code
+  
+          && other.description == description
+  
+          && other.name == name
+  
+          && DeepCollectionEquality.unordered().equals(permissions, other.permissions)
+  
+          && other.signed == signed
+  
+          && other.type == type
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (id == null ? 0 : id.hashCode) +
-      (code == null ? 0 : code.hashCode) +
-      (description == null ? 0 : description.hashCode) +
-      (name == null ? 0 : name.hashCode) +
-      (permissions == null ? 0 : permissions.hashCode) +
-      (signed == null ? 0 : signed.hashCode) +
-      (type == null ? 0 : type.hashCode);
+    (id == null ? 0 : id.hashCode) +
+    (code == null ? 0 : code.hashCode) +
+    (description == null ? 0 : description.hashCode) +
+    (name == null ? 0 : name.hashCode) +
+    (permissions == null ? 0 : permissions.hashCode) +
+    (signed == null ? 0 : signed.hashCode) +
+    (type == null ? 0 : type.hashCode);
 
   static List<DocumentType> listFromJson(Iterable? json) {
     if (json == null) {
       return <DocumentType>[];
     }
 
-    return json.fold(<DocumentType>[],
-        (List<DocumentType> previousValue, element) {
+    return json.fold(<DocumentType>[], (List<DocumentType> previousValue, element) {
       final DocumentType? object = DocumentType.fromJson(element);
       if (object is DocumentType) {
         previousValue.add(object);
@@ -99,8 +113,7 @@ class DocumentType {
       return <String, DocumentType>{};
     }
 
-    return json.entries.fold(<String, DocumentType>{},
-        (Map<String, DocumentType> previousValue, element) {
+    return json.entries.fold(<String, DocumentType>{}, (Map<String, DocumentType> previousValue, element) {
       final DocumentType? object = DocumentType.fromJson(element.value);
       if (object is DocumentType) {
         previousValue[element.key] = object;
@@ -111,33 +124,57 @@ class DocumentType {
   }
 
   // maps a json object with a list of DocumentType-objects as value to a dart map
-  static Map<String, List<DocumentType>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<DocumentType>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<DocumentType>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<DocumentType>>(
-          key, DocumentType.listFromJson(value));
+      return MapEntry<String, List<DocumentType>>(key, DocumentType.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'DocumentType[id=$id, code=$code, description=$description, name=$name, permissions=$permissions, signed=$signed, type=$type]';
+  String toString() => 'DocumentType[id=$id, code=$code, description=$description, name=$name, permissions=$permissions, signed=$signed, type=$type]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'code')) r'code': code,
-      if (keys == null || keys.contains(r'description'))
-        r'description': description,
-      if (keys == null || keys.contains(r'name')) r'name': name,
-      if (keys == null || keys.contains(r'permissions'))
-        r'permissions': permissions,
-      if (keys == null || keys.contains(r'signed')) r'signed': signed,
-      if (keys == null || keys.contains(r'type')) r'type': type,
+    if (keys == null || keys.
+    contains(r'id')
+    )
+        r'id':
+          id,
+    if (keys == null || keys.
+    contains(r'code')
+    )
+        r'code':
+          code,
+    if (keys == null || keys.
+    contains(r'description')
+    )
+        r'description':
+          description,
+    if (keys == null || keys.
+    contains(r'name')
+    )
+        r'name':
+          name,
+    if (keys == null || keys.
+    contains(r'permissions')
+    )
+        r'permissions':
+          permissions,
+    if (keys == null || keys.
+    contains(r'signed')
+    )
+        r'signed':
+          signed,
+    if (keys == null || keys.
+    contains(r'type')
+    )
+        r'type':
+          type,
     };
   }
 }
+

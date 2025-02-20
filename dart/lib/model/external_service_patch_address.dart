@@ -7,9 +7,12 @@ part of keyclic_sdk_api;
 class ExternalServicePatchAddress {
   /// Returns a new [ExternalServicePatchAddress] instance.
   ExternalServicePatchAddress({
-    this.locality,
-    this.postalCode,
-    this.streetAddress,
+    this.locality
+,
+    this.postalCode
+,
+    this.streetAddress
+,
   });
 
   /// Returns a new [ExternalServicePatchAddress] instance and imports its values from
@@ -19,18 +22,18 @@ class ExternalServicePatchAddress {
       return null;
     }
 
-    return ExternalServicePatchAddress(
-      locality: json[r'locality'],
-      postalCode: json[r'postalCode'],
-      streetAddress: json[r'streetAddress'],
+  return ExternalServicePatchAddress(
+                  locality: json[r'locality'],
+                  postalCode: json[r'postalCode'],
+                  streetAddress: json[r'streetAddress'],
     );
   }
 
-  String? locality;
+      String? locality;
 
-  String? postalCode;
+      String? postalCode;
 
-  String? streetAddress;
+      String? streetAddress;
 
   @override
   bool operator ==(Object other) {
@@ -39,27 +42,29 @@ class ExternalServicePatchAddress {
       return true;
     }
 
-    return other is ExternalServicePatchAddress &&
-        other.locality == locality &&
-        other.postalCode == postalCode &&
-        other.streetAddress == streetAddress;
+    return other is ExternalServicePatchAddress 
+          && other.locality == locality
+  
+          && other.postalCode == postalCode
+  
+          && other.streetAddress == streetAddress
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (locality == null ? 0 : locality.hashCode) +
-      (postalCode == null ? 0 : postalCode.hashCode) +
-      (streetAddress == null ? 0 : streetAddress.hashCode);
+    (locality == null ? 0 : locality.hashCode) +
+    (postalCode == null ? 0 : postalCode.hashCode) +
+    (streetAddress == null ? 0 : streetAddress.hashCode);
 
   static List<ExternalServicePatchAddress> listFromJson(Iterable? json) {
     if (json == null) {
       return <ExternalServicePatchAddress>[];
     }
 
-    return json.fold(<ExternalServicePatchAddress>[],
-        (List<ExternalServicePatchAddress> previousValue, element) {
-      final ExternalServicePatchAddress? object =
-          ExternalServicePatchAddress.fromJson(element);
+    return json.fold(<ExternalServicePatchAddress>[], (List<ExternalServicePatchAddress> previousValue, element) {
+      final ExternalServicePatchAddress? object = ExternalServicePatchAddress.fromJson(element);
       if (object is ExternalServicePatchAddress) {
         previousValue.add(object);
       }
@@ -68,16 +73,13 @@ class ExternalServicePatchAddress {
     });
   }
 
-  static Map<String, ExternalServicePatchAddress> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, ExternalServicePatchAddress> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, ExternalServicePatchAddress>{};
     }
 
-    return json.entries.fold(<String, ExternalServicePatchAddress>{},
-        (Map<String, ExternalServicePatchAddress> previousValue, element) {
-      final ExternalServicePatchAddress? object =
-          ExternalServicePatchAddress.fromJson(element.value);
+    return json.entries.fold(<String, ExternalServicePatchAddress>{}, (Map<String, ExternalServicePatchAddress> previousValue, element) {
+      final ExternalServicePatchAddress? object = ExternalServicePatchAddress.fromJson(element.value);
       if (object is ExternalServicePatchAddress) {
         previousValue[element.key] = object;
       }
@@ -87,29 +89,37 @@ class ExternalServicePatchAddress {
   }
 
   // maps a json object with a list of ExternalServicePatchAddress-objects as value to a dart map
-  static Map<String, List<ExternalServicePatchAddress>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<ExternalServicePatchAddress>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ExternalServicePatchAddress>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ExternalServicePatchAddress>>(
-          key, ExternalServicePatchAddress.listFromJson(value));
+      return MapEntry<String, List<ExternalServicePatchAddress>>(key, ExternalServicePatchAddress.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'ExternalServicePatchAddress[locality=$locality, postalCode=$postalCode, streetAddress=$streetAddress]';
+  String toString() => 'ExternalServicePatchAddress[locality=$locality, postalCode=$postalCode, streetAddress=$streetAddress]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'locality')) r'locality': locality,
-      if (keys == null || keys.contains(r'postalCode'))
-        r'postalCode': postalCode,
-      if (keys == null || keys.contains(r'streetAddress'))
-        r'streetAddress': streetAddress,
+    if (keys == null || keys.
+    contains(r'locality')
+    )
+        r'locality':
+          locality,
+    if (keys == null || keys.
+    contains(r'postalCode')
+    )
+        r'postalCode':
+          postalCode,
+    if (keys == null || keys.
+    contains(r'streetAddress')
+    )
+        r'streetAddress':
+          streetAddress,
     };
   }
 }
+

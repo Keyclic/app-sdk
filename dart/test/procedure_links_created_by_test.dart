@@ -12,9 +12,14 @@ void main() {
   group('test ProcedureLinksCreatedBy', () {
     // The URI of the createdBy associated to the given procedure.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // ProcedureLinksCreatedByIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

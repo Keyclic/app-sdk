@@ -7,9 +7,16 @@ part of keyclic_sdk_api;
 class PlanData {
   /// Returns a new [PlanData] instance.
   PlanData({
-    required this.asset,
-    required this.file,
-    this.name,
+      required 
+    this.asset
+      
+    ,
+      required 
+    this.file
+      
+    ,
+    this.name
+,
   });
 
   /// Returns a new [PlanData] instance and imports its values from
@@ -19,18 +26,18 @@ class PlanData {
       return null;
     }
 
-    return PlanData(
-      asset: json[r'asset'],
-      file: json[r'file'],
-      name: json[r'name'],
+  return PlanData(
+                  asset: json[r'asset'],
+                  file: json[r'file'],
+                  name: json[r'name'],
     );
   }
 
-  String asset;
+      String asset;
 
-  String file;
+      String file;
 
-  String? name;
+      String? name;
 
   @override
   bool operator ==(Object other) {
@@ -39,15 +46,21 @@ class PlanData {
       return true;
     }
 
-    return other is PlanData &&
-        other.asset == asset &&
-        other.file == file &&
-        other.name == name;
+    return other is PlanData 
+          && other.asset == asset
+  
+          && other.file == file
+  
+          && other.name == name
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      asset.hashCode + file.hashCode + (name == null ? 0 : name.hashCode);
+     asset.hashCode +
+     file.hashCode +
+    (name == null ? 0 : name.hashCode);
 
   static List<PlanData> listFromJson(Iterable? json) {
     if (json == null) {
@@ -69,8 +82,7 @@ class PlanData {
       return <String, PlanData>{};
     }
 
-    return json.entries.fold(<String, PlanData>{},
-        (Map<String, PlanData> previousValue, element) {
+    return json.entries.fold(<String, PlanData>{}, (Map<String, PlanData> previousValue, element) {
       final PlanData? object = PlanData.fromJson(element.value);
       if (object is PlanData) {
         previousValue[element.key] = object;
@@ -81,15 +93,13 @@ class PlanData {
   }
 
   // maps a json object with a list of PlanData-objects as value to a dart map
-  static Map<String, List<PlanData>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<PlanData>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<PlanData>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<PlanData>>(
-          key, PlanData.listFromJson(value));
+      return MapEntry<String, List<PlanData>>(key, PlanData.listFromJson(value));
     });
   }
 
@@ -98,9 +108,16 @@ class PlanData {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'asset': asset,
-      r'file': file,
-      if (keys == null || keys.contains(r'name')) r'name': name,
+        r'asset':
+          asset,
+        r'file':
+          file,
+    if (keys == null || keys.
+    contains(r'name')
+    )
+        r'name':
+          name,
     };
   }
 }
+

@@ -12,9 +12,14 @@ void main() {
   group('test ReviewLinksAuthor', () {
     // The URI of the author associated to the given review.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // ReviewLinksAuthorIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

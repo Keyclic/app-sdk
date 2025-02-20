@@ -11,18 +11,26 @@ void main() {
 
   group('test PlaceLinks', () {
     // PlaceLinksChildren children
-    test('to test the property `children`', () async {});
+    test('to test the property `children`', () async {
+    });
 
     // PlaceLinksGeo geo
-    test('to test the property `geo`', () async {});
+    test('to test the property `geo`', () async {
+    });
 
     // PlaceLinksOrganization organization
-    test('to test the property `organization`', () async {});
+    test('to test the property `organization`', () async {
+    });
 
     // PlaceLinksPlans plans
-    test('to test the property `plans`', () async {});
+    test('to test the property `plans`', () async {
+    });
 
     // PlaceLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
+
+
   });
+
 }

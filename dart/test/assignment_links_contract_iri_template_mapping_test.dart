@@ -11,6 +11,10 @@ void main() {
 
   group('test AssignmentLinksContractIriTemplateMapping', () {
     // String identifier
-    test('to test the property `identifier`', () async {});
+    test('to test the property `identifier`', () async {
+    });
+
+
   });
+
 }

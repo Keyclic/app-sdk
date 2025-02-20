@@ -7,8 +7,12 @@ part of keyclic_sdk_api;
 class MessageData {
   /// Returns a new [MessageData] instance.
   MessageData({
-    this.text,
-    required this.task,
+    this.text
+,
+      required 
+    this.task
+      
+    ,
   });
 
   /// Returns a new [MessageData] instance and imports its values from
@@ -18,17 +22,16 @@ class MessageData {
       return null;
     }
 
-    return MessageData(
-      text: json[r'text'] == null
-          ? null
-          : List<Map<String, Object?>>.from(json[r'text']),
-      task: json[r'task'],
+  return MessageData(
+        text: 
+          json[r'text'] == null ? null : List<Map<String, Object?>>.from(json[r'text']),
+                  task: json[r'task'],
     );
   }
 
-  List<Map<String, Object?>>? text;
+        List<Map<String, Object?>>? text;
 
-  String task;
+      String task;
 
   @override
   bool operator ==(Object other) {
@@ -37,21 +40,25 @@ class MessageData {
       return true;
     }
 
-    return other is MessageData &&
-        DeepCollectionEquality.unordered().equals(text, other.text) &&
-        other.task == task;
+    return other is MessageData 
+          && DeepCollectionEquality.unordered().equals(text, other.text)
+  
+          && other.task == task
+  ;
   }
+  
 
   @override
-  int get hashCode => (text == null ? 0 : text.hashCode) + task.hashCode;
+  int get hashCode =>
+    (text == null ? 0 : text.hashCode) +
+     task.hashCode;
 
   static List<MessageData> listFromJson(Iterable? json) {
     if (json == null) {
       return <MessageData>[];
     }
 
-    return json.fold(<MessageData>[],
-        (List<MessageData> previousValue, element) {
+    return json.fold(<MessageData>[], (List<MessageData> previousValue, element) {
       final MessageData? object = MessageData.fromJson(element);
       if (object is MessageData) {
         previousValue.add(object);
@@ -66,8 +73,7 @@ class MessageData {
       return <String, MessageData>{};
     }
 
-    return json.entries.fold(<String, MessageData>{},
-        (Map<String, MessageData> previousValue, element) {
+    return json.entries.fold(<String, MessageData>{}, (Map<String, MessageData> previousValue, element) {
       final MessageData? object = MessageData.fromJson(element.value);
       if (object is MessageData) {
         previousValue[element.key] = object;
@@ -78,15 +84,13 @@ class MessageData {
   }
 
   // maps a json object with a list of MessageData-objects as value to a dart map
-  static Map<String, List<MessageData>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<MessageData>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<MessageData>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<MessageData>>(
-          key, MessageData.listFromJson(value));
+      return MapEntry<String, List<MessageData>>(key, MessageData.listFromJson(value));
     });
   }
 
@@ -95,8 +99,14 @@ class MessageData {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'text')) r'text': text,
-      r'task': task,
+    if (keys == null || keys.
+    contains(r'text')
+    )
+        r'text':
+            text,
+        r'task':
+          task,
     };
   }
 }
+

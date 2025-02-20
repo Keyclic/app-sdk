@@ -7,7 +7,8 @@ part of keyclic_sdk_api_platform;
 class PreferencesAssetRead {
   /// Returns a new [PreferencesAssetRead] instance.
   PreferencesAssetRead({
-    this.visibility,
+    this.visibility
+,
   });
 
   /// Returns a new [PreferencesAssetRead] instance and imports its values from
@@ -17,13 +18,12 @@ class PreferencesAssetRead {
       return null;
     }
 
-    return PreferencesAssetRead(
-      visibility:
-          PreferencesAssetReadVisibilityEnum.fromJson(json[r'visibility']),
+  return PreferencesAssetRead(
+              visibility: PreferencesAssetReadVisibilityEnum.fromJson(json[r'visibility']),
     );
   }
 
-  PreferencesAssetReadVisibilityEnum? visibility;
+      PreferencesAssetReadVisibilityEnum? visibility;
 
   @override
   bool operator ==(Object other) {
@@ -32,21 +32,23 @@ class PreferencesAssetRead {
       return true;
     }
 
-    return other is PreferencesAssetRead && other.visibility == visibility;
+    return other is PreferencesAssetRead 
+          && other.visibility == visibility
+  ;
   }
+  
 
   @override
-  int get hashCode => (visibility == null ? 0 : visibility.hashCode);
+  int get hashCode =>
+    (visibility == null ? 0 : visibility.hashCode);
 
   static List<PreferencesAssetRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <PreferencesAssetRead>[];
     }
 
-    return json.fold(<PreferencesAssetRead>[],
-        (List<PreferencesAssetRead> previousValue, element) {
-      final PreferencesAssetRead? object =
-          PreferencesAssetRead.fromJson(element);
+    return json.fold(<PreferencesAssetRead>[], (List<PreferencesAssetRead> previousValue, element) {
+      final PreferencesAssetRead? object = PreferencesAssetRead.fromJson(element);
       if (object is PreferencesAssetRead) {
         previousValue.add(object);
       }
@@ -55,16 +57,13 @@ class PreferencesAssetRead {
     });
   }
 
-  static Map<String, PreferencesAssetRead> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, PreferencesAssetRead> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, PreferencesAssetRead>{};
     }
 
-    return json.entries.fold(<String, PreferencesAssetRead>{},
-        (Map<String, PreferencesAssetRead> previousValue, element) {
-      final PreferencesAssetRead? object =
-          PreferencesAssetRead.fromJson(element.value);
+    return json.entries.fold(<String, PreferencesAssetRead>{}, (Map<String, PreferencesAssetRead> previousValue, element) {
+      final PreferencesAssetRead? object = PreferencesAssetRead.fromJson(element.value);
       if (object is PreferencesAssetRead) {
         previousValue[element.key] = object;
       }
@@ -74,15 +73,13 @@ class PreferencesAssetRead {
   }
 
   // maps a json object with a list of PreferencesAssetRead-objects as value to a dart map
-  static Map<String, List<PreferencesAssetRead>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<PreferencesAssetRead>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<PreferencesAssetRead>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<PreferencesAssetRead>>(
-          key, PreferencesAssetRead.listFromJson(value));
+      return MapEntry<String, List<PreferencesAssetRead>>(key, PreferencesAssetRead.listFromJson(value));
     });
   }
 
@@ -91,11 +88,15 @@ class PreferencesAssetRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'visibility'))
-        r'visibility': visibility,
+    if (keys == null || keys.
+    contains(r'visibility')
+    )
+        r'visibility':
+          visibility,
     };
   }
 }
+
 
 class PreferencesAssetReadVisibilityEnum {
   /// Instantiate a new enum with the provided [value].
@@ -109,12 +110,9 @@ class PreferencesAssetReadVisibilityEnum {
 
   String toJson() => value;
 
-  static const PRIVATE =
-      PreferencesAssetReadVisibilityEnum._(r'VISIBILITY_PRIVATE');
-  static const PUBLIC =
-      PreferencesAssetReadVisibilityEnum._(r'VISIBILITY_PUBLIC');
-  static const SHARED =
-      PreferencesAssetReadVisibilityEnum._(r'VISIBILITY_SHARED');
+  static const PRIVATE = PreferencesAssetReadVisibilityEnum._(r'VISIBILITY_PRIVATE');
+  static const PUBLIC = PreferencesAssetReadVisibilityEnum._(r'VISIBILITY_PUBLIC');
+  static const SHARED = PreferencesAssetReadVisibilityEnum._(r'VISIBILITY_SHARED');
 
   /// List of all possible values in this [enum][PreferencesAssetReadVisibilityEnum].
   static const values = <PreferencesAssetReadVisibilityEnum>[
@@ -124,16 +122,12 @@ class PreferencesAssetReadVisibilityEnum {
   ];
 
   static PreferencesAssetReadVisibilityEnum? fromJson(dynamic value) =>
-      PreferencesAssetReadVisibilityEnumTypeTransformer().decode(value);
+    PreferencesAssetReadVisibilityEnumTypeTransformer().decode(value);
 
-  static List<PreferencesAssetReadVisibilityEnum> listFromJson(
-      List<dynamic> json) {
-    return json
-        .map((value) {
-          return PreferencesAssetReadVisibilityEnum.fromJson(value);
-        })
-        .whereType<PreferencesAssetReadVisibilityEnum>()
-        .toList();
+  static List<PreferencesAssetReadVisibilityEnum> listFromJson(List<dynamic> json) {
+    return json.map((value) {
+      return PreferencesAssetReadVisibilityEnum.fromJson(value);
+    }).whereType<PreferencesAssetReadVisibilityEnum>().toList();
   }
 }
 
@@ -142,8 +136,7 @@ class PreferencesAssetReadVisibilityEnum {
 class PreferencesAssetReadVisibilityEnumTypeTransformer {
   const PreferencesAssetReadVisibilityEnumTypeTransformer._();
 
-  factory PreferencesAssetReadVisibilityEnumTypeTransformer() =>
-      _instance ??= PreferencesAssetReadVisibilityEnumTypeTransformer._();
+  factory PreferencesAssetReadVisibilityEnumTypeTransformer() => _instance ??= PreferencesAssetReadVisibilityEnumTypeTransformer._();
 
   String encode(PreferencesAssetReadVisibilityEnum data) => data.value;
 
@@ -155,15 +148,11 @@ class PreferencesAssetReadVisibilityEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  PreferencesAssetReadVisibilityEnum? decode(dynamic data,
-      {bool allowNull = true}) {
+  PreferencesAssetReadVisibilityEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
-      case r'VISIBILITY_PRIVATE':
-        return PreferencesAssetReadVisibilityEnum.PRIVATE;
-      case r'VISIBILITY_PUBLIC':
-        return PreferencesAssetReadVisibilityEnum.PUBLIC;
-      case r'VISIBILITY_SHARED':
-        return PreferencesAssetReadVisibilityEnum.SHARED;
+      case r'VISIBILITY_PRIVATE': return PreferencesAssetReadVisibilityEnum.PRIVATE;
+      case r'VISIBILITY_PUBLIC': return PreferencesAssetReadVisibilityEnum.PUBLIC;
+      case r'VISIBILITY_SHARED': return PreferencesAssetReadVisibilityEnum.SHARED;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
@@ -175,3 +164,4 @@ class PreferencesAssetReadVisibilityEnumTypeTransformer {
   /// Singleton [PreferencesAssetReadVisibilityEnumTypeTransformer] instance.
   static PreferencesAssetReadVisibilityEnumTypeTransformer? _instance;
 }
+

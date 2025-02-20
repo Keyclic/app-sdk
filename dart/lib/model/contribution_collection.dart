@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class ContributionCollection {
   /// Returns a new [ContributionCollection] instance.
   ContributionCollection({
-    this.items,
+    this.items
+,
   });
 
   /// Returns a new [ContributionCollection] instance and imports its values from
@@ -17,12 +18,13 @@ class ContributionCollection {
       return null;
     }
 
-    return ContributionCollection(
-      items: Contribution.listFromJson(json[r'items']),
+  return ContributionCollection(
+        items: 
+          Contribution.listFromJson(json[r'items']),
     );
   }
 
-  List<Contribution>? items;
+        List<Contribution>? items;
 
   @override
   bool operator ==(Object other) {
@@ -31,22 +33,23 @@ class ContributionCollection {
       return true;
     }
 
-    return other is ContributionCollection &&
-        DeepCollectionEquality.unordered().equals(items, other.items);
+    return other is ContributionCollection 
+          && DeepCollectionEquality.unordered().equals(items, other.items)
+  ;
   }
+  
 
   @override
-  int get hashCode => (items == null ? 0 : items.hashCode);
+  int get hashCode =>
+    (items == null ? 0 : items.hashCode);
 
   static List<ContributionCollection> listFromJson(Iterable? json) {
     if (json == null) {
       return <ContributionCollection>[];
     }
 
-    return json.fold(<ContributionCollection>[],
-        (List<ContributionCollection> previousValue, element) {
-      final ContributionCollection? object =
-          ContributionCollection.fromJson(element);
+    return json.fold(<ContributionCollection>[], (List<ContributionCollection> previousValue, element) {
+      final ContributionCollection? object = ContributionCollection.fromJson(element);
       if (object is ContributionCollection) {
         previousValue.add(object);
       }
@@ -55,16 +58,13 @@ class ContributionCollection {
     });
   }
 
-  static Map<String, ContributionCollection> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, ContributionCollection> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, ContributionCollection>{};
     }
 
-    return json.entries.fold(<String, ContributionCollection>{},
-        (Map<String, ContributionCollection> previousValue, element) {
-      final ContributionCollection? object =
-          ContributionCollection.fromJson(element.value);
+    return json.entries.fold(<String, ContributionCollection>{}, (Map<String, ContributionCollection> previousValue, element) {
+      final ContributionCollection? object = ContributionCollection.fromJson(element.value);
       if (object is ContributionCollection) {
         previousValue[element.key] = object;
       }
@@ -74,15 +74,13 @@ class ContributionCollection {
   }
 
   // maps a json object with a list of ContributionCollection-objects as value to a dart map
-  static Map<String, List<ContributionCollection>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<ContributionCollection>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ContributionCollection>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ContributionCollection>>(
-          key, ContributionCollection.listFromJson(value));
+      return MapEntry<String, List<ContributionCollection>>(key, ContributionCollection.listFromJson(value));
     });
   }
 
@@ -91,7 +89,12 @@ class ContributionCollection {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'items')) r'items': items,
+    if (keys == null || keys.
+    contains(r'items')
+    )
+        r'items':
+            items,
     };
   }
 }
+

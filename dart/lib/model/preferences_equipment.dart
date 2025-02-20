@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class PreferencesEquipment {
   /// Returns a new [PreferencesEquipment] instance.
   PreferencesEquipment({
-    this.enabled,
+    this.enabled
+,
   });
 
   /// Returns a new [PreferencesEquipment] instance and imports its values from
@@ -17,12 +18,12 @@ class PreferencesEquipment {
       return null;
     }
 
-    return PreferencesEquipment(
-      enabled: json[r'enabled'],
+  return PreferencesEquipment(
+                  enabled: json[r'enabled'],
     );
   }
 
-  bool? enabled;
+      bool? enabled;
 
   @override
   bool operator ==(Object other) {
@@ -31,21 +32,23 @@ class PreferencesEquipment {
       return true;
     }
 
-    return other is PreferencesEquipment && other.enabled == enabled;
+    return other is PreferencesEquipment 
+          && other.enabled == enabled
+  ;
   }
+  
 
   @override
-  int get hashCode => (enabled == null ? 0 : enabled.hashCode);
+  int get hashCode =>
+    (enabled == null ? 0 : enabled.hashCode);
 
   static List<PreferencesEquipment> listFromJson(Iterable? json) {
     if (json == null) {
       return <PreferencesEquipment>[];
     }
 
-    return json.fold(<PreferencesEquipment>[],
-        (List<PreferencesEquipment> previousValue, element) {
-      final PreferencesEquipment? object =
-          PreferencesEquipment.fromJson(element);
+    return json.fold(<PreferencesEquipment>[], (List<PreferencesEquipment> previousValue, element) {
+      final PreferencesEquipment? object = PreferencesEquipment.fromJson(element);
       if (object is PreferencesEquipment) {
         previousValue.add(object);
       }
@@ -54,16 +57,13 @@ class PreferencesEquipment {
     });
   }
 
-  static Map<String, PreferencesEquipment> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, PreferencesEquipment> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, PreferencesEquipment>{};
     }
 
-    return json.entries.fold(<String, PreferencesEquipment>{},
-        (Map<String, PreferencesEquipment> previousValue, element) {
-      final PreferencesEquipment? object =
-          PreferencesEquipment.fromJson(element.value);
+    return json.entries.fold(<String, PreferencesEquipment>{}, (Map<String, PreferencesEquipment> previousValue, element) {
+      final PreferencesEquipment? object = PreferencesEquipment.fromJson(element.value);
       if (object is PreferencesEquipment) {
         previousValue[element.key] = object;
       }
@@ -73,15 +73,13 @@ class PreferencesEquipment {
   }
 
   // maps a json object with a list of PreferencesEquipment-objects as value to a dart map
-  static Map<String, List<PreferencesEquipment>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<PreferencesEquipment>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<PreferencesEquipment>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<PreferencesEquipment>>(
-          key, PreferencesEquipment.listFromJson(value));
+      return MapEntry<String, List<PreferencesEquipment>>(key, PreferencesEquipment.listFromJson(value));
     });
   }
 
@@ -90,7 +88,12 @@ class PreferencesEquipment {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'enabled')) r'enabled': enabled,
+    if (keys == null || keys.
+    contains(r'enabled')
+    )
+        r'enabled':
+          enabled,
     };
   }
 }
+

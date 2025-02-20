@@ -11,12 +11,18 @@ void main() {
 
   group('test DurationJsonhalRead', () {
     // num hours
-    test('to test the property `hours`', () async {});
+    test('to test the property `hours`', () async {
+    });
 
     // int minutes
-    test('to test the property `minutes`', () async {});
+    test('to test the property `minutes`', () async {
+    });
 
     // int seconds
-    test('to test the property `seconds`', () async {});
+    test('to test the property `seconds`', () async {
+    });
+
+
   });
+
 }

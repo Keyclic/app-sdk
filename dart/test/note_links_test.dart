@@ -11,12 +11,18 @@ void main() {
 
   group('test NoteLinks', () {
     // NoteLinksAbout about
-    test('to test the property `about`', () async {});
+    test('to test the property `about`', () async {
+    });
 
     // NoteLinksAuthor author
-    test('to test the property `author`', () async {});
+    test('to test the property `author`', () async {
+    });
 
     // NoteLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
+
+
   });
+
 }

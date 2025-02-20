@@ -11,12 +11,18 @@ void main() {
 
   group('test ExternalServicePatchContactPoint', () {
     // String email
-    test('to test the property `email`', () async {});
+    test('to test the property `email`', () async {
+    });
 
     // String name
-    test('to test the property `name`', () async {});
+    test('to test the property `name`', () async {
+    });
 
     // String telephone
-    test('to test the property `telephone`', () async {});
+    test('to test the property `telephone`', () async {
+    });
+
+
   });
+
 }

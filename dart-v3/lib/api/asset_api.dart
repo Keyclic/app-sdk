@@ -4,6 +4,7 @@
 
 part of keyclic_sdk_api_platform;
 
+
 class AssetApi {
   const AssetApi(this._apiClient);
 
@@ -14,12 +15,12 @@ class AssetApi {
   ///
   /// Parameters:
   /// * [identifier] - Asset identifier
-  /// * [xKeyclicApp] -
-  /// * [xOrganizationId] -
-  /// * [acceptLanguage] -
-  /// * [xDateTime] -
-  /// * [xKeyclicAppPlatform] -
-  /// * [xKeyclicAppVersion] -
+  /// * [xKeyclicApp] - 
+  /// * [xOrganizationId] - 
+  /// * [acceptLanguage] - 
+  /// * [xDateTime] - 
+  /// * [xKeyclicAppPlatform] - 
+  /// * [xKeyclicAppVersion] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -29,7 +30,7 @@ class AssetApi {
   ///
   /// Returns a [Future] containing a [Response] with a [AssetJsonhalRead] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<AssetJsonhalRead>> getAsset({
+  Future<Response<AssetJsonhalRead>> getAsset({ 
     required String identifier,
     required String xKeyclicApp,
     required String xOrganizationId,
@@ -37,6 +38,7 @@ class AssetApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -44,8 +46,7 @@ class AssetApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/assets/{identifier}'
-        .replaceAll('{' r'identifier' '}', identifier.toString());
+    final String path = r'/assets/{identifier}'.replaceAll('{' r'identifier' '}', identifier.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -53,10 +54,8 @@ class AssetApi {
         if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
         if (xDateTime != null) r'X-Date-Time': xDateTime,
         r'X-Keyclic-App': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'X-Keyclic-App-Version': xKeyclicAppVersion,
         r'X-Organization-Id': xOrganizationId,
         ...?headers,
       },
@@ -64,6 +63,7 @@ class AssetApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -71,8 +71,11 @@ class AssetApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -85,8 +88,7 @@ class AssetApi {
     AssetJsonhalRead responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<AssetJsonhalRead>(
-          response.data!, 'AssetJsonhalRead');
+            responseData = await _apiClient.deserializeAsync<AssetJsonhalRead>(response.data!, 'AssetJsonhalRead');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -108,39 +110,38 @@ class AssetApi {
       extra: response.extra,
     );
   }
-
   /// Retrieves the collection of Asset resources.
   /// Retrieves the collection of Asset resources.
   ///
   /// Parameters:
-  /// * [xKeyclicApp] -
-  /// * [xOrganizationId] -
+  /// * [xKeyclicApp] - 
+  /// * [xOrganizationId] - 
   /// * [page] - The collection page number
   /// * [limit] - The number of items per page
   /// * [pagination] - Enable or disable pagination
-  /// * [search] -
-  /// * [createdAtLeftSquareBracketBeforeRightSquareBracket] -
-  /// * [createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket] -
-  /// * [createdAtLeftSquareBracketAfterRightSquareBracket] -
-  /// * [createdAtLeftSquareBracketStrictlyAfterRightSquareBracket] -
-  /// * [updatedAtLeftSquareBracketBeforeRightSquareBracket] -
-  /// * [updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket] -
-  /// * [updatedAtLeftSquareBracketAfterRightSquareBracket] -
-  /// * [updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket] -
-  /// * [resourceType] -
-  /// * [orderLeftSquareBracketCreatedAtRightSquareBracket] -
-  /// * [orderLeftSquareBracketNameRightSquareBracket] -
-  /// * [orderLeftSquareBracketUpdatedAtRightSquareBracket] -
+  /// * [search] - 
+  /// * [createdAtLeftSquareBracketBeforeRightSquareBracket] - 
+  /// * [createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket] - 
+  /// * [createdAtLeftSquareBracketAfterRightSquareBracket] - 
+  /// * [createdAtLeftSquareBracketStrictlyAfterRightSquareBracket] - 
+  /// * [updatedAtLeftSquareBracketBeforeRightSquareBracket] - 
+  /// * [updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket] - 
+  /// * [updatedAtLeftSquareBracketAfterRightSquareBracket] - 
+  /// * [updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket] - 
+  /// * [resourceType] - 
+  /// * [orderLeftSquareBracketCreatedAtRightSquareBracket] - 
+  /// * [orderLeftSquareBracketNameRightSquareBracket] - 
+  /// * [orderLeftSquareBracketUpdatedAtRightSquareBracket] - 
   /// * [propertiesLeftSquareBracketRightSquareBracket] - Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty}
-  /// * [level] -
-  /// * [levelLeftSquareBracketRightSquareBracket] -
-  /// * [parent] -
-  /// * [parentLeftSquareBracketRightSquareBracket] -
-  /// * [subtree] -
-  /// * [acceptLanguage] -
-  /// * [xDateTime] -
-  /// * [xKeyclicAppPlatform] -
-  /// * [xKeyclicAppVersion] -
+  /// * [level] - 
+  /// * [levelLeftSquareBracketRightSquareBracket] - 
+  /// * [parent] - 
+  /// * [parentLeftSquareBracketRightSquareBracket] - 
+  /// * [subtree] - 
+  /// * [acceptLanguage] - 
+  /// * [xDateTime] - 
+  /// * [xKeyclicAppPlatform] - 
+  /// * [xKeyclicAppVersion] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -150,7 +151,7 @@ class AssetApi {
   ///
   /// Returns a [Future] containing a [Response] with a [GetAssetCollection200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetAssetCollection200Response>> getAssetCollection({
+  Future<Response<GetAssetCollection200Response>> getAssetCollection({ 
     required String xKeyclicApp,
     required String xOrganizationId,
     int? page,
@@ -179,6 +180,7 @@ class AssetApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -194,10 +196,8 @@ class AssetApi {
         if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
         if (xDateTime != null) r'X-Date-Time': xDateTime,
         r'X-Keyclic-App': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'X-Keyclic-App-Version': xKeyclicAppVersion,
         r'X-Organization-Id': xOrganizationId,
         ...?headers,
       },
@@ -205,6 +205,7 @@ class AssetApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -212,65 +213,104 @@ class AssetApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
 
     final queryParameters = <String, dynamic>{
-      if (page != null) r'page': encodeQueryParameter(page),
-      if (limit != null) r'limit': encodeQueryParameter(limit),
-      if (pagination != null) r'pagination': encodeQueryParameter(pagination),
-      if (search != null) r'search': encodeQueryParameter(search),
-      if (createdAtLeftSquareBracketBeforeRightSquareBracket != null)
-        r'createdAt[before]': encodeQueryParameter(
-            createdAtLeftSquareBracketBeforeRightSquareBracket),
-      if (createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket != null)
-        r'createdAt[strictly_before]': encodeQueryParameter(
-            createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket),
-      if (createdAtLeftSquareBracketAfterRightSquareBracket != null)
-        r'createdAt[after]': encodeQueryParameter(
-            createdAtLeftSquareBracketAfterRightSquareBracket),
-      if (createdAtLeftSquareBracketStrictlyAfterRightSquareBracket != null)
-        r'createdAt[strictly_after]': encodeQueryParameter(
-            createdAtLeftSquareBracketStrictlyAfterRightSquareBracket),
-      if (updatedAtLeftSquareBracketBeforeRightSquareBracket != null)
-        r'updatedAt[before]': encodeQueryParameter(
-            updatedAtLeftSquareBracketBeforeRightSquareBracket),
-      if (updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket != null)
-        r'updatedAt[strictly_before]': encodeQueryParameter(
-            updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket),
-      if (updatedAtLeftSquareBracketAfterRightSquareBracket != null)
-        r'updatedAt[after]': encodeQueryParameter(
-            updatedAtLeftSquareBracketAfterRightSquareBracket),
-      if (updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket != null)
-        r'updatedAt[strictly_after]': encodeQueryParameter(
-            updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket),
-      if (resourceType != null)
-        r'resourceType': encodeQueryParameter(resourceType),
-      if (orderLeftSquareBracketCreatedAtRightSquareBracket != null)
-        r'order[createdAt]': encodeQueryParameter(
-            orderLeftSquareBracketCreatedAtRightSquareBracket),
-      if (orderLeftSquareBracketNameRightSquareBracket != null)
-        r'order[name]':
-            encodeQueryParameter(orderLeftSquareBracketNameRightSquareBracket),
-      if (orderLeftSquareBracketUpdatedAtRightSquareBracket != null)
-        r'order[updatedAt]': encodeQueryParameter(
-            orderLeftSquareBracketUpdatedAtRightSquareBracket),
-      if (propertiesLeftSquareBracketRightSquareBracket != null)
-        r'properties[]': encodeCollectionQueryParameter(
-            propertiesLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (level != null) r'level': encodeQueryParameter(level),
-      if (levelLeftSquareBracketRightSquareBracket != null)
-        r'level[]': encodeCollectionQueryParameter(
-            levelLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (parent != null) r'parent': encodeQueryParameter(parent),
-      if (parentLeftSquareBracketRightSquareBracket != null)
-        r'parent[]': encodeCollectionQueryParameter(
-            parentLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (subtree != null) r'subtree': encodeQueryParameter(subtree),
+      if (page != null) r'page':
+        encodeQueryParameter(
+        page
+        ),
+      if (limit != null) r'limit':
+        encodeQueryParameter(
+        limit
+        ),
+      if (pagination != null) r'pagination':
+        encodeQueryParameter(
+        pagination
+        ),
+      if (search != null) r'search':
+        encodeQueryParameter(
+        search
+        ),
+      if (createdAtLeftSquareBracketBeforeRightSquareBracket != null) r'createdAt[before]':
+        encodeQueryParameter(
+        createdAtLeftSquareBracketBeforeRightSquareBracket
+        ),
+      if (createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket != null) r'createdAt[strictly_before]':
+        encodeQueryParameter(
+        createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket
+        ),
+      if (createdAtLeftSquareBracketAfterRightSquareBracket != null) r'createdAt[after]':
+        encodeQueryParameter(
+        createdAtLeftSquareBracketAfterRightSquareBracket
+        ),
+      if (createdAtLeftSquareBracketStrictlyAfterRightSquareBracket != null) r'createdAt[strictly_after]':
+        encodeQueryParameter(
+        createdAtLeftSquareBracketStrictlyAfterRightSquareBracket
+        ),
+      if (updatedAtLeftSquareBracketBeforeRightSquareBracket != null) r'updatedAt[before]':
+        encodeQueryParameter(
+        updatedAtLeftSquareBracketBeforeRightSquareBracket
+        ),
+      if (updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket != null) r'updatedAt[strictly_before]':
+        encodeQueryParameter(
+        updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket
+        ),
+      if (updatedAtLeftSquareBracketAfterRightSquareBracket != null) r'updatedAt[after]':
+        encodeQueryParameter(
+        updatedAtLeftSquareBracketAfterRightSquareBracket
+        ),
+      if (updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket != null) r'updatedAt[strictly_after]':
+        encodeQueryParameter(
+        updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket
+        ),
+      if (resourceType != null) r'resourceType':
+        encodeQueryParameter(
+        resourceType
+        ),
+      if (orderLeftSquareBracketCreatedAtRightSquareBracket != null) r'order[createdAt]':
+        encodeQueryParameter(
+        orderLeftSquareBracketCreatedAtRightSquareBracket
+        ),
+      if (orderLeftSquareBracketNameRightSquareBracket != null) r'order[name]':
+        encodeQueryParameter(
+        orderLeftSquareBracketNameRightSquareBracket
+        ),
+      if (orderLeftSquareBracketUpdatedAtRightSquareBracket != null) r'order[updatedAt]':
+        encodeQueryParameter(
+        orderLeftSquareBracketUpdatedAtRightSquareBracket
+        ),
+      if (propertiesLeftSquareBracketRightSquareBracket != null) r'properties[]':
+        encodeCollectionQueryParameter(
+        propertiesLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (level != null) r'level':
+        encodeQueryParameter(
+        level
+        ),
+      if (levelLeftSquareBracketRightSquareBracket != null) r'level[]':
+        encodeCollectionQueryParameter(
+        levelLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (parent != null) r'parent':
+        encodeQueryParameter(
+        parent
+        ),
+      if (parentLeftSquareBracketRightSquareBracket != null) r'parent[]':
+        encodeCollectionQueryParameter(
+        parentLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (subtree != null) r'subtree':
+        encodeQueryParameter(
+        subtree
+        ),
     };
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -284,9 +324,7 @@ class AssetApi {
     GetAssetCollection200Response responseData;
 
     try {
-      responseData =
-          await _apiClient.deserializeAsync<GetAssetCollection200Response>(
-              response.data!, 'GetAssetCollection200Response');
+            responseData = await _apiClient.deserializeAsync<GetAssetCollection200Response>(response.data!, 'GetAssetCollection200Response');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

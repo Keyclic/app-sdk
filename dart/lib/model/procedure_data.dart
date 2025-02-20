@@ -7,9 +7,14 @@ part of keyclic_sdk_api;
 class ProcedureData {
   /// Returns a new [ProcedureData] instance.
   ProcedureData({
-    required this.document,
-    this.mode,
-    this.type,
+      required 
+    this.document
+      
+    ,
+    this.mode
+,
+    this.type
+,
   });
 
   /// Returns a new [ProcedureData] instance and imports its values from
@@ -19,18 +24,18 @@ class ProcedureData {
       return null;
     }
 
-    return ProcedureData(
-      document: json[r'document'],
-      mode: ProcedureDataModeEnum.fromJson(json[r'mode']),
-      type: ProcedureDataTypeEnum.fromJson(json[r'type']),
+  return ProcedureData(
+                  document: json[r'document'],
+              mode: ProcedureDataModeEnum.fromJson(json[r'mode']),
+              type: ProcedureDataTypeEnum.fromJson(json[r'type']),
     );
   }
 
-  String document;
+      String document;
 
-  ProcedureDataModeEnum? mode;
+      ProcedureDataModeEnum? mode;
 
-  ProcedureDataTypeEnum? type;
+      ProcedureDataTypeEnum? type;
 
   @override
   bool operator ==(Object other) {
@@ -39,25 +44,28 @@ class ProcedureData {
       return true;
     }
 
-    return other is ProcedureData &&
-        other.document == document &&
-        other.mode == mode &&
-        other.type == type;
+    return other is ProcedureData 
+          && other.document == document
+  
+          && other.mode == mode
+  
+          && other.type == type
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      document.hashCode +
-      (mode == null ? 0 : mode.hashCode) +
-      (type == null ? 0 : type.hashCode);
+     document.hashCode +
+    (mode == null ? 0 : mode.hashCode) +
+    (type == null ? 0 : type.hashCode);
 
   static List<ProcedureData> listFromJson(Iterable? json) {
     if (json == null) {
       return <ProcedureData>[];
     }
 
-    return json.fold(<ProcedureData>[],
-        (List<ProcedureData> previousValue, element) {
+    return json.fold(<ProcedureData>[], (List<ProcedureData> previousValue, element) {
       final ProcedureData? object = ProcedureData.fromJson(element);
       if (object is ProcedureData) {
         previousValue.add(object);
@@ -72,8 +80,7 @@ class ProcedureData {
       return <String, ProcedureData>{};
     }
 
-    return json.entries.fold(<String, ProcedureData>{},
-        (Map<String, ProcedureData> previousValue, element) {
+    return json.entries.fold(<String, ProcedureData>{}, (Map<String, ProcedureData> previousValue, element) {
       final ProcedureData? object = ProcedureData.fromJson(element.value);
       if (object is ProcedureData) {
         previousValue[element.key] = object;
@@ -84,30 +91,37 @@ class ProcedureData {
   }
 
   // maps a json object with a list of ProcedureData-objects as value to a dart map
-  static Map<String, List<ProcedureData>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<ProcedureData>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ProcedureData>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ProcedureData>>(
-          key, ProcedureData.listFromJson(value));
+      return MapEntry<String, List<ProcedureData>>(key, ProcedureData.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'ProcedureData[document=$document, mode=$mode, type=$type]';
+  String toString() => 'ProcedureData[document=$document, mode=$mode, type=$type]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'document': document,
-      if (keys == null || keys.contains(r'mode')) r'mode': mode,
-      if (keys == null || keys.contains(r'type')) r'type': type,
+        r'document':
+          document,
+    if (keys == null || keys.
+    contains(r'mode')
+    )
+        r'mode':
+          mode,
+    if (keys == null || keys.
+    contains(r'type')
+    )
+        r'type':
+          type,
     };
   }
 }
+
 
 class ProcedureDataModeEnum {
   /// Instantiate a new enum with the provided [value].
@@ -129,15 +143,12 @@ class ProcedureDataModeEnum {
   ];
 
   static ProcedureDataModeEnum? fromJson(dynamic value) =>
-      ProcedureDataModeEnumTypeTransformer().decode(value);
+    ProcedureDataModeEnumTypeTransformer().decode(value);
 
   static List<ProcedureDataModeEnum> listFromJson(List<dynamic> json) {
-    return json
-        .map((value) {
-          return ProcedureDataModeEnum.fromJson(value);
-        })
-        .whereType<ProcedureDataModeEnum>()
-        .toList();
+    return json.map((value) {
+      return ProcedureDataModeEnum.fromJson(value);
+    }).whereType<ProcedureDataModeEnum>().toList();
   }
 }
 
@@ -146,8 +157,7 @@ class ProcedureDataModeEnum {
 class ProcedureDataModeEnumTypeTransformer {
   const ProcedureDataModeEnumTypeTransformer._();
 
-  factory ProcedureDataModeEnumTypeTransformer() =>
-      _instance ??= ProcedureDataModeEnumTypeTransformer._();
+  factory ProcedureDataModeEnumTypeTransformer() => _instance ??= ProcedureDataModeEnumTypeTransformer._();
 
   String encode(ProcedureDataModeEnum data) => data.value;
 
@@ -161,8 +171,7 @@ class ProcedureDataModeEnumTypeTransformer {
   /// and users are still using an old app with the old code.
   ProcedureDataModeEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
-      case r'on_site':
-        return ProcedureDataModeEnum.onSite;
+      case r'on_site': return ProcedureDataModeEnum.onSite;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
@@ -174,6 +183,7 @@ class ProcedureDataModeEnumTypeTransformer {
   /// Singleton [ProcedureDataModeEnumTypeTransformer] instance.
   static ProcedureDataModeEnumTypeTransformer? _instance;
 }
+
 
 class ProcedureDataTypeEnum {
   /// Instantiate a new enum with the provided [value].
@@ -195,15 +205,12 @@ class ProcedureDataTypeEnum {
   ];
 
   static ProcedureDataTypeEnum? fromJson(dynamic value) =>
-      ProcedureDataTypeEnumTypeTransformer().decode(value);
+    ProcedureDataTypeEnumTypeTransformer().decode(value);
 
   static List<ProcedureDataTypeEnum> listFromJson(List<dynamic> json) {
-    return json
-        .map((value) {
-          return ProcedureDataTypeEnum.fromJson(value);
-        })
-        .whereType<ProcedureDataTypeEnum>()
-        .toList();
+    return json.map((value) {
+      return ProcedureDataTypeEnum.fromJson(value);
+    }).whereType<ProcedureDataTypeEnum>().toList();
   }
 }
 
@@ -212,8 +219,7 @@ class ProcedureDataTypeEnum {
 class ProcedureDataTypeEnumTypeTransformer {
   const ProcedureDataTypeEnumTypeTransformer._();
 
-  factory ProcedureDataTypeEnumTypeTransformer() =>
-      _instance ??= ProcedureDataTypeEnumTypeTransformer._();
+  factory ProcedureDataTypeEnumTypeTransformer() => _instance ??= ProcedureDataTypeEnumTypeTransformer._();
 
   String encode(ProcedureDataTypeEnum data) => data.value;
 
@@ -227,8 +233,7 @@ class ProcedureDataTypeEnumTypeTransformer {
   /// and users are still using an old app with the old code.
   ProcedureDataTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
-      case r'signature':
-        return ProcedureDataTypeEnum.signature;
+      case r'signature': return ProcedureDataTypeEnum.signature;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
@@ -240,3 +245,4 @@ class ProcedureDataTypeEnumTypeTransformer {
   /// Singleton [ProcedureDataTypeEnumTypeTransformer] instance.
   static ProcedureDataTypeEnumTypeTransformer? _instance;
 }
+

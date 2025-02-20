@@ -5,6 +5,7 @@
 // import 'package:keyclic_sdk_api_platform/api.dart';
 import 'package:test/test.dart';
 
+
 /// tests for MetricApi
 void main() {
   // final instance = MetricApi();
@@ -15,6 +16,8 @@ void main() {
     // Retrieves the collection of Metric resources.
     //
     //Future<GetTicketMetrics200Response> getTicketMetrics(String identifier, String xKeyclicApp, String xOrganizationId, { int page, int limit, bool pagination, String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
-    test('test getTicketMetrics', () async {});
+    test('test getTicketMetrics', () async {
+    });
+
   });
 }

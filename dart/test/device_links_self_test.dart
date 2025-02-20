@@ -12,9 +12,14 @@ void main() {
   group('test DeviceLinksSelf', () {
     // The URI of the self associated to the given device.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // DeviceLinksSelfIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

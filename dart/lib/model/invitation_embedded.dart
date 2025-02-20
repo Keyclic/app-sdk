@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class InvitationEmbedded {
   /// Returns a new [InvitationEmbedded] instance.
   InvitationEmbedded({
-    this.member,
+    this.member
+,
   });
 
   /// Returns a new [InvitationEmbedded] instance and imports its values from
@@ -17,12 +18,12 @@ class InvitationEmbedded {
       return null;
     }
 
-    return InvitationEmbedded(
-      member: Member.fromJson(json[r'member']),
+  return InvitationEmbedded(
+        member: Member.fromJson(json[r'member']),
     );
   }
 
-  Member? member;
+      Member? member;
 
   @override
   bool operator ==(Object other) {
@@ -31,19 +32,22 @@ class InvitationEmbedded {
       return true;
     }
 
-    return other is InvitationEmbedded && other.member == member;
+    return other is InvitationEmbedded 
+          && other.member == member
+  ;
   }
+  
 
   @override
-  int get hashCode => (member == null ? 0 : member.hashCode);
+  int get hashCode =>
+    (member == null ? 0 : member.hashCode);
 
   static List<InvitationEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
       return <InvitationEmbedded>[];
     }
 
-    return json.fold(<InvitationEmbedded>[],
-        (List<InvitationEmbedded> previousValue, element) {
+    return json.fold(<InvitationEmbedded>[], (List<InvitationEmbedded> previousValue, element) {
       final InvitationEmbedded? object = InvitationEmbedded.fromJson(element);
       if (object is InvitationEmbedded) {
         previousValue.add(object);
@@ -53,16 +57,13 @@ class InvitationEmbedded {
     });
   }
 
-  static Map<String, InvitationEmbedded> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, InvitationEmbedded> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, InvitationEmbedded>{};
     }
 
-    return json.entries.fold(<String, InvitationEmbedded>{},
-        (Map<String, InvitationEmbedded> previousValue, element) {
-      final InvitationEmbedded? object =
-          InvitationEmbedded.fromJson(element.value);
+    return json.entries.fold(<String, InvitationEmbedded>{}, (Map<String, InvitationEmbedded> previousValue, element) {
+      final InvitationEmbedded? object = InvitationEmbedded.fromJson(element.value);
       if (object is InvitationEmbedded) {
         previousValue[element.key] = object;
       }
@@ -72,15 +73,13 @@ class InvitationEmbedded {
   }
 
   // maps a json object with a list of InvitationEmbedded-objects as value to a dart map
-  static Map<String, List<InvitationEmbedded>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<InvitationEmbedded>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<InvitationEmbedded>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<InvitationEmbedded>>(
-          key, InvitationEmbedded.listFromJson(value));
+      return MapEntry<String, List<InvitationEmbedded>>(key, InvitationEmbedded.listFromJson(value));
     });
   }
 
@@ -89,15 +88,18 @@ class InvitationEmbedded {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^member\.').hasMatch(key)))
-        r'member': member?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^member\.'))) {
-            previousValue.add(element.split(RegExp(r'^member\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^member\.').hasMatch(key))
+    )
+        r'member':
+            member?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^member\.'))) {
+                previousValue.add(element.split(RegExp(r'^member\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

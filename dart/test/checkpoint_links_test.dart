@@ -11,6 +11,10 @@ void main() {
 
   group('test CheckpointLinks', () {
     // CheckpointLinksOrganization organization
-    test('to test the property `organization`', () async {});
+    test('to test the property `organization`', () async {
+    });
+
+
   });
+
 }

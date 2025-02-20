@@ -12,9 +12,14 @@ void main() {
   group('test PublicationLinksAuthor', () {
     // The URI of the author associated to the given publication.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // PublicationLinksAuthorIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

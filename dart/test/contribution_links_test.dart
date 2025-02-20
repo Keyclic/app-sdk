@@ -11,9 +11,14 @@ void main() {
 
   group('test ContributionLinks', () {
     // ContributionLinksContributor contributor
-    test('to test the property `contributor`', () async {});
+    test('to test the property `contributor`', () async {
+    });
 
     // ContributionLinksFeedback feedback
-    test('to test the property `feedback`', () async {});
+    test('to test the property `feedback`', () async {
+    });
+
+
   });
+
 }

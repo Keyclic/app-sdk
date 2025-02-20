@@ -11,6 +11,10 @@ void main() {
 
   group('test RuleCollection', () {
     // List<Rule> items (default value: const [])
-    test('to test the property `items`', () async {});
+    test('to test the property `items`', () async {
+    });
+
+
   });
+
 }

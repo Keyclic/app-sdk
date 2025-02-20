@@ -4,6 +4,7 @@
 
 part of keyclic_sdk_api_platform;
 
+
 class ConnectorApi {
   const ConnectorApi(this._apiClient);
 
@@ -14,7 +15,7 @@ class ConnectorApi {
   ///
   /// Parameters:
   /// * [identifier] - Connector identifier
-  /// * [acceptLanguage] -
+  /// * [acceptLanguage] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -24,9 +25,10 @@ class ConnectorApi {
   ///
   /// Returns a [Future] containing a [Response] with a [ConnectorJsonhalRead] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<ConnectorJsonhalRead>> getConnector({
+  Future<Response<ConnectorJsonhalRead>> getConnector({ 
     required String identifier,
     String? acceptLanguage,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -34,8 +36,7 @@ class ConnectorApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/connectors/{identifier}'
-        .replaceAll('{' r'identifier' '}', identifier.toString());
+    final String path = r'/connectors/{identifier}'.replaceAll('{' r'identifier' '}', identifier.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -47,6 +48,7 @@ class ConnectorApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -54,8 +56,11 @@ class ConnectorApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -68,8 +73,7 @@ class ConnectorApi {
     ConnectorJsonhalRead responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<ConnectorJsonhalRead>(
-          response.data!, 'ConnectorJsonhalRead');
+            responseData = await _apiClient.deserializeAsync<ConnectorJsonhalRead>(response.data!, 'ConnectorJsonhalRead');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

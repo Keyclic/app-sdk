@@ -11,6 +11,10 @@ void main() {
 
   group('test ServiceMemberData', () {
     // String member
-    test('to test the property `member`', () async {});
+    test('to test the property `member`', () async {
+    });
+
+
   });
+
 }

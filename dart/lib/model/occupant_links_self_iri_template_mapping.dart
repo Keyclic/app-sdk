@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class OccupantLinksSelfIriTemplateMapping {
   /// Returns a new [OccupantLinksSelfIriTemplateMapping] instance.
   OccupantLinksSelfIriTemplateMapping({
-    this.occupant,
+    this.occupant
+,
   });
 
   /// Returns a new [OccupantLinksSelfIriTemplateMapping] instance and imports its values from
@@ -17,12 +18,12 @@ class OccupantLinksSelfIriTemplateMapping {
       return null;
     }
 
-    return OccupantLinksSelfIriTemplateMapping(
-      occupant: json[r'occupant'],
+  return OccupantLinksSelfIriTemplateMapping(
+                  occupant: json[r'occupant'],
     );
   }
 
-  String? occupant;
+      String? occupant;
 
   @override
   bool operator ==(Object other) {
@@ -31,23 +32,23 @@ class OccupantLinksSelfIriTemplateMapping {
       return true;
     }
 
-    return other is OccupantLinksSelfIriTemplateMapping &&
-        other.occupant == occupant;
+    return other is OccupantLinksSelfIriTemplateMapping 
+          && other.occupant == occupant
+  ;
   }
+  
 
   @override
-  int get hashCode => (occupant == null ? 0 : occupant.hashCode);
+  int get hashCode =>
+    (occupant == null ? 0 : occupant.hashCode);
 
-  static List<OccupantLinksSelfIriTemplateMapping> listFromJson(
-      Iterable? json) {
+  static List<OccupantLinksSelfIriTemplateMapping> listFromJson(Iterable? json) {
     if (json == null) {
       return <OccupantLinksSelfIriTemplateMapping>[];
     }
 
-    return json.fold(<OccupantLinksSelfIriTemplateMapping>[],
-        (List<OccupantLinksSelfIriTemplateMapping> previousValue, element) {
-      final OccupantLinksSelfIriTemplateMapping? object =
-          OccupantLinksSelfIriTemplateMapping.fromJson(element);
+    return json.fold(<OccupantLinksSelfIriTemplateMapping>[], (List<OccupantLinksSelfIriTemplateMapping> previousValue, element) {
+      final OccupantLinksSelfIriTemplateMapping? object = OccupantLinksSelfIriTemplateMapping.fromJson(element);
       if (object is OccupantLinksSelfIriTemplateMapping) {
         previousValue.add(object);
       }
@@ -56,17 +57,13 @@ class OccupantLinksSelfIriTemplateMapping {
     });
   }
 
-  static Map<String, OccupantLinksSelfIriTemplateMapping> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, OccupantLinksSelfIriTemplateMapping> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, OccupantLinksSelfIriTemplateMapping>{};
     }
 
-    return json.entries.fold(<String, OccupantLinksSelfIriTemplateMapping>{},
-        (Map<String, OccupantLinksSelfIriTemplateMapping> previousValue,
-            element) {
-      final OccupantLinksSelfIriTemplateMapping? object =
-          OccupantLinksSelfIriTemplateMapping.fromJson(element.value);
+    return json.entries.fold(<String, OccupantLinksSelfIriTemplateMapping>{}, (Map<String, OccupantLinksSelfIriTemplateMapping> previousValue, element) {
+      final OccupantLinksSelfIriTemplateMapping? object = OccupantLinksSelfIriTemplateMapping.fromJson(element.value);
       if (object is OccupantLinksSelfIriTemplateMapping) {
         previousValue[element.key] = object;
       }
@@ -76,25 +73,27 @@ class OccupantLinksSelfIriTemplateMapping {
   }
 
   // maps a json object with a list of OccupantLinksSelfIriTemplateMapping-objects as value to a dart map
-  static Map<String, List<OccupantLinksSelfIriTemplateMapping>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<OccupantLinksSelfIriTemplateMapping>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<OccupantLinksSelfIriTemplateMapping>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<OccupantLinksSelfIriTemplateMapping>>(
-          key, OccupantLinksSelfIriTemplateMapping.listFromJson(value));
+      return MapEntry<String, List<OccupantLinksSelfIriTemplateMapping>>(key, OccupantLinksSelfIriTemplateMapping.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'OccupantLinksSelfIriTemplateMapping[occupant=$occupant]';
+  String toString() => 'OccupantLinksSelfIriTemplateMapping[occupant=$occupant]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'occupant')) r'occupant': occupant,
+    if (keys == null || keys.
+    contains(r'occupant')
+    )
+        r'occupant':
+          occupant,
     };
   }
 }
+

@@ -12,9 +12,14 @@ void main() {
   group('test SignerLinksProcedure', () {
     // The URI of the procedure associated to the given signer.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // SignerLinksProcedureIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

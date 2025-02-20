@@ -4,6 +4,7 @@
 
 part of keyclic_sdk_api_platform;
 
+
 // extracted from dart:io package which cannot be used for web clients
 class HttpStatus {
   static const int internalServerError = 500;
@@ -14,11 +15,8 @@ String encodeFormParameter(dynamic parameter) {
   return parameterToString(parameter);
 }
 
-ListParam<String> encodeCollectionQueryParameter(Iterable parameters,
-    {ListFormat format = ListFormat.multi}) {
-  return ListParam<String>([
-    for (final parameter in parameters) parameterToString(parameter),
-  ], format);
+ListParam<String> encodeCollectionQueryParameter(Iterable parameters, {ListFormat format = ListFormat.multi}) {
+  return ListParam<String>([for (final parameter in parameters) parameterToString(parameter),], format);
 }
 
 // ListParam<T> encodeCollectionQueryParameter<T>(Iterable<T> parameters, {ListFormat format = ListFormat.multi}) {

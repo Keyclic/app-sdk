@@ -7,9 +7,12 @@ part of keyclic_sdk_api;
 class InternalServicePostalAddress {
   /// Returns a new [InternalServicePostalAddress] instance.
   InternalServicePostalAddress({
-    this.locality,
-    this.postalCode,
-    this.streetAddress,
+    this.locality
+,
+    this.postalCode
+,
+    this.streetAddress
+,
   });
 
   /// Returns a new [InternalServicePostalAddress] instance and imports its values from
@@ -19,18 +22,18 @@ class InternalServicePostalAddress {
       return null;
     }
 
-    return InternalServicePostalAddress(
-      locality: json[r'locality'],
-      postalCode: json[r'postalCode'],
-      streetAddress: json[r'streetAddress'],
+  return InternalServicePostalAddress(
+                  locality: json[r'locality'],
+                  postalCode: json[r'postalCode'],
+                  streetAddress: json[r'streetAddress'],
     );
   }
 
-  String? locality;
+      String? locality;
 
-  String? postalCode;
+      String? postalCode;
 
-  String? streetAddress;
+      String? streetAddress;
 
   @override
   bool operator ==(Object other) {
@@ -39,27 +42,29 @@ class InternalServicePostalAddress {
       return true;
     }
 
-    return other is InternalServicePostalAddress &&
-        other.locality == locality &&
-        other.postalCode == postalCode &&
-        other.streetAddress == streetAddress;
+    return other is InternalServicePostalAddress 
+          && other.locality == locality
+  
+          && other.postalCode == postalCode
+  
+          && other.streetAddress == streetAddress
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (locality == null ? 0 : locality.hashCode) +
-      (postalCode == null ? 0 : postalCode.hashCode) +
-      (streetAddress == null ? 0 : streetAddress.hashCode);
+    (locality == null ? 0 : locality.hashCode) +
+    (postalCode == null ? 0 : postalCode.hashCode) +
+    (streetAddress == null ? 0 : streetAddress.hashCode);
 
   static List<InternalServicePostalAddress> listFromJson(Iterable? json) {
     if (json == null) {
       return <InternalServicePostalAddress>[];
     }
 
-    return json.fold(<InternalServicePostalAddress>[],
-        (List<InternalServicePostalAddress> previousValue, element) {
-      final InternalServicePostalAddress? object =
-          InternalServicePostalAddress.fromJson(element);
+    return json.fold(<InternalServicePostalAddress>[], (List<InternalServicePostalAddress> previousValue, element) {
+      final InternalServicePostalAddress? object = InternalServicePostalAddress.fromJson(element);
       if (object is InternalServicePostalAddress) {
         previousValue.add(object);
       }
@@ -68,16 +73,13 @@ class InternalServicePostalAddress {
     });
   }
 
-  static Map<String, InternalServicePostalAddress> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, InternalServicePostalAddress> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, InternalServicePostalAddress>{};
     }
 
-    return json.entries.fold(<String, InternalServicePostalAddress>{},
-        (Map<String, InternalServicePostalAddress> previousValue, element) {
-      final InternalServicePostalAddress? object =
-          InternalServicePostalAddress.fromJson(element.value);
+    return json.entries.fold(<String, InternalServicePostalAddress>{}, (Map<String, InternalServicePostalAddress> previousValue, element) {
+      final InternalServicePostalAddress? object = InternalServicePostalAddress.fromJson(element.value);
       if (object is InternalServicePostalAddress) {
         previousValue[element.key] = object;
       }
@@ -87,29 +89,37 @@ class InternalServicePostalAddress {
   }
 
   // maps a json object with a list of InternalServicePostalAddress-objects as value to a dart map
-  static Map<String, List<InternalServicePostalAddress>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<InternalServicePostalAddress>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<InternalServicePostalAddress>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<InternalServicePostalAddress>>(
-          key, InternalServicePostalAddress.listFromJson(value));
+      return MapEntry<String, List<InternalServicePostalAddress>>(key, InternalServicePostalAddress.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'InternalServicePostalAddress[locality=$locality, postalCode=$postalCode, streetAddress=$streetAddress]';
+  String toString() => 'InternalServicePostalAddress[locality=$locality, postalCode=$postalCode, streetAddress=$streetAddress]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'locality')) r'locality': locality,
-      if (keys == null || keys.contains(r'postalCode'))
-        r'postalCode': postalCode,
-      if (keys == null || keys.contains(r'streetAddress'))
-        r'streetAddress': streetAddress,
+    if (keys == null || keys.
+    contains(r'locality')
+    )
+        r'locality':
+          locality,
+    if (keys == null || keys.
+    contains(r'postalCode')
+    )
+        r'postalCode':
+          postalCode,
+    if (keys == null || keys.
+    contains(r'streetAddress')
+    )
+        r'streetAddress':
+          streetAddress,
     };
   }
 }
+

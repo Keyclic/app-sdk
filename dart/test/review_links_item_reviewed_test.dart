@@ -12,9 +12,14 @@ void main() {
   group('test ReviewLinksItemReviewed', () {
     // The URI of the itemReviewed associated to the given review.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // ReviewLinksItemReviewedIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

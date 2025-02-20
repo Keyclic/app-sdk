@@ -5,6 +5,7 @@
 // import 'package:keyclic_sdk_api_platform/api.dart';
 import 'package:test/test.dart';
 
+
 /// tests for ConnectorApi
 void main() {
   // final instance = ConnectorApi();
@@ -15,6 +16,8 @@ void main() {
     // Retrieves a Connector resource.
     //
     //Future<ConnectorJsonhalRead> getConnector(String identifier, { String acceptLanguage }) async
-    test('test getConnector', () async {});
+    test('test getConnector', () async {
+    });
+
   });
 }

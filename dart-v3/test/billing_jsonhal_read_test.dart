@@ -11,13 +11,19 @@ void main() {
 
   group('test BillingJsonhalRead', () {
     // PriceJsonhalRead adjustedCost
-    test('to test the property `adjustedCost`', () async {});
+    test('to test the property `adjustedCost`', () async {
+    });
 
     // PriceJsonhalRead initialCost
-    test('to test the property `initialCost`', () async {});
+    test('to test the property `initialCost`', () async {
+    });
 
     // The start date of the billing cycle for the customer's account, in ISO 8601 format.
     // DateTime startDate
-    test('to test the property `startDate`', () async {});
+    test('to test the property `startDate`', () async {
+    });
+
+
   });
+
 }

@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class ReportCollection {
   /// Returns a new [ReportCollection] instance.
   ReportCollection({
-    this.items,
+    this.items
+,
   });
 
   /// Returns a new [ReportCollection] instance and imports its values from
@@ -17,12 +18,13 @@ class ReportCollection {
       return null;
     }
 
-    return ReportCollection(
-      items: Report.listFromJson(json[r'items']),
+  return ReportCollection(
+        items: 
+          Report.listFromJson(json[r'items']),
     );
   }
 
-  List<Report>? items;
+        List<Report>? items;
 
   @override
   bool operator ==(Object other) {
@@ -31,20 +33,22 @@ class ReportCollection {
       return true;
     }
 
-    return other is ReportCollection &&
-        DeepCollectionEquality.unordered().equals(items, other.items);
+    return other is ReportCollection 
+          && DeepCollectionEquality.unordered().equals(items, other.items)
+  ;
   }
+  
 
   @override
-  int get hashCode => (items == null ? 0 : items.hashCode);
+  int get hashCode =>
+    (items == null ? 0 : items.hashCode);
 
   static List<ReportCollection> listFromJson(Iterable? json) {
     if (json == null) {
       return <ReportCollection>[];
     }
 
-    return json.fold(<ReportCollection>[],
-        (List<ReportCollection> previousValue, element) {
+    return json.fold(<ReportCollection>[], (List<ReportCollection> previousValue, element) {
       final ReportCollection? object = ReportCollection.fromJson(element);
       if (object is ReportCollection) {
         previousValue.add(object);
@@ -59,8 +63,7 @@ class ReportCollection {
       return <String, ReportCollection>{};
     }
 
-    return json.entries.fold(<String, ReportCollection>{},
-        (Map<String, ReportCollection> previousValue, element) {
+    return json.entries.fold(<String, ReportCollection>{}, (Map<String, ReportCollection> previousValue, element) {
       final ReportCollection? object = ReportCollection.fromJson(element.value);
       if (object is ReportCollection) {
         previousValue[element.key] = object;
@@ -71,15 +74,13 @@ class ReportCollection {
   }
 
   // maps a json object with a list of ReportCollection-objects as value to a dart map
-  static Map<String, List<ReportCollection>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<ReportCollection>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ReportCollection>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ReportCollection>>(
-          key, ReportCollection.listFromJson(value));
+      return MapEntry<String, List<ReportCollection>>(key, ReportCollection.listFromJson(value));
     });
   }
 
@@ -88,7 +89,12 @@ class ReportCollection {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'items')) r'items': items,
+    if (keys == null || keys.
+    contains(r'items')
+    )
+        r'items':
+            items,
     };
   }
 }
+

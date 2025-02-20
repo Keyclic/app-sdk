@@ -11,18 +11,26 @@ void main() {
 
   group('test RunData', () {
     // List<Map<String, Object>> event (default value: const [])
-    test('to test the property `event`', () async {});
+    test('to test the property `event`', () async {
+    });
 
     // List<Map<String, Object>> inputs (default value: const [])
-    test('to test the property `inputs`', () async {});
+    test('to test the property `inputs`', () async {
+    });
 
     // List<Map<String, Object>> outputs (default value: const [])
-    test('to test the property `outputs`', () async {});
+    test('to test the property `outputs`', () async {
+    });
 
     // String user
-    test('to test the property `user`', () async {});
+    test('to test the property `user`', () async {
+    });
 
     // bool verbose
-    test('to test the property `verbose`', () async {});
+    test('to test the property `verbose`', () async {
+    });
+
+
   });
+
 }

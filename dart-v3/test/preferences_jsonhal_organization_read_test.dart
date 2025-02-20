@@ -11,36 +11,50 @@ void main() {
 
   group('test PreferencesJsonhalOrganizationRead', () {
     // ArchivingJsonhalOrganizationPreferenceRead archiving
-    test('to test the property `archiving`', () async {});
+    test('to test the property `archiving`', () async {
+    });
 
     // ContractJsonhalOrganizationPreferenceRead contract
-    test('to test the property `contract`', () async {});
+    test('to test the property `contract`', () async {
+    });
 
     // EquipmentJsonhalOrganizationPreferenceRead equipment
-    test('to test the property `equipment`', () async {});
+    test('to test the property `equipment`', () async {
+    });
 
     // bool feedbackParentPlace
-    test('to test the property `feedbackParentPlace`', () async {});
+    test('to test the property `feedbackParentPlace`', () async {
+    });
 
     // FormJsonhalOrganizationPreferenceRead form
-    test('to test the property `form`', () async {});
+    test('to test the property `form`', () async {
+    });
 
     // bool offline
-    test('to test the property `offline`', () async {});
+    test('to test the property `offline`', () async {
+    });
 
     // bool public
-    test('to test the property `public`', () async {});
+    test('to test the property `public`', () async {
+    });
 
     // ReferenceJsonhalOrganizationPreferenceRead reference
-    test('to test the property `reference`', () async {});
+    test('to test the property `reference`', () async {
+    });
 
     // bool reverseGeocoding
-    test('to test the property `reverseGeocoding`', () async {});
+    test('to test the property `reverseGeocoding`', () async {
+    });
 
     // ReviewJsonhalOrganizationPreferenceRead review
-    test('to test the property `review`', () async {});
+    test('to test the property `review`', () async {
+    });
 
     // SlaJsonhalOrganizationPreferenceRead sla
-    test('to test the property `sla`', () async {});
+    test('to test the property `sla`', () async {
+    });
+
+
   });
+
 }

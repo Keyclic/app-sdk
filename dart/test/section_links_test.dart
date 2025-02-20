@@ -11,6 +11,10 @@ void main() {
 
   group('test SectionLinks', () {
     // SectionLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
+
+
   });
+
 }

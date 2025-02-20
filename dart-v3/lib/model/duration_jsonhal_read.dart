@@ -7,9 +7,12 @@ part of keyclic_sdk_api_platform;
 class DurationJsonhalRead {
   /// Returns a new [DurationJsonhalRead] instance.
   DurationJsonhalRead({
-    this.hours,
-    this.minutes,
-    this.seconds,
+    this.hours
+,
+    this.minutes
+,
+    this.seconds
+,
   });
 
   /// Returns a new [DurationJsonhalRead] instance and imports its values from
@@ -19,18 +22,20 @@ class DurationJsonhalRead {
       return null;
     }
 
-    return DurationJsonhalRead(
-      hours: json[r'hours'] == null ? null : json[r'hours'].toDouble(),
-      minutes: json[r'minutes'],
-      seconds: json[r'seconds'],
+  return DurationJsonhalRead(
+        hours: json[r'hours'] == null ?
+          null :
+          json[r'hours'].toDouble(),
+                  minutes: json[r'minutes'],
+                  seconds: json[r'seconds'],
     );
   }
 
-  final num? hours;
+      final num? hours;
 
-  final int? minutes;
+      final int? minutes;
 
-  final int? seconds;
+      final int? seconds;
 
   @override
   bool operator ==(Object other) {
@@ -39,25 +44,28 @@ class DurationJsonhalRead {
       return true;
     }
 
-    return other is DurationJsonhalRead &&
-        other.hours == hours &&
-        other.minutes == minutes &&
-        other.seconds == seconds;
+    return other is DurationJsonhalRead 
+          && other.hours == hours
+  
+          && other.minutes == minutes
+  
+          && other.seconds == seconds
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (hours == null ? 0 : hours.hashCode) +
-      (minutes == null ? 0 : minutes.hashCode) +
-      (seconds == null ? 0 : seconds.hashCode);
+    (hours == null ? 0 : hours.hashCode) +
+    (minutes == null ? 0 : minutes.hashCode) +
+    (seconds == null ? 0 : seconds.hashCode);
 
   static List<DurationJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <DurationJsonhalRead>[];
     }
 
-    return json.fold(<DurationJsonhalRead>[],
-        (List<DurationJsonhalRead> previousValue, element) {
+    return json.fold(<DurationJsonhalRead>[], (List<DurationJsonhalRead> previousValue, element) {
       final DurationJsonhalRead? object = DurationJsonhalRead.fromJson(element);
       if (object is DurationJsonhalRead) {
         previousValue.add(object);
@@ -67,16 +75,13 @@ class DurationJsonhalRead {
     });
   }
 
-  static Map<String, DurationJsonhalRead> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, DurationJsonhalRead> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, DurationJsonhalRead>{};
     }
 
-    return json.entries.fold(<String, DurationJsonhalRead>{},
-        (Map<String, DurationJsonhalRead> previousValue, element) {
-      final DurationJsonhalRead? object =
-          DurationJsonhalRead.fromJson(element.value);
+    return json.entries.fold(<String, DurationJsonhalRead>{}, (Map<String, DurationJsonhalRead> previousValue, element) {
+      final DurationJsonhalRead? object = DurationJsonhalRead.fromJson(element.value);
       if (object is DurationJsonhalRead) {
         previousValue[element.key] = object;
       }
@@ -86,27 +91,37 @@ class DurationJsonhalRead {
   }
 
   // maps a json object with a list of DurationJsonhalRead-objects as value to a dart map
-  static Map<String, List<DurationJsonhalRead>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<DurationJsonhalRead>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<DurationJsonhalRead>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<DurationJsonhalRead>>(
-          key, DurationJsonhalRead.listFromJson(value));
+      return MapEntry<String, List<DurationJsonhalRead>>(key, DurationJsonhalRead.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'DurationJsonhalRead[hours=$hours, minutes=$minutes, seconds=$seconds]';
+  String toString() => 'DurationJsonhalRead[hours=$hours, minutes=$minutes, seconds=$seconds]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'hours')) r'hours': hours,
-      if (keys == null || keys.contains(r'minutes')) r'minutes': minutes,
-      if (keys == null || keys.contains(r'seconds')) r'seconds': seconds,
+    if (keys == null || keys.
+    contains(r'hours')
+    )
+        r'hours':
+          hours,
+    if (keys == null || keys.
+    contains(r'minutes')
+    )
+        r'minutes':
+          minutes,
+    if (keys == null || keys.
+    contains(r'seconds')
+    )
+        r'seconds':
+          seconds,
     };
   }
 }
+

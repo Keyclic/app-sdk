@@ -11,12 +11,18 @@ void main() {
 
   group('test RulePatch', () {
     // String category
-    test('to test the property `category`', () async {});
+    test('to test the property `category`', () async {
+    });
 
     // String place
-    test('to test the property `place`', () async {});
+    test('to test the property `place`', () async {
+    });
 
     // String service
-    test('to test the property `service`', () async {});
+    test('to test the property `service`', () async {
+    });
+
+
   });
+
 }

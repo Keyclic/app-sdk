@@ -11,21 +11,30 @@ void main() {
 
   group('test State', () {
     // String id
-    test('to test the property `id`', () async {});
+    test('to test the property `id`', () async {
+    });
 
     // String type
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
 
     // String name
-    test('to test the property `name`', () async {});
+    test('to test the property `name`', () async {
+    });
 
     // String description
-    test('to test the property `description`', () async {});
+    test('to test the property `description`', () async {
+    });
 
     // String color
-    test('to test the property `color`', () async {});
+    test('to test the property `color`', () async {
+    });
 
     // double progression
-    test('to test the property `progression`', () async {});
+    test('to test the property `progression`', () async {
+    });
+
+
   });
+
 }

@@ -11,6 +11,10 @@ void main() {
 
   group('test NoteLinksSelfIriTemplateMapping', () {
     // String note
-    test('to test the property `note`', () async {});
+    test('to test the property `note`', () async {
+    });
+
+
   });
+
 }

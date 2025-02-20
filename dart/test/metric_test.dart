@@ -11,9 +11,14 @@ void main() {
 
   group('test Metric', () {
     // String name
-    test('to test the property `name`', () async {});
+    test('to test the property `name`', () async {
+    });
 
     // Duration duration
-    test('to test the property `duration`', () async {});
+    test('to test the property `duration`', () async {
+    });
+
+
   });
+
 }

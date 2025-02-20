@@ -11,6 +11,10 @@ void main() {
 
   group('test ReportLinksWorkflowIriTemplateMapping', () {
     // String workflow
-    test('to test the property `workflow`', () async {});
+    test('to test the property `workflow`', () async {
+    });
+
+
   });
+
 }

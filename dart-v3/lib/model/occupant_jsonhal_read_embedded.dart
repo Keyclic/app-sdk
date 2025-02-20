@@ -7,8 +7,10 @@ part of keyclic_sdk_api_platform;
 class OccupantJsonhalReadEmbedded {
   /// Returns a new [OccupantJsonhalReadEmbedded] instance.
   OccupantJsonhalReadEmbedded({
-    this.place,
-    this.member,
+    this.place
+,
+    this.member
+,
   });
 
   /// Returns a new [OccupantJsonhalReadEmbedded] instance and imports its values from
@@ -18,15 +20,15 @@ class OccupantJsonhalReadEmbedded {
       return null;
     }
 
-    return OccupantJsonhalReadEmbedded(
-      place: AssetJsonhalRead.fromJson(json[r'place']),
-      member: ContactJsonhalRead.fromJson(json[r'member']),
+  return OccupantJsonhalReadEmbedded(
+        place: AssetJsonhalRead.fromJson(json[r'place']),
+        member: ContactJsonhalRead.fromJson(json[r'member']),
     );
   }
 
-  AssetJsonhalRead? place;
+      AssetJsonhalRead? place;
 
-  ContactJsonhalRead? member;
+      ContactJsonhalRead? member;
 
   @override
   bool operator ==(Object other) {
@@ -35,25 +37,26 @@ class OccupantJsonhalReadEmbedded {
       return true;
     }
 
-    return other is OccupantJsonhalReadEmbedded &&
-        other.place == place &&
-        other.member == member;
+    return other is OccupantJsonhalReadEmbedded 
+          && other.place == place
+  
+          && other.member == member
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (place == null ? 0 : place.hashCode) +
-      (member == null ? 0 : member.hashCode);
+    (place == null ? 0 : place.hashCode) +
+    (member == null ? 0 : member.hashCode);
 
   static List<OccupantJsonhalReadEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
       return <OccupantJsonhalReadEmbedded>[];
     }
 
-    return json.fold(<OccupantJsonhalReadEmbedded>[],
-        (List<OccupantJsonhalReadEmbedded> previousValue, element) {
-      final OccupantJsonhalReadEmbedded? object =
-          OccupantJsonhalReadEmbedded.fromJson(element);
+    return json.fold(<OccupantJsonhalReadEmbedded>[], (List<OccupantJsonhalReadEmbedded> previousValue, element) {
+      final OccupantJsonhalReadEmbedded? object = OccupantJsonhalReadEmbedded.fromJson(element);
       if (object is OccupantJsonhalReadEmbedded) {
         previousValue.add(object);
       }
@@ -62,16 +65,13 @@ class OccupantJsonhalReadEmbedded {
     });
   }
 
-  static Map<String, OccupantJsonhalReadEmbedded> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, OccupantJsonhalReadEmbedded> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, OccupantJsonhalReadEmbedded>{};
     }
 
-    return json.entries.fold(<String, OccupantJsonhalReadEmbedded>{},
-        (Map<String, OccupantJsonhalReadEmbedded> previousValue, element) {
-      final OccupantJsonhalReadEmbedded? object =
-          OccupantJsonhalReadEmbedded.fromJson(element.value);
+    return json.entries.fold(<String, OccupantJsonhalReadEmbedded>{}, (Map<String, OccupantJsonhalReadEmbedded> previousValue, element) {
+      final OccupantJsonhalReadEmbedded? object = OccupantJsonhalReadEmbedded.fromJson(element.value);
       if (object is OccupantJsonhalReadEmbedded) {
         previousValue[element.key] = object;
       }
@@ -81,42 +81,44 @@ class OccupantJsonhalReadEmbedded {
   }
 
   // maps a json object with a list of OccupantJsonhalReadEmbedded-objects as value to a dart map
-  static Map<String, List<OccupantJsonhalReadEmbedded>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<OccupantJsonhalReadEmbedded>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<OccupantJsonhalReadEmbedded>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<OccupantJsonhalReadEmbedded>>(
-          key, OccupantJsonhalReadEmbedded.listFromJson(value));
+      return MapEntry<String, List<OccupantJsonhalReadEmbedded>>(key, OccupantJsonhalReadEmbedded.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'OccupantJsonhalReadEmbedded[place=$place, member=$member]';
+  String toString() => 'OccupantJsonhalReadEmbedded[place=$place, member=$member]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^place\.').hasMatch(key)))
-        r'place': place?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^place\.'))) {
-            previousValue.add(element.split(RegExp(r'^place\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^place\.').hasMatch(key))
+    )
+        r'place':
+            place?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^place\.'))) {
+                previousValue.add(element.split(RegExp(r'^place\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.any((key) => RegExp(r'^member\.').hasMatch(key)))
-        r'member': member?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^member\.'))) {
-            previousValue.add(element.split(RegExp(r'^member\.')).last);
-          }
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    any((key) => RegExp(r'^member\.').hasMatch(key))
+    )
+        r'member':
+            member?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^member\.'))) {
+                previousValue.add(element.split(RegExp(r'^member\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

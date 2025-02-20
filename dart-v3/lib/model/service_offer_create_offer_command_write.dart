@@ -7,8 +7,14 @@ part of keyclic_sdk_api_platform;
 class ServiceOfferCreateOfferCommandWrite {
   /// Returns a new [ServiceOfferCreateOfferCommandWrite] instance.
   ServiceOfferCreateOfferCommandWrite({
-    required this.name,
-    required this.service,
+      required 
+    this.name
+      
+    ,
+      required 
+    this.service
+      
+    ,
   });
 
   /// Returns a new [ServiceOfferCreateOfferCommandWrite] instance and imports its values from
@@ -18,15 +24,15 @@ class ServiceOfferCreateOfferCommandWrite {
       return null;
     }
 
-    return ServiceOfferCreateOfferCommandWrite(
-      name: json[r'name'],
-      service: json[r'service'],
+  return ServiceOfferCreateOfferCommandWrite(
+                  name: json[r'name'],
+                  service: json[r'service'],
     );
   }
 
-  String name;
+      String name;
 
-  String service;
+      String service;
 
   @override
   bool operator ==(Object other) {
@@ -35,24 +41,26 @@ class ServiceOfferCreateOfferCommandWrite {
       return true;
     }
 
-    return other is ServiceOfferCreateOfferCommandWrite &&
-        other.name == name &&
-        other.service == service;
+    return other is ServiceOfferCreateOfferCommandWrite 
+          && other.name == name
+  
+          && other.service == service
+  ;
   }
+  
 
   @override
-  int get hashCode => name.hashCode + service.hashCode;
+  int get hashCode =>
+     name.hashCode +
+     service.hashCode;
 
-  static List<ServiceOfferCreateOfferCommandWrite> listFromJson(
-      Iterable? json) {
+  static List<ServiceOfferCreateOfferCommandWrite> listFromJson(Iterable? json) {
     if (json == null) {
       return <ServiceOfferCreateOfferCommandWrite>[];
     }
 
-    return json.fold(<ServiceOfferCreateOfferCommandWrite>[],
-        (List<ServiceOfferCreateOfferCommandWrite> previousValue, element) {
-      final ServiceOfferCreateOfferCommandWrite? object =
-          ServiceOfferCreateOfferCommandWrite.fromJson(element);
+    return json.fold(<ServiceOfferCreateOfferCommandWrite>[], (List<ServiceOfferCreateOfferCommandWrite> previousValue, element) {
+      final ServiceOfferCreateOfferCommandWrite? object = ServiceOfferCreateOfferCommandWrite.fromJson(element);
       if (object is ServiceOfferCreateOfferCommandWrite) {
         previousValue.add(object);
       }
@@ -61,17 +69,13 @@ class ServiceOfferCreateOfferCommandWrite {
     });
   }
 
-  static Map<String, ServiceOfferCreateOfferCommandWrite> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, ServiceOfferCreateOfferCommandWrite> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, ServiceOfferCreateOfferCommandWrite>{};
     }
 
-    return json.entries.fold(<String, ServiceOfferCreateOfferCommandWrite>{},
-        (Map<String, ServiceOfferCreateOfferCommandWrite> previousValue,
-            element) {
-      final ServiceOfferCreateOfferCommandWrite? object =
-          ServiceOfferCreateOfferCommandWrite.fromJson(element.value);
+    return json.entries.fold(<String, ServiceOfferCreateOfferCommandWrite>{}, (Map<String, ServiceOfferCreateOfferCommandWrite> previousValue, element) {
+      final ServiceOfferCreateOfferCommandWrite? object = ServiceOfferCreateOfferCommandWrite.fromJson(element.value);
       if (object is ServiceOfferCreateOfferCommandWrite) {
         previousValue[element.key] = object;
       }
@@ -81,26 +85,26 @@ class ServiceOfferCreateOfferCommandWrite {
   }
 
   // maps a json object with a list of ServiceOfferCreateOfferCommandWrite-objects as value to a dart map
-  static Map<String, List<ServiceOfferCreateOfferCommandWrite>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<ServiceOfferCreateOfferCommandWrite>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ServiceOfferCreateOfferCommandWrite>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ServiceOfferCreateOfferCommandWrite>>(
-          key, ServiceOfferCreateOfferCommandWrite.listFromJson(value));
+      return MapEntry<String, List<ServiceOfferCreateOfferCommandWrite>>(key, ServiceOfferCreateOfferCommandWrite.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'ServiceOfferCreateOfferCommandWrite[name=$name, service=$service]';
+  String toString() => 'ServiceOfferCreateOfferCommandWrite[name=$name, service=$service]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'name': name,
-      r'service': service,
+        r'name':
+          name,
+        r'service':
+          service,
     };
   }
 }
+

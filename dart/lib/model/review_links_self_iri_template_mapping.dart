@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class ReviewLinksSelfIriTemplateMapping {
   /// Returns a new [ReviewLinksSelfIriTemplateMapping] instance.
   ReviewLinksSelfIriTemplateMapping({
-    this.review,
+    this.review
+,
   });
 
   /// Returns a new [ReviewLinksSelfIriTemplateMapping] instance and imports its values from
@@ -17,12 +18,12 @@ class ReviewLinksSelfIriTemplateMapping {
       return null;
     }
 
-    return ReviewLinksSelfIriTemplateMapping(
-      review: json[r'review'],
+  return ReviewLinksSelfIriTemplateMapping(
+                  review: json[r'review'],
     );
   }
 
-  String? review;
+      String? review;
 
   @override
   bool operator ==(Object other) {
@@ -31,21 +32,23 @@ class ReviewLinksSelfIriTemplateMapping {
       return true;
     }
 
-    return other is ReviewLinksSelfIriTemplateMapping && other.review == review;
+    return other is ReviewLinksSelfIriTemplateMapping 
+          && other.review == review
+  ;
   }
+  
 
   @override
-  int get hashCode => (review == null ? 0 : review.hashCode);
+  int get hashCode =>
+    (review == null ? 0 : review.hashCode);
 
   static List<ReviewLinksSelfIriTemplateMapping> listFromJson(Iterable? json) {
     if (json == null) {
       return <ReviewLinksSelfIriTemplateMapping>[];
     }
 
-    return json.fold(<ReviewLinksSelfIriTemplateMapping>[],
-        (List<ReviewLinksSelfIriTemplateMapping> previousValue, element) {
-      final ReviewLinksSelfIriTemplateMapping? object =
-          ReviewLinksSelfIriTemplateMapping.fromJson(element);
+    return json.fold(<ReviewLinksSelfIriTemplateMapping>[], (List<ReviewLinksSelfIriTemplateMapping> previousValue, element) {
+      final ReviewLinksSelfIriTemplateMapping? object = ReviewLinksSelfIriTemplateMapping.fromJson(element);
       if (object is ReviewLinksSelfIriTemplateMapping) {
         previousValue.add(object);
       }
@@ -54,17 +57,13 @@ class ReviewLinksSelfIriTemplateMapping {
     });
   }
 
-  static Map<String, ReviewLinksSelfIriTemplateMapping> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, ReviewLinksSelfIriTemplateMapping> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, ReviewLinksSelfIriTemplateMapping>{};
     }
 
-    return json.entries.fold(<String, ReviewLinksSelfIriTemplateMapping>{},
-        (Map<String, ReviewLinksSelfIriTemplateMapping> previousValue,
-            element) {
-      final ReviewLinksSelfIriTemplateMapping? object =
-          ReviewLinksSelfIriTemplateMapping.fromJson(element.value);
+    return json.entries.fold(<String, ReviewLinksSelfIriTemplateMapping>{}, (Map<String, ReviewLinksSelfIriTemplateMapping> previousValue, element) {
+      final ReviewLinksSelfIriTemplateMapping? object = ReviewLinksSelfIriTemplateMapping.fromJson(element.value);
       if (object is ReviewLinksSelfIriTemplateMapping) {
         previousValue[element.key] = object;
       }
@@ -74,15 +73,13 @@ class ReviewLinksSelfIriTemplateMapping {
   }
 
   // maps a json object with a list of ReviewLinksSelfIriTemplateMapping-objects as value to a dart map
-  static Map<String, List<ReviewLinksSelfIriTemplateMapping>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<ReviewLinksSelfIriTemplateMapping>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ReviewLinksSelfIriTemplateMapping>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ReviewLinksSelfIriTemplateMapping>>(
-          key, ReviewLinksSelfIriTemplateMapping.listFromJson(value));
+      return MapEntry<String, List<ReviewLinksSelfIriTemplateMapping>>(key, ReviewLinksSelfIriTemplateMapping.listFromJson(value));
     });
   }
 
@@ -91,7 +88,12 @@ class ReviewLinksSelfIriTemplateMapping {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'review')) r'review': review,
+    if (keys == null || keys.
+    contains(r'review')
+    )
+        r'review':
+          review,
     };
   }
 }
+

@@ -4,6 +4,7 @@
 
 part of keyclic_sdk_api_platform;
 
+
 class PublicationApi {
   const PublicationApi(this._apiClient);
 
@@ -14,11 +15,11 @@ class PublicationApi {
   ///
   /// Parameters:
   /// * [identifier] - Publication identifier
-  /// * [xKeyclicApp] -
-  /// * [acceptLanguage] -
-  /// * [xDateTime] -
-  /// * [xKeyclicAppPlatform] -
-  /// * [xKeyclicAppVersion] -
+  /// * [xKeyclicApp] - 
+  /// * [acceptLanguage] - 
+  /// * [xDateTime] - 
+  /// * [xKeyclicAppPlatform] - 
+  /// * [xKeyclicAppVersion] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -28,13 +29,14 @@ class PublicationApi {
   ///
   /// Returns a [Future] containing a [Response] with a [PublicationJsonhalRead] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<PublicationJsonhalRead>> getPublication({
+  Future<Response<PublicationJsonhalRead>> getPublication({ 
     required String identifier,
     required String xKeyclicApp,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -42,8 +44,7 @@ class PublicationApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/publications/{identifier}'
-        .replaceAll('{' r'identifier' '}', identifier.toString());
+    final String path = r'/publications/{identifier}'.replaceAll('{' r'identifier' '}', identifier.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -51,16 +52,15 @@ class PublicationApi {
         if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
         if (xDateTime != null) r'X-Date-Time': xDateTime,
         r'X-Keyclic-App': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'X-Keyclic-App-Version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -68,8 +68,11 @@ class PublicationApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -82,8 +85,7 @@ class PublicationApi {
     PublicationJsonhalRead responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<PublicationJsonhalRead>(
-          response.data!, 'PublicationJsonhalRead');
+            responseData = await _apiClient.deserializeAsync<PublicationJsonhalRead>(response.data!, 'PublicationJsonhalRead');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -105,22 +107,21 @@ class PublicationApi {
       extra: response.extra,
     );
   }
-
   /// Retrieves the collection of Publication resources.
   /// Retrieves the collection of Publication resources.
   ///
   /// Parameters:
-  /// * [xKeyclicApp] -
-  /// * [xOrganizationId] -
+  /// * [xKeyclicApp] - 
+  /// * [xOrganizationId] - 
   /// * [page] - The collection page number
   /// * [limit] - The number of items per page
   /// * [pagination] - Enable or disable pagination
-  /// * [place] -
-  /// * [placeLeftSquareBracketRightSquareBracket] -
-  /// * [acceptLanguage] -
-  /// * [xDateTime] -
-  /// * [xKeyclicAppPlatform] -
-  /// * [xKeyclicAppVersion] -
+  /// * [place] - 
+  /// * [placeLeftSquareBracketRightSquareBracket] - 
+  /// * [acceptLanguage] - 
+  /// * [xDateTime] - 
+  /// * [xKeyclicAppPlatform] - 
+  /// * [xKeyclicAppVersion] - 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -130,8 +131,7 @@ class PublicationApi {
   ///
   /// Returns a [Future] containing a [Response] with a [GetPublicationCollection200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetPublicationCollection200Response>>
-      getPublicationCollection({
+  Future<Response<GetPublicationCollection200Response>> getPublicationCollection({ 
     required String xKeyclicApp,
     required String xOrganizationId,
     int? page,
@@ -143,6 +143,7 @@ class PublicationApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -158,10 +159,8 @@ class PublicationApi {
         if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
         if (xDateTime != null) r'X-Date-Time': xDateTime,
         r'X-Keyclic-App': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'X-Keyclic-App-Version': xKeyclicAppVersion,
         r'X-Organization-Id': xOrganizationId,
         ...?headers,
       },
@@ -169,6 +168,7 @@ class PublicationApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'apiKey',
             'keyName': 'Authorization',
             'where': 'header',
@@ -176,19 +176,34 @@ class PublicationApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
 
     final queryParameters = <String, dynamic>{
-      if (page != null) r'page': encodeQueryParameter(page),
-      if (limit != null) r'limit': encodeQueryParameter(limit),
-      if (pagination != null) r'pagination': encodeQueryParameter(pagination),
-      if (place != null) r'place': encodeQueryParameter(place),
-      if (placeLeftSquareBracketRightSquareBracket != null)
-        r'place[]': encodeCollectionQueryParameter(
-            placeLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
+      if (page != null) r'page':
+        encodeQueryParameter(
+        page
+        ),
+      if (limit != null) r'limit':
+        encodeQueryParameter(
+        limit
+        ),
+      if (pagination != null) r'pagination':
+        encodeQueryParameter(
+        pagination
+        ),
+      if (place != null) r'place':
+        encodeQueryParameter(
+        place
+        ),
+      if (placeLeftSquareBracketRightSquareBracket != null) r'place[]':
+        encodeCollectionQueryParameter(
+        placeLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
     };
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -202,9 +217,7 @@ class PublicationApi {
     GetPublicationCollection200Response responseData;
 
     try {
-      responseData = await _apiClient
-          .deserializeAsync<GetPublicationCollection200Response>(
-              response.data!, 'GetPublicationCollection200Response');
+            responseData = await _apiClient.deserializeAsync<GetPublicationCollection200Response>(response.data!, 'GetPublicationCollection200Response');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

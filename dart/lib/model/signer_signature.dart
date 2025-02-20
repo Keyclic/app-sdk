@@ -7,8 +7,10 @@ part of keyclic_sdk_api;
 class SignerSignature {
   /// Returns a new [SignerSignature] instance.
   SignerSignature({
-    this.signedAt,
-    this.text,
+    this.signedAt
+,
+    this.text
+,
   });
 
   /// Returns a new [SignerSignature] instance and imports its values from
@@ -18,15 +20,15 @@ class SignerSignature {
       return null;
     }
 
-    return SignerSignature(
-      signedAt: mapToDateTime(json[r'signedAt']),
-      text: json[r'text'],
+  return SignerSignature(
+        signedAt: mapToDateTime(json[r'signedAt']),
+                  text: json[r'text'],
     );
   }
 
-  DateTime? signedAt;
+      DateTime? signedAt;
 
-  String? text;
+      String? text;
 
   @override
   bool operator ==(Object other) {
@@ -35,23 +37,25 @@ class SignerSignature {
       return true;
     }
 
-    return other is SignerSignature &&
-        other.signedAt == signedAt &&
-        other.text == text;
+    return other is SignerSignature 
+          && other.signedAt == signedAt
+  
+          && other.text == text
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (signedAt == null ? 0 : signedAt.hashCode) +
-      (text == null ? 0 : text.hashCode);
+    (signedAt == null ? 0 : signedAt.hashCode) +
+    (text == null ? 0 : text.hashCode);
 
   static List<SignerSignature> listFromJson(Iterable? json) {
     if (json == null) {
       return <SignerSignature>[];
     }
 
-    return json.fold(<SignerSignature>[],
-        (List<SignerSignature> previousValue, element) {
+    return json.fold(<SignerSignature>[], (List<SignerSignature> previousValue, element) {
       final SignerSignature? object = SignerSignature.fromJson(element);
       if (object is SignerSignature) {
         previousValue.add(object);
@@ -66,8 +70,7 @@ class SignerSignature {
       return <String, SignerSignature>{};
     }
 
-    return json.entries.fold(<String, SignerSignature>{},
-        (Map<String, SignerSignature> previousValue, element) {
+    return json.entries.fold(<String, SignerSignature>{}, (Map<String, SignerSignature> previousValue, element) {
       final SignerSignature? object = SignerSignature.fromJson(element.value);
       if (object is SignerSignature) {
         previousValue[element.key] = object;
@@ -78,15 +81,13 @@ class SignerSignature {
   }
 
   // maps a json object with a list of SignerSignature-objects as value to a dart map
-  static Map<String, List<SignerSignature>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<SignerSignature>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<SignerSignature>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<SignerSignature>>(
-          key, SignerSignature.listFromJson(value));
+      return MapEntry<String, List<SignerSignature>>(key, SignerSignature.listFromJson(value));
     });
   }
 
@@ -95,9 +96,16 @@ class SignerSignature {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'signedAt'))
-        r'signedAt': signedAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'text')) r'text': text,
+    if (keys == null || keys.
+    contains(r'signedAt')
+    )
+      r'signedAt': signedAt?.toUtc().toIso8601String(),
+    if (keys == null || keys.
+    contains(r'text')
+    )
+        r'text':
+          text,
     };
   }
 }
+

@@ -11,21 +11,30 @@ void main() {
 
   group('test GetPlaceCollection200ResponseLinks', () {
     // GetPlaceCollection200ResponseLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
 
     // GetPlaceCollection200ResponseLinksFirst first
-    test('to test the property `first`', () async {});
+    test('to test the property `first`', () async {
+    });
 
     // GetPlaceCollection200ResponseLinksFirst last
-    test('to test the property `last`', () async {});
+    test('to test the property `last`', () async {
+    });
 
     // GetPlaceCollection200ResponseLinksFirst next
-    test('to test the property `next`', () async {});
+    test('to test the property `next`', () async {
+    });
 
     // GetPlaceCollection200ResponseLinksFirst previous
-    test('to test the property `previous`', () async {});
+    test('to test the property `previous`', () async {
+    });
 
     // List<GetPlaceCollection200ResponseLinksSelf> item (default value: const [])
-    test('to test the property `item`', () async {});
+    test('to test the property `item`', () async {
+    });
+
+
   });
+
 }

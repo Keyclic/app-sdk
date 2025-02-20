@@ -11,36 +11,50 @@ void main() {
 
   group('test CheckpointState', () {
     // bool allowAdd
-    test('to test the property `allowAdd`', () async {});
+    test('to test the property `allowAdd`', () async {
+    });
 
     // bool allowDispatch
-    test('to test the property `allowDispatch`', () async {});
+    test('to test the property `allowDispatch`', () async {
+    });
 
     // String backgroundColor
-    test('to test the property `backgroundColor`', () async {});
+    test('to test the property `backgroundColor`', () async {
+    });
 
     // String color
-    test('to test the property `color`', () async {});
+    test('to test the property `color`', () async {
+    });
 
     // String description
-    test('to test the property `description`', () async {});
+    test('to test the property `description`', () async {
+    });
 
     // bool end
-    test('to test the property `end`', () async {});
+    test('to test the property `end`', () async {
+    });
 
     // String id
-    test('to test the property `id`', () async {});
+    test('to test the property `id`', () async {
+    });
 
     // String name
-    test('to test the property `name`', () async {});
+    test('to test the property `name`', () async {
+    });
 
     // double progression
-    test('to test the property `progression`', () async {});
+    test('to test the property `progression`', () async {
+    });
 
     // String reference
-    test('to test the property `reference`', () async {});
+    test('to test the property `reference`', () async {
+    });
 
     // String type
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
+
+
   });
+
 }

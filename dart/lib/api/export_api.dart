@@ -4,24 +4,25 @@
 
 part of keyclic_sdk_api;
 
+
 class ExportApi {
   const ExportApi(this._apiClient);
 
   final ApiClient _apiClient;
 
   /// Retrieve one Export resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [export_] - The identifier of the resource.
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
-  /// * [after]
-  /// * [before]
-  /// * [orderLeftSquareBracketRightSquareBracket]
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
+  /// * [after] 
+  /// * [before] 
+  /// * [orderLeftSquareBracketRightSquareBracket] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -33,7 +34,7 @@ class ExportApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one Export resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<ModelExport>> getExport({
+  Future<Response<ModelExport>> getExport({ 
     required String xKeyclicApp,
     required String export_,
     String? acceptLanguage,
@@ -43,6 +44,7 @@ class ExportApi {
     DateTime? after,
     DateTime? before,
     List<String>? orderLeftSquareBracketRightSquareBracket,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -50,8 +52,7 @@ class ExportApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path =
-        r'/exports/{export}'.replaceAll('{' r'export' '}', export_.toString());
+    final String path = r'/exports/{export}'.replaceAll('{' r'export' '}', export_.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -59,16 +60,15 @@ class ExportApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -76,17 +76,26 @@ class ExportApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
 
     final queryParameters = <String, dynamic>{
-      if (after != null) r'after': encodeQueryParameter(after),
-      if (before != null) r'before': encodeQueryParameter(before),
-      if (orderLeftSquareBracketRightSquareBracket != null)
-        r'order[]': encodeCollectionQueryParameter(
-            orderLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
+      if (after != null) r'after':
+        encodeQueryParameter(
+        after
+        ),
+      if (before != null) r'before':
+        encodeQueryParameter(
+        before
+        ),
+      if (orderLeftSquareBracketRightSquareBracket != null) r'order[]':
+        encodeCollectionQueryParameter(
+        orderLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
     };
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -100,8 +109,7 @@ class ExportApi {
     ModelExport responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<ModelExport>(
-          response.data!, 'ModelExport');
+            responseData = await _apiClient.deserializeAsync<ModelExport>(response.data!, 'ModelExport');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -123,66 +131,65 @@ class ExportApi {
       extra: response.extra,
     );
   }
-
   /// Create one Export resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
-  /// * [exportData]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
-  /// * [archived]
-  /// * [asset]
-  /// * [assetsLeftSquareBracketRightSquareBracket]
-  /// * [batch]
-  /// * [batchesLeftSquareBracketRightSquareBracket]
-  /// * [category]
-  /// * [categoriesLeftSquareBracketRightSquareBracket]
-  /// * [categoryType]
-  /// * [categoryTypesLeftSquareBracketRightSquareBracket]
-  /// * [createdBy]
-  /// * [createdBiesLeftSquareBracketRightSquareBracket]
-  /// * [afterDueBy]
-  /// * [after]
-  /// * [beforeDueBy]
-  /// * [before]
-  /// * [deep]
-  /// * [delegatedTo]
-  /// * [delegatedTosLeftSquareBracketRightSquareBracket]
-  /// * [equipmentLeftSquareBracketRightSquareBracket]
-  /// * [hasDocuments]
-  /// * [isEmpty]
-  /// * [isNull]
-  /// * [leaf]
-  /// * [level]
-  /// * [managedBy]
-  /// * [managedBiesLeftSquareBracketRightSquareBracket]
-  /// * [member]
-  /// * [membersLeftSquareBracketRightSquareBracket]
-  /// * [operationStateAll]
-  /// * [operationState]
-  /// * [operationStatesLeftSquareBracketRightSquareBracket]
-  /// * [orderLeftSquareBracketRightSquareBracket]
-  /// * [organization]
-  /// * [organizationsLeftSquareBracketRightSquareBracket]
-  /// * [phase]
-  /// * [phasesLeftSquareBracketRightSquareBracket]
-  /// * [place]
-  /// * [placesLeftSquareBracketRightSquareBracket]
-  /// * [priority]
-  /// * [prioritiesLeftSquareBracketRightSquareBracket]
-  /// * [query]
-  /// * [ratingLeftSquareBracketRightSquareBracket]
-  /// * [reporter]
-  /// * [reportersLeftSquareBracketRightSquareBracket]
-  /// * [scheduledAtAfter]
-  /// * [scheduledAtBefore]
-  /// * [state]
-  /// * [statesLeftSquareBracketRightSquareBracket]
-  /// * [visibilityLeftSquareBracketRightSquareBracket]
+  /// * [xKeyclicApp] 
+  /// * [exportData] 
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
+  /// * [archived] 
+  /// * [asset] 
+  /// * [assetsLeftSquareBracketRightSquareBracket] 
+  /// * [batch] 
+  /// * [batchesLeftSquareBracketRightSquareBracket] 
+  /// * [category] 
+  /// * [categoriesLeftSquareBracketRightSquareBracket] 
+  /// * [categoryType] 
+  /// * [categoryTypesLeftSquareBracketRightSquareBracket] 
+  /// * [createdBy] 
+  /// * [createdBiesLeftSquareBracketRightSquareBracket] 
+  /// * [afterDueBy] 
+  /// * [after] 
+  /// * [beforeDueBy] 
+  /// * [before] 
+  /// * [deep] 
+  /// * [delegatedTo] 
+  /// * [delegatedTosLeftSquareBracketRightSquareBracket] 
+  /// * [equipmentLeftSquareBracketRightSquareBracket] 
+  /// * [hasDocuments] 
+  /// * [isEmpty] 
+  /// * [isNull] 
+  /// * [leaf] 
+  /// * [level] 
+  /// * [managedBy] 
+  /// * [managedBiesLeftSquareBracketRightSquareBracket] 
+  /// * [member] 
+  /// * [membersLeftSquareBracketRightSquareBracket] 
+  /// * [operationStateAll] 
+  /// * [operationState] 
+  /// * [operationStatesLeftSquareBracketRightSquareBracket] 
+  /// * [orderLeftSquareBracketRightSquareBracket] 
+  /// * [organization] 
+  /// * [organizationsLeftSquareBracketRightSquareBracket] 
+  /// * [phase] 
+  /// * [phasesLeftSquareBracketRightSquareBracket] 
+  /// * [place] 
+  /// * [placesLeftSquareBracketRightSquareBracket] 
+  /// * [priority] 
+  /// * [prioritiesLeftSquareBracketRightSquareBracket] 
+  /// * [query] 
+  /// * [ratingLeftSquareBracketRightSquareBracket] 
+  /// * [reporter] 
+  /// * [reportersLeftSquareBracketRightSquareBracket] 
+  /// * [scheduledAtAfter] 
+  /// * [scheduledAtBefore] 
+  /// * [state] 
+  /// * [statesLeftSquareBracketRightSquareBracket] 
+  /// * [visibilityLeftSquareBracketRightSquareBracket] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -194,7 +201,7 @@ class ExportApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Export resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<ModelExport>> postExport({
+  Future<Response<ModelExport>> postExport({ 
     required String xKeyclicApp,
     required ExportData exportData,
     String? acceptLanguage,
@@ -266,16 +273,15 @@ class ExportApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -288,128 +294,228 @@ class ExportApi {
     );
 
     final queryParameters = <String, dynamic>{
-      if (archived != null) r'archived': encodeQueryParameter(archived),
-      if (asset != null) r'asset': encodeQueryParameter(asset),
-      if (assetsLeftSquareBracketRightSquareBracket != null)
-        r'assets[]': encodeCollectionQueryParameter(
-            assetsLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (batch != null) r'batch': encodeQueryParameter(batch),
-      if (batchesLeftSquareBracketRightSquareBracket != null)
-        r'batches[]': encodeCollectionQueryParameter(
-            batchesLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (category != null) r'category': encodeQueryParameter(category),
-      if (categoriesLeftSquareBracketRightSquareBracket != null)
-        r'categories[]': encodeCollectionQueryParameter(
-            categoriesLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (categoryType != null)
-        r'category_type': encodeQueryParameter(categoryType),
-      if (categoryTypesLeftSquareBracketRightSquareBracket != null)
-        r'category_types[]': encodeCollectionQueryParameter(
-            categoryTypesLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (createdBy != null) r'created_by': encodeQueryParameter(createdBy),
-      if (createdBiesLeftSquareBracketRightSquareBracket != null)
-        r'created_bies[]': encodeCollectionQueryParameter(
-            createdBiesLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (afterDueBy != null) r'afterDueBy': encodeQueryParameter(afterDueBy),
-      if (after != null) r'after': encodeQueryParameter(after),
-      if (beforeDueBy != null)
-        r'beforeDueBy': encodeQueryParameter(beforeDueBy),
-      if (before != null) r'before': encodeQueryParameter(before),
-      if (deep != null) r'deep': encodeQueryParameter(deep),
-      if (delegatedTo != null)
-        r'delegated_to': encodeQueryParameter(delegatedTo),
-      if (delegatedTosLeftSquareBracketRightSquareBracket != null)
-        r'delegated_tos[]': encodeCollectionQueryParameter(
-            delegatedTosLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (equipmentLeftSquareBracketRightSquareBracket != null)
-        r'equipment[]': encodeCollectionQueryParameter(
-            equipmentLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (hasDocuments != null)
-        r'has_documents': encodeQueryParameter(hasDocuments),
-      if (isEmpty != null) r'is_empty': encodeQueryParameter(isEmpty),
-      if (isNull != null) r'is_null': encodeQueryParameter(isNull),
-      if (leaf != null) r'leaf': encodeQueryParameter(leaf),
-      if (level != null) r'level': encodeQueryParameter(level),
-      if (managedBy != null) r'managed_by': encodeQueryParameter(managedBy),
-      if (managedBiesLeftSquareBracketRightSquareBracket != null)
-        r'managed_bies[]': encodeCollectionQueryParameter(
-            managedBiesLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (member != null) r'member': encodeQueryParameter(member),
-      if (membersLeftSquareBracketRightSquareBracket != null)
-        r'members[]': encodeCollectionQueryParameter(
-            membersLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (operationStateAll != null)
-        r'operation_state_all': encodeQueryParameter(operationStateAll),
-      if (operationState != null)
-        r'operation_state': encodeQueryParameter(operationState),
-      if (operationStatesLeftSquareBracketRightSquareBracket != null)
-        r'operation_states[]': encodeCollectionQueryParameter(
-            operationStatesLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (orderLeftSquareBracketRightSquareBracket != null)
-        r'order[]': encodeCollectionQueryParameter(
-            orderLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (organization != null)
-        r'organization': encodeQueryParameter(organization),
-      if (organizationsLeftSquareBracketRightSquareBracket != null)
-        r'organizations[]': encodeCollectionQueryParameter(
-            organizationsLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (phase != null) r'phase': encodeQueryParameter(phase),
-      if (phasesLeftSquareBracketRightSquareBracket != null)
-        r'phases[]': encodeCollectionQueryParameter(
-            phasesLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (place != null) r'place': encodeQueryParameter(place),
-      if (placesLeftSquareBracketRightSquareBracket != null)
-        r'places[]': encodeCollectionQueryParameter(
-            placesLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (priority != null) r'priority': encodeQueryParameter(priority),
-      if (prioritiesLeftSquareBracketRightSquareBracket != null)
-        r'priorities[]': encodeCollectionQueryParameter(
-            prioritiesLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (query != null) r'query': encodeQueryParameter(query),
-      if (ratingLeftSquareBracketRightSquareBracket != null)
-        r'rating[]': encodeCollectionQueryParameter(
-            ratingLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (reporter != null) r'reporter': encodeQueryParameter(reporter),
-      if (reportersLeftSquareBracketRightSquareBracket != null)
-        r'reporters[]': encodeCollectionQueryParameter(
-            reportersLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (scheduledAtAfter != null)
-        r'scheduled_at_after': encodeQueryParameter(scheduledAtAfter),
-      if (scheduledAtBefore != null)
-        r'scheduled_at_before': encodeQueryParameter(scheduledAtBefore),
-      if (state != null) r'state': encodeQueryParameter(state),
-      if (statesLeftSquareBracketRightSquareBracket != null)
-        r'states[]': encodeCollectionQueryParameter(
-            statesLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (visibilityLeftSquareBracketRightSquareBracket != null)
-        r'visibility[]': encodeCollectionQueryParameter(
-            visibilityLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
+      if (archived != null) r'archived':
+        encodeQueryParameter(
+        archived
+        ),
+      if (asset != null) r'asset':
+        encodeQueryParameter(
+        asset
+        ),
+      if (assetsLeftSquareBracketRightSquareBracket != null) r'assets[]':
+        encodeCollectionQueryParameter(
+        assetsLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (batch != null) r'batch':
+        encodeQueryParameter(
+        batch
+        ),
+      if (batchesLeftSquareBracketRightSquareBracket != null) r'batches[]':
+        encodeCollectionQueryParameter(
+        batchesLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (category != null) r'category':
+        encodeQueryParameter(
+        category
+        ),
+      if (categoriesLeftSquareBracketRightSquareBracket != null) r'categories[]':
+        encodeCollectionQueryParameter(
+        categoriesLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (categoryType != null) r'category_type':
+        encodeQueryParameter(
+        categoryType
+        ),
+      if (categoryTypesLeftSquareBracketRightSquareBracket != null) r'category_types[]':
+        encodeCollectionQueryParameter(
+        categoryTypesLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (createdBy != null) r'created_by':
+        encodeQueryParameter(
+        createdBy
+        ),
+      if (createdBiesLeftSquareBracketRightSquareBracket != null) r'created_bies[]':
+        encodeCollectionQueryParameter(
+        createdBiesLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (afterDueBy != null) r'afterDueBy':
+        encodeQueryParameter(
+        afterDueBy
+        ),
+      if (after != null) r'after':
+        encodeQueryParameter(
+        after
+        ),
+      if (beforeDueBy != null) r'beforeDueBy':
+        encodeQueryParameter(
+        beforeDueBy
+        ),
+      if (before != null) r'before':
+        encodeQueryParameter(
+        before
+        ),
+      if (deep != null) r'deep':
+        encodeQueryParameter(
+        deep
+        ),
+      if (delegatedTo != null) r'delegated_to':
+        encodeQueryParameter(
+        delegatedTo
+        ),
+      if (delegatedTosLeftSquareBracketRightSquareBracket != null) r'delegated_tos[]':
+        encodeCollectionQueryParameter(
+        delegatedTosLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (equipmentLeftSquareBracketRightSquareBracket != null) r'equipment[]':
+        encodeCollectionQueryParameter(
+        equipmentLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (hasDocuments != null) r'has_documents':
+        encodeQueryParameter(
+        hasDocuments
+        ),
+      if (isEmpty != null) r'is_empty':
+        encodeQueryParameter(
+        isEmpty
+        ),
+      if (isNull != null) r'is_null':
+        encodeQueryParameter(
+        isNull
+        ),
+      if (leaf != null) r'leaf':
+        encodeQueryParameter(
+        leaf
+        ),
+      if (level != null) r'level':
+        encodeQueryParameter(
+        level
+        ),
+      if (managedBy != null) r'managed_by':
+        encodeQueryParameter(
+        managedBy
+        ),
+      if (managedBiesLeftSquareBracketRightSquareBracket != null) r'managed_bies[]':
+        encodeCollectionQueryParameter(
+        managedBiesLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (member != null) r'member':
+        encodeQueryParameter(
+        member
+        ),
+      if (membersLeftSquareBracketRightSquareBracket != null) r'members[]':
+        encodeCollectionQueryParameter(
+        membersLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (operationStateAll != null) r'operation_state_all':
+        encodeQueryParameter(
+        operationStateAll
+        ),
+      if (operationState != null) r'operation_state':
+        encodeQueryParameter(
+        operationState
+        ),
+      if (operationStatesLeftSquareBracketRightSquareBracket != null) r'operation_states[]':
+        encodeCollectionQueryParameter(
+        operationStatesLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (orderLeftSquareBracketRightSquareBracket != null) r'order[]':
+        encodeCollectionQueryParameter(
+        orderLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (organization != null) r'organization':
+        encodeQueryParameter(
+        organization
+        ),
+      if (organizationsLeftSquareBracketRightSquareBracket != null) r'organizations[]':
+        encodeCollectionQueryParameter(
+        organizationsLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (phase != null) r'phase':
+        encodeQueryParameter(
+        phase
+        ),
+      if (phasesLeftSquareBracketRightSquareBracket != null) r'phases[]':
+        encodeCollectionQueryParameter(
+        phasesLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (place != null) r'place':
+        encodeQueryParameter(
+        place
+        ),
+      if (placesLeftSquareBracketRightSquareBracket != null) r'places[]':
+        encodeCollectionQueryParameter(
+        placesLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (priority != null) r'priority':
+        encodeQueryParameter(
+        priority
+        ),
+      if (prioritiesLeftSquareBracketRightSquareBracket != null) r'priorities[]':
+        encodeCollectionQueryParameter(
+        prioritiesLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (query != null) r'query':
+        encodeQueryParameter(
+        query
+        ),
+      if (ratingLeftSquareBracketRightSquareBracket != null) r'rating[]':
+        encodeCollectionQueryParameter(
+        ratingLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (reporter != null) r'reporter':
+        encodeQueryParameter(
+        reporter
+        ),
+      if (reportersLeftSquareBracketRightSquareBracket != null) r'reporters[]':
+        encodeCollectionQueryParameter(
+        reportersLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (scheduledAtAfter != null) r'scheduled_at_after':
+        encodeQueryParameter(
+        scheduledAtAfter
+        ),
+      if (scheduledAtBefore != null) r'scheduled_at_before':
+        encodeQueryParameter(
+        scheduledAtBefore
+        ),
+      if (state != null) r'state':
+        encodeQueryParameter(
+        state
+        ),
+      if (statesLeftSquareBracketRightSquareBracket != null) r'states[]':
+        encodeCollectionQueryParameter(
+        statesLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (visibilityLeftSquareBracketRightSquareBracket != null) r'visibility[]':
+        encodeCollectionQueryParameter(
+        visibilityLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
     };
 
     dynamic bodyData;
 
     try {
-      bodyData = exportData.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = exportData.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -435,8 +541,7 @@ class ExportApi {
     ModelExport responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<ModelExport>(
-          response.data!, 'ModelExport');
+            responseData = await _apiClient.deserializeAsync<ModelExport>(response.data!, 'ModelExport');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

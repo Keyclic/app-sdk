@@ -7,11 +7,20 @@ part of keyclic_sdk_api;
 class RuleData {
   /// Returns a new [RuleData] instance.
   RuleData({
-    this.category,
-    required this.dispatcher,
-    this.place,
-    this.position,
-    required this.service,
+    this.category
+,
+      required 
+    this.dispatcher
+      
+    ,
+    this.place
+,
+    this.position
+,
+      required 
+    this.service
+      
+    ,
   });
 
   /// Returns a new [RuleData] instance and imports its values from
@@ -21,24 +30,26 @@ class RuleData {
       return null;
     }
 
-    return RuleData(
-      category: json[r'category'],
-      dispatcher: json[r'dispatcher'],
-      place: json[r'place'],
-      position: json[r'position'] == null ? null : json[r'position'].toDouble(),
-      service: json[r'service'],
+  return RuleData(
+                  category: json[r'category'],
+                  dispatcher: json[r'dispatcher'],
+                  place: json[r'place'],
+        position: json[r'position'] == null ?
+          null :
+          json[r'position'].toDouble(),
+                  service: json[r'service'],
     );
   }
 
-  String? category;
+      String? category;
 
-  String dispatcher;
+      String dispatcher;
 
-  String? place;
+      String? place;
 
-  num? position;
+      num? position;
 
-  String service;
+      String service;
 
   @override
   bool operator ==(Object other) {
@@ -47,21 +58,27 @@ class RuleData {
       return true;
     }
 
-    return other is RuleData &&
-        other.category == category &&
-        other.dispatcher == dispatcher &&
-        other.place == place &&
-        other.position == position &&
-        other.service == service;
+    return other is RuleData 
+          && other.category == category
+  
+          && other.dispatcher == dispatcher
+  
+          && other.place == place
+  
+          && other.position == position
+  
+          && other.service == service
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (category == null ? 0 : category.hashCode) +
-      dispatcher.hashCode +
-      (place == null ? 0 : place.hashCode) +
-      (position == null ? 0 : position.hashCode) +
-      service.hashCode;
+    (category == null ? 0 : category.hashCode) +
+     dispatcher.hashCode +
+    (place == null ? 0 : place.hashCode) +
+    (position == null ? 0 : position.hashCode) +
+     service.hashCode;
 
   static List<RuleData> listFromJson(Iterable? json) {
     if (json == null) {
@@ -83,8 +100,7 @@ class RuleData {
       return <String, RuleData>{};
     }
 
-    return json.entries.fold(<String, RuleData>{},
-        (Map<String, RuleData> previousValue, element) {
+    return json.entries.fold(<String, RuleData>{}, (Map<String, RuleData> previousValue, element) {
       final RuleData? object = RuleData.fromJson(element.value);
       if (object is RuleData) {
         previousValue[element.key] = object;
@@ -95,29 +111,41 @@ class RuleData {
   }
 
   // maps a json object with a list of RuleData-objects as value to a dart map
-  static Map<String, List<RuleData>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<RuleData>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<RuleData>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<RuleData>>(
-          key, RuleData.listFromJson(value));
+      return MapEntry<String, List<RuleData>>(key, RuleData.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'RuleData[category=$category, dispatcher=$dispatcher, place=$place, position=$position, service=$service]';
+  String toString() => 'RuleData[category=$category, dispatcher=$dispatcher, place=$place, position=$position, service=$service]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'category')) r'category': category,
-      r'dispatcher': dispatcher,
-      if (keys == null || keys.contains(r'place')) r'place': place,
-      if (keys == null || keys.contains(r'position')) r'position': position,
-      r'service': service,
+    if (keys == null || keys.
+    contains(r'category')
+    )
+        r'category':
+          category,
+        r'dispatcher':
+          dispatcher,
+    if (keys == null || keys.
+    contains(r'place')
+    )
+        r'place':
+          place,
+    if (keys == null || keys.
+    contains(r'position')
+    )
+        r'position':
+          position,
+        r'service':
+          service,
     };
   }
 }
+

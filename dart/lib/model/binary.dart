@@ -7,9 +7,12 @@ part of keyclic_sdk_api;
 class Binary {
   /// Returns a new [Binary] instance.
   Binary({
-    this.content,
-    this.contentType,
-    this.name,
+    this.content
+,
+    this.contentType
+,
+    this.name
+,
   });
 
   /// Returns a new [Binary] instance and imports its values from
@@ -19,18 +22,18 @@ class Binary {
       return null;
     }
 
-    return Binary(
-      content: json[r'content'],
-      contentType: BinaryContentTypeEnum.fromJson(json[r'contentType']),
-      name: json[r'name'],
+  return Binary(
+                  content: json[r'content'],
+              contentType: BinaryContentTypeEnum.fromJson(json[r'contentType']),
+                  name: json[r'name'],
     );
   }
 
-  String? content;
+      String? content;
 
-  BinaryContentTypeEnum? contentType;
+      BinaryContentTypeEnum? contentType;
 
-  String? name;
+      String? name;
 
   @override
   bool operator ==(Object other) {
@@ -39,17 +42,21 @@ class Binary {
       return true;
     }
 
-    return other is Binary &&
-        other.content == content &&
-        other.contentType == contentType &&
-        other.name == name;
+    return other is Binary 
+          && other.content == content
+  
+          && other.contentType == contentType
+  
+          && other.name == name
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (content == null ? 0 : content.hashCode) +
-      (contentType == null ? 0 : contentType.hashCode) +
-      (name == null ? 0 : name.hashCode);
+    (content == null ? 0 : content.hashCode) +
+    (contentType == null ? 0 : contentType.hashCode) +
+    (name == null ? 0 : name.hashCode);
 
   static List<Binary> listFromJson(Iterable? json) {
     if (json == null) {
@@ -71,8 +78,7 @@ class Binary {
       return <String, Binary>{};
     }
 
-    return json.entries.fold(<String, Binary>{},
-        (Map<String, Binary> previousValue, element) {
+    return json.entries.fold(<String, Binary>{}, (Map<String, Binary> previousValue, element) {
       final Binary? object = Binary.fromJson(element.value);
       if (object is Binary) {
         previousValue[element.key] = object;
@@ -94,18 +100,29 @@ class Binary {
   }
 
   @override
-  String toString() =>
-      'Binary[content=$content, contentType=$contentType, name=$name]';
+  String toString() => 'Binary[content=$content, contentType=$contentType, name=$name]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'content')) r'content': content,
-      if (keys == null || keys.contains(r'contentType'))
-        r'contentType': contentType,
-      if (keys == null || keys.contains(r'name')) r'name': name,
+    if (keys == null || keys.
+    contains(r'content')
+    )
+        r'content':
+          content,
+    if (keys == null || keys.
+    contains(r'contentType')
+    )
+        r'contentType':
+          contentType,
+    if (keys == null || keys.
+    contains(r'name')
+    )
+        r'name':
+          name,
     };
   }
 }
+
 
 class BinaryContentTypeEnum {
   /// Instantiate a new enum with the provided [value].
@@ -120,28 +137,18 @@ class BinaryContentTypeEnum {
   String toJson() => value;
 
   static const textSlashCsv = BinaryContentTypeEnum._(r'text/csv');
-  static const applicationSlashMsword =
-      BinaryContentTypeEnum._(r'application/msword');
-  static const applicationSlashVndPeriodOpenxmlformatsOfficedocumentPeriodWordprocessingmlPeriodDocument =
-      BinaryContentTypeEnum._(
-          r'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+  static const applicationSlashMsword = BinaryContentTypeEnum._(r'application/msword');
+  static const applicationSlashVndPeriodOpenxmlformatsOfficedocumentPeriodWordprocessingmlPeriodDocument = BinaryContentTypeEnum._(r'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
   static const imageSlashJpeg = BinaryContentTypeEnum._(r'image/jpeg');
   static const imageSlashJpg = BinaryContentTypeEnum._(r'image/jpg');
-  static const applicationSlashJson =
-      BinaryContentTypeEnum._(r'application/json');
-  static const applicationSlashOctetStream =
-      BinaryContentTypeEnum._(r'application/octet-stream');
-  static const applicationSlashPdf =
-      BinaryContentTypeEnum._(r'application/pdf');
+  static const applicationSlashJson = BinaryContentTypeEnum._(r'application/json');
+  static const applicationSlashOctetStream = BinaryContentTypeEnum._(r'application/octet-stream');
+  static const applicationSlashPdf = BinaryContentTypeEnum._(r'application/pdf');
   static const imageSlashPng = BinaryContentTypeEnum._(r'image/png');
   static const textSlashPlain = BinaryContentTypeEnum._(r'text/plain');
-  static const applicationSlashVndPeriodMsExcel =
-      BinaryContentTypeEnum._(r'application/vnd.ms-excel');
-  static const applicationSlashVndPeriodOpenxmlformatsOfficedocumentPeriodSpreadsheetmlPeriodSheet =
-      BinaryContentTypeEnum._(
-          r'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-  static const applicationSlashZip =
-      BinaryContentTypeEnum._(r'application/zip');
+  static const applicationSlashVndPeriodMsExcel = BinaryContentTypeEnum._(r'application/vnd.ms-excel');
+  static const applicationSlashVndPeriodOpenxmlformatsOfficedocumentPeriodSpreadsheetmlPeriodSheet = BinaryContentTypeEnum._(r'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+  static const applicationSlashZip = BinaryContentTypeEnum._(r'application/zip');
 
   /// List of all possible values in this [enum][BinaryContentTypeEnum].
   static const values = <BinaryContentTypeEnum>[
@@ -161,15 +168,12 @@ class BinaryContentTypeEnum {
   ];
 
   static BinaryContentTypeEnum? fromJson(dynamic value) =>
-      BinaryContentTypeEnumTypeTransformer().decode(value);
+    BinaryContentTypeEnumTypeTransformer().decode(value);
 
   static List<BinaryContentTypeEnum> listFromJson(List<dynamic> json) {
-    return json
-        .map((value) {
-          return BinaryContentTypeEnum.fromJson(value);
-        })
-        .whereType<BinaryContentTypeEnum>()
-        .toList();
+    return json.map((value) {
+      return BinaryContentTypeEnum.fromJson(value);
+    }).whereType<BinaryContentTypeEnum>().toList();
   }
 }
 
@@ -178,8 +182,7 @@ class BinaryContentTypeEnum {
 class BinaryContentTypeEnumTypeTransformer {
   const BinaryContentTypeEnumTypeTransformer._();
 
-  factory BinaryContentTypeEnumTypeTransformer() =>
-      _instance ??= BinaryContentTypeEnumTypeTransformer._();
+  factory BinaryContentTypeEnumTypeTransformer() => _instance ??= BinaryContentTypeEnumTypeTransformer._();
 
   String encode(BinaryContentTypeEnum data) => data.value;
 
@@ -193,34 +196,19 @@ class BinaryContentTypeEnumTypeTransformer {
   /// and users are still using an old app with the old code.
   BinaryContentTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
-      case r'text/csv':
-        return BinaryContentTypeEnum.textSlashCsv;
-      case r'application/msword':
-        return BinaryContentTypeEnum.applicationSlashMsword;
-      case r'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
-        return BinaryContentTypeEnum
-            .applicationSlashVndPeriodOpenxmlformatsOfficedocumentPeriodWordprocessingmlPeriodDocument;
-      case r'image/jpeg':
-        return BinaryContentTypeEnum.imageSlashJpeg;
-      case r'image/jpg':
-        return BinaryContentTypeEnum.imageSlashJpg;
-      case r'application/json':
-        return BinaryContentTypeEnum.applicationSlashJson;
-      case r'application/octet-stream':
-        return BinaryContentTypeEnum.applicationSlashOctetStream;
-      case r'application/pdf':
-        return BinaryContentTypeEnum.applicationSlashPdf;
-      case r'image/png':
-        return BinaryContentTypeEnum.imageSlashPng;
-      case r'text/plain':
-        return BinaryContentTypeEnum.textSlashPlain;
-      case r'application/vnd.ms-excel':
-        return BinaryContentTypeEnum.applicationSlashVndPeriodMsExcel;
-      case r'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
-        return BinaryContentTypeEnum
-            .applicationSlashVndPeriodOpenxmlformatsOfficedocumentPeriodSpreadsheetmlPeriodSheet;
-      case r'application/zip':
-        return BinaryContentTypeEnum.applicationSlashZip;
+      case r'text/csv': return BinaryContentTypeEnum.textSlashCsv;
+      case r'application/msword': return BinaryContentTypeEnum.applicationSlashMsword;
+      case r'application/vnd.openxmlformats-officedocument.wordprocessingml.document': return BinaryContentTypeEnum.applicationSlashVndPeriodOpenxmlformatsOfficedocumentPeriodWordprocessingmlPeriodDocument;
+      case r'image/jpeg': return BinaryContentTypeEnum.imageSlashJpeg;
+      case r'image/jpg': return BinaryContentTypeEnum.imageSlashJpg;
+      case r'application/json': return BinaryContentTypeEnum.applicationSlashJson;
+      case r'application/octet-stream': return BinaryContentTypeEnum.applicationSlashOctetStream;
+      case r'application/pdf': return BinaryContentTypeEnum.applicationSlashPdf;
+      case r'image/png': return BinaryContentTypeEnum.imageSlashPng;
+      case r'text/plain': return BinaryContentTypeEnum.textSlashPlain;
+      case r'application/vnd.ms-excel': return BinaryContentTypeEnum.applicationSlashVndPeriodMsExcel;
+      case r'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': return BinaryContentTypeEnum.applicationSlashVndPeriodOpenxmlformatsOfficedocumentPeriodSpreadsheetmlPeriodSheet;
+      case r'application/zip': return BinaryContentTypeEnum.applicationSlashZip;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
@@ -232,3 +220,4 @@ class BinaryContentTypeEnumTypeTransformer {
   /// Singleton [BinaryContentTypeEnumTypeTransformer] instance.
   static BinaryContentTypeEnumTypeTransformer? _instance;
 }
+

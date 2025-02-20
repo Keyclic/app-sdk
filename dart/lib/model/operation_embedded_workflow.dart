@@ -7,9 +7,12 @@ part of keyclic_sdk_api;
 class OperationEmbeddedWorkflow {
   /// Returns a new [OperationEmbeddedWorkflow] instance.
   OperationEmbeddedWorkflow({
-    this.metrics,
-    this.state,
-    this.transitions,
+    this.metrics
+,
+    this.state
+,
+    this.transitions
+,
   });
 
   /// Returns a new [OperationEmbeddedWorkflow] instance and imports its values from
@@ -19,18 +22,20 @@ class OperationEmbeddedWorkflow {
       return null;
     }
 
-    return OperationEmbeddedWorkflow(
-      metrics: Metric.listFromJson(json[r'metrics']),
-      state: WorkflowState.fromJson(json[r'state']),
-      transitions: WorkflowTransition.listFromJson(json[r'transitions']),
+  return OperationEmbeddedWorkflow(
+        metrics: 
+          Metric.listFromJson(json[r'metrics']),
+        state: WorkflowState.fromJson(json[r'state']),
+        transitions: 
+          WorkflowTransition.listFromJson(json[r'transitions']),
     );
   }
 
-  List<Metric>? metrics;
+        List<Metric>? metrics;
 
-  WorkflowState? state;
+      WorkflowState? state;
 
-  List<WorkflowTransition>? transitions;
+        List<WorkflowTransition>? transitions;
 
   @override
   bool operator ==(Object other) {
@@ -39,28 +44,29 @@ class OperationEmbeddedWorkflow {
       return true;
     }
 
-    return other is OperationEmbeddedWorkflow &&
-        DeepCollectionEquality.unordered().equals(metrics, other.metrics) &&
-        other.state == state &&
-        DeepCollectionEquality.unordered()
-            .equals(transitions, other.transitions);
+    return other is OperationEmbeddedWorkflow 
+          && DeepCollectionEquality.unordered().equals(metrics, other.metrics)
+  
+          && other.state == state
+  
+          && DeepCollectionEquality.unordered().equals(transitions, other.transitions)
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (metrics == null ? 0 : metrics.hashCode) +
-      (state == null ? 0 : state.hashCode) +
-      (transitions == null ? 0 : transitions.hashCode);
+    (metrics == null ? 0 : metrics.hashCode) +
+    (state == null ? 0 : state.hashCode) +
+    (transitions == null ? 0 : transitions.hashCode);
 
   static List<OperationEmbeddedWorkflow> listFromJson(Iterable? json) {
     if (json == null) {
       return <OperationEmbeddedWorkflow>[];
     }
 
-    return json.fold(<OperationEmbeddedWorkflow>[],
-        (List<OperationEmbeddedWorkflow> previousValue, element) {
-      final OperationEmbeddedWorkflow? object =
-          OperationEmbeddedWorkflow.fromJson(element);
+    return json.fold(<OperationEmbeddedWorkflow>[], (List<OperationEmbeddedWorkflow> previousValue, element) {
+      final OperationEmbeddedWorkflow? object = OperationEmbeddedWorkflow.fromJson(element);
       if (object is OperationEmbeddedWorkflow) {
         previousValue.add(object);
       }
@@ -69,16 +75,13 @@ class OperationEmbeddedWorkflow {
     });
   }
 
-  static Map<String, OperationEmbeddedWorkflow> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, OperationEmbeddedWorkflow> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, OperationEmbeddedWorkflow>{};
     }
 
-    return json.entries.fold(<String, OperationEmbeddedWorkflow>{},
-        (Map<String, OperationEmbeddedWorkflow> previousValue, element) {
-      final OperationEmbeddedWorkflow? object =
-          OperationEmbeddedWorkflow.fromJson(element.value);
+    return json.entries.fold(<String, OperationEmbeddedWorkflow>{}, (Map<String, OperationEmbeddedWorkflow> previousValue, element) {
+      final OperationEmbeddedWorkflow? object = OperationEmbeddedWorkflow.fromJson(element.value);
       if (object is OperationEmbeddedWorkflow) {
         previousValue[element.key] = object;
       }
@@ -88,36 +91,43 @@ class OperationEmbeddedWorkflow {
   }
 
   // maps a json object with a list of OperationEmbeddedWorkflow-objects as value to a dart map
-  static Map<String, List<OperationEmbeddedWorkflow>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<OperationEmbeddedWorkflow>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<OperationEmbeddedWorkflow>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<OperationEmbeddedWorkflow>>(
-          key, OperationEmbeddedWorkflow.listFromJson(value));
+      return MapEntry<String, List<OperationEmbeddedWorkflow>>(key, OperationEmbeddedWorkflow.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'OperationEmbeddedWorkflow[metrics=$metrics, state=$state, transitions=$transitions]';
+  String toString() => 'OperationEmbeddedWorkflow[metrics=$metrics, state=$state, transitions=$transitions]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'metrics')) r'metrics': metrics,
-      if (keys == null || keys.any((key) => RegExp(r'^state\.').hasMatch(key)))
-        r'state': state?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^state\.'))) {
-            previousValue.add(element.split(RegExp(r'^state\.')).last);
-          }
+    if (keys == null || keys.
+    contains(r'metrics')
+    )
+        r'metrics':
+            metrics,
+    if (keys == null || keys.
+    any((key) => RegExp(r'^state\.').hasMatch(key))
+    )
+        r'state':
+            state?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^state\.'))) {
+                previousValue.add(element.split(RegExp(r'^state\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'transitions'))
-        r'transitions': transitions,
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    contains(r'transitions')
+    )
+        r'transitions':
+            transitions,
     };
   }
 }
+

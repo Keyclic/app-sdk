@@ -7,12 +7,18 @@ part of keyclic_sdk_api_platform;
 class OccupantJsonhalRead {
   /// Returns a new [OccupantJsonhalRead] instance.
   OccupantJsonhalRead({
-    this.links,
-    this.id,
-    this.createdAt,
-    this.updatedAt,
-    this.type,
-    this.embedded,
+    this.links
+,
+    this.id
+,
+    this.createdAt
+,
+    this.updatedAt
+,
+    this.type
+,
+    this.embedded
+,
   });
 
   /// Returns a new [OccupantJsonhalRead] instance and imports its values from
@@ -22,30 +28,30 @@ class OccupantJsonhalRead {
       return null;
     }
 
-    return OccupantJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
-      id: json[r'id'],
-      createdAt: mapToDateTime(json[r'createdAt']),
-      updatedAt: mapToDateTime(json[r'updatedAt']),
-      type: json[r'type'],
-      embedded: OccupantJsonhalReadEmbedded.fromJson(json[r'_embedded']),
+  return OccupantJsonhalRead(
+        links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+                  id: json[r'id'],
+        createdAt: mapToDateTime(json[r'createdAt']),
+        updatedAt: mapToDateTime(json[r'updatedAt']),
+                  type: json[r'type'],
+        embedded: OccupantJsonhalReadEmbedded.fromJson(json[r'_embedded']),
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+      AssetTypeJsonhalReadLinks? links;
 
   /// The resource identifier.
-  final String? id;
+      final String? id;
 
   /// The date and time when the resource was created, in UTC format.
-  final DateTime? createdAt;
+      final DateTime? createdAt;
 
   /// The date and time when the resource was updated, in UTC format.
-  final DateTime? updatedAt;
+      final DateTime? updatedAt;
 
-  final String? type;
+      final String? type;
 
-  OccupantJsonhalReadEmbedded? embedded;
+      OccupantJsonhalReadEmbedded? embedded;
 
   @override
   bool operator ==(Object other) {
@@ -54,31 +60,37 @@ class OccupantJsonhalRead {
       return true;
     }
 
-    return other is OccupantJsonhalRead &&
-        other.links == links &&
-        other.id == id &&
-        other.createdAt == createdAt &&
-        other.updatedAt == updatedAt &&
-        other.type == type &&
-        other.embedded == embedded;
+    return other is OccupantJsonhalRead 
+          && other.links == links
+  
+          && other.id == id
+  
+          && other.createdAt == createdAt
+  
+          && other.updatedAt == updatedAt
+  
+          && other.type == type
+  
+          && other.embedded == embedded
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
-      (id == null ? 0 : id.hashCode) +
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode) +
-      (type == null ? 0 : type.hashCode) +
-      (embedded == null ? 0 : embedded.hashCode);
+    (links == null ? 0 : links.hashCode) +
+    (id == null ? 0 : id.hashCode) +
+    (createdAt == null ? 0 : createdAt.hashCode) +
+    (updatedAt == null ? 0 : updatedAt.hashCode) +
+    (type == null ? 0 : type.hashCode) +
+    (embedded == null ? 0 : embedded.hashCode);
 
   static List<OccupantJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <OccupantJsonhalRead>[];
     }
 
-    return json.fold(<OccupantJsonhalRead>[],
-        (List<OccupantJsonhalRead> previousValue, element) {
+    return json.fold(<OccupantJsonhalRead>[], (List<OccupantJsonhalRead> previousValue, element) {
       final OccupantJsonhalRead? object = OccupantJsonhalRead.fromJson(element);
       if (object is OccupantJsonhalRead) {
         previousValue.add(object);
@@ -88,16 +100,13 @@ class OccupantJsonhalRead {
     });
   }
 
-  static Map<String, OccupantJsonhalRead> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, OccupantJsonhalRead> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, OccupantJsonhalRead>{};
     }
 
-    return json.entries.fold(<String, OccupantJsonhalRead>{},
-        (Map<String, OccupantJsonhalRead> previousValue, element) {
-      final OccupantJsonhalRead? object =
-          OccupantJsonhalRead.fromJson(element.value);
+    return json.entries.fold(<String, OccupantJsonhalRead>{}, (Map<String, OccupantJsonhalRead> previousValue, element) {
+      final OccupantJsonhalRead? object = OccupantJsonhalRead.fromJson(element.value);
       if (object is OccupantJsonhalRead) {
         previousValue[element.key] = object;
       }
@@ -107,49 +116,62 @@ class OccupantJsonhalRead {
   }
 
   // maps a json object with a list of OccupantJsonhalRead-objects as value to a dart map
-  static Map<String, List<OccupantJsonhalRead>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<OccupantJsonhalRead>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<OccupantJsonhalRead>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<OccupantJsonhalRead>>(
-          key, OccupantJsonhalRead.listFromJson(value));
+      return MapEntry<String, List<OccupantJsonhalRead>>(key, OccupantJsonhalRead.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'OccupantJsonhalRead[links=$links, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, type=$type, embedded=$embedded]';
+  String toString() => 'OccupantJsonhalRead[links=$links, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, type=$type, embedded=$embedded]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^links\.').hasMatch(key))
+    )
+        r'_links':
+            links?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^links\.'))) {
+                previousValue.add(element.split(RegExp(r'^links\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'type')) r'type': type,
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^embedded\.').hasMatch(key)))
-        r'_embedded': embedded?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^embedded\.'))) {
-            previousValue.add(element.split(RegExp(r'^embedded\.')).last);
-          }
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    contains(r'id')
+    )
+        r'id':
+          id,
+    if (keys == null || keys.
+    contains(r'createdAt')
+    )
+      r'createdAt': createdAt?.toUtc().toIso8601String(),
+    if (keys == null || keys.
+    contains(r'updatedAt')
+    )
+      r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+    if (keys == null || keys.
+    contains(r'type')
+    )
+        r'type':
+          type,
+    if (keys == null || keys.
+    any((key) => RegExp(r'^embedded\.').hasMatch(key))
+    )
+        r'_embedded':
+            embedded?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^embedded\.'))) {
+                previousValue.add(element.split(RegExp(r'^embedded\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

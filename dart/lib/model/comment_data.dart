@@ -7,8 +7,12 @@ part of keyclic_sdk_api;
 class CommentData {
   /// Returns a new [CommentData] instance.
   CommentData({
-    required this.text,
-    this.type,
+      required 
+    this.text
+      
+    ,
+    this.type
+,
   });
 
   /// Returns a new [CommentData] instance and imports its values from
@@ -18,15 +22,15 @@ class CommentData {
       return null;
     }
 
-    return CommentData(
-      text: json[r'text'],
-      type: CommentDataTypeEnum.fromJson(json[r'type']),
+  return CommentData(
+                  text: json[r'text'],
+              type: CommentDataTypeEnum.fromJson(json[r'type']),
     );
   }
 
-  String text;
+      String text;
 
-  CommentDataTypeEnum? type;
+      CommentDataTypeEnum? type;
 
   @override
   bool operator ==(Object other) {
@@ -35,19 +39,25 @@ class CommentData {
       return true;
     }
 
-    return other is CommentData && other.text == text && other.type == type;
+    return other is CommentData 
+          && other.text == text
+  
+          && other.type == type
+  ;
   }
+  
 
   @override
-  int get hashCode => text.hashCode + (type == null ? 0 : type.hashCode);
+  int get hashCode =>
+     text.hashCode +
+    (type == null ? 0 : type.hashCode);
 
   static List<CommentData> listFromJson(Iterable? json) {
     if (json == null) {
       return <CommentData>[];
     }
 
-    return json.fold(<CommentData>[],
-        (List<CommentData> previousValue, element) {
+    return json.fold(<CommentData>[], (List<CommentData> previousValue, element) {
       final CommentData? object = CommentData.fromJson(element);
       if (object is CommentData) {
         previousValue.add(object);
@@ -62,8 +72,7 @@ class CommentData {
       return <String, CommentData>{};
     }
 
-    return json.entries.fold(<String, CommentData>{},
-        (Map<String, CommentData> previousValue, element) {
+    return json.entries.fold(<String, CommentData>{}, (Map<String, CommentData> previousValue, element) {
       final CommentData? object = CommentData.fromJson(element.value);
       if (object is CommentData) {
         previousValue[element.key] = object;
@@ -74,15 +83,13 @@ class CommentData {
   }
 
   // maps a json object with a list of CommentData-objects as value to a dart map
-  static Map<String, List<CommentData>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<CommentData>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<CommentData>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<CommentData>>(
-          key, CommentData.listFromJson(value));
+      return MapEntry<String, List<CommentData>>(key, CommentData.listFromJson(value));
     });
   }
 
@@ -91,11 +98,17 @@ class CommentData {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'text': text,
-      if (keys == null || keys.contains(r'type')) r'type': type,
+        r'text':
+          text,
+    if (keys == null || keys.
+    contains(r'type')
+    )
+        r'type':
+          type,
     };
   }
 }
+
 
 class CommentDataTypeEnum {
   /// Instantiate a new enum with the provided [value].
@@ -119,15 +132,12 @@ class CommentDataTypeEnum {
   ];
 
   static CommentDataTypeEnum? fromJson(dynamic value) =>
-      CommentDataTypeEnumTypeTransformer().decode(value);
+    CommentDataTypeEnumTypeTransformer().decode(value);
 
   static List<CommentDataTypeEnum> listFromJson(List<dynamic> json) {
-    return json
-        .map((value) {
-          return CommentDataTypeEnum.fromJson(value);
-        })
-        .whereType<CommentDataTypeEnum>()
-        .toList();
+    return json.map((value) {
+      return CommentDataTypeEnum.fromJson(value);
+    }).whereType<CommentDataTypeEnum>().toList();
   }
 }
 
@@ -136,8 +146,7 @@ class CommentDataTypeEnum {
 class CommentDataTypeEnumTypeTransformer {
   const CommentDataTypeEnumTypeTransformer._();
 
-  factory CommentDataTypeEnumTypeTransformer() =>
-      _instance ??= CommentDataTypeEnumTypeTransformer._();
+  factory CommentDataTypeEnumTypeTransformer() => _instance ??= CommentDataTypeEnumTypeTransformer._();
 
   String encode(CommentDataTypeEnum data) => data.value;
 
@@ -151,10 +160,8 @@ class CommentDataTypeEnumTypeTransformer {
   /// and users are still using an old app with the old code.
   CommentDataTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
-      case r'Comment':
-        return CommentDataTypeEnum.comment;
-      case r'Reminder':
-        return CommentDataTypeEnum.reminder;
+      case r'Comment': return CommentDataTypeEnum.comment;
+      case r'Reminder': return CommentDataTypeEnum.reminder;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
@@ -166,3 +173,4 @@ class CommentDataTypeEnumTypeTransformer {
   /// Singleton [CommentDataTypeEnumTypeTransformer] instance.
   static CommentDataTypeEnumTypeTransformer? _instance;
 }
+

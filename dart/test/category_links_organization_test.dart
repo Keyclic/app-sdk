@@ -12,9 +12,14 @@ void main() {
   group('test CategoryLinksOrganization', () {
     // The URI of the organization associated to the given category.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // CategoryLinksOrganizationIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

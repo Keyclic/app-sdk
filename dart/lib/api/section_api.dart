@@ -4,21 +4,22 @@
 
 part of keyclic_sdk_api;
 
+
 class SectionApi {
   const SectionApi(this._apiClient);
 
   final ApiClient _apiClient;
 
   /// Retrieve one Section resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [section] - The identifier of the resource.
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -30,13 +31,14 @@ class SectionApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one Section resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<Section>> getSection({
+  Future<Response<Section>> getSection({ 
     required String xKeyclicApp,
     required String section,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -44,8 +46,7 @@ class SectionApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/sections/{section}'
-        .replaceAll('{' r'section' '}', section.toString());
+    final String path = r'/sections/{section}'.replaceAll('{' r'section' '}', section.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -53,16 +54,15 @@ class SectionApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -70,8 +70,11 @@ class SectionApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -84,8 +87,7 @@ class SectionApi {
     Section responseData;
 
     try {
-      responseData =
-          await _apiClient.deserializeAsync<Section>(response.data!, 'Section');
+            responseData = await _apiClient.deserializeAsync<Section>(response.data!, 'Section');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

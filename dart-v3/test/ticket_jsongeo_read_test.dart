@@ -11,12 +11,18 @@ void main() {
 
   group('test TicketJsongeoRead', () {
     // String type (default value: 'Feature')
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
 
     // TicketJsongeoReadGeometry geometry
-    test('to test the property `geometry`', () async {});
+    test('to test the property `geometry`', () async {
+    });
 
     // Map<String, String> properties (default value: const {})
-    test('to test the property `properties`', () async {});
+    test('to test the property `properties`', () async {
+    });
+
+
   });
+
 }

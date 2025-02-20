@@ -224,6 +224,7 @@ part 'model/workflow_state_jsonhal_read.dart';
 part 'model/workflow_transition_jsonhal_read.dart';
 part 'model/workflow_transition_jsonhal_read_embedded.dart';
 
+
 final _regList = RegExp(r'^List<(.*)>$');
 final _regSet = RegExp(r'^Set<(.*)>$');
 final _regMap = RegExp(r'^Map<String,(.*)>$');

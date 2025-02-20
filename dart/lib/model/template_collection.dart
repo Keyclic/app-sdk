@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class TemplateCollection {
   /// Returns a new [TemplateCollection] instance.
   TemplateCollection({
-    this.items,
+    this.items
+,
   });
 
   /// Returns a new [TemplateCollection] instance and imports its values from
@@ -17,12 +18,13 @@ class TemplateCollection {
       return null;
     }
 
-    return TemplateCollection(
-      items: Template.listFromJson(json[r'items']),
+  return TemplateCollection(
+        items: 
+          Template.listFromJson(json[r'items']),
     );
   }
 
-  List<Template>? items;
+        List<Template>? items;
 
   @override
   bool operator ==(Object other) {
@@ -31,20 +33,22 @@ class TemplateCollection {
       return true;
     }
 
-    return other is TemplateCollection &&
-        DeepCollectionEquality.unordered().equals(items, other.items);
+    return other is TemplateCollection 
+          && DeepCollectionEquality.unordered().equals(items, other.items)
+  ;
   }
+  
 
   @override
-  int get hashCode => (items == null ? 0 : items.hashCode);
+  int get hashCode =>
+    (items == null ? 0 : items.hashCode);
 
   static List<TemplateCollection> listFromJson(Iterable? json) {
     if (json == null) {
       return <TemplateCollection>[];
     }
 
-    return json.fold(<TemplateCollection>[],
-        (List<TemplateCollection> previousValue, element) {
+    return json.fold(<TemplateCollection>[], (List<TemplateCollection> previousValue, element) {
       final TemplateCollection? object = TemplateCollection.fromJson(element);
       if (object is TemplateCollection) {
         previousValue.add(object);
@@ -54,16 +58,13 @@ class TemplateCollection {
     });
   }
 
-  static Map<String, TemplateCollection> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, TemplateCollection> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, TemplateCollection>{};
     }
 
-    return json.entries.fold(<String, TemplateCollection>{},
-        (Map<String, TemplateCollection> previousValue, element) {
-      final TemplateCollection? object =
-          TemplateCollection.fromJson(element.value);
+    return json.entries.fold(<String, TemplateCollection>{}, (Map<String, TemplateCollection> previousValue, element) {
+      final TemplateCollection? object = TemplateCollection.fromJson(element.value);
       if (object is TemplateCollection) {
         previousValue[element.key] = object;
       }
@@ -73,15 +74,13 @@ class TemplateCollection {
   }
 
   // maps a json object with a list of TemplateCollection-objects as value to a dart map
-  static Map<String, List<TemplateCollection>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<TemplateCollection>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<TemplateCollection>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<TemplateCollection>>(
-          key, TemplateCollection.listFromJson(value));
+      return MapEntry<String, List<TemplateCollection>>(key, TemplateCollection.listFromJson(value));
     });
   }
 
@@ -90,7 +89,12 @@ class TemplateCollection {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'items')) r'items': items,
+    if (keys == null || keys.
+    contains(r'items')
+    )
+        r'items':
+            items,
     };
   }
 }
+

@@ -11,9 +11,14 @@ void main() {
 
   group('test GetAuthTokenRequest', () {
     // String grantType
-    test('to test the property `grantType`', () async {});
+    test('to test the property `grantType`', () async {
+    });
 
     // String idToken
-    test('to test the property `idToken`', () async {});
+    test('to test the property `idToken`', () async {
+    });
+
+
   });
+
 }

@@ -5,6 +5,7 @@
 // import 'package:keyclic_sdk_api/api.dart';
 import 'package:test/test.dart';
 
+
 /// tests for ReportApi
 void main() {
   // final instance = ReportApi();
@@ -13,46 +14,56 @@ void main() {
     // Retrieve all Assignment resources.
     //
     //Future<AssignmentPagination> cgetAssignmentsByReport(String xKeyclicApp, String report, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, DateTime after, DateTime before, int page, int limit }) async
-    test('test cgetAssignmentsByReport', () async {});
+    test('test cgetAssignmentsByReport', () async {
+    });
 
     // Retrieve all Document resources.
     //
     //Future<DocumentPagination> cgetDocumentsByReport(String xKeyclicApp, String report, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, DateTime after, DateTime before, String organization, List<String> organizationsLeftSquareBracketRightSquareBracket, String state, List<String> statesLeftSquareBracketRightSquareBracket, int page, int limit }) async
-    test('test cgetDocumentsByReport', () async {});
+    test('test cgetDocumentsByReport', () async {
+    });
 
     // Retrieve all Note resources.
     //
     //Future<NotePagination> cgetNotesByTask(String xKeyclicApp, String task, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, DateTime after, DateTime before, int page, int limit }) async
-    test('test cgetNotesByTask', () async {});
+    test('test cgetNotesByTask', () async {
+    });
 
     // Retrieve all Operation resources.
     //
     //Future<OperationPagination> cgetOperationsByReport(String xKeyclicApp, String report, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, bool archived, String asset, List<String> assetsLeftSquareBracketRightSquareBracket, String batch, List<String> batchesLeftSquareBracketRightSquareBracket, String category, List<String> categoriesLeftSquareBracketRightSquareBracket, String categoryType, List<String> categoryTypesLeftSquareBracketRightSquareBracket, String createdBy, List<String> createdBiesLeftSquareBracketRightSquareBracket, DateTime afterDueBy, DateTime after, DateTime beforeDueBy, DateTime before, bool deep, String delegatedTo, List<String> delegatedTosLeftSquareBracketRightSquareBracket, List<String> equipmentLeftSquareBracketRightSquareBracket, bool hasDocuments, String isEmpty, String isNull, bool leaf, int level, String managedBy, List<String> managedBiesLeftSquareBracketRightSquareBracket, String member, List<String> membersLeftSquareBracketRightSquareBracket, String operationStateAll, String operationState, List<String> operationStatesLeftSquareBracketRightSquareBracket, String organization, List<String> organizationsLeftSquareBracketRightSquareBracket, String phase, List<String> phasesLeftSquareBracketRightSquareBracket, String place, List<String> placesLeftSquareBracketRightSquareBracket, String priority, List<String> prioritiesLeftSquareBracketRightSquareBracket, String query, List<String> ratingLeftSquareBracketRightSquareBracket, String reporter, List<String> reportersLeftSquareBracketRightSquareBracket, DateTime scheduledAtAfter, DateTime scheduledAtBefore, String state, List<String> statesLeftSquareBracketRightSquareBracket, List<String> visibilityLeftSquareBracketRightSquareBracket, int page, int limit }) async
-    test('test cgetOperationsByReport', () async {});
+    test('test cgetOperationsByReport', () async {
+    });
 
     // Retrieve one Report resource.
     //
     //Future<Report> getReport(String xKeyclicApp, String report, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
-    test('test getReport', () async {});
+    test('test getReport', () async {
+    });
 
     // Retrieve one Tracking resource.
     //
     //Future<Tracking> getTrackingByReport(String xKeyclicApp, String report, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
-    test('test getTrackingByReport', () async {});
+    test('test getTrackingByReport', () async {
+    });
 
     // Edit one Report resource.
     //
     //Future<Report> patchReport(String xKeyclicApp, String report, TaskPatch taskPatch, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, bool xEnableDispatch }) async
-    test('test patchReport', () async {});
+    test('test patchReport', () async {
+    });
 
     // Create one Document resource.
     //
     //Future<Document> postDocumentByReport(String xKeyclicApp, String report, DocumentData documentData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
-    test('test postDocumentByReport', () async {});
+    test('test postDocumentByReport', () async {
+    });
 
     // Create one Workflow resource.
     //
     //Future<Report> postWorkflowByReport(String xKeyclicApp, String report, WorkflowData workflowData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, bool xEnableDispatch }) async
-    test('test postWorkflowByReport', () async {});
+    test('test postWorkflowByReport', () async {
+    });
+
   });
 }

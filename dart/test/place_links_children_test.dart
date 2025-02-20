@@ -12,9 +12,14 @@ void main() {
   group('test PlaceLinksChildren', () {
     // The URI of the children associated to the given place.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // PlaceLinksChildrenIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

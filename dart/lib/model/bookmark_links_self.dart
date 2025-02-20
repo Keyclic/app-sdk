@@ -7,8 +7,10 @@ part of keyclic_sdk_api;
 class BookmarkLinksSelf {
   /// Returns a new [BookmarkLinksSelf] instance.
   BookmarkLinksSelf({
-    this.href,
-    this.iriTemplate,
+    this.href
+,
+    this.iriTemplate
+,
   });
 
   /// Returns a new [BookmarkLinksSelf] instance and imports its values from
@@ -18,16 +20,16 @@ class BookmarkLinksSelf {
       return null;
     }
 
-    return BookmarkLinksSelf(
-      href: json[r'href'],
-      iriTemplate: BookmarkLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+  return BookmarkLinksSelf(
+                  href: json[r'href'],
+        iriTemplate: BookmarkLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
   /// The URI of the self associated to the given bookmark.
-  String? href;
+      String? href;
 
-  BookmarkLinksSelfIriTemplate? iriTemplate;
+      BookmarkLinksSelfIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -36,23 +38,25 @@ class BookmarkLinksSelf {
       return true;
     }
 
-    return other is BookmarkLinksSelf &&
-        other.href == href &&
-        other.iriTemplate == iriTemplate;
+    return other is BookmarkLinksSelf 
+          && other.href == href
+  
+          && other.iriTemplate == iriTemplate
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (href == null ? 0 : href.hashCode) +
-      (iriTemplate == null ? 0 : iriTemplate.hashCode);
+    (href == null ? 0 : href.hashCode) +
+    (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
   static List<BookmarkLinksSelf> listFromJson(Iterable? json) {
     if (json == null) {
       return <BookmarkLinksSelf>[];
     }
 
-    return json.fold(<BookmarkLinksSelf>[],
-        (List<BookmarkLinksSelf> previousValue, element) {
+    return json.fold(<BookmarkLinksSelf>[], (List<BookmarkLinksSelf> previousValue, element) {
       final BookmarkLinksSelf? object = BookmarkLinksSelf.fromJson(element);
       if (object is BookmarkLinksSelf) {
         previousValue.add(object);
@@ -62,16 +66,13 @@ class BookmarkLinksSelf {
     });
   }
 
-  static Map<String, BookmarkLinksSelf> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, BookmarkLinksSelf> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, BookmarkLinksSelf>{};
     }
 
-    return json.entries.fold(<String, BookmarkLinksSelf>{},
-        (Map<String, BookmarkLinksSelf> previousValue, element) {
-      final BookmarkLinksSelf? object =
-          BookmarkLinksSelf.fromJson(element.value);
+    return json.entries.fold(<String, BookmarkLinksSelf>{}, (Map<String, BookmarkLinksSelf> previousValue, element) {
+      final BookmarkLinksSelf? object = BookmarkLinksSelf.fromJson(element.value);
       if (object is BookmarkLinksSelf) {
         previousValue[element.key] = object;
       }
@@ -81,35 +82,38 @@ class BookmarkLinksSelf {
   }
 
   // maps a json object with a list of BookmarkLinksSelf-objects as value to a dart map
-  static Map<String, List<BookmarkLinksSelf>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<BookmarkLinksSelf>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<BookmarkLinksSelf>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<BookmarkLinksSelf>>(
-          key, BookmarkLinksSelf.listFromJson(value));
+      return MapEntry<String, List<BookmarkLinksSelf>>(key, BookmarkLinksSelf.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'BookmarkLinksSelf[href=$href, iriTemplate=$iriTemplate]';
+  String toString() => 'BookmarkLinksSelf[href=$href, iriTemplate=$iriTemplate]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'href')) r'href': href,
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^iriTemplate\.').hasMatch(key)))
-        r'iriTemplate': iriTemplate?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^iriTemplate\.'))) {
-            previousValue.add(element.split(RegExp(r'^iriTemplate\.')).last);
-          }
+    if (keys == null || keys.
+    contains(r'href')
+    )
+        r'href':
+          href,
+    if (keys == null || keys.
+    any((key) => RegExp(r'^iriTemplate\.').hasMatch(key))
+    )
+        r'iriTemplate':
+            iriTemplate?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^iriTemplate\.'))) {
+                previousValue.add(element.split(RegExp(r'^iriTemplate\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

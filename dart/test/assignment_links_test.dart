@@ -11,18 +11,26 @@ void main() {
 
   group('test AssignmentLinks', () {
     // AssignmentLinksContract contract
-    test('to test the property `contract`', () async {});
+    test('to test the property `contract`', () async {
+    });
 
     // AssignmentLinksMember member
-    test('to test the property `member`', () async {});
+    test('to test the property `member`', () async {
+    });
 
     // AssignmentLinksReport report
-    test('to test the property `report`', () async {});
+    test('to test the property `report`', () async {
+    });
 
     // AssignmentLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
 
     // AssignmentLinksService service
-    test('to test the property `service`', () async {});
+    test('to test the property `service`', () async {
+    });
+
+
   });
+
 }

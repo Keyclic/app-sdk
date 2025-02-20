@@ -12,9 +12,14 @@ void main() {
   group('test InternalServiceLinksOrganization', () {
     // The URI of the organization associated to the given internalservice.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // InternalServiceLinksOrganizationIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

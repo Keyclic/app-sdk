@@ -4,21 +4,22 @@
 
 part of keyclic_sdk_api;
 
+
 class FeedbackApi {
   const FeedbackApi(this._apiClient);
 
   final ApiClient _apiClient;
 
   /// Retrieve all Comment resources.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [feedback] - The identifier of the resource.
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [page] - Page of the overview.
   /// * [limit] - Page of the overview.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -32,7 +33,7 @@ class FeedbackApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Comment resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<ActivityPagination>> cgetCommentsByFeedback({
+  Future<Response<ActivityPagination>> cgetCommentsByFeedback({ 
     required String xKeyclicApp,
     required String feedback,
     String? acceptLanguage,
@@ -41,6 +42,7 @@ class FeedbackApi {
     String? xKeyclicAppVersion,
     int? page,
     int? limit,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -48,8 +50,7 @@ class FeedbackApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/feedbacks/{feedback}/comments'
-        .replaceAll('{' r'feedback' '}', feedback.toString());
+    final String path = r'/feedbacks/{feedback}/comments'.replaceAll('{' r'feedback' '}', feedback.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -57,16 +58,15 @@ class FeedbackApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -74,13 +74,21 @@ class FeedbackApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
 
     final queryParameters = <String, dynamic>{
-      if (page != null) r'page': encodeQueryParameter(page),
-      if (limit != null) r'limit': encodeQueryParameter(limit),
+      if (page != null) r'page':
+        encodeQueryParameter(
+        page
+        ),
+      if (limit != null) r'limit':
+        encodeQueryParameter(
+        limit
+        ),
     };
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -94,8 +102,7 @@ class FeedbackApi {
     ActivityPagination responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<ActivityPagination>(
-          response.data!, 'ActivityPagination');
+            responseData = await _apiClient.deserializeAsync<ActivityPagination>(response.data!, 'ActivityPagination');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -117,24 +124,23 @@ class FeedbackApi {
       extra: response.extra,
     );
   }
-
   /// Retrieve all Feedback resources.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
-  /// * [batch]
-  /// * [batchesLeftSquareBracketRightSquareBracket]
-  /// * [after]
-  /// * [before]
-  /// * [geoHashLeftSquareBracketRightSquareBracket]
-  /// * [orderLeftSquareBracketRightSquareBracket]
-  /// * [organization]
-  /// * [organizationsLeftSquareBracketRightSquareBracket]
+  /// * [xKeyclicApp] 
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
+  /// * [batch] 
+  /// * [batchesLeftSquareBracketRightSquareBracket] 
+  /// * [after] 
+  /// * [before] 
+  /// * [geoHashLeftSquareBracketRightSquareBracket] 
+  /// * [orderLeftSquareBracketRightSquareBracket] 
+  /// * [organization] 
+  /// * [organizationsLeftSquareBracketRightSquareBracket] 
   /// * [page] - Page of the overview.
   /// * [limit] - Page of the overview.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -148,7 +154,7 @@ class FeedbackApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Feedback resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<FeedbackPagination>> cgetFeedback({
+  Future<Response<FeedbackPagination>> cgetFeedback({ 
     required String xKeyclicApp,
     String? acceptLanguage,
     DateTime? xDateTime,
@@ -164,6 +170,7 @@ class FeedbackApi {
     List<String>? organizationsLeftSquareBracketRightSquareBracket,
     int? page,
     int? limit,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -179,16 +186,15 @@ class FeedbackApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -196,34 +202,57 @@ class FeedbackApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
 
     final queryParameters = <String, dynamic>{
-      if (batch != null) r'batch': encodeQueryParameter(batch),
-      if (batchesLeftSquareBracketRightSquareBracket != null)
-        r'batches[]': encodeCollectionQueryParameter(
-            batchesLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (after != null) r'after': encodeQueryParameter(after),
-      if (before != null) r'before': encodeQueryParameter(before),
-      if (geoHashLeftSquareBracketRightSquareBracket != null)
-        r'geo_hash[]': encodeCollectionQueryParameter(
-            geoHashLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (orderLeftSquareBracketRightSquareBracket != null)
-        r'order[]': encodeCollectionQueryParameter(
-            orderLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (organization != null)
-        r'organization': encodeQueryParameter(organization),
-      if (organizationsLeftSquareBracketRightSquareBracket != null)
-        r'organizations[]': encodeCollectionQueryParameter(
-            organizationsLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (page != null) r'page': encodeQueryParameter(page),
-      if (limit != null) r'limit': encodeQueryParameter(limit),
+      if (batch != null) r'batch':
+        encodeQueryParameter(
+        batch
+        ),
+      if (batchesLeftSquareBracketRightSquareBracket != null) r'batches[]':
+        encodeCollectionQueryParameter(
+        batchesLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (after != null) r'after':
+        encodeQueryParameter(
+        after
+        ),
+      if (before != null) r'before':
+        encodeQueryParameter(
+        before
+        ),
+      if (geoHashLeftSquareBracketRightSquareBracket != null) r'geo_hash[]':
+        encodeCollectionQueryParameter(
+        geoHashLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (orderLeftSquareBracketRightSquareBracket != null) r'order[]':
+        encodeCollectionQueryParameter(
+        orderLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (organization != null) r'organization':
+        encodeQueryParameter(
+        organization
+        ),
+      if (organizationsLeftSquareBracketRightSquareBracket != null) r'organizations[]':
+        encodeCollectionQueryParameter(
+        organizationsLeftSquareBracketRightSquareBracket,
+        format: ListFormat.multi
+        ),
+      if (page != null) r'page':
+        encodeQueryParameter(
+        page
+        ),
+      if (limit != null) r'limit':
+        encodeQueryParameter(
+        limit
+        ),
     };
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -237,8 +266,7 @@ class FeedbackApi {
     FeedbackPagination responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<FeedbackPagination>(
-          response.data!, 'FeedbackPagination');
+            responseData = await _apiClient.deserializeAsync<FeedbackPagination>(response.data!, 'FeedbackPagination');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -260,17 +288,16 @@ class FeedbackApi {
       extra: response.extra,
     );
   }
-
   /// Remove one Feedback resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [feedback] - The identifier of the resource.
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -282,13 +309,14 @@ class FeedbackApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Remove one Feedback resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<void>> deleteFeedback({
+  Future<Response<void>> deleteFeedback({ 
     required String xKeyclicApp,
     required String feedback,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -296,8 +324,7 @@ class FeedbackApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/feedbacks/{feedback}'
-        .replaceAll('{' r'feedback' '}', feedback.toString());
+    final String path = r'/feedbacks/{feedback}'.replaceAll('{' r'feedback' '}', feedback.toString());
     final options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -305,16 +332,15 @@ class FeedbackApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -322,8 +348,11 @@ class FeedbackApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     return _apiClient.dio.request<Object>(
       path,
@@ -332,18 +361,18 @@ class FeedbackApi {
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
     );
-  }
 
+  }
   /// Retrieve one Feedback resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [feedback] - The identifier of the resource.
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -355,13 +384,14 @@ class FeedbackApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one Feedback resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<Feedback>> getFeedback({
+  Future<Response<Feedback>> getFeedback({ 
     required String xKeyclicApp,
     required String feedback,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -369,8 +399,7 @@ class FeedbackApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/feedbacks/{feedback}'
-        .replaceAll('{' r'feedback' '}', feedback.toString());
+    final String path = r'/feedbacks/{feedback}'.replaceAll('{' r'feedback' '}', feedback.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -378,16 +407,15 @@ class FeedbackApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -395,8 +423,11 @@ class FeedbackApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -409,8 +440,7 @@ class FeedbackApi {
     Feedback responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<Feedback>(
-          response.data!, 'Feedback');
+            responseData = await _apiClient.deserializeAsync<Feedback>(response.data!, 'Feedback');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -432,17 +462,16 @@ class FeedbackApi {
       extra: response.extra,
     );
   }
-
   /// Retrieve one Tracking resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [feedback] - The identifier of the resource.
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -454,13 +483,14 @@ class FeedbackApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one Tracking resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<Tracking>> getTrackingByFeedback({
+  Future<Response<Tracking>> getTrackingByFeedback({ 
     required String xKeyclicApp,
     required String feedback,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -468,8 +498,7 @@ class FeedbackApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/feedbacks/{feedback}/tracking'
-        .replaceAll('{' r'feedback' '}', feedback.toString());
+    final String path = r'/feedbacks/{feedback}/tracking'.replaceAll('{' r'feedback' '}', feedback.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -477,16 +506,15 @@ class FeedbackApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -494,8 +522,11 @@ class FeedbackApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -508,8 +539,7 @@ class FeedbackApi {
     Tracking responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<Tracking>(
-          response.data!, 'Tracking');
+            responseData = await _apiClient.deserializeAsync<Tracking>(response.data!, 'Tracking');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -531,18 +561,17 @@ class FeedbackApi {
       extra: response.extra,
     );
   }
-
   /// Create one Attachment resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [feedback] - The identifier of the resource.
-  /// * [fileData]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [fileData] 
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -554,7 +583,7 @@ class FeedbackApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Attachment resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<Feedback>> postAttachmentByFeedback({
+  Future<Response<Feedback>> postAttachmentByFeedback({ 
     required String xKeyclicApp,
     required String feedback,
     required FileData fileData,
@@ -570,8 +599,7 @@ class FeedbackApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/feedbacks/{feedback}/attachments'
-        .replaceAll('{' r'feedback' '}', feedback.toString());
+    final String path = r'/feedbacks/{feedback}/attachments'.replaceAll('{' r'feedback' '}', feedback.toString());
     final options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -579,16 +607,15 @@ class FeedbackApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -600,11 +627,12 @@ class FeedbackApi {
       validateStatus: validateStatus,
     );
 
+
     dynamic bodyData;
 
     try {
-      bodyData = fileData.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = fileData.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -628,8 +656,7 @@ class FeedbackApi {
     Feedback responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<Feedback>(
-          response.data!, 'Feedback');
+            responseData = await _apiClient.deserializeAsync<Feedback>(response.data!, 'Feedback');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -651,18 +678,17 @@ class FeedbackApi {
       extra: response.extra,
     );
   }
-
   /// Create one Comment resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [feedback] - The identifier of the resource.
-  /// * [commentData]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [commentData] 
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -674,7 +700,7 @@ class FeedbackApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Comment resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<Feedback>> postCommentByFeedback({
+  Future<Response<Feedback>> postCommentByFeedback({ 
     required String xKeyclicApp,
     required String feedback,
     required CommentData commentData,
@@ -690,8 +716,7 @@ class FeedbackApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/feedbacks/{feedback}/comments'
-        .replaceAll('{' r'feedback' '}', feedback.toString());
+    final String path = r'/feedbacks/{feedback}/comments'.replaceAll('{' r'feedback' '}', feedback.toString());
     final options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -699,16 +724,15 @@ class FeedbackApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -720,11 +744,12 @@ class FeedbackApi {
       validateStatus: validateStatus,
     );
 
+
     dynamic bodyData;
 
     try {
-      bodyData = commentData.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = commentData.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -748,8 +773,7 @@ class FeedbackApi {
     Feedback responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<Feedback>(
-          response.data!, 'Feedback');
+            responseData = await _apiClient.deserializeAsync<Feedback>(response.data!, 'Feedback');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -771,17 +795,16 @@ class FeedbackApi {
       extra: response.extra,
     );
   }
-
   /// Create one Issue resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
-  /// * [feedbackData]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [xKeyclicApp] 
+  /// * [feedbackData] 
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -793,7 +816,7 @@ class FeedbackApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Issue resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<Feedback>> postIssue({
+  Future<Response<Feedback>> postIssue({ 
     required String xKeyclicApp,
     required FeedbackData feedbackData,
     String? acceptLanguage,
@@ -816,16 +839,15 @@ class FeedbackApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -837,11 +859,12 @@ class FeedbackApi {
       validateStatus: validateStatus,
     );
 
+
     dynamic bodyData;
 
     try {
-      bodyData = feedbackData.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = feedbackData.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -865,8 +888,7 @@ class FeedbackApi {
     Feedback responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<Feedback>(
-          response.data!, 'Feedback');
+            responseData = await _apiClient.deserializeAsync<Feedback>(response.data!, 'Feedback');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -888,19 +910,18 @@ class FeedbackApi {
       extra: response.extra,
     );
   }
-
   /// Create one Workflow resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [feedback] - The identifier of the resource.
-  /// * [feedbackWorkflowTransitionData]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
-  /// * [xEnableDispatch]
+  /// * [feedbackWorkflowTransitionData] 
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
+  /// * [xEnableDispatch] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -912,7 +933,7 @@ class FeedbackApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Workflow resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<Feedback>> postWorkflowByFeedback({
+  Future<Response<Feedback>> postWorkflowByFeedback({ 
     required String xKeyclicApp,
     required String feedback,
     required FeedbackWorkflowTransitionData feedbackWorkflowTransitionData,
@@ -929,8 +950,7 @@ class FeedbackApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/feedbacks/{feedback}/workflow'
-        .replaceAll('{' r'feedback' '}', feedback.toString());
+    final String path = r'/feedbacks/{feedback}/workflow'.replaceAll('{' r'feedback' '}', feedback.toString());
     final options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -938,10 +958,8 @@ class FeedbackApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         if (xEnableDispatch != null) r'x-enable-dispatch': xEnableDispatch,
         ...?headers,
       },
@@ -949,6 +967,7 @@ class FeedbackApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -960,11 +979,12 @@ class FeedbackApi {
       validateStatus: validateStatus,
     );
 
+
     dynamic bodyData;
 
     try {
-      bodyData = feedbackWorkflowTransitionData.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = feedbackWorkflowTransitionData.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -988,8 +1008,7 @@ class FeedbackApi {
     Feedback responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<Feedback>(
-          response.data!, 'Feedback');
+            responseData = await _apiClient.deserializeAsync<Feedback>(response.data!, 'Feedback');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

@@ -11,9 +11,14 @@ void main() {
 
   group('test TrackingProgression', () {
     // double resolved
-    test('to test the property `resolved`', () async {});
+    test('to test the property `resolved`', () async {
+    });
 
     // int total
-    test('to test the property `total`', () async {});
+    test('to test the property `total`', () async {
+    });
+
+
   });
+
 }

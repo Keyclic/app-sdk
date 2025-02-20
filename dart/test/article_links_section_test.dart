@@ -12,9 +12,14 @@ void main() {
   group('test ArticleLinksSection', () {
     // The URI of the section associated to the given article.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // ArticleLinksSectionIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

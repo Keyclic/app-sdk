@@ -7,9 +7,12 @@ part of keyclic_sdk_api;
 class FeedbackDataGeoPoint {
   /// Returns a new [FeedbackDataGeoPoint] instance.
   FeedbackDataGeoPoint({
-    this.latitude,
-    this.longitude,
-    this.srid,
+    this.latitude
+,
+    this.longitude
+,
+    this.srid
+,
   });
 
   /// Returns a new [FeedbackDataGeoPoint] instance and imports its values from
@@ -19,19 +22,24 @@ class FeedbackDataGeoPoint {
       return null;
     }
 
-    return FeedbackDataGeoPoint(
-      latitude: json[r'latitude'] == null ? null : json[r'latitude'].toDouble(),
-      longitude:
-          json[r'longitude'] == null ? null : json[r'longitude'].toDouble(),
-      srid: json[r'srid'] == null ? null : json[r'srid'].toDouble(),
+  return FeedbackDataGeoPoint(
+        latitude: json[r'latitude'] == null ?
+          null :
+          json[r'latitude'].toDouble(),
+        longitude: json[r'longitude'] == null ?
+          null :
+          json[r'longitude'].toDouble(),
+        srid: json[r'srid'] == null ?
+          null :
+          json[r'srid'].toDouble(),
     );
   }
 
-  num? latitude;
+      num? latitude;
 
-  num? longitude;
+      num? longitude;
 
-  num? srid;
+      num? srid;
 
   @override
   bool operator ==(Object other) {
@@ -40,27 +48,29 @@ class FeedbackDataGeoPoint {
       return true;
     }
 
-    return other is FeedbackDataGeoPoint &&
-        other.latitude == latitude &&
-        other.longitude == longitude &&
-        other.srid == srid;
+    return other is FeedbackDataGeoPoint 
+          && other.latitude == latitude
+  
+          && other.longitude == longitude
+  
+          && other.srid == srid
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (latitude == null ? 0 : latitude.hashCode) +
-      (longitude == null ? 0 : longitude.hashCode) +
-      (srid == null ? 0 : srid.hashCode);
+    (latitude == null ? 0 : latitude.hashCode) +
+    (longitude == null ? 0 : longitude.hashCode) +
+    (srid == null ? 0 : srid.hashCode);
 
   static List<FeedbackDataGeoPoint> listFromJson(Iterable? json) {
     if (json == null) {
       return <FeedbackDataGeoPoint>[];
     }
 
-    return json.fold(<FeedbackDataGeoPoint>[],
-        (List<FeedbackDataGeoPoint> previousValue, element) {
-      final FeedbackDataGeoPoint? object =
-          FeedbackDataGeoPoint.fromJson(element);
+    return json.fold(<FeedbackDataGeoPoint>[], (List<FeedbackDataGeoPoint> previousValue, element) {
+      final FeedbackDataGeoPoint? object = FeedbackDataGeoPoint.fromJson(element);
       if (object is FeedbackDataGeoPoint) {
         previousValue.add(object);
       }
@@ -69,16 +79,13 @@ class FeedbackDataGeoPoint {
     });
   }
 
-  static Map<String, FeedbackDataGeoPoint> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, FeedbackDataGeoPoint> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, FeedbackDataGeoPoint>{};
     }
 
-    return json.entries.fold(<String, FeedbackDataGeoPoint>{},
-        (Map<String, FeedbackDataGeoPoint> previousValue, element) {
-      final FeedbackDataGeoPoint? object =
-          FeedbackDataGeoPoint.fromJson(element.value);
+    return json.entries.fold(<String, FeedbackDataGeoPoint>{}, (Map<String, FeedbackDataGeoPoint> previousValue, element) {
+      final FeedbackDataGeoPoint? object = FeedbackDataGeoPoint.fromJson(element.value);
       if (object is FeedbackDataGeoPoint) {
         previousValue[element.key] = object;
       }
@@ -88,27 +95,37 @@ class FeedbackDataGeoPoint {
   }
 
   // maps a json object with a list of FeedbackDataGeoPoint-objects as value to a dart map
-  static Map<String, List<FeedbackDataGeoPoint>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<FeedbackDataGeoPoint>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<FeedbackDataGeoPoint>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<FeedbackDataGeoPoint>>(
-          key, FeedbackDataGeoPoint.listFromJson(value));
+      return MapEntry<String, List<FeedbackDataGeoPoint>>(key, FeedbackDataGeoPoint.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'FeedbackDataGeoPoint[latitude=$latitude, longitude=$longitude, srid=$srid]';
+  String toString() => 'FeedbackDataGeoPoint[latitude=$latitude, longitude=$longitude, srid=$srid]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'latitude')) r'latitude': latitude,
-      if (keys == null || keys.contains(r'longitude')) r'longitude': longitude,
-      if (keys == null || keys.contains(r'srid')) r'srid': srid,
+    if (keys == null || keys.
+    contains(r'latitude')
+    )
+        r'latitude':
+          latitude,
+    if (keys == null || keys.
+    contains(r'longitude')
+    )
+        r'longitude':
+          longitude,
+    if (keys == null || keys.
+    contains(r'srid')
+    )
+        r'srid':
+          srid,
     };
   }
 }
+

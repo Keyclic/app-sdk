@@ -7,10 +7,14 @@ part of keyclic_sdk_api_platform;
 class TargetGroupJsonhalRead {
   /// Returns a new [TargetGroupJsonhalRead] instance.
   TargetGroupJsonhalRead({
-    this.links,
-    this.description,
-    this.id,
-    this.name,
+    this.links
+,
+    this.description
+,
+    this.id
+,
+    this.name
+,
   });
 
   /// Returns a new [TargetGroupJsonhalRead] instance and imports its values from
@@ -20,21 +24,21 @@ class TargetGroupJsonhalRead {
       return null;
     }
 
-    return TargetGroupJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
-      description: json[r'description'],
-      id: json[r'id'],
-      name: json[r'name'],
+  return TargetGroupJsonhalRead(
+        links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+                  description: json[r'description'],
+                  id: json[r'id'],
+                  name: json[r'name'],
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+      AssetTypeJsonhalReadLinks? links;
 
-  final String? description;
+      final String? description;
 
-  String? id;
+      String? id;
 
-  String? name;
+      String? name;
 
   @override
   bool operator ==(Object other) {
@@ -43,29 +47,32 @@ class TargetGroupJsonhalRead {
       return true;
     }
 
-    return other is TargetGroupJsonhalRead &&
-        other.links == links &&
-        other.description == description &&
-        other.id == id &&
-        other.name == name;
+    return other is TargetGroupJsonhalRead 
+          && other.links == links
+  
+          && other.description == description
+  
+          && other.id == id
+  
+          && other.name == name
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
-      (description == null ? 0 : description.hashCode) +
-      (id == null ? 0 : id.hashCode) +
-      (name == null ? 0 : name.hashCode);
+    (links == null ? 0 : links.hashCode) +
+    (description == null ? 0 : description.hashCode) +
+    (id == null ? 0 : id.hashCode) +
+    (name == null ? 0 : name.hashCode);
 
   static List<TargetGroupJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <TargetGroupJsonhalRead>[];
     }
 
-    return json.fold(<TargetGroupJsonhalRead>[],
-        (List<TargetGroupJsonhalRead> previousValue, element) {
-      final TargetGroupJsonhalRead? object =
-          TargetGroupJsonhalRead.fromJson(element);
+    return json.fold(<TargetGroupJsonhalRead>[], (List<TargetGroupJsonhalRead> previousValue, element) {
+      final TargetGroupJsonhalRead? object = TargetGroupJsonhalRead.fromJson(element);
       if (object is TargetGroupJsonhalRead) {
         previousValue.add(object);
       }
@@ -74,16 +81,13 @@ class TargetGroupJsonhalRead {
     });
   }
 
-  static Map<String, TargetGroupJsonhalRead> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, TargetGroupJsonhalRead> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, TargetGroupJsonhalRead>{};
     }
 
-    return json.entries.fold(<String, TargetGroupJsonhalRead>{},
-        (Map<String, TargetGroupJsonhalRead> previousValue, element) {
-      final TargetGroupJsonhalRead? object =
-          TargetGroupJsonhalRead.fromJson(element.value);
+    return json.entries.fold(<String, TargetGroupJsonhalRead>{}, (Map<String, TargetGroupJsonhalRead> previousValue, element) {
+      final TargetGroupJsonhalRead? object = TargetGroupJsonhalRead.fromJson(element.value);
       if (object is TargetGroupJsonhalRead) {
         previousValue[element.key] = object;
       }
@@ -93,37 +97,48 @@ class TargetGroupJsonhalRead {
   }
 
   // maps a json object with a list of TargetGroupJsonhalRead-objects as value to a dart map
-  static Map<String, List<TargetGroupJsonhalRead>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<TargetGroupJsonhalRead>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<TargetGroupJsonhalRead>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<TargetGroupJsonhalRead>>(
-          key, TargetGroupJsonhalRead.listFromJson(value));
+      return MapEntry<String, List<TargetGroupJsonhalRead>>(key, TargetGroupJsonhalRead.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'TargetGroupJsonhalRead[links=$links, description=$description, id=$id, name=$name]';
+  String toString() => 'TargetGroupJsonhalRead[links=$links, description=$description, id=$id, name=$name]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^links\.').hasMatch(key))
+    )
+        r'_links':
+            links?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^links\.'))) {
+                previousValue.add(element.split(RegExp(r'^links\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'description'))
-        r'description': description,
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'name')) r'name': name,
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    contains(r'description')
+    )
+        r'description':
+          description,
+    if (keys == null || keys.
+    contains(r'id')
+    )
+        r'id':
+          id,
+    if (keys == null || keys.
+    contains(r'name')
+    )
+        r'name':
+          name,
     };
   }
 }
+

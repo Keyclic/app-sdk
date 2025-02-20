@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class AgreementPrivacyPolicy {
   /// Returns a new [AgreementPrivacyPolicy] instance.
   AgreementPrivacyPolicy({
-    this.content,
+    this.content
+,
   });
 
   /// Returns a new [AgreementPrivacyPolicy] instance and imports its values from
@@ -17,12 +18,12 @@ class AgreementPrivacyPolicy {
       return null;
     }
 
-    return AgreementPrivacyPolicy(
-      content: json[r'content'],
+  return AgreementPrivacyPolicy(
+                  content: json[r'content'],
     );
   }
 
-  String? content;
+      String? content;
 
   @override
   bool operator ==(Object other) {
@@ -31,21 +32,23 @@ class AgreementPrivacyPolicy {
       return true;
     }
 
-    return other is AgreementPrivacyPolicy && other.content == content;
+    return other is AgreementPrivacyPolicy 
+          && other.content == content
+  ;
   }
+  
 
   @override
-  int get hashCode => (content == null ? 0 : content.hashCode);
+  int get hashCode =>
+    (content == null ? 0 : content.hashCode);
 
   static List<AgreementPrivacyPolicy> listFromJson(Iterable? json) {
     if (json == null) {
       return <AgreementPrivacyPolicy>[];
     }
 
-    return json.fold(<AgreementPrivacyPolicy>[],
-        (List<AgreementPrivacyPolicy> previousValue, element) {
-      final AgreementPrivacyPolicy? object =
-          AgreementPrivacyPolicy.fromJson(element);
+    return json.fold(<AgreementPrivacyPolicy>[], (List<AgreementPrivacyPolicy> previousValue, element) {
+      final AgreementPrivacyPolicy? object = AgreementPrivacyPolicy.fromJson(element);
       if (object is AgreementPrivacyPolicy) {
         previousValue.add(object);
       }
@@ -54,16 +57,13 @@ class AgreementPrivacyPolicy {
     });
   }
 
-  static Map<String, AgreementPrivacyPolicy> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, AgreementPrivacyPolicy> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, AgreementPrivacyPolicy>{};
     }
 
-    return json.entries.fold(<String, AgreementPrivacyPolicy>{},
-        (Map<String, AgreementPrivacyPolicy> previousValue, element) {
-      final AgreementPrivacyPolicy? object =
-          AgreementPrivacyPolicy.fromJson(element.value);
+    return json.entries.fold(<String, AgreementPrivacyPolicy>{}, (Map<String, AgreementPrivacyPolicy> previousValue, element) {
+      final AgreementPrivacyPolicy? object = AgreementPrivacyPolicy.fromJson(element.value);
       if (object is AgreementPrivacyPolicy) {
         previousValue[element.key] = object;
       }
@@ -73,15 +73,13 @@ class AgreementPrivacyPolicy {
   }
 
   // maps a json object with a list of AgreementPrivacyPolicy-objects as value to a dart map
-  static Map<String, List<AgreementPrivacyPolicy>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<AgreementPrivacyPolicy>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<AgreementPrivacyPolicy>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<AgreementPrivacyPolicy>>(
-          key, AgreementPrivacyPolicy.listFromJson(value));
+      return MapEntry<String, List<AgreementPrivacyPolicy>>(key, AgreementPrivacyPolicy.listFromJson(value));
     });
   }
 
@@ -90,7 +88,12 @@ class AgreementPrivacyPolicy {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'content')) r'content': content,
+    if (keys == null || keys.
+    contains(r'content')
+    )
+        r'content':
+          content,
     };
   }
 }
+

@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class PlanPatch {
   /// Returns a new [PlanPatch] instance.
   PlanPatch({
-    this.name,
+    this.name
+,
   });
 
   /// Returns a new [PlanPatch] instance and imports its values from
@@ -17,12 +18,12 @@ class PlanPatch {
       return null;
     }
 
-    return PlanPatch(
-      name: json[r'name'],
+  return PlanPatch(
+                  name: json[r'name'],
     );
   }
 
-  String? name;
+      String? name;
 
   @override
   bool operator ==(Object other) {
@@ -31,11 +32,15 @@ class PlanPatch {
       return true;
     }
 
-    return other is PlanPatch && other.name == name;
+    return other is PlanPatch 
+          && other.name == name
+  ;
   }
+  
 
   @override
-  int get hashCode => (name == null ? 0 : name.hashCode);
+  int get hashCode =>
+    (name == null ? 0 : name.hashCode);
 
   static List<PlanPatch> listFromJson(Iterable? json) {
     if (json == null) {
@@ -57,8 +62,7 @@ class PlanPatch {
       return <String, PlanPatch>{};
     }
 
-    return json.entries.fold(<String, PlanPatch>{},
-        (Map<String, PlanPatch> previousValue, element) {
+    return json.entries.fold(<String, PlanPatch>{}, (Map<String, PlanPatch> previousValue, element) {
       final PlanPatch? object = PlanPatch.fromJson(element.value);
       if (object is PlanPatch) {
         previousValue[element.key] = object;
@@ -69,15 +73,13 @@ class PlanPatch {
   }
 
   // maps a json object with a list of PlanPatch-objects as value to a dart map
-  static Map<String, List<PlanPatch>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<PlanPatch>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<PlanPatch>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<PlanPatch>>(
-          key, PlanPatch.listFromJson(value));
+      return MapEntry<String, List<PlanPatch>>(key, PlanPatch.listFromJson(value));
     });
   }
 
@@ -86,7 +88,12 @@ class PlanPatch {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'name')) r'name': name,
+    if (keys == null || keys.
+    contains(r'name')
+    )
+        r'name':
+          name,
     };
   }
 }
+

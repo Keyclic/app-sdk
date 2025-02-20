@@ -7,7 +7,10 @@ part of keyclic_sdk_api;
 class DocumentWorkflowData {
   /// Returns a new [DocumentWorkflowData] instance.
   DocumentWorkflowData({
-    required this.transition,
+      required 
+    this.transition
+      
+    ,
   });
 
   /// Returns a new [DocumentWorkflowData] instance and imports its values from
@@ -17,13 +20,12 @@ class DocumentWorkflowData {
       return null;
     }
 
-    return DocumentWorkflowData(
-      transition:
-          DocumentWorkflowDataTransitionEnum.fromJson(json[r'transition'])!,
+  return DocumentWorkflowData(
+              transition: DocumentWorkflowDataTransitionEnum.fromJson(json[r'transition'])!,
     );
   }
 
-  DocumentWorkflowDataTransitionEnum transition;
+      DocumentWorkflowDataTransitionEnum transition;
 
   @override
   bool operator ==(Object other) {
@@ -32,21 +34,23 @@ class DocumentWorkflowData {
       return true;
     }
 
-    return other is DocumentWorkflowData && other.transition == transition;
+    return other is DocumentWorkflowData 
+          && other.transition == transition
+  ;
   }
+  
 
   @override
-  int get hashCode => transition.hashCode;
+  int get hashCode =>
+     transition.hashCode;
 
   static List<DocumentWorkflowData> listFromJson(Iterable? json) {
     if (json == null) {
       return <DocumentWorkflowData>[];
     }
 
-    return json.fold(<DocumentWorkflowData>[],
-        (List<DocumentWorkflowData> previousValue, element) {
-      final DocumentWorkflowData? object =
-          DocumentWorkflowData.fromJson(element);
+    return json.fold(<DocumentWorkflowData>[], (List<DocumentWorkflowData> previousValue, element) {
+      final DocumentWorkflowData? object = DocumentWorkflowData.fromJson(element);
       if (object is DocumentWorkflowData) {
         previousValue.add(object);
       }
@@ -55,16 +59,13 @@ class DocumentWorkflowData {
     });
   }
 
-  static Map<String, DocumentWorkflowData> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, DocumentWorkflowData> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, DocumentWorkflowData>{};
     }
 
-    return json.entries.fold(<String, DocumentWorkflowData>{},
-        (Map<String, DocumentWorkflowData> previousValue, element) {
-      final DocumentWorkflowData? object =
-          DocumentWorkflowData.fromJson(element.value);
+    return json.entries.fold(<String, DocumentWorkflowData>{}, (Map<String, DocumentWorkflowData> previousValue, element) {
+      final DocumentWorkflowData? object = DocumentWorkflowData.fromJson(element.value);
       if (object is DocumentWorkflowData) {
         previousValue[element.key] = object;
       }
@@ -74,15 +75,13 @@ class DocumentWorkflowData {
   }
 
   // maps a json object with a list of DocumentWorkflowData-objects as value to a dart map
-  static Map<String, List<DocumentWorkflowData>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<DocumentWorkflowData>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<DocumentWorkflowData>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<DocumentWorkflowData>>(
-          key, DocumentWorkflowData.listFromJson(value));
+      return MapEntry<String, List<DocumentWorkflowData>>(key, DocumentWorkflowData.listFromJson(value));
     });
   }
 
@@ -91,10 +90,12 @@ class DocumentWorkflowData {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'transition': transition,
+        r'transition':
+          transition,
     };
   }
 }
+
 
 class DocumentWorkflowDataTransitionEnum {
   /// Instantiate a new enum with the provided [value].
@@ -118,16 +119,12 @@ class DocumentWorkflowDataTransitionEnum {
   ];
 
   static DocumentWorkflowDataTransitionEnum? fromJson(dynamic value) =>
-      DocumentWorkflowDataTransitionEnumTypeTransformer().decode(value);
+    DocumentWorkflowDataTransitionEnumTypeTransformer().decode(value);
 
-  static List<DocumentWorkflowDataTransitionEnum> listFromJson(
-      List<dynamic> json) {
-    return json
-        .map((value) {
-          return DocumentWorkflowDataTransitionEnum.fromJson(value);
-        })
-        .whereType<DocumentWorkflowDataTransitionEnum>()
-        .toList();
+  static List<DocumentWorkflowDataTransitionEnum> listFromJson(List<dynamic> json) {
+    return json.map((value) {
+      return DocumentWorkflowDataTransitionEnum.fromJson(value);
+    }).whereType<DocumentWorkflowDataTransitionEnum>().toList();
   }
 }
 
@@ -136,8 +133,7 @@ class DocumentWorkflowDataTransitionEnum {
 class DocumentWorkflowDataTransitionEnumTypeTransformer {
   const DocumentWorkflowDataTransitionEnumTypeTransformer._();
 
-  factory DocumentWorkflowDataTransitionEnumTypeTransformer() =>
-      _instance ??= DocumentWorkflowDataTransitionEnumTypeTransformer._();
+  factory DocumentWorkflowDataTransitionEnumTypeTransformer() => _instance ??= DocumentWorkflowDataTransitionEnumTypeTransformer._();
 
   String encode(DocumentWorkflowDataTransitionEnum data) => data.value;
 
@@ -149,13 +145,10 @@ class DocumentWorkflowDataTransitionEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  DocumentWorkflowDataTransitionEnum? decode(dynamic data,
-      {bool allowNull = true}) {
+  DocumentWorkflowDataTransitionEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
-      case r'publish':
-        return DocumentWorkflowDataTransitionEnum.publish;
-      case r'review':
-        return DocumentWorkflowDataTransitionEnum.review;
+      case r'publish': return DocumentWorkflowDataTransitionEnum.publish;
+      case r'review': return DocumentWorkflowDataTransitionEnum.review;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
@@ -167,3 +160,4 @@ class DocumentWorkflowDataTransitionEnumTypeTransformer {
   /// Singleton [DocumentWorkflowDataTransitionEnumTypeTransformer] instance.
   static DocumentWorkflowDataTransitionEnumTypeTransformer? _instance;
 }
+

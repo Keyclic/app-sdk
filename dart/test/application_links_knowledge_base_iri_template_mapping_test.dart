@@ -11,6 +11,10 @@ void main() {
 
   group('test ApplicationLinksKnowledgeBaseIriTemplateMapping', () {
     // String knowledgeBase
-    test('to test the property `knowledgeBase`', () async {});
+    test('to test the property `knowledgeBase`', () async {
+    });
+
+
   });
+
 }

@@ -11,12 +11,18 @@ void main() {
 
   group('test OccupantLinks', () {
     // OccupantLinksMember member
-    test('to test the property `member`', () async {});
+    test('to test the property `member`', () async {
+    });
 
     // OccupantLinksPlace place
-    test('to test the property `place`', () async {});
+    test('to test the property `place`', () async {
+    });
 
     // OccupantLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
+
+
   });
+
 }

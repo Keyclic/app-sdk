@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class PreferencesSla {
   /// Returns a new [PreferencesSla] instance.
   PreferencesSla({
-    this.enabled,
+    this.enabled
+,
   });
 
   /// Returns a new [PreferencesSla] instance and imports its values from
@@ -17,12 +18,12 @@ class PreferencesSla {
       return null;
     }
 
-    return PreferencesSla(
-      enabled: json[r'enabled'],
+  return PreferencesSla(
+                  enabled: json[r'enabled'],
     );
   }
 
-  bool? enabled;
+      bool? enabled;
 
   @override
   bool operator ==(Object other) {
@@ -31,19 +32,22 @@ class PreferencesSla {
       return true;
     }
 
-    return other is PreferencesSla && other.enabled == enabled;
+    return other is PreferencesSla 
+          && other.enabled == enabled
+  ;
   }
+  
 
   @override
-  int get hashCode => (enabled == null ? 0 : enabled.hashCode);
+  int get hashCode =>
+    (enabled == null ? 0 : enabled.hashCode);
 
   static List<PreferencesSla> listFromJson(Iterable? json) {
     if (json == null) {
       return <PreferencesSla>[];
     }
 
-    return json.fold(<PreferencesSla>[],
-        (List<PreferencesSla> previousValue, element) {
+    return json.fold(<PreferencesSla>[], (List<PreferencesSla> previousValue, element) {
       final PreferencesSla? object = PreferencesSla.fromJson(element);
       if (object is PreferencesSla) {
         previousValue.add(object);
@@ -58,8 +62,7 @@ class PreferencesSla {
       return <String, PreferencesSla>{};
     }
 
-    return json.entries.fold(<String, PreferencesSla>{},
-        (Map<String, PreferencesSla> previousValue, element) {
+    return json.entries.fold(<String, PreferencesSla>{}, (Map<String, PreferencesSla> previousValue, element) {
       final PreferencesSla? object = PreferencesSla.fromJson(element.value);
       if (object is PreferencesSla) {
         previousValue[element.key] = object;
@@ -70,15 +73,13 @@ class PreferencesSla {
   }
 
   // maps a json object with a list of PreferencesSla-objects as value to a dart map
-  static Map<String, List<PreferencesSla>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<PreferencesSla>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<PreferencesSla>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<PreferencesSla>>(
-          key, PreferencesSla.listFromJson(value));
+      return MapEntry<String, List<PreferencesSla>>(key, PreferencesSla.listFromJson(value));
     });
   }
 
@@ -87,7 +88,12 @@ class PreferencesSla {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'enabled')) r'enabled': enabled,
+    if (keys == null || keys.
+    contains(r'enabled')
+    )
+        r'enabled':
+          enabled,
     };
   }
 }
+

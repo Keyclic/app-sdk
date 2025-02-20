@@ -7,13 +7,22 @@ part of keyclic_sdk_api;
 class Review {
   /// Returns a new [Review] instance.
   Review({
-    this.links,
-    this.createdAt,
-    this.id,
-    this.reviewBody,
-    required this.reviewRating,
-    this.type,
-    this.updatedAt,
+    this.links
+,
+    this.createdAt
+,
+    this.id
+,
+    this.reviewBody
+,
+      required 
+    this.reviewRating
+      
+    ,
+    this.type
+,
+    this.updatedAt
+,
   });
 
   /// Returns a new [Review] instance and imports its values from
@@ -23,32 +32,32 @@ class Review {
       return null;
     }
 
-    return Review(
-      links: ReviewLinks.fromJson(json[r'_links']),
-      createdAt: mapToDateTime(json[r'createdAt']),
-      id: json[r'id'],
-      reviewBody: json[r'reviewBody'],
-      reviewRating: json[r'reviewRating'],
-      type: json[r'type'],
-      updatedAt: mapToDateTime(json[r'updatedAt']),
+  return Review(
+        links: ReviewLinks.fromJson(json[r'_links']),
+        createdAt: mapToDateTime(json[r'createdAt']),
+                  id: json[r'id'],
+                  reviewBody: json[r'reviewBody'],
+                  reviewRating: json[r'reviewRating'],
+                  type: json[r'type'],
+        updatedAt: mapToDateTime(json[r'updatedAt']),
     );
   }
 
-  ReviewLinks? links;
+      ReviewLinks? links;
 
-  final DateTime? createdAt;
+      final DateTime? createdAt;
 
-  final String? id;
+      final String? id;
 
-  String? reviewBody;
+      String? reviewBody;
 
   // minimum: 1
   // maximum: 5
-  int reviewRating;
+      int reviewRating;
 
-  String? type;
+      String? type;
 
-  final DateTime? updatedAt;
+      final DateTime? updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -57,25 +66,33 @@ class Review {
       return true;
     }
 
-    return other is Review &&
-        other.links == links &&
-        other.createdAt == createdAt &&
-        other.id == id &&
-        other.reviewBody == reviewBody &&
-        other.reviewRating == reviewRating &&
-        other.type == type &&
-        other.updatedAt == updatedAt;
+    return other is Review 
+          && other.links == links
+  
+          && other.createdAt == createdAt
+  
+          && other.id == id
+  
+          && other.reviewBody == reviewBody
+  
+          && other.reviewRating == reviewRating
+  
+          && other.type == type
+  
+          && other.updatedAt == updatedAt
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (id == null ? 0 : id.hashCode) +
-      (reviewBody == null ? 0 : reviewBody.hashCode) +
-      reviewRating.hashCode +
-      (type == null ? 0 : type.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode);
+    (links == null ? 0 : links.hashCode) +
+    (createdAt == null ? 0 : createdAt.hashCode) +
+    (id == null ? 0 : id.hashCode) +
+    (reviewBody == null ? 0 : reviewBody.hashCode) +
+     reviewRating.hashCode +
+    (type == null ? 0 : type.hashCode) +
+    (updatedAt == null ? 0 : updatedAt.hashCode);
 
   static List<Review> listFromJson(Iterable? json) {
     if (json == null) {
@@ -97,8 +114,7 @@ class Review {
       return <String, Review>{};
     }
 
-    return json.entries.fold(<String, Review>{},
-        (Map<String, Review> previousValue, element) {
+    return json.entries.fold(<String, Review>{}, (Map<String, Review> previousValue, element) {
       final Review? object = Review.fromJson(element.value);
       if (object is Review) {
         previousValue[element.key] = object;
@@ -120,29 +136,47 @@ class Review {
   }
 
   @override
-  String toString() =>
-      'Review[links=$links, createdAt=$createdAt, id=$id, reviewBody=$reviewBody, reviewRating=$reviewRating, type=$type, updatedAt=$updatedAt]';
+  String toString() => 'Review[links=$links, createdAt=$createdAt, id=$id, reviewBody=$reviewBody, reviewRating=$reviewRating, type=$type, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^links\.').hasMatch(key))
+    )
+        r'_links':
+            links?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^links\.'))) {
+                previousValue.add(element.split(RegExp(r'^links\.')).last);
+              }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'reviewBody'))
-        r'reviewBody': reviewBody,
-      r'reviewRating': reviewRating,
-      if (keys == null || keys.contains(r'type')) r'type': type,
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+              return previousValue;
+            })),
+    if (keys == null || keys.
+    contains(r'createdAt')
+    )
+      r'createdAt': createdAt?.toUtc().toIso8601String(),
+    if (keys == null || keys.
+    contains(r'id')
+    )
+        r'id':
+          id,
+    if (keys == null || keys.
+    contains(r'reviewBody')
+    )
+        r'reviewBody':
+          reviewBody,
+        r'reviewRating':
+          reviewRating,
+    if (keys == null || keys.
+    contains(r'type')
+    )
+        r'type':
+          type,
+    if (keys == null || keys.
+    contains(r'updatedAt')
+    )
+      r'updatedAt': updatedAt?.toUtc().toIso8601String(),
     };
   }
 }
+

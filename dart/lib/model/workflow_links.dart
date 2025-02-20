@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class WorkflowLinks {
   /// Returns a new [WorkflowLinks] instance.
   WorkflowLinks({
-    this.self,
+    this.self
+,
   });
 
   /// Returns a new [WorkflowLinks] instance and imports its values from
@@ -17,12 +18,12 @@ class WorkflowLinks {
       return null;
     }
 
-    return WorkflowLinks(
-      self: WorkflowLinksSelf.fromJson(json[r'self']),
+  return WorkflowLinks(
+        self: WorkflowLinksSelf.fromJson(json[r'self']),
     );
   }
 
-  WorkflowLinksSelf? self;
+      WorkflowLinksSelf? self;
 
   @override
   bool operator ==(Object other) {
@@ -31,19 +32,22 @@ class WorkflowLinks {
       return true;
     }
 
-    return other is WorkflowLinks && other.self == self;
+    return other is WorkflowLinks 
+          && other.self == self
+  ;
   }
+  
 
   @override
-  int get hashCode => (self == null ? 0 : self.hashCode);
+  int get hashCode =>
+    (self == null ? 0 : self.hashCode);
 
   static List<WorkflowLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <WorkflowLinks>[];
     }
 
-    return json.fold(<WorkflowLinks>[],
-        (List<WorkflowLinks> previousValue, element) {
+    return json.fold(<WorkflowLinks>[], (List<WorkflowLinks> previousValue, element) {
       final WorkflowLinks? object = WorkflowLinks.fromJson(element);
       if (object is WorkflowLinks) {
         previousValue.add(object);
@@ -58,8 +62,7 @@ class WorkflowLinks {
       return <String, WorkflowLinks>{};
     }
 
-    return json.entries.fold(<String, WorkflowLinks>{},
-        (Map<String, WorkflowLinks> previousValue, element) {
+    return json.entries.fold(<String, WorkflowLinks>{}, (Map<String, WorkflowLinks> previousValue, element) {
       final WorkflowLinks? object = WorkflowLinks.fromJson(element.value);
       if (object is WorkflowLinks) {
         previousValue[element.key] = object;
@@ -70,15 +73,13 @@ class WorkflowLinks {
   }
 
   // maps a json object with a list of WorkflowLinks-objects as value to a dart map
-  static Map<String, List<WorkflowLinks>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<WorkflowLinks>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<WorkflowLinks>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<WorkflowLinks>>(
-          key, WorkflowLinks.listFromJson(value));
+      return MapEntry<String, List<WorkflowLinks>>(key, WorkflowLinks.listFromJson(value));
     });
   }
 
@@ -87,15 +88,18 @@ class WorkflowLinks {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
-        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^self\.'))) {
-            previousValue.add(element.split(RegExp(r'^self\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^self\.').hasMatch(key))
+    )
+        r'self':
+            self?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^self\.'))) {
+                previousValue.add(element.split(RegExp(r'^self\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

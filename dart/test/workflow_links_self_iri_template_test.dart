@@ -11,6 +11,10 @@ void main() {
 
   group('test WorkflowLinksSelfIriTemplate', () {
     // ReportLinksWorkflowIriTemplateMapping mapping
-    test('to test the property `mapping`', () async {});
+    test('to test the property `mapping`', () async {
+    });
+
+
   });
+
 }

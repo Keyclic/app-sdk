@@ -7,8 +7,10 @@ part of keyclic_sdk_api;
 class SignerLinksSelf {
   /// Returns a new [SignerLinksSelf] instance.
   SignerLinksSelf({
-    this.href,
-    this.iriTemplate,
+    this.href
+,
+    this.iriTemplate
+,
   });
 
   /// Returns a new [SignerLinksSelf] instance and imports its values from
@@ -18,16 +20,16 @@ class SignerLinksSelf {
       return null;
     }
 
-    return SignerLinksSelf(
-      href: json[r'href'],
-      iriTemplate: SignerLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+  return SignerLinksSelf(
+                  href: json[r'href'],
+        iriTemplate: SignerLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
   /// The URI of the self associated to the given signer.
-  String? href;
+      String? href;
 
-  SignerLinksSelfIriTemplate? iriTemplate;
+      SignerLinksSelfIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -36,23 +38,25 @@ class SignerLinksSelf {
       return true;
     }
 
-    return other is SignerLinksSelf &&
-        other.href == href &&
-        other.iriTemplate == iriTemplate;
+    return other is SignerLinksSelf 
+          && other.href == href
+  
+          && other.iriTemplate == iriTemplate
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (href == null ? 0 : href.hashCode) +
-      (iriTemplate == null ? 0 : iriTemplate.hashCode);
+    (href == null ? 0 : href.hashCode) +
+    (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
   static List<SignerLinksSelf> listFromJson(Iterable? json) {
     if (json == null) {
       return <SignerLinksSelf>[];
     }
 
-    return json.fold(<SignerLinksSelf>[],
-        (List<SignerLinksSelf> previousValue, element) {
+    return json.fold(<SignerLinksSelf>[], (List<SignerLinksSelf> previousValue, element) {
       final SignerLinksSelf? object = SignerLinksSelf.fromJson(element);
       if (object is SignerLinksSelf) {
         previousValue.add(object);
@@ -67,8 +71,7 @@ class SignerLinksSelf {
       return <String, SignerLinksSelf>{};
     }
 
-    return json.entries.fold(<String, SignerLinksSelf>{},
-        (Map<String, SignerLinksSelf> previousValue, element) {
+    return json.entries.fold(<String, SignerLinksSelf>{}, (Map<String, SignerLinksSelf> previousValue, element) {
       final SignerLinksSelf? object = SignerLinksSelf.fromJson(element.value);
       if (object is SignerLinksSelf) {
         previousValue[element.key] = object;
@@ -79,15 +82,13 @@ class SignerLinksSelf {
   }
 
   // maps a json object with a list of SignerLinksSelf-objects as value to a dart map
-  static Map<String, List<SignerLinksSelf>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<SignerLinksSelf>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<SignerLinksSelf>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<SignerLinksSelf>>(
-          key, SignerLinksSelf.listFromJson(value));
+      return MapEntry<String, List<SignerLinksSelf>>(key, SignerLinksSelf.listFromJson(value));
     });
   }
 
@@ -96,17 +97,23 @@ class SignerLinksSelf {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'href')) r'href': href,
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^iriTemplate\.').hasMatch(key)))
-        r'iriTemplate': iriTemplate?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^iriTemplate\.'))) {
-            previousValue.add(element.split(RegExp(r'^iriTemplate\.')).last);
-          }
+    if (keys == null || keys.
+    contains(r'href')
+    )
+        r'href':
+          href,
+    if (keys == null || keys.
+    any((key) => RegExp(r'^iriTemplate\.').hasMatch(key))
+    )
+        r'iriTemplate':
+            iriTemplate?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^iriTemplate\.'))) {
+                previousValue.add(element.split(RegExp(r'^iriTemplate\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

@@ -11,12 +11,18 @@ void main() {
 
   group('test ProcedureLinks', () {
     // ProcedureLinksCreatedBy createdBy
-    test('to test the property `createdBy`', () async {});
+    test('to test the property `createdBy`', () async {
+    });
 
     // ProcedureLinksDocument document
-    test('to test the property `document`', () async {});
+    test('to test the property `document`', () async {
+    });
 
     // ProcedureLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
+
+
   });
+
 }

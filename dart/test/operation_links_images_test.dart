@@ -12,9 +12,14 @@ void main() {
   group('test OperationLinksImages', () {
     // The URI of the images associated to the given operation.
     // String href
-    test('to test the property `href`', () async {});
+    test('to test the property `href`', () async {
+    });
 
     // OperationLinksImagesIriTemplate iriTemplate
-    test('to test the property `iriTemplate`', () async {});
+    test('to test the property `iriTemplate`', () async {
+    });
+
+
   });
+
 }

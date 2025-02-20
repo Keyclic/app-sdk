@@ -7,9 +7,12 @@ part of keyclic_sdk_api;
 class PersonAgreement {
   /// Returns a new [PersonAgreement] instance.
   PersonAgreement({
-    this.olderThan,
-    this.privacyPolicy,
-    this.termsOfService,
+    this.olderThan
+,
+    this.privacyPolicy
+,
+    this.termsOfService
+,
   });
 
   /// Returns a new [PersonAgreement] instance and imports its values from
@@ -19,18 +22,18 @@ class PersonAgreement {
       return null;
     }
 
-    return PersonAgreement(
-      olderThan: json[r'olderThan'],
-      privacyPolicy: json[r'privacyPolicy'],
-      termsOfService: json[r'termsOfService'],
+  return PersonAgreement(
+                  olderThan: json[r'olderThan'],
+                  privacyPolicy: json[r'privacyPolicy'],
+                  termsOfService: json[r'termsOfService'],
     );
   }
 
-  bool? olderThan;
+      bool? olderThan;
 
-  bool? privacyPolicy;
+      bool? privacyPolicy;
 
-  bool? termsOfService;
+      bool? termsOfService;
 
   @override
   bool operator ==(Object other) {
@@ -39,25 +42,28 @@ class PersonAgreement {
       return true;
     }
 
-    return other is PersonAgreement &&
-        other.olderThan == olderThan &&
-        other.privacyPolicy == privacyPolicy &&
-        other.termsOfService == termsOfService;
+    return other is PersonAgreement 
+          && other.olderThan == olderThan
+  
+          && other.privacyPolicy == privacyPolicy
+  
+          && other.termsOfService == termsOfService
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (olderThan == null ? 0 : olderThan.hashCode) +
-      (privacyPolicy == null ? 0 : privacyPolicy.hashCode) +
-      (termsOfService == null ? 0 : termsOfService.hashCode);
+    (olderThan == null ? 0 : olderThan.hashCode) +
+    (privacyPolicy == null ? 0 : privacyPolicy.hashCode) +
+    (termsOfService == null ? 0 : termsOfService.hashCode);
 
   static List<PersonAgreement> listFromJson(Iterable? json) {
     if (json == null) {
       return <PersonAgreement>[];
     }
 
-    return json.fold(<PersonAgreement>[],
-        (List<PersonAgreement> previousValue, element) {
+    return json.fold(<PersonAgreement>[], (List<PersonAgreement> previousValue, element) {
       final PersonAgreement? object = PersonAgreement.fromJson(element);
       if (object is PersonAgreement) {
         previousValue.add(object);
@@ -72,8 +78,7 @@ class PersonAgreement {
       return <String, PersonAgreement>{};
     }
 
-    return json.entries.fold(<String, PersonAgreement>{},
-        (Map<String, PersonAgreement> previousValue, element) {
+    return json.entries.fold(<String, PersonAgreement>{}, (Map<String, PersonAgreement> previousValue, element) {
       final PersonAgreement? object = PersonAgreement.fromJson(element.value);
       if (object is PersonAgreement) {
         previousValue[element.key] = object;
@@ -84,29 +89,37 @@ class PersonAgreement {
   }
 
   // maps a json object with a list of PersonAgreement-objects as value to a dart map
-  static Map<String, List<PersonAgreement>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<PersonAgreement>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<PersonAgreement>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<PersonAgreement>>(
-          key, PersonAgreement.listFromJson(value));
+      return MapEntry<String, List<PersonAgreement>>(key, PersonAgreement.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'PersonAgreement[olderThan=$olderThan, privacyPolicy=$privacyPolicy, termsOfService=$termsOfService]';
+  String toString() => 'PersonAgreement[olderThan=$olderThan, privacyPolicy=$privacyPolicy, termsOfService=$termsOfService]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'olderThan')) r'olderThan': olderThan,
-      if (keys == null || keys.contains(r'privacyPolicy'))
-        r'privacyPolicy': privacyPolicy,
-      if (keys == null || keys.contains(r'termsOfService'))
-        r'termsOfService': termsOfService,
+    if (keys == null || keys.
+    contains(r'olderThan')
+    )
+        r'olderThan':
+          olderThan,
+    if (keys == null || keys.
+    contains(r'privacyPolicy')
+    )
+        r'privacyPolicy':
+          privacyPolicy,
+    if (keys == null || keys.
+    contains(r'termsOfService')
+    )
+        r'termsOfService':
+          termsOfService,
     };
   }
 }
+

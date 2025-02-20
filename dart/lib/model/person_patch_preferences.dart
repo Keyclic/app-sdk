@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class PersonPatchPreferences {
   /// Returns a new [PersonPatchPreferences] instance.
   PersonPatchPreferences({
-    this.notification,
+    this.notification
+,
   });
 
   /// Returns a new [PersonPatchPreferences] instance and imports its values from
@@ -17,13 +18,12 @@ class PersonPatchPreferences {
       return null;
     }
 
-    return PersonPatchPreferences(
-      notification:
-          PersonPatchPreferencesNotification.fromJson(json[r'notification']),
+  return PersonPatchPreferences(
+        notification: PersonPatchPreferencesNotification.fromJson(json[r'notification']),
     );
   }
 
-  PersonPatchPreferencesNotification? notification;
+      PersonPatchPreferencesNotification? notification;
 
   @override
   bool operator ==(Object other) {
@@ -32,22 +32,23 @@ class PersonPatchPreferences {
       return true;
     }
 
-    return other is PersonPatchPreferences &&
-        other.notification == notification;
+    return other is PersonPatchPreferences 
+          && other.notification == notification
+  ;
   }
+  
 
   @override
-  int get hashCode => (notification == null ? 0 : notification.hashCode);
+  int get hashCode =>
+    (notification == null ? 0 : notification.hashCode);
 
   static List<PersonPatchPreferences> listFromJson(Iterable? json) {
     if (json == null) {
       return <PersonPatchPreferences>[];
     }
 
-    return json.fold(<PersonPatchPreferences>[],
-        (List<PersonPatchPreferences> previousValue, element) {
-      final PersonPatchPreferences? object =
-          PersonPatchPreferences.fromJson(element);
+    return json.fold(<PersonPatchPreferences>[], (List<PersonPatchPreferences> previousValue, element) {
+      final PersonPatchPreferences? object = PersonPatchPreferences.fromJson(element);
       if (object is PersonPatchPreferences) {
         previousValue.add(object);
       }
@@ -56,16 +57,13 @@ class PersonPatchPreferences {
     });
   }
 
-  static Map<String, PersonPatchPreferences> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, PersonPatchPreferences> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, PersonPatchPreferences>{};
     }
 
-    return json.entries.fold(<String, PersonPatchPreferences>{},
-        (Map<String, PersonPatchPreferences> previousValue, element) {
-      final PersonPatchPreferences? object =
-          PersonPatchPreferences.fromJson(element.value);
+    return json.entries.fold(<String, PersonPatchPreferences>{}, (Map<String, PersonPatchPreferences> previousValue, element) {
+      final PersonPatchPreferences? object = PersonPatchPreferences.fromJson(element.value);
       if (object is PersonPatchPreferences) {
         previousValue[element.key] = object;
       }
@@ -75,15 +73,13 @@ class PersonPatchPreferences {
   }
 
   // maps a json object with a list of PersonPatchPreferences-objects as value to a dart map
-  static Map<String, List<PersonPatchPreferences>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<PersonPatchPreferences>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<PersonPatchPreferences>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<PersonPatchPreferences>>(
-          key, PersonPatchPreferences.listFromJson(value));
+      return MapEntry<String, List<PersonPatchPreferences>>(key, PersonPatchPreferences.listFromJson(value));
     });
   }
 
@@ -92,16 +88,18 @@ class PersonPatchPreferences {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^notification\.').hasMatch(key)))
-        r'notification': notification?.toJson(keys?.fold<List<String>>(
-            <String>[], (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^notification\.'))) {
-            previousValue.add(element.split(RegExp(r'^notification\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^notification\.').hasMatch(key))
+    )
+        r'notification':
+            notification?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^notification\.'))) {
+                previousValue.add(element.split(RegExp(r'^notification\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

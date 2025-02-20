@@ -11,6 +11,10 @@ void main() {
 
   group('test GetPublicationCollection200ResponseEmbedded', () {
     // List<PublicationJsonhalRead> item (default value: const [])
-    test('to test the property `item`', () async {});
+    test('to test the property `item`', () async {
+    });
+
+
   });
+
 }

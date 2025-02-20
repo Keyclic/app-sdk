@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class AssignmentLinksSelfIriTemplateMapping {
   /// Returns a new [AssignmentLinksSelfIriTemplateMapping] instance.
   AssignmentLinksSelfIriTemplateMapping({
-    this.assignment,
+    this.assignment
+,
   });
 
   /// Returns a new [AssignmentLinksSelfIriTemplateMapping] instance and imports its values from
@@ -17,12 +18,12 @@ class AssignmentLinksSelfIriTemplateMapping {
       return null;
     }
 
-    return AssignmentLinksSelfIriTemplateMapping(
-      assignment: json[r'assignment'],
+  return AssignmentLinksSelfIriTemplateMapping(
+                  assignment: json[r'assignment'],
     );
   }
 
-  String? assignment;
+      String? assignment;
 
   @override
   bool operator ==(Object other) {
@@ -31,23 +32,23 @@ class AssignmentLinksSelfIriTemplateMapping {
       return true;
     }
 
-    return other is AssignmentLinksSelfIriTemplateMapping &&
-        other.assignment == assignment;
+    return other is AssignmentLinksSelfIriTemplateMapping 
+          && other.assignment == assignment
+  ;
   }
+  
 
   @override
-  int get hashCode => (assignment == null ? 0 : assignment.hashCode);
+  int get hashCode =>
+    (assignment == null ? 0 : assignment.hashCode);
 
-  static List<AssignmentLinksSelfIriTemplateMapping> listFromJson(
-      Iterable? json) {
+  static List<AssignmentLinksSelfIriTemplateMapping> listFromJson(Iterable? json) {
     if (json == null) {
       return <AssignmentLinksSelfIriTemplateMapping>[];
     }
 
-    return json.fold(<AssignmentLinksSelfIriTemplateMapping>[],
-        (List<AssignmentLinksSelfIriTemplateMapping> previousValue, element) {
-      final AssignmentLinksSelfIriTemplateMapping? object =
-          AssignmentLinksSelfIriTemplateMapping.fromJson(element);
+    return json.fold(<AssignmentLinksSelfIriTemplateMapping>[], (List<AssignmentLinksSelfIriTemplateMapping> previousValue, element) {
+      final AssignmentLinksSelfIriTemplateMapping? object = AssignmentLinksSelfIriTemplateMapping.fromJson(element);
       if (object is AssignmentLinksSelfIriTemplateMapping) {
         previousValue.add(object);
       }
@@ -56,17 +57,13 @@ class AssignmentLinksSelfIriTemplateMapping {
     });
   }
 
-  static Map<String, AssignmentLinksSelfIriTemplateMapping> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, AssignmentLinksSelfIriTemplateMapping> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, AssignmentLinksSelfIriTemplateMapping>{};
     }
 
-    return json.entries.fold(<String, AssignmentLinksSelfIriTemplateMapping>{},
-        (Map<String, AssignmentLinksSelfIriTemplateMapping> previousValue,
-            element) {
-      final AssignmentLinksSelfIriTemplateMapping? object =
-          AssignmentLinksSelfIriTemplateMapping.fromJson(element.value);
+    return json.entries.fold(<String, AssignmentLinksSelfIriTemplateMapping>{}, (Map<String, AssignmentLinksSelfIriTemplateMapping> previousValue, element) {
+      final AssignmentLinksSelfIriTemplateMapping? object = AssignmentLinksSelfIriTemplateMapping.fromJson(element.value);
       if (object is AssignmentLinksSelfIriTemplateMapping) {
         previousValue[element.key] = object;
       }
@@ -76,26 +73,27 @@ class AssignmentLinksSelfIriTemplateMapping {
   }
 
   // maps a json object with a list of AssignmentLinksSelfIriTemplateMapping-objects as value to a dart map
-  static Map<String, List<AssignmentLinksSelfIriTemplateMapping>>
-      mapListFromJson(Map<String, dynamic>? json) {
+  static Map<String, List<AssignmentLinksSelfIriTemplateMapping>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<AssignmentLinksSelfIriTemplateMapping>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<AssignmentLinksSelfIriTemplateMapping>>(
-          key, AssignmentLinksSelfIriTemplateMapping.listFromJson(value));
+      return MapEntry<String, List<AssignmentLinksSelfIriTemplateMapping>>(key, AssignmentLinksSelfIriTemplateMapping.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'AssignmentLinksSelfIriTemplateMapping[assignment=$assignment]';
+  String toString() => 'AssignmentLinksSelfIriTemplateMapping[assignment=$assignment]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'assignment'))
-        r'assignment': assignment,
+    if (keys == null || keys.
+    contains(r'assignment')
+    )
+        r'assignment':
+          assignment,
     };
   }
 }
+

@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class DocumentLinksFileIriTemplateMapping {
   /// Returns a new [DocumentLinksFileIriTemplateMapping] instance.
   DocumentLinksFileIriTemplateMapping({
-    this.document,
+    this.document
+,
   });
 
   /// Returns a new [DocumentLinksFileIriTemplateMapping] instance and imports its values from
@@ -17,12 +18,12 @@ class DocumentLinksFileIriTemplateMapping {
       return null;
     }
 
-    return DocumentLinksFileIriTemplateMapping(
-      document: json[r'document'],
+  return DocumentLinksFileIriTemplateMapping(
+                  document: json[r'document'],
     );
   }
 
-  String? document;
+      String? document;
 
   @override
   bool operator ==(Object other) {
@@ -31,23 +32,23 @@ class DocumentLinksFileIriTemplateMapping {
       return true;
     }
 
-    return other is DocumentLinksFileIriTemplateMapping &&
-        other.document == document;
+    return other is DocumentLinksFileIriTemplateMapping 
+          && other.document == document
+  ;
   }
+  
 
   @override
-  int get hashCode => (document == null ? 0 : document.hashCode);
+  int get hashCode =>
+    (document == null ? 0 : document.hashCode);
 
-  static List<DocumentLinksFileIriTemplateMapping> listFromJson(
-      Iterable? json) {
+  static List<DocumentLinksFileIriTemplateMapping> listFromJson(Iterable? json) {
     if (json == null) {
       return <DocumentLinksFileIriTemplateMapping>[];
     }
 
-    return json.fold(<DocumentLinksFileIriTemplateMapping>[],
-        (List<DocumentLinksFileIriTemplateMapping> previousValue, element) {
-      final DocumentLinksFileIriTemplateMapping? object =
-          DocumentLinksFileIriTemplateMapping.fromJson(element);
+    return json.fold(<DocumentLinksFileIriTemplateMapping>[], (List<DocumentLinksFileIriTemplateMapping> previousValue, element) {
+      final DocumentLinksFileIriTemplateMapping? object = DocumentLinksFileIriTemplateMapping.fromJson(element);
       if (object is DocumentLinksFileIriTemplateMapping) {
         previousValue.add(object);
       }
@@ -56,17 +57,13 @@ class DocumentLinksFileIriTemplateMapping {
     });
   }
 
-  static Map<String, DocumentLinksFileIriTemplateMapping> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, DocumentLinksFileIriTemplateMapping> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, DocumentLinksFileIriTemplateMapping>{};
     }
 
-    return json.entries.fold(<String, DocumentLinksFileIriTemplateMapping>{},
-        (Map<String, DocumentLinksFileIriTemplateMapping> previousValue,
-            element) {
-      final DocumentLinksFileIriTemplateMapping? object =
-          DocumentLinksFileIriTemplateMapping.fromJson(element.value);
+    return json.entries.fold(<String, DocumentLinksFileIriTemplateMapping>{}, (Map<String, DocumentLinksFileIriTemplateMapping> previousValue, element) {
+      final DocumentLinksFileIriTemplateMapping? object = DocumentLinksFileIriTemplateMapping.fromJson(element.value);
       if (object is DocumentLinksFileIriTemplateMapping) {
         previousValue[element.key] = object;
       }
@@ -76,25 +73,27 @@ class DocumentLinksFileIriTemplateMapping {
   }
 
   // maps a json object with a list of DocumentLinksFileIriTemplateMapping-objects as value to a dart map
-  static Map<String, List<DocumentLinksFileIriTemplateMapping>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<DocumentLinksFileIriTemplateMapping>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<DocumentLinksFileIriTemplateMapping>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<DocumentLinksFileIriTemplateMapping>>(
-          key, DocumentLinksFileIriTemplateMapping.listFromJson(value));
+      return MapEntry<String, List<DocumentLinksFileIriTemplateMapping>>(key, DocumentLinksFileIriTemplateMapping.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'DocumentLinksFileIriTemplateMapping[document=$document]';
+  String toString() => 'DocumentLinksFileIriTemplateMapping[document=$document]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'document')) r'document': document,
+    if (keys == null || keys.
+    contains(r'document')
+    )
+        r'document':
+          document,
     };
   }
 }
+

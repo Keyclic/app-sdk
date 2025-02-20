@@ -7,8 +7,10 @@ part of keyclic_sdk_api_platform;
 class GeoCoordinatesJsonhalRead {
   /// Returns a new [GeoCoordinatesJsonhalRead] instance.
   GeoCoordinatesJsonhalRead({
-    this.elevation,
-    this.point,
+    this.elevation
+,
+    this.point
+,
   });
 
   /// Returns a new [GeoCoordinatesJsonhalRead] instance and imports its values from
@@ -18,19 +20,20 @@ class GeoCoordinatesJsonhalRead {
       return null;
     }
 
-    return GeoCoordinatesJsonhalRead(
-      elevation:
-          json[r'elevation'] == null ? null : json[r'elevation'].toDouble(),
-      point: PointJsonhalRead.fromJson(json[r'point']),
+  return GeoCoordinatesJsonhalRead(
+        elevation: json[r'elevation'] == null ?
+          null :
+          json[r'elevation'].toDouble(),
+        point: PointJsonhalRead.fromJson(json[r'point']),
     );
   }
 
   /// The elevation of a location (WGS 84).
   // minimum: -10000
   // maximum: 8000
-  num? elevation;
+      num? elevation;
 
-  PointJsonhalRead? point;
+      PointJsonhalRead? point;
 
   @override
   bool operator ==(Object other) {
@@ -39,25 +42,26 @@ class GeoCoordinatesJsonhalRead {
       return true;
     }
 
-    return other is GeoCoordinatesJsonhalRead &&
-        other.elevation == elevation &&
-        other.point == point;
+    return other is GeoCoordinatesJsonhalRead 
+          && other.elevation == elevation
+  
+          && other.point == point
+  ;
   }
+  
 
   @override
   int get hashCode =>
-      (elevation == null ? 0 : elevation.hashCode) +
-      (point == null ? 0 : point.hashCode);
+    (elevation == null ? 0 : elevation.hashCode) +
+    (point == null ? 0 : point.hashCode);
 
   static List<GeoCoordinatesJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <GeoCoordinatesJsonhalRead>[];
     }
 
-    return json.fold(<GeoCoordinatesJsonhalRead>[],
-        (List<GeoCoordinatesJsonhalRead> previousValue, element) {
-      final GeoCoordinatesJsonhalRead? object =
-          GeoCoordinatesJsonhalRead.fromJson(element);
+    return json.fold(<GeoCoordinatesJsonhalRead>[], (List<GeoCoordinatesJsonhalRead> previousValue, element) {
+      final GeoCoordinatesJsonhalRead? object = GeoCoordinatesJsonhalRead.fromJson(element);
       if (object is GeoCoordinatesJsonhalRead) {
         previousValue.add(object);
       }
@@ -66,16 +70,13 @@ class GeoCoordinatesJsonhalRead {
     });
   }
 
-  static Map<String, GeoCoordinatesJsonhalRead> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, GeoCoordinatesJsonhalRead> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, GeoCoordinatesJsonhalRead>{};
     }
 
-    return json.entries.fold(<String, GeoCoordinatesJsonhalRead>{},
-        (Map<String, GeoCoordinatesJsonhalRead> previousValue, element) {
-      final GeoCoordinatesJsonhalRead? object =
-          GeoCoordinatesJsonhalRead.fromJson(element.value);
+    return json.entries.fold(<String, GeoCoordinatesJsonhalRead>{}, (Map<String, GeoCoordinatesJsonhalRead> previousValue, element) {
+      final GeoCoordinatesJsonhalRead? object = GeoCoordinatesJsonhalRead.fromJson(element.value);
       if (object is GeoCoordinatesJsonhalRead) {
         previousValue[element.key] = object;
       }
@@ -85,34 +86,38 @@ class GeoCoordinatesJsonhalRead {
   }
 
   // maps a json object with a list of GeoCoordinatesJsonhalRead-objects as value to a dart map
-  static Map<String, List<GeoCoordinatesJsonhalRead>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<GeoCoordinatesJsonhalRead>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<GeoCoordinatesJsonhalRead>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<GeoCoordinatesJsonhalRead>>(
-          key, GeoCoordinatesJsonhalRead.listFromJson(value));
+      return MapEntry<String, List<GeoCoordinatesJsonhalRead>>(key, GeoCoordinatesJsonhalRead.listFromJson(value));
     });
   }
 
   @override
-  String toString() =>
-      'GeoCoordinatesJsonhalRead[elevation=$elevation, point=$point]';
+  String toString() => 'GeoCoordinatesJsonhalRead[elevation=$elevation, point=$point]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'elevation')) r'elevation': elevation,
-      if (keys == null || keys.any((key) => RegExp(r'^point\.').hasMatch(key)))
-        r'point': point?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^point\.'))) {
-            previousValue.add(element.split(RegExp(r'^point\.')).last);
-          }
+    if (keys == null || keys.
+    contains(r'elevation')
+    )
+        r'elevation':
+          elevation,
+    if (keys == null || keys.
+    any((key) => RegExp(r'^point\.').hasMatch(key))
+    )
+        r'point':
+            point?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^point\.'))) {
+                previousValue.add(element.split(RegExp(r'^point\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

@@ -11,15 +11,22 @@ void main() {
 
   group('test Feed', () {
     // String apiKey
-    test('to test the property `apiKey`', () async {});
+    test('to test the property `apiKey`', () async {
+    });
 
     // String appId
-    test('to test the property `appId`', () async {});
+    test('to test the property `appId`', () async {
+    });
 
     // String userId
-    test('to test the property `userId`', () async {});
+    test('to test the property `userId`', () async {
+    });
 
     // String userToken
-    test('to test the property `userToken`', () async {});
+    test('to test the property `userToken`', () async {
+    });
+
+
   });
+
 }

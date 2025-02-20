@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class ReportLinksCreatedByIriTemplate {
   /// Returns a new [ReportLinksCreatedByIriTemplate] instance.
   ReportLinksCreatedByIriTemplate({
-    this.mapping,
+    this.mapping
+,
   });
 
   /// Returns a new [ReportLinksCreatedByIriTemplate] instance and imports its values from
@@ -17,13 +18,12 @@ class ReportLinksCreatedByIriTemplate {
       return null;
     }
 
-    return ReportLinksCreatedByIriTemplate(
-      mapping: ContributionLinksContributorIriTemplateMapping.fromJson(
-          json[r'mapping']),
+  return ReportLinksCreatedByIriTemplate(
+        mapping: ContributionLinksContributorIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
-  ContributionLinksContributorIriTemplateMapping? mapping;
+      ContributionLinksContributorIriTemplateMapping? mapping;
 
   @override
   bool operator ==(Object other) {
@@ -32,21 +32,23 @@ class ReportLinksCreatedByIriTemplate {
       return true;
     }
 
-    return other is ReportLinksCreatedByIriTemplate && other.mapping == mapping;
+    return other is ReportLinksCreatedByIriTemplate 
+          && other.mapping == mapping
+  ;
   }
+  
 
   @override
-  int get hashCode => (mapping == null ? 0 : mapping.hashCode);
+  int get hashCode =>
+    (mapping == null ? 0 : mapping.hashCode);
 
   static List<ReportLinksCreatedByIriTemplate> listFromJson(Iterable? json) {
     if (json == null) {
       return <ReportLinksCreatedByIriTemplate>[];
     }
 
-    return json.fold(<ReportLinksCreatedByIriTemplate>[],
-        (List<ReportLinksCreatedByIriTemplate> previousValue, element) {
-      final ReportLinksCreatedByIriTemplate? object =
-          ReportLinksCreatedByIriTemplate.fromJson(element);
+    return json.fold(<ReportLinksCreatedByIriTemplate>[], (List<ReportLinksCreatedByIriTemplate> previousValue, element) {
+      final ReportLinksCreatedByIriTemplate? object = ReportLinksCreatedByIriTemplate.fromJson(element);
       if (object is ReportLinksCreatedByIriTemplate) {
         previousValue.add(object);
       }
@@ -55,16 +57,13 @@ class ReportLinksCreatedByIriTemplate {
     });
   }
 
-  static Map<String, ReportLinksCreatedByIriTemplate> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, ReportLinksCreatedByIriTemplate> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, ReportLinksCreatedByIriTemplate>{};
     }
 
-    return json.entries.fold(<String, ReportLinksCreatedByIriTemplate>{},
-        (Map<String, ReportLinksCreatedByIriTemplate> previousValue, element) {
-      final ReportLinksCreatedByIriTemplate? object =
-          ReportLinksCreatedByIriTemplate.fromJson(element.value);
+    return json.entries.fold(<String, ReportLinksCreatedByIriTemplate>{}, (Map<String, ReportLinksCreatedByIriTemplate> previousValue, element) {
+      final ReportLinksCreatedByIriTemplate? object = ReportLinksCreatedByIriTemplate.fromJson(element.value);
       if (object is ReportLinksCreatedByIriTemplate) {
         previousValue[element.key] = object;
       }
@@ -74,15 +73,13 @@ class ReportLinksCreatedByIriTemplate {
   }
 
   // maps a json object with a list of ReportLinksCreatedByIriTemplate-objects as value to a dart map
-  static Map<String, List<ReportLinksCreatedByIriTemplate>> mapListFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, List<ReportLinksCreatedByIriTemplate>> mapListFromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return <String, List<ReportLinksCreatedByIriTemplate>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ReportLinksCreatedByIriTemplate>>(
-          key, ReportLinksCreatedByIriTemplate.listFromJson(value));
+      return MapEntry<String, List<ReportLinksCreatedByIriTemplate>>(key, ReportLinksCreatedByIriTemplate.listFromJson(value));
     });
   }
 
@@ -91,16 +88,18 @@ class ReportLinksCreatedByIriTemplate {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^mapping\.').hasMatch(key)))
-        r'mapping': mapping?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^mapping\.'))) {
-            previousValue.add(element.split(RegExp(r'^mapping\.')).last);
-          }
+    if (keys == null || keys.
+    any((key) => RegExp(r'^mapping\.').hasMatch(key))
+    )
+        r'mapping':
+            mapping?.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^mapping\.'))) {
+                previousValue.add(element.split(RegExp(r'^mapping\.')).last);
+              }
 
-          return previousValue;
-        })),
+              return previousValue;
+            })),
     };
   }
 }
+

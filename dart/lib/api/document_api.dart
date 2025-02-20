@@ -4,21 +4,22 @@
 
 part of keyclic_sdk_api;
 
+
 class DocumentApi {
   const DocumentApi(this._apiClient);
 
   final ApiClient _apiClient;
 
   /// Remove one Document resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [document] - The identifier of the resource.
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -30,13 +31,14 @@ class DocumentApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Remove one Document resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<void>> deleteDocument({
+  Future<Response<void>> deleteDocument({ 
     required String xKeyclicApp,
     required String document,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -44,8 +46,7 @@ class DocumentApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/documents/{document}'
-        .replaceAll('{' r'document' '}', document.toString());
+    final String path = r'/documents/{document}'.replaceAll('{' r'document' '}', document.toString());
     final options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -53,16 +54,15 @@ class DocumentApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -70,8 +70,11 @@ class DocumentApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     return _apiClient.dio.request<Object>(
       path,
@@ -80,18 +83,18 @@ class DocumentApi {
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
     );
-  }
 
+  }
   /// Retrieve one Document resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [document] - The identifier of the resource.
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -103,13 +106,14 @@ class DocumentApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one Document resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<Document>> getDocument({
+  Future<Response<Document>> getDocument({ 
     required String xKeyclicApp,
     required String document,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -117,8 +121,7 @@ class DocumentApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/documents/{document}'
-        .replaceAll('{' r'document' '}', document.toString());
+    final String path = r'/documents/{document}'.replaceAll('{' r'document' '}', document.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -126,16 +129,15 @@ class DocumentApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -143,8 +145,11 @@ class DocumentApi {
         ],
         ...?extra,
       },
+      
       validateStatus: validateStatus,
     );
+
+
 
     final response = await _apiClient.dio.request<Object>(
       path,
@@ -157,8 +162,7 @@ class DocumentApi {
     Document responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<Document>(
-          response.data!, 'Document');
+            responseData = await _apiClient.deserializeAsync<Document>(response.data!, 'Document');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -180,18 +184,17 @@ class DocumentApi {
       extra: response.extra,
     );
   }
-
   /// Edit one Document resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [document] - The identifier of the resource.
-  /// * [documentPatch]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
+  /// * [documentPatch] 
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -203,7 +206,7 @@ class DocumentApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Edit one Document resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<Document>> patchDocument({
+  Future<Response<Document>> patchDocument({ 
     required String xKeyclicApp,
     required String document,
     required DocumentPatch documentPatch,
@@ -219,8 +222,7 @@ class DocumentApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/documents/{document}'
-        .replaceAll('{' r'document' '}', document.toString());
+    final String path = r'/documents/{document}'.replaceAll('{' r'document' '}', document.toString());
     final options = Options(
       method: r'PATCH',
       headers: <String, dynamic>{
@@ -228,16 +230,15 @@ class DocumentApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -249,11 +250,12 @@ class DocumentApi {
       validateStatus: validateStatus,
     );
 
+
     dynamic bodyData;
 
     try {
-      bodyData = documentPatch.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = documentPatch.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -277,8 +279,7 @@ class DocumentApi {
     Document responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<Document>(
-          response.data!, 'Document');
+            responseData = await _apiClient.deserializeAsync<Document>(response.data!, 'Document');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -300,19 +301,18 @@ class DocumentApi {
       extra: response.extra,
     );
   }
-
   /// Create one Workflow resource.
-  ///
+  /// 
   ///
   /// Parameters:
-  /// * [xKeyclicApp]
+  /// * [xKeyclicApp] 
   /// * [document] - The identifier of the resource.
-  /// * [documentWorkflowData]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
-  /// * [xAsyncProcessing]
+  /// * [documentWorkflowData] 
+  /// * [acceptLanguage] 
+  /// * [xDateTime] 
+  /// * [xKeyclicAppPlatform] 
+  /// * [xKeyclicAppVersion] 
+  /// * [xAsyncProcessing] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -324,7 +324,7 @@ class DocumentApi {
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Workflow resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<Document>> postWorkflowByDocument({
+  Future<Response<Document>> postWorkflowByDocument({ 
     required String xKeyclicApp,
     required String document,
     required DocumentWorkflowData documentWorkflowData,
@@ -341,8 +341,7 @@ class DocumentApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/documents/{document}/workflow'
-        .replaceAll('{' r'document' '}', document.toString());
+    final String path = r'/documents/{document}/workflow'.replaceAll('{' r'document' '}', document.toString());
     final options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -350,10 +349,8 @@ class DocumentApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
         if (xAsyncProcessing != null) r'x-async-processing': xAsyncProcessing,
         ...?headers,
       },
@@ -361,6 +358,7 @@ class DocumentApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            
             'name': 'bearer',
             'keyName': 'Authorization',
             'where': 'header',
@@ -372,11 +370,12 @@ class DocumentApi {
       validateStatus: validateStatus,
     );
 
+
     dynamic bodyData;
 
     try {
-      bodyData = documentWorkflowData.toJson(bodyParameters);
-    } catch (error, stackTrace) {
+            bodyData = documentWorkflowData.toJson(bodyParameters);
+    } catch(error, stackTrace) {
       throw DioException(
         error: error,
         requestOptions: options.compose(
@@ -400,8 +399,7 @@ class DocumentApi {
     Document responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<Document>(
-          response.data!, 'Document');
+            responseData = await _apiClient.deserializeAsync<Document>(response.data!, 'Document');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,

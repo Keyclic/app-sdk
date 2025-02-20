@@ -11,12 +11,18 @@ void main() {
 
   group('test BusinessActivityLinks', () {
     // BusinessActivityLinksImage image
-    test('to test the property `image`', () async {});
+    test('to test the property `image`', () async {
+    });
 
     // BusinessActivityLinksSchema schema
-    test('to test the property `schema`', () async {});
+    test('to test the property `schema`', () async {
+    });
 
     // BusinessActivityLinksSelf self
-    test('to test the property `self`', () async {});
+    test('to test the property `self`', () async {
+    });
+
+
   });
+
 }

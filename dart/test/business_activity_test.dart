@@ -11,27 +11,38 @@ void main() {
 
   group('test BusinessActivity', () {
     // BusinessActivityLinks links
-    test('to test the property `links`', () async {});
+    test('to test the property `links`', () async {
+    });
 
     // String alternateName
-    test('to test the property `alternateName`', () async {});
+    test('to test the property `alternateName`', () async {
+    });
 
     // DateTime createdAt
-    test('to test the property `createdAt`', () async {});
+    test('to test the property `createdAt`', () async {
+    });
 
     // String id
-    test('to test the property `id`', () async {});
+    test('to test the property `id`', () async {
+    });
 
     // BusinessActivitySchema metadataSchema
-    test('to test the property `metadataSchema`', () async {});
+    test('to test the property `metadataSchema`', () async {
+    });
 
     // String name
-    test('to test the property `name`', () async {});
+    test('to test the property `name`', () async {
+    });
 
     // String type
-    test('to test the property `type`', () async {});
+    test('to test the property `type`', () async {
+    });
 
     // DateTime updatedAt
-    test('to test the property `updatedAt`', () async {});
+    test('to test the property `updatedAt`', () async {
+    });
+
+
   });
+
 }

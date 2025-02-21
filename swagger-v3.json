@@ -13410,6 +13410,20 @@
                         "allowReserved": false
                     },
                     {
+                        "name": "exists[priority]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
                         "name": "operation_state_all",
                         "in": "query",
                         "description": "",
@@ -14997,6 +15011,20 @@
                     },
                     {
                         "name": "exists[feedback.geoCoordinates.point]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "exists[priority]",
                         "in": "query",
                         "description": "",
                         "required": false,

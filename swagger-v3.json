@@ -9,7 +9,7 @@
             "url": "https://www.keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.72.2-dev.g325e2b02d"
+        "version": "2.73.0"
     },
     "servers": [
         {
@@ -13669,6 +13669,20 @@
                         "allowEmptyValue": true,
                         "schema": {
                             "type": "boolean"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "resourceType",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
                         },
                         "style": "form",
                         "explode": false,

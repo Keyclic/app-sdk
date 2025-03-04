@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getServiceCollection**
-> GetServiceCollection200Response getServiceCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> GetServiceCollection200Response getServiceCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, resourceType, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Retrieves the collection of Service resources.
 
@@ -91,13 +91,14 @@ final xOrganizationId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String |
 final page = 56; // int | The collection page number
 final limit = 56; // int | The number of items per page
 final pagination = true; // bool | Enable or disable pagination
+final resourceType = resourceType_example; // String | 
 final acceptLanguage = acceptLanguage_example; // String | 
 final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try {
-    final result = api_instance.getServiceCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getServiceCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, resourceType, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
     print('Exception when calling ServiceApi->getServiceCollection: $e\n');
@@ -113,6 +114,7 @@ Name | Type | Description  | Notes
  **page** | **int**| The collection page number | [optional] [default to 1]
  **limit** | **int**| The number of items per page | [optional] [default to 10]
  **pagination** | **bool**| Enable or disable pagination | [optional] 
+ **resourceType** | **String**|  | [optional] 
  **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 

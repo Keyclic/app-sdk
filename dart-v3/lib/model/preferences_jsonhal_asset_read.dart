@@ -7,6 +7,7 @@ part of keyclic_sdk_api_platform;
 class PreferencesJsonhalAssetRead {
   /// Returns a new [PreferencesJsonhalAssetRead] instance.
   PreferencesJsonhalAssetRead({
+    this.public,
     this.visibility,
   });
 
@@ -18,10 +19,13 @@ class PreferencesJsonhalAssetRead {
     }
 
     return PreferencesJsonhalAssetRead(
+      public: json[r'public'],
       visibility: PreferencesJsonhalAssetReadVisibilityEnum.fromJson(
           json[r'visibility']),
     );
   }
+
+  bool? public;
 
   PreferencesJsonhalAssetReadVisibilityEnum? visibility;
 
@@ -33,11 +37,14 @@ class PreferencesJsonhalAssetRead {
     }
 
     return other is PreferencesJsonhalAssetRead &&
+        other.public == public &&
         other.visibility == visibility;
   }
 
   @override
-  int get hashCode => (visibility == null ? 0 : visibility.hashCode);
+  int get hashCode =>
+      (public == null ? 0 : public.hashCode) +
+      (visibility == null ? 0 : visibility.hashCode);
 
   static List<PreferencesJsonhalAssetRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -88,10 +95,12 @@ class PreferencesJsonhalAssetRead {
   }
 
   @override
-  String toString() => 'PreferencesJsonhalAssetRead[visibility=$visibility]';
+  String toString() =>
+      'PreferencesJsonhalAssetRead[public=$public, visibility=$visibility]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
+      if (keys == null || keys.contains(r'public')) r'public': public,
       if (keys == null || keys.contains(r'visibility'))
         r'visibility': visibility,
     };

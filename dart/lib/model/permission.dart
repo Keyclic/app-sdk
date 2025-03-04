@@ -70,11 +70,11 @@ class Permission {
   static const slaPolicyColonRead = Permission._(r'sla-policy:read');
   static const ticketColonArchivingColonWrite =
       Permission._(r'ticket:archiving:write');
-  static const ticketTaskColonCompletedColonWrite =
-      Permission._(r'ticket-task:completed:write');
   static const ticketColonRead = Permission._(r'ticket:read');
   static const ticketColonTagsColonRead = Permission._(r'ticket:tags:read');
   static const ticketColonTagsColonWrite = Permission._(r'ticket:tags:write');
+  static const ticketTaskColonCompletedColonWrite =
+      Permission._(r'ticket-task:completed:write');
   static const ticketColonWrite = Permission._(r'ticket:write');
   static const oRGANIZATIONColonAGENT = Permission._(r'ORGANIZATION:AGENT');
   static const oRGANIZATIONColonMEMBER = Permission._(r'ORGANIZATION:MEMBER');
@@ -128,10 +128,10 @@ class Permission {
     serviceOfferColonWrite,
     slaPolicyColonRead,
     ticketColonArchivingColonWrite,
-    ticketTaskColonCompletedColonWrite,
     ticketColonRead,
     ticketColonTagsColonRead,
     ticketColonTagsColonWrite,
+    ticketTaskColonCompletedColonWrite,
     ticketColonWrite,
     oRGANIZATIONColonAGENT,
     oRGANIZATIONColonMEMBER,
@@ -261,14 +261,14 @@ class PermissionTypeTransformer {
         return Permission.slaPolicyColonRead;
       case r'ticket:archiving:write':
         return Permission.ticketColonArchivingColonWrite;
-      case r'ticket-task:completed:write':
-        return Permission.ticketTaskColonCompletedColonWrite;
       case r'ticket:read':
         return Permission.ticketColonRead;
       case r'ticket:tags:read':
         return Permission.ticketColonTagsColonRead;
       case r'ticket:tags:write':
         return Permission.ticketColonTagsColonWrite;
+      case r'ticket-task:completed:write':
+        return Permission.ticketTaskColonCompletedColonWrite;
       case r'ticket:write':
         return Permission.ticketColonWrite;
       case r'ORGANIZATION:AGENT':

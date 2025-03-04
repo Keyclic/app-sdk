@@ -451,6 +451,20 @@
                         "allowReserved": false
                     },
                     {
+                        "name": "exists[quotes]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
                         "name": "contracts",
                         "in": "query",
                         "description": "",
@@ -15278,6 +15292,20 @@
                         "allowReserved": false
                     },
                     {
+                        "name": "exists[priority]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
                         "name": "search[description]",
                         "in": "query",
                         "description": "",
@@ -16896,6 +16924,20 @@
                     },
                     {
                         "name": "exists[feedback.geoCoordinates.point]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "exists[priority]",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -21375,7 +21417,7 @@
                     },
                     "endDate": {
                         "readOnly": true,
-                        "description": "The date and time the contract ends\nThis date is calculated according to effetive date, duration and eventually renewal duration.",
+                        "description": "The date and time the contract ends\nThis date is calculated according to effective date, duration and eventually renewal duration.",
                         "type": "string",
                         "format": "date-time",
                         "nullable": true
@@ -23135,8 +23177,7 @@
                 "deprecated": false,
                 "properties": {
                     "public": {
-                        "type": "boolean",
-                        "nullable": true
+                        "type": "boolean"
                     },
                     "visibility": {
                         "enum": [
@@ -23154,6 +23195,9 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
+                    "public": {
+                        "type": "boolean"
+                    },
                     "visibility": {
                         "enum": [
                             "VISIBILITY_PRIVATE",

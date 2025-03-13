@@ -128,6 +128,7 @@ class Permission {
     serviceOfferColonWrite,
     slaPolicyColonRead,
     ticketColonArchivingColonWrite,
+    ticketTaskColonCompletedColonWrite,
     ticketColonRead,
     ticketColonTagsColonRead,
     ticketColonTagsColonWrite,
@@ -261,6 +262,8 @@ class PermissionTypeTransformer {
         return Permission.slaPolicyColonRead;
       case r'ticket:archiving:write':
         return Permission.ticketColonArchivingColonWrite;
+      case r'ticket-task:completed:write':
+        return Permission.ticketTaskColonCompletedColonWrite;
       case r'ticket:read':
         return Permission.ticketColonRead;
       case r'ticket:tags:read':

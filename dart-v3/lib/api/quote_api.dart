@@ -232,6 +232,8 @@ class QuoteApi {
   /// * [providerContactPointPeriodNameLeftSquareBracketRightSquareBracket] -
   /// * [state] -
   /// * [stateLeftSquareBracketRightSquareBracket] -
+  /// * [task] -
+  /// * [taskLeftSquareBracketRightSquareBracket] -
   /// * [treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketAncestorsRightSquareBracketLeftSquareBracketRightSquareBracket] - Filter on the ancestors of a node, all the nodes along the path from that node to the root of the tree.
   /// * [treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketDescendantsRightSquareBracketLeftSquareBracketRightSquareBracket] - Filter on the tree below the node excluding the node itself.
   /// * [treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketNodeRightSquareBracketLeftSquareBracketRightSquareBracket] - Filter on the node only.
@@ -300,6 +302,8 @@ class QuoteApi {
         providerContactPointPeriodNameLeftSquareBracketRightSquareBracket,
     String? state,
     List<String>? stateLeftSquareBracketRightSquareBracket,
+    String? task,
+    List<String>? taskLeftSquareBracketRightSquareBracket,
     List<String>?
         treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketAncestorsRightSquareBracketLeftSquareBracketRightSquareBracket,
     List<String>?
@@ -476,6 +480,11 @@ class QuoteApi {
       if (stateLeftSquareBracketRightSquareBracket != null)
         r'state[]': encodeCollectionQueryParameter(
             stateLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (task != null) r'task': encodeQueryParameter(task),
+      if (taskLeftSquareBracketRightSquareBracket != null)
+        r'task[]': encodeCollectionQueryParameter(
+            taskLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
       if (treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketAncestorsRightSquareBracketLeftSquareBracketRightSquareBracket !=
           null)

@@ -13,17 +13,14 @@ class QuoteEditQuoteCommandWrite {
     this.authorContactPoint,
     this.equipments,
     this.expirationDate,
-    this.files,
     this.issueDate,
     this.name,
     this.number,
     this.origin,
-    this.place,
     this.provider,
     this.providerAddress,
     this.providerContactPoint,
     this.resolutionDate,
-    this.state,
     this.tags,
     this.task,
   });
@@ -45,18 +42,15 @@ class QuoteEditQuoteCommandWrite {
           ? null
           : List<String>.from(json[r'equipments']),
       expirationDate: mapToDateTime(json[r'expirationDate']),
-      files: json[r'files'] == null ? null : List<String>.from(json[r'files']),
       issueDate: mapToDateTime(json[r'issueDate']),
       name: json[r'name'],
       number: json[r'number'],
       origin: QuoteEditQuoteCommandWriteOriginEnum.fromJson(json[r'origin']),
-      place: json[r'place'],
       provider: json[r'provider'],
       providerAddress: PostalAddressWrite.fromJson(json[r'providerAddress']),
       providerContactPoint:
           ContactPointWrite.fromJson(json[r'providerContactPoint']),
       resolutionDate: mapToDateTime(json[r'resolutionDate']),
-      state: json[r'state'],
       tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
       task: json[r'task'],
     );
@@ -74,8 +68,6 @@ class QuoteEditQuoteCommandWrite {
 
   DateTime? expirationDate;
 
-  List<String>? files;
-
   DateTime? issueDate;
 
   String? name;
@@ -84,8 +76,6 @@ class QuoteEditQuoteCommandWrite {
 
   QuoteEditQuoteCommandWriteOriginEnum? origin;
 
-  String? place;
-
   String? provider;
 
   PostalAddressWrite? providerAddress;
@@ -93,8 +83,6 @@ class QuoteEditQuoteCommandWrite {
   ContactPointWrite? providerContactPoint;
 
   DateTime? resolutionDate;
-
-  String? state;
 
   List<String>? tags;
 
@@ -115,17 +103,14 @@ class QuoteEditQuoteCommandWrite {
         DeepCollectionEquality.unordered()
             .equals(equipments, other.equipments) &&
         other.expirationDate == expirationDate &&
-        DeepCollectionEquality.unordered().equals(files, other.files) &&
         other.issueDate == issueDate &&
         other.name == name &&
         other.number == number &&
         other.origin == origin &&
-        other.place == place &&
         other.provider == provider &&
         other.providerAddress == providerAddress &&
         other.providerContactPoint == providerContactPoint &&
         other.resolutionDate == resolutionDate &&
-        other.state == state &&
         DeepCollectionEquality.unordered().equals(tags, other.tags) &&
         other.task == task;
   }
@@ -138,17 +123,14 @@ class QuoteEditQuoteCommandWrite {
       (authorContactPoint == null ? 0 : authorContactPoint.hashCode) +
       (equipments == null ? 0 : equipments.hashCode) +
       (expirationDate == null ? 0 : expirationDate.hashCode) +
-      (files == null ? 0 : files.hashCode) +
       (issueDate == null ? 0 : issueDate.hashCode) +
       (name == null ? 0 : name.hashCode) +
       (number == null ? 0 : number.hashCode) +
       (origin == null ? 0 : origin.hashCode) +
-      (place == null ? 0 : place.hashCode) +
       (provider == null ? 0 : provider.hashCode) +
       (providerAddress == null ? 0 : providerAddress.hashCode) +
       (providerContactPoint == null ? 0 : providerContactPoint.hashCode) +
       (resolutionDate == null ? 0 : resolutionDate.hashCode) +
-      (state == null ? 0 : state.hashCode) +
       (tags == null ? 0 : tags.hashCode) +
       (task == null ? 0 : task.hashCode);
 
@@ -202,7 +184,7 @@ class QuoteEditQuoteCommandWrite {
 
   @override
   String toString() =>
-      'QuoteEditQuoteCommandWrite[amountExcludingTax=$amountExcludingTax, amountIncludingTax=$amountIncludingTax, author=$author, authorContactPoint=$authorContactPoint, equipments=$equipments, expirationDate=$expirationDate, files=$files, issueDate=$issueDate, name=$name, number=$number, origin=$origin, place=$place, provider=$provider, providerAddress=$providerAddress, providerContactPoint=$providerContactPoint, resolutionDate=$resolutionDate, state=$state, tags=$tags, task=$task]';
+      'QuoteEditQuoteCommandWrite[amountExcludingTax=$amountExcludingTax, amountIncludingTax=$amountIncludingTax, author=$author, authorContactPoint=$authorContactPoint, equipments=$equipments, expirationDate=$expirationDate, issueDate=$issueDate, name=$name, number=$number, origin=$origin, provider=$provider, providerAddress=$providerAddress, providerContactPoint=$providerContactPoint, resolutionDate=$resolutionDate, tags=$tags, task=$task]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -247,13 +229,11 @@ class QuoteEditQuoteCommandWrite {
         r'equipments': equipments,
       if (keys == null || keys.contains(r'expirationDate'))
         r'expirationDate': expirationDate?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'files')) r'files': files,
       if (keys == null || keys.contains(r'issueDate'))
         r'issueDate': issueDate?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'name')) r'name': name,
       if (keys == null || keys.contains(r'number')) r'number': number,
       if (keys == null || keys.contains(r'origin')) r'origin': origin,
-      if (keys == null || keys.contains(r'place')) r'place': place,
       if (keys == null || keys.contains(r'provider')) r'provider': provider,
       if (keys == null ||
           keys.any((key) => RegExp(r'^providerAddress\.').hasMatch(key)))
@@ -280,7 +260,6 @@ class QuoteEditQuoteCommandWrite {
         })),
       if (keys == null || keys.contains(r'resolutionDate'))
         r'resolutionDate': resolutionDate?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'state')) r'state': state,
       if (keys == null || keys.contains(r'tags')) r'tags': tags,
       if (keys == null || keys.contains(r'task')) r'task': task,
     };

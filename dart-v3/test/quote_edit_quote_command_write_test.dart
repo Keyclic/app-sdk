@@ -28,9 +28,6 @@ void main() {
     // DateTime expirationDate
     test('to test the property `expirationDate`', () async {});
 
-    // List<String> files (default value: const [])
-    test('to test the property `files`', () async {});
-
     // DateTime issueDate
     test('to test the property `issueDate`', () async {});
 
@@ -43,9 +40,6 @@ void main() {
     // String origin
     test('to test the property `origin`', () async {});
 
-    // String place
-    test('to test the property `place`', () async {});
-
     // String provider
     test('to test the property `provider`', () async {});
 
@@ -57,9 +51,6 @@ void main() {
 
     // DateTime resolutionDate
     test('to test the property `resolutionDate`', () async {});
-
-    // String state
-    test('to test the property `state`', () async {});
 
     // List<String> tags (default value: const [])
     test('to test the property `tags`', () async {});

@@ -9,7 +9,7 @@
             "url": "https://www.keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.73.0"
+        "version": "2.73.1-dev.g6e8af0a0c"
     },
     "servers": [
         {
@@ -23627,14 +23627,6 @@
                         "format": "date-time",
                         "nullable": true
                     },
-                    "files": {
-                        "type": "array",
-                        "items": {
-                            "type": "string",
-                            "format": "iri-reference",
-                            "example": "https://example.com/"
-                        }
-                    },
                     "issueDate": {
                         "type": "string",
                         "format": "date-time",
@@ -23655,12 +23647,6 @@
                             "REQUESTED"
                         ],
                         "type": "string",
-                        "nullable": true
-                    },
-                    "place": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
                         "nullable": true
                     },
                     "provider": {
@@ -23688,12 +23674,6 @@
                     "resolutionDate": {
                         "type": "string",
                         "format": "date-time",
-                        "nullable": true
-                    },
-                    "state": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
                         "nullable": true
                     },
                     "tags": {

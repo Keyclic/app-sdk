@@ -9,7 +9,7 @@
             "url": "https://www.keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.73.1-dev.g6e8af0a0c"
+        "version": "2.73.1-dev.g3346ed1d6"
     },
     "servers": [
         {
@@ -23757,6 +23757,15 @@
                                     }
                                 }
                             },
+                            "organization": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            },
                             "equipments": {
                                 "type": "array",
                                 "items": {
@@ -23912,7 +23921,8 @@
                     "issueDate",
                     "name",
                     "number",
-                    "place"
+                    "place",
+                    "organization"
                 ]
             },
             "Reference.jsonhal-OrganizationPreference-Read": {

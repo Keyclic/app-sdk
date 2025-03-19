@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **provider** | [**GetPlaceCollection200ResponseLinksFirst**](GetPlaceCollection200ResponseLinksFirst.md) |  | [optional] 
 **task** | [**GetPlaceCollection200ResponseLinksFirst**](GetPlaceCollection200ResponseLinksFirst.md) |  | [optional] 
 **place** | [**GetPlaceCollection200ResponseLinksSelf**](GetPlaceCollection200ResponseLinksSelf.md) |  | [optional] 
+**organization** | [**GetPlaceCollection200ResponseLinksSelf**](GetPlaceCollection200ResponseLinksSelf.md) |  | [optional] 
 **equipments** | [**List<GetPlaceCollection200ResponseLinksSelf>**](GetPlaceCollection200ResponseLinksSelf.md) |  | [optional] [default to const []]
 **files** | [**List<GetPlaceCollection200ResponseLinksSelf>**](GetPlaceCollection200ResponseLinksSelf.md) |  | [optional] [default to const []]
 

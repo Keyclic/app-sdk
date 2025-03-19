@@ -25,6 +25,9 @@ void main() {
     // GetPlaceCollection200ResponseLinksSelf place
     test('to test the property `place`', () async {});
 
+    // GetPlaceCollection200ResponseLinksSelf organization
+    test('to test the property `organization`', () async {});
+
     // List<GetPlaceCollection200ResponseLinksSelf> equipments (default value: const [])
     test('to test the property `equipments`', () async {});
 

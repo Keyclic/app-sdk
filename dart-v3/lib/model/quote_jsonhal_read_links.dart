@@ -12,6 +12,7 @@ class QuoteJsonhalReadLinks {
     this.provider,
     this.task,
     this.place,
+    this.organization,
     this.equipments,
     this.files,
   });
@@ -30,6 +31,8 @@ class QuoteJsonhalReadLinks {
           GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'provider']),
       task: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'task']),
       place: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'place']),
+      organization: GetPlaceCollection200ResponseLinksSelf.fromJson(
+          json[r'organization']),
       equipments: GetPlaceCollection200ResponseLinksSelf.listFromJson(
           json[r'equipments']),
       files:
@@ -46,6 +49,8 @@ class QuoteJsonhalReadLinks {
   GetPlaceCollection200ResponseLinksFirst? task;
 
   GetPlaceCollection200ResponseLinksSelf? place;
+
+  GetPlaceCollection200ResponseLinksSelf? organization;
 
   List<GetPlaceCollection200ResponseLinksSelf>? equipments;
 
@@ -64,6 +69,7 @@ class QuoteJsonhalReadLinks {
         other.provider == provider &&
         other.task == task &&
         other.place == place &&
+        other.organization == organization &&
         DeepCollectionEquality.unordered()
             .equals(equipments, other.equipments) &&
         DeepCollectionEquality.unordered().equals(files, other.files);
@@ -76,6 +82,7 @@ class QuoteJsonhalReadLinks {
       (provider == null ? 0 : provider.hashCode) +
       (task == null ? 0 : task.hashCode) +
       (place == null ? 0 : place.hashCode) +
+      (organization == null ? 0 : organization.hashCode) +
       (equipments == null ? 0 : equipments.hashCode) +
       (files == null ? 0 : files.hashCode);
 
@@ -129,7 +136,7 @@ class QuoteJsonhalReadLinks {
 
   @override
   String toString() =>
-      'QuoteJsonhalReadLinks[self=$self, author=$author, provider=$provider, task=$task, place=$place, equipments=$equipments, files=$files]';
+      'QuoteJsonhalReadLinks[self=$self, author=$author, provider=$provider, task=$task, place=$place, organization=$organization, equipments=$equipments, files=$files]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -175,6 +182,16 @@ class QuoteJsonhalReadLinks {
             (List<String> previousValue, String element) {
           if (element.contains(RegExp(r'^place\.'))) {
             previousValue.add(element.split(RegExp(r'^place\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^organization\.').hasMatch(key)))
+        r'organization': organization?.toJson(keys?.fold<List<String>>(
+            <String>[], (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^organization\.'))) {
+            previousValue.add(element.split(RegExp(r'^organization\.')).last);
           }
 
           return previousValue;

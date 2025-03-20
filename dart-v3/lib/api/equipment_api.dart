@@ -238,6 +238,8 @@ class EquipmentApi {
   /// * [brandPeriodIdentifierLeftSquareBracketRightSquareBracket] -
   /// * [model] -
   /// * [mpn] -
+  /// * [quotes] -
+  /// * [quotesLeftSquareBracketRightSquareBracket] -
   /// * [serialNumber] -
   /// * [statePeriodIdentifier] -
   /// * [statePeriodIdentifierLeftSquareBracketRightSquareBracket] -
@@ -312,6 +314,8 @@ class EquipmentApi {
     List<String>? brandPeriodIdentifierLeftSquareBracketRightSquareBracket,
     String? model,
     String? mpn,
+    String? quotes,
+    List<String>? quotesLeftSquareBracketRightSquareBracket,
     String? serialNumber,
     String? statePeriodIdentifier,
     List<String>? statePeriodIdentifierLeftSquareBracketRightSquareBracket,
@@ -501,6 +505,11 @@ class EquipmentApi {
             format: ListFormat.multi),
       if (model != null) r'model': encodeQueryParameter(model),
       if (mpn != null) r'mpn': encodeQueryParameter(mpn),
+      if (quotes != null) r'quotes': encodeQueryParameter(quotes),
+      if (quotesLeftSquareBracketRightSquareBracket != null)
+        r'quotes[]': encodeCollectionQueryParameter(
+            quotesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
       if (serialNumber != null)
         r'serialNumber': encodeQueryParameter(serialNumber),
       if (statePeriodIdentifier != null)

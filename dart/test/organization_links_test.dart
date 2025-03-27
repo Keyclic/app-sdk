@@ -10,9 +10,6 @@ void main() {
   // final instance = OrganizationLinks();
 
   group('test OrganizationLinks', () {
-    // OrganizationLinksApplication application
-    test('to test the property `application`', () async {});
-
     // OrganizationLinksBusinessActivity businessActivity
     test('to test the property `businessActivity`', () async {});
 

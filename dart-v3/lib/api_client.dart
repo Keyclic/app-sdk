@@ -64,6 +64,11 @@ class ApiPlatformClient {
     }
   }
 
+  /// Get ApplicationApi instance
+  ApplicationApi getApplicationApi() {
+    return ApplicationApi(this);
+  }
+
   /// Get AssetApi instance
   AssetApi getAssetApi() {
     return AssetApi(this);
@@ -289,6 +294,14 @@ class ApiPlatformClient {
           return valueString == 'true' || valueString == '1';
         case 'double':
           return value is double ? value : double.parse('$value');
+        case 'AboutJsonhalRead':
+          return AboutJsonhalRead.fromJson(value);
+        case 'AgreementJsonhalRead':
+          return AgreementJsonhalRead.fromJson(value);
+        case 'ApplicationJsonhalRead':
+          return ApplicationJsonhalRead.fromJson(value);
+        case 'ApplicationJsonhalReadLinks':
+          return ApplicationJsonhalReadLinks.fromJson(value);
         case 'ArchivingJsonhalOrganizationPreferenceRead':
           return ArchivingJsonhalOrganizationPreferenceRead.fromJson(value);
         case 'AssetJsonhalRead':
@@ -331,12 +344,16 @@ class ApiPlatformClient {
           return CollaboratorJsonhalReadLinks.fromJson(value);
         case 'ConditionJsonhalRead':
           return ConditionJsonhalRead.fromJson(value);
+        case 'ConfigurationJsonhalRead':
+          return ConfigurationJsonhalRead.fromJson(value);
         case 'ConnectionJsonhalAuthProfileRead':
           return ConnectionJsonhalAuthProfileRead.fromJson(value);
         case 'ConnectorJsonhalRead':
           return ConnectorJsonhalRead.fromJson(value);
         case 'ContactJsonhalRead':
           return ContactJsonhalRead.fromJson(value);
+        case 'ContactPointJsonhalApplicationRead':
+          return ContactPointJsonhalApplicationRead.fromJson(value);
         case 'ContactPointJsonhalRead':
           return ContactPointJsonhalRead.fromJson(value);
         case 'ContactPointWrite':
@@ -531,6 +548,8 @@ class ApiPlatformClient {
           return OccupantJsonhalRead.fromJson(value);
         case 'OccupantJsonhalReadEmbedded':
           return OccupantJsonhalReadEmbedded.fromJson(value);
+        case 'OlderThanJsonhalRead':
+          return OlderThanJsonhalRead.fromJson(value);
         case 'OrganizationJsonhalRead':
           return OrganizationJsonhalRead.fromJson(value);
         case 'OrganizationJsonhalReadLinks':
@@ -563,6 +582,8 @@ class ApiPlatformClient {
           return PriceJsonhalRead.fromJson(value);
         case 'PriceWrite':
           return PriceWrite.fromJson(value);
+        case 'PrivacyPolicyJsonhalRead':
+          return PrivacyPolicyJsonhalRead.fromJson(value);
         case 'ProfileJsonhalAuthProfileRead':
           return ProfileJsonhalAuthProfileRead.fromJson(value);
         case 'ProfileProfileInput':
@@ -625,6 +646,8 @@ class ApiPlatformClient {
           return SlaPolicyJsonhalReadLinks.fromJson(value);
         case 'TargetGroupJsonhalRead':
           return TargetGroupJsonhalRead.fromJson(value);
+        case 'TermsOfServiceJsonhalRead':
+          return TermsOfServiceJsonhalRead.fromJson(value);
         case 'TicketCreateTicketCommandWrite':
           return TicketCreateTicketCommandWrite.fromJson(value);
         case 'TicketEditTicketCommandWrite':

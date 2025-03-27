@@ -10,7 +10,7 @@ void main() {
   // final instance = KnowledgeBaseLinksSelfIriTemplate();
 
   group('test KnowledgeBaseLinksSelfIriTemplate', () {
-    // ApplicationLinksKnowledgeBaseIriTemplateMapping mapping
+    // KnowledgeBaseLinksSelfIriTemplateMapping mapping
     test('to test the property `mapping`', () async {});
   });
 }

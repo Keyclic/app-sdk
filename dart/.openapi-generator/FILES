@@ -431,6 +431,7 @@ doc/PreferencesContract.md
 doc/PreferencesEquipment.md
 doc/PreferencesForm.md
 doc/PreferencesNotification.md
+doc/PreferencesQuote.md
 doc/PreferencesReference.md
 doc/PreferencesReview.md
 doc/PreferencesSla.md
@@ -1035,6 +1036,7 @@ lib/model/preferences_contract.dart
 lib/model/preferences_equipment.dart
 lib/model/preferences_form.dart
 lib/model/preferences_notification.dart
+lib/model/preferences_quote.dart
 lib/model/preferences_reference.dart
 lib/model/preferences_review.dart
 lib/model/preferences_sla.dart
@@ -1608,6 +1610,7 @@ test/preferences_contract_test.dart
 test/preferences_equipment_test.dart
 test/preferences_form_test.dart
 test/preferences_notification_test.dart
+test/preferences_quote_test.dart
 test/preferences_reference_test.dart
 test/preferences_review_test.dart
 test/preferences_sla_test.dart

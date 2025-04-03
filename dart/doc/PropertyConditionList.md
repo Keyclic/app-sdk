@@ -9,6 +9,7 @@ import 'package:keyclic_sdk_api/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **allOf** | [**List<ConditionListCondition>**](ConditionListCondition.md) |  | [optional] [default to const []]
+**anyOf** | [**List<ConditionListCondition>**](ConditionListCondition.md) |  | [optional] [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

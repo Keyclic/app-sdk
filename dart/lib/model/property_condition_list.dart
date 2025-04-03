@@ -8,6 +8,7 @@ class PropertyConditionList {
   /// Returns a new [PropertyConditionList] instance.
   PropertyConditionList({
     this.allOf,
+    this.anyOf,
   });
 
   /// Returns a new [PropertyConditionList] instance and imports its values from
@@ -19,10 +20,13 @@ class PropertyConditionList {
 
     return PropertyConditionList(
       allOf: ConditionListCondition.listFromJson(json[r'allOf']),
+      anyOf: ConditionListCondition.listFromJson(json[r'anyOf']),
     );
   }
 
   List<ConditionListCondition>? allOf;
+
+  List<ConditionListCondition>? anyOf;
 
   @override
   bool operator ==(Object other) {
@@ -32,11 +36,14 @@ class PropertyConditionList {
     }
 
     return other is PropertyConditionList &&
-        DeepCollectionEquality.unordered().equals(allOf, other.allOf);
+        DeepCollectionEquality.unordered().equals(allOf, other.allOf) &&
+        DeepCollectionEquality.unordered().equals(anyOf, other.anyOf);
   }
 
   @override
-  int get hashCode => (allOf == null ? 0 : allOf.hashCode);
+  int get hashCode =>
+      (allOf == null ? 0 : allOf.hashCode) +
+      (anyOf == null ? 0 : anyOf.hashCode);
 
   static List<PropertyConditionList> listFromJson(Iterable? json) {
     if (json == null) {
@@ -87,11 +94,12 @@ class PropertyConditionList {
   }
 
   @override
-  String toString() => 'PropertyConditionList[allOf=$allOf]';
+  String toString() => 'PropertyConditionList[allOf=$allOf, anyOf=$anyOf]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       if (keys == null || keys.contains(r'allOf')) r'allOf': allOf,
+      if (keys == null || keys.contains(r'anyOf')) r'anyOf': anyOf,
     };
   }
 }

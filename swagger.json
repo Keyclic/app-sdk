@@ -22071,6 +22071,12 @@
                         "$ref": "#\/definitions\/ConditionListCondition"
                     },
                     "type": "array"
+                },
+                "anyOf": {
+                    "items": {
+                        "$ref": "#\/definitions\/ConditionListCondition"
+                    },
+                    "type": "array"
                 }
             }
         },

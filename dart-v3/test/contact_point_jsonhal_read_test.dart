@@ -19,6 +19,9 @@ void main() {
     // String faxNumber
     test('to test the property `faxNumber`', () async {});
 
+    // String name
+    test('to test the property `name`', () async {});
+
     // String telephone
     test('to test the property `telephone`', () async {});
 
@@ -29,9 +32,6 @@ void main() {
     // Given name. In the U.S., the first name of a Person.
     // String givenName
     test('to test the property `givenName`', () async {});
-
-    // String name
-    test('to test the property `name`', () async {});
 
     // bool isOpen
     test('to test the property `isOpen`', () async {});

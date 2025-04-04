@@ -93,6 +93,9 @@ Class | Method | HTTP request | Description
 *ContractApi* | [**postContract**](doc//ContractApi.md#postcontract) | **POST** /contracts | Creates a Contract resource.
 *ContractTypeApi* | [**getContractType**](doc//ContractTypeApi.md#getcontracttype) | **GET** /contract-types/{identifier} | Retrieves a ContractType resource.
 *ContractTypeApi* | [**getContractTypeCollection**](doc//ContractTypeApi.md#getcontracttypecollection) | **GET** /contract-types | Retrieves the collection of ContractType resources.
+*DeviceApi* | [**deleteDevice**](doc//DeviceApi.md#deletedevice) | **DELETE** /devices/{token} | Removes the Device resource.
+*DeviceApi* | [**getDevice**](doc//DeviceApi.md#getdevice) | **GET** /devices/{token} | Retrieves a Device resource.
+*DeviceApi* | [**postDevice**](doc//DeviceApi.md#postdevice) | **POST** /devices | Creates a Device resource.
 *DocumentApi* | [**getDocumentWorkflowTransitions**](doc//DocumentApi.md#getdocumentworkflowtransitions) | **GET** /documents/{identifier}/workflow-transitions | Retrieves the collection of Document resources.
 *DocumentTypeApi* | [**getTicketDocumentTypes**](doc//DocumentTypeApi.md#getticketdocumenttypes) | **GET** /tickets/{identifier}/document-types | Retrieves the collection of DocumentType resources.
 *EquipmentApi* | [**deleteEquipment**](doc//EquipmentApi.md#deleteequipment) | **DELETE** /equipments/{identifier} | Removes the Equipment resource.
@@ -185,6 +188,9 @@ Class | Method | HTTP request | Description
  - [ContractJsonhalRead](doc//ContractJsonhalRead.md)
  - [ContractJsonhalReadLinks](doc//ContractJsonhalReadLinks.md)
  - [ContractTypeJsonhalRead](doc//ContractTypeJsonhalRead.md)
+ - [DeviceCreateDeviceCommandWrite](doc//DeviceCreateDeviceCommandWrite.md)
+ - [DeviceJsonhalRead](doc//DeviceJsonhalRead.md)
+ - [DeviceJsonhalReadLinks](doc//DeviceJsonhalReadLinks.md)
  - [DocumentTransitionJsonhalRead](doc//DocumentTransitionJsonhalRead.md)
  - [DocumentTypeJsonhalRead](doc//DocumentTypeJsonhalRead.md)
  - [DurationJsonhalRead](doc//DurationJsonhalRead.md)

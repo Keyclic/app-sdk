@@ -109,11 +109,6 @@ class ApiClient {
     return ContributionApi(this);
   }
 
-  /// Get DeviceApi instance
-  DeviceApi getDeviceApi() {
-    return DeviceApi(this);
-  }
-
   /// Get DigitalDocumentApi instance
   DigitalDocumentApi getDigitalDocumentApi() {
     return DigitalDocumentApi(this);
@@ -571,22 +566,6 @@ class ApiClient {
           return ContributionLinksFeedbackIriTemplateMapping.fromJson(value);
         case 'ContributionPagination':
           return ContributionPagination.fromJson(value);
-        case 'Device':
-          return Device.fromJson(value);
-        case 'DeviceData':
-          return DeviceData.fromJson(value);
-        case 'DeviceLinks':
-          return DeviceLinks.fromJson(value);
-        case 'DeviceLinksPerson':
-          return DeviceLinksPerson.fromJson(value);
-        case 'DeviceLinksPersonIriTemplate':
-          return DeviceLinksPersonIriTemplate.fromJson(value);
-        case 'DeviceLinksSelf':
-          return DeviceLinksSelf.fromJson(value);
-        case 'DeviceLinksSelfIriTemplate':
-          return DeviceLinksSelfIriTemplate.fromJson(value);
-        case 'DeviceLinksSelfIriTemplateMapping':
-          return DeviceLinksSelfIriTemplateMapping.fromJson(value);
         case 'Dispatcher':
           return Dispatcher.fromJson(value);
         case 'Document':

@@ -45,6 +45,10 @@ doc/ContractJsonhalRead.md
 doc/ContractJsonhalReadLinks.md
 doc/ContractTypeApi.md
 doc/ContractTypeJsonhalRead.md
+doc/DeviceApi.md
+doc/DeviceCreateDeviceCommandWrite.md
+doc/DeviceJsonhalRead.md
+doc/DeviceJsonhalReadLinks.md
 doc/DocumentApi.md
 doc/DocumentTransitionJsonhalRead.md
 doc/DocumentTypeApi.md
@@ -231,6 +235,7 @@ lib/api/category_type_api.dart
 lib/api/connector_api.dart
 lib/api/contract_api.dart
 lib/api/contract_type_api.dart
+lib/api/device_api.dart
 lib/api/document_api.dart
 lib/api/document_type_api.dart
 lib/api/equipment_api.dart
@@ -294,6 +299,9 @@ lib/model/contract_jsonhal_organization_preference_read.dart
 lib/model/contract_jsonhal_read.dart
 lib/model/contract_jsonhal_read_links.dart
 lib/model/contract_type_jsonhal_read.dart
+lib/model/device_create_device_command_write.dart
+lib/model/device_jsonhal_read.dart
+lib/model/device_jsonhal_read_links.dart
 lib/model/document_transition_jsonhal_read.dart
 lib/model/document_type_jsonhal_read.dart
 lib/model/duration_jsonhal_read.dart
@@ -488,6 +496,10 @@ test/contract_jsonhal_read_links_test.dart
 test/contract_jsonhal_read_test.dart
 test/contract_type_api_test.dart
 test/contract_type_jsonhal_read_test.dart
+test/device_api_test.dart
+test/device_create_device_command_write_test.dart
+test/device_jsonhal_read_links_test.dart
+test/device_jsonhal_read_test.dart
 test/document_api_test.dart
 test/document_transition_jsonhal_read_test.dart
 test/document_type_api_test.dart

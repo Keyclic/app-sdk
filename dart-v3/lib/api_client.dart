@@ -119,6 +119,11 @@ class ApiPlatformClient {
     return ContractTypeApi(this);
   }
 
+  /// Get DeviceApi instance
+  DeviceApi getDeviceApi() {
+    return DeviceApi(this);
+  }
+
   /// Get DocumentApi instance
   DocumentApi getDocumentApi() {
     return DocumentApi(this);
@@ -353,6 +358,12 @@ class ApiPlatformClient {
           return ContractJsonhalReadLinks.fromJson(value);
         case 'ContractTypeJsonhalRead':
           return ContractTypeJsonhalRead.fromJson(value);
+        case 'DeviceCreateDeviceCommandWrite':
+          return DeviceCreateDeviceCommandWrite.fromJson(value);
+        case 'DeviceJsonhalRead':
+          return DeviceJsonhalRead.fromJson(value);
+        case 'DeviceJsonhalReadLinks':
+          return DeviceJsonhalReadLinks.fromJson(value);
         case 'DocumentTransitionJsonhalRead':
           return DocumentTransitionJsonhalRead.fromJson(value);
         case 'DocumentTypeJsonhalRead':

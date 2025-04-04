@@ -18,12 +18,12 @@ class KnowledgeBaseLinksSelfIriTemplate {
     }
 
     return KnowledgeBaseLinksSelfIriTemplate(
-      mapping: ApplicationLinksKnowledgeBaseIriTemplateMapping.fromJson(
-          json[r'mapping']),
+      mapping:
+          KnowledgeBaseLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
-  ApplicationLinksKnowledgeBaseIriTemplateMapping? mapping;
+  KnowledgeBaseLinksSelfIriTemplateMapping? mapping;
 
   @override
   bool operator ==(Object other) {

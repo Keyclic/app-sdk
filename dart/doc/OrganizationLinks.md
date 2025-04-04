@@ -8,7 +8,6 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**application** | [**OrganizationLinksApplication**](OrganizationLinksApplication.md) |  | [optional] 
 **businessActivity** | [**OrganizationLinksBusinessActivity**](OrganizationLinksBusinessActivity.md) |  | [optional] 
 **configuration** | [**OrganizationLinksConfiguration**](OrganizationLinksConfiguration.md) |  | [optional] 
 **dispatcher** | [**OrganizationLinksDispatcher**](OrganizationLinksDispatcher.md) |  | [optional] 

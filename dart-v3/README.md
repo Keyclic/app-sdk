@@ -45,20 +45,19 @@ import 'package:keyclic_sdk_api_platform/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
 
-final api_instance = AssetApi();
-final identifier = identifier_example; // String | Asset identifier
+final api_instance = ApplicationApi();
+final identifier = identifier_example; // String | Application identifier
 final xKeyclicApp = xKeyclicApp_example; // String | 
-final xOrganizationId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
 final acceptLanguage = acceptLanguage_example; // String | 
 final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try {
-    final result = api_instance.getAsset(identifier, xKeyclicApp, xOrganizationId, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getApplication(identifier, xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print('Exception when calling AssetApi->getAsset: $e\n');
+    print('Exception when calling ApplicationApi->getApplication: $e\n');
 }
 
 ```
@@ -69,6 +68,7 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*ApplicationApi* | [**getApplication**](doc//ApplicationApi.md#getapplication) | **GET** /applications/{identifier} | Retrieves a Application resource.
 *AssetApi* | [**getAsset**](doc//AssetApi.md#getasset) | **GET** /assets/{identifier} | Retrieves a Asset resource.
 *AssetApi* | [**getAssetCollection**](doc//AssetApi.md#getassetcollection) | **GET** /assets | Retrieves the collection of Asset resources.
 *AssetTypeApi* | [**getAssetType**](doc//AssetTypeApi.md#getassettype) | **GET** /asset-types/{identifier} | Retrieves a AssetType resource.
@@ -156,6 +156,10 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AboutJsonhalRead](doc//AboutJsonhalRead.md)
+ - [AgreementJsonhalRead](doc//AgreementJsonhalRead.md)
+ - [ApplicationJsonhalRead](doc//ApplicationJsonhalRead.md)
+ - [ApplicationJsonhalReadLinks](doc//ApplicationJsonhalReadLinks.md)
  - [ArchivingJsonhalOrganizationPreferenceRead](doc//ArchivingJsonhalOrganizationPreferenceRead.md)
  - [AssetJsonhalRead](doc//AssetJsonhalRead.md)
  - [AssetJsonhalReadLinks](doc//AssetJsonhalReadLinks.md)
@@ -177,9 +181,11 @@ Class | Method | HTTP request | Description
  - [CollaboratorJsonhalReadEmbedded](doc//CollaboratorJsonhalReadEmbedded.md)
  - [CollaboratorJsonhalReadLinks](doc//CollaboratorJsonhalReadLinks.md)
  - [ConditionJsonhalRead](doc//ConditionJsonhalRead.md)
+ - [ConfigurationJsonhalRead](doc//ConfigurationJsonhalRead.md)
  - [ConnectionJsonhalAuthProfileRead](doc//ConnectionJsonhalAuthProfileRead.md)
  - [ConnectorJsonhalRead](doc//ConnectorJsonhalRead.md)
  - [ContactJsonhalRead](doc//ContactJsonhalRead.md)
+ - [ContactPointJsonhalApplicationRead](doc//ContactPointJsonhalApplicationRead.md)
  - [ContactPointJsonhalRead](doc//ContactPointJsonhalRead.md)
  - [ContactPointWrite](doc//ContactPointWrite.md)
  - [ContractCreateContractCommandWrite](doc//ContractCreateContractCommandWrite.md)
@@ -279,6 +285,7 @@ Class | Method | HTTP request | Description
  - [NodeJsonhalRead](doc//NodeJsonhalRead.md)
  - [OccupantJsonhalRead](doc//OccupantJsonhalRead.md)
  - [OccupantJsonhalReadEmbedded](doc//OccupantJsonhalReadEmbedded.md)
+ - [OlderThanJsonhalRead](doc//OlderThanJsonhalRead.md)
  - [OrganizationJsonhalRead](doc//OrganizationJsonhalRead.md)
  - [OrganizationJsonhalReadLinks](doc//OrganizationJsonhalReadLinks.md)
  - [PersonJsonhalRead](doc//PersonJsonhalRead.md)
@@ -295,6 +302,7 @@ Class | Method | HTTP request | Description
  - [PreferencesJsonhalOrganizationRead](doc//PreferencesJsonhalOrganizationRead.md)
  - [PriceJsonhalRead](doc//PriceJsonhalRead.md)
  - [PriceWrite](doc//PriceWrite.md)
+ - [PrivacyPolicyJsonhalRead](doc//PrivacyPolicyJsonhalRead.md)
  - [ProfileJsonhalAuthProfileRead](doc//ProfileJsonhalAuthProfileRead.md)
  - [ProfileProfileInput](doc//ProfileProfileInput.md)
  - [PublicationJsonhalRead](doc//PublicationJsonhalRead.md)
@@ -326,6 +334,7 @@ Class | Method | HTTP request | Description
  - [SlaPolicyJsonhalReadEmbedded](doc//SlaPolicyJsonhalReadEmbedded.md)
  - [SlaPolicyJsonhalReadLinks](doc//SlaPolicyJsonhalReadLinks.md)
  - [TargetGroupJsonhalRead](doc//TargetGroupJsonhalRead.md)
+ - [TermsOfServiceJsonhalRead](doc//TermsOfServiceJsonhalRead.md)
  - [TicketCreateTicketCommandWrite](doc//TicketCreateTicketCommandWrite.md)
  - [TicketEditTicketCommandWrite](doc//TicketEditTicketCommandWrite.md)
  - [TicketJsongeoRead](doc//TicketJsongeoRead.md)

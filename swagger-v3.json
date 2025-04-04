@@ -18,6 +18,131 @@
         }
     ],
     "paths": {
+        "/applications/{identifier}": {
+            "get": {
+                "operationId": "getApplication",
+                "tags": [
+                    "Application"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Application resource",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Application.jsonhal-Read"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Retrieves a Application resource.",
+                "description": "Retrieves a Application resource.",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "Application identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "en-US",
+                            "enum": [
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Date-Time",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Platform",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Version",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false
+            },
+            "parameters": []
+        },
         "/asset-places": {
             "get": {
                 "operationId": "getPlaceCollection",
@@ -20283,6 +20408,130 @@
     },
     "components": {
         "schemas": {
+            "About.jsonhal-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "text": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                }
+            },
+            "Agreement.jsonhal-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "olderThan": {
+                        "$ref": "#/components/schemas/OlderThan.jsonhal-Read"
+                    },
+                    "privacyPolicy": {
+                        "$ref": "#/components/schemas/PrivacyPolicy.jsonhal-Read"
+                    },
+                    "termsOfService": {
+                        "$ref": "#/components/schemas/TermsOfService.jsonhal-Read"
+                    }
+                }
+            },
+            "Application.jsonhal-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "_links": {
+                        "type": "object",
+                        "properties": {
+                            "self": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            },
+                            "knowledgeBase": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                },
+                                "nullable": true
+                            }
+                        }
+                    },
+                    "about": {
+                        "$ref": "#/components/schemas/About.jsonhal-Read"
+                    },
+                    "agreement": {
+                        "$ref": "#/components/schemas/Agreement.jsonhal-Read"
+                    },
+                    "configuration": {
+                        "$ref": "#/components/schemas/Configuration.jsonhal-Read"
+                    },
+                    "contactPoints": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ContactPoint.jsonhal-Application-Read"
+                        }
+                    },
+                    "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "type": "string"
+                    },
+                    "token": {
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "description": "The token of the Application, which is used in request application header, to define the\ncontext of the current application.",
+                        "type": "string"
+                    },
+                    "version": {
+                        "pattern": "^(.*(^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-([\\da-zA-Z-]+(\\.[\\da-zA-Z-]+)*))?(?:\\+([\\da-zA-Z-]+(\\.[\\da-zA-Z-]+)*))?$).*)$",
+                        "type": "string"
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "description": "The resource identifier.",
+                        "type": "string"
+                    },
+                    "createdAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was created, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was updated, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "type": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "name",
+                    "token",
+                    "version"
+                ]
+            },
             "Archiving.jsonhal-OrganizationPreference-Read": {
                 "type": "object",
                 "description": "",
@@ -20978,6 +21227,18 @@
                     }
                 }
             },
+            "Configuration.jsonhal-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "public": {
+                        "default": true,
+                        "example": true,
+                        "type": "boolean"
+                    }
+                }
+            },
             "Connection.jsonhal-auth-profile.read": {
                 "type": "object",
                 "description": "",
@@ -21134,6 +21395,35 @@
                 "required": [
                     "organization"
                 ]
+            },
+            "ContactPoint.jsonhal-Application-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "id": {
+                        "readOnly": true,
+                        "description": "The resource identifier.",
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "telephone": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "type": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    }
+                }
             },
             "ContactPoint-Write": {
                 "type": "object",
@@ -22763,6 +23053,17 @@
                     }
                 }
             },
+            "OlderThan.jsonhal-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "content": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                }
+            },
             "Organization.jsonhal-Read": {
                 "type": "object",
                 "description": "",
@@ -23348,6 +23649,17 @@
                     "value": {
                         "minimum": 0,
                         "type": "number"
+                    }
+                }
+            },
+            "PrivacyPolicy.jsonhal-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "content": {
+                        "type": "string",
+                        "nullable": true
                     }
                 }
             },
@@ -24553,6 +24865,17 @@
                         "type": "string"
                     },
                     "name": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                }
+            },
+            "TermsOfService.jsonhal-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "content": {
                         "type": "string",
                         "nullable": true
                     }

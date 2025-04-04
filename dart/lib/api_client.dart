@@ -64,11 +64,6 @@ class ApiClient {
     }
   }
 
-  /// Get ApplicationApi instance
-  ApplicationApi getApplicationApi() {
-    return ApplicationApi(this);
-  }
-
   /// Get ArticleApi instance
   ArticleApi getArticleApi() {
     return ArticleApi(this);
@@ -334,37 +329,6 @@ class ApiClient {
           return ActivityGroup.fromJson(value);
         case 'ActivityPagination':
           return ActivityPagination.fromJson(value);
-        case 'AgreementOlderThan':
-          return AgreementOlderThan.fromJson(value);
-        case 'AgreementPrivacyPolicy':
-          return AgreementPrivacyPolicy.fromJson(value);
-        case 'AgreementTermsOfService':
-          return AgreementTermsOfService.fromJson(value);
-        case 'Application':
-          return Application.fromJson(value);
-        case 'ApplicationAbout':
-          return ApplicationAbout.fromJson(value);
-        case 'ApplicationAgreement':
-          return ApplicationAgreement.fromJson(value);
-        case 'ApplicationConfiguration':
-          return ApplicationConfiguration.fromJson(value);
-        case 'ApplicationContactPoint':
-          return ApplicationContactPoint.fromJson(value);
-        case 'ApplicationLinks':
-          return ApplicationLinks.fromJson(value);
-        case 'ApplicationLinksKnowledgeBase':
-          return ApplicationLinksKnowledgeBase.fromJson(value);
-        case 'ApplicationLinksKnowledgeBaseIriTemplate':
-          return ApplicationLinksKnowledgeBaseIriTemplate.fromJson(value);
-        case 'ApplicationLinksKnowledgeBaseIriTemplateMapping':
-          return ApplicationLinksKnowledgeBaseIriTemplateMapping.fromJson(
-              value);
-        case 'ApplicationLinksSelf':
-          return ApplicationLinksSelf.fromJson(value);
-        case 'ApplicationLinksSelfIriTemplate':
-          return ApplicationLinksSelfIriTemplate.fromJson(value);
-        case 'ApplicationLinksSelfIriTemplateMapping':
-          return ApplicationLinksSelfIriTemplateMapping.fromJson(value);
         case 'Article':
           return Article.fromJson(value);
         case 'ArticleCollection':
@@ -809,6 +773,8 @@ class ApiClient {
           return KnowledgeBaseLinksSelf.fromJson(value);
         case 'KnowledgeBaseLinksSelfIriTemplate':
           return KnowledgeBaseLinksSelfIriTemplate.fromJson(value);
+        case 'KnowledgeBaseLinksSelfIriTemplateMapping':
+          return KnowledgeBaseLinksSelfIriTemplateMapping.fromJson(value);
         case 'LoginData':
           return LoginData.fromJson(value);
         case 'Marker':
@@ -975,10 +941,6 @@ class ApiClient {
           return OrganizationCollection.fromJson(value);
         case 'OrganizationLinks':
           return OrganizationLinks.fromJson(value);
-        case 'OrganizationLinksApplication':
-          return OrganizationLinksApplication.fromJson(value);
-        case 'OrganizationLinksApplicationIriTemplate':
-          return OrganizationLinksApplicationIriTemplate.fromJson(value);
         case 'OrganizationLinksBusinessActivity':
           return OrganizationLinksBusinessActivity.fromJson(value);
         case 'OrganizationLinksBusinessActivityIriTemplate':

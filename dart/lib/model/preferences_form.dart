@@ -7,6 +7,7 @@ part of keyclic_sdk_api;
 class PreferencesForm {
   /// Returns a new [PreferencesForm] instance.
   PreferencesForm({
+    this.categorySelectionStrategy,
     this.contract,
     this.hidden,
     this.manualDispatch,
@@ -21,6 +22,7 @@ class PreferencesForm {
     }
 
     return PreferencesForm(
+      categorySelectionStrategy: json[r'categorySelectionStrategy'],
       contract: json[r'contract'],
       hidden:
           json[r'hidden'] == null ? null : List<String>.from(json[r'hidden']),
@@ -30,6 +32,8 @@ class PreferencesForm {
           : List<String>.from(json[r'required']),
     );
   }
+
+  String? categorySelectionStrategy;
 
   bool? contract;
 
@@ -47,6 +51,7 @@ class PreferencesForm {
     }
 
     return other is PreferencesForm &&
+        other.categorySelectionStrategy == categorySelectionStrategy &&
         other.contract == contract &&
         DeepCollectionEquality.unordered().equals(hidden, other.hidden) &&
         other.manualDispatch == manualDispatch &&
@@ -55,6 +60,9 @@ class PreferencesForm {
 
   @override
   int get hashCode =>
+      (categorySelectionStrategy == null
+          ? 0
+          : categorySelectionStrategy.hashCode) +
       (contract == null ? 0 : contract.hashCode) +
       (hidden == null ? 0 : hidden.hashCode) +
       (manualDispatch == null ? 0 : manualDispatch.hashCode) +
@@ -107,10 +115,12 @@ class PreferencesForm {
 
   @override
   String toString() =>
-      'PreferencesForm[contract=$contract, hidden=$hidden, manualDispatch=$manualDispatch, required_=$required_]';
+      'PreferencesForm[categorySelectionStrategy=$categorySelectionStrategy, contract=$contract, hidden=$hidden, manualDispatch=$manualDispatch, required_=$required_]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
+      if (keys == null || keys.contains(r'categorySelectionStrategy'))
+        r'categorySelectionStrategy': categorySelectionStrategy,
       if (keys == null || keys.contains(r'contract')) r'contract': contract,
       if (keys == null || keys.contains(r'hidden')) r'hidden': hidden,
       if (keys == null || keys.contains(r'manualDispatch'))

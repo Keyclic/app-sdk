@@ -21793,6 +21793,10 @@
         "PreferencesForm": {
             "type": "object",
             "properties": {
+                "categorySelectionStrategy": {
+                    "format": "string",
+                    "type": "string"
+                },
                 "contract": {
                     "type": "boolean"
                 },

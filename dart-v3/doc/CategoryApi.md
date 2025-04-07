@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getCategoryCollection**
-> GetCategoryCollection200Response getCategoryCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, enabled, leaf, level, levelLeftSquareBracketRightSquareBracket, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> GetCategoryCollection200Response getCategoryCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, enabled, leaf, level, levelLeftSquareBracketRightSquareBracket, categoryPlaceRules, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Retrieves the collection of Category resources.
 
@@ -96,13 +96,14 @@ final enabled = true; // bool |
 final leaf = true; // bool | 
 final level = 56; // int | 
 final levelLeftSquareBracketRightSquareBracket = []; // List<int> | 
+final categoryPlaceRules = categoryPlaceRules_example; // String | Filter categories by place rules
 final acceptLanguage = acceptLanguage_example; // String | 
 final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try {
-    final result = api_instance.getCategoryCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, enabled, leaf, level, levelLeftSquareBracketRightSquareBracket, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getCategoryCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, enabled, leaf, level, levelLeftSquareBracketRightSquareBracket, categoryPlaceRules, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
     print('Exception when calling CategoryApi->getCategoryCollection: $e\n');
@@ -123,6 +124,7 @@ Name | Type | Description  | Notes
  **leaf** | **bool**|  | [optional] 
  **level** | **int**|  | [optional] 
  **levelLeftSquareBracketRightSquareBracket** | [**List<int>**](int.md)|  | [optional] [default to const []]
+ **categoryPlaceRules** | **String**| Filter categories by place rules | [optional] 
  **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 

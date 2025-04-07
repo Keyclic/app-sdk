@@ -5590,6 +5590,372 @@
             },
             "parameters": []
         },
+        "/devices": {
+            "post": {
+                "operationId": "postDevice",
+                "tags": [
+                    "Device"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Device resource created",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Device.jsonhal-Read"
+                                }
+                            }
+                        },
+                        "links": {}
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "422": {
+                        "description": "Unprocessable entity"
+                    }
+                },
+                "summary": "Creates a Device resource.",
+                "description": "Creates a Device resource.",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "en-US",
+                            "enum": [
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Date-Time",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Platform",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Version",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "The new Device resource",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Device.CreateDeviceCommand-Write"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "deprecated": false
+            },
+            "parameters": []
+        },
+        "/devices/{token}": {
+            "get": {
+                "operationId": "getDevice",
+                "tags": [
+                    "Device"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Device resource",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Device.jsonhal-Read"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Retrieves a Device resource.",
+                "description": "Retrieves a Device resource.",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "path",
+                        "description": "Device identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "en-US",
+                            "enum": [
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Date-Time",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Platform",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Version",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false
+            },
+            "delete": {
+                "operationId": "deleteDevice",
+                "tags": [
+                    "Device"
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Device resource deleted"
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Removes the Device resource.",
+                "description": "Removes the Device resource.",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "path",
+                        "description": "Device identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "en-US",
+                            "enum": [
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Date-Time",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Platform",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Version",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false
+            },
+            "parameters": []
+        },
         "/documents/{identifier}/workflow-transitions": {
             "get": {
                 "operationId": "getDocumentWorkflowTransitions",
@@ -21614,6 +21980,81 @@
                 },
                 "required": [
                     "name"
+                ]
+            },
+            "Device.CreateDeviceCommand-Write": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "required": [
+                    "token",
+                    "platform"
+                ],
+                "properties": {
+                    "token": {
+                        "type": "string"
+                    },
+                    "platform": {
+                        "enum": [
+                            "android",
+                            "ios"
+                        ],
+                        "type": "string",
+                        "nullable": true
+                    }
+                }
+            },
+            "Device.jsonhal-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "_links": {
+                        "type": "object",
+                        "properties": {
+                            "self": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            },
+                            "person": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "createdAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was created, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was updated, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "type": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "person"
                 ]
             },
             "Document.Transition.jsonhal-Read": {

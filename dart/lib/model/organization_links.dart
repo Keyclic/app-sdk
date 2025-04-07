@@ -7,7 +7,6 @@ part of keyclic_sdk_api;
 class OrganizationLinks {
   /// Returns a new [OrganizationLinks] instance.
   OrganizationLinks({
-    this.application,
     this.businessActivity,
     this.configuration,
     this.dispatcher,
@@ -23,7 +22,6 @@ class OrganizationLinks {
     }
 
     return OrganizationLinks(
-      application: OrganizationLinksApplication.fromJson(json[r'application']),
       businessActivity:
           OrganizationLinksBusinessActivity.fromJson(json[r'businessActivity']),
       configuration:
@@ -33,8 +31,6 @@ class OrganizationLinks {
       self: OrganizationLinksSelf.fromJson(json[r'self']),
     );
   }
-
-  OrganizationLinksApplication? application;
 
   OrganizationLinksBusinessActivity? businessActivity;
 
@@ -54,7 +50,6 @@ class OrganizationLinks {
     }
 
     return other is OrganizationLinks &&
-        other.application == application &&
         other.businessActivity == businessActivity &&
         other.configuration == configuration &&
         other.dispatcher == dispatcher &&
@@ -64,7 +59,6 @@ class OrganizationLinks {
 
   @override
   int get hashCode =>
-      (application == null ? 0 : application.hashCode) +
       (businessActivity == null ? 0 : businessActivity.hashCode) +
       (configuration == null ? 0 : configuration.hashCode) +
       (dispatcher == null ? 0 : dispatcher.hashCode) +
@@ -120,20 +114,10 @@ class OrganizationLinks {
 
   @override
   String toString() =>
-      'OrganizationLinks[application=$application, businessActivity=$businessActivity, configuration=$configuration, dispatcher=$dispatcher, logo=$logo, self=$self]';
+      'OrganizationLinks[businessActivity=$businessActivity, configuration=$configuration, dispatcher=$dispatcher, logo=$logo, self=$self]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^application\.').hasMatch(key)))
-        r'application': application?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^application\.'))) {
-            previousValue.add(element.split(RegExp(r'^application\.')).last);
-          }
-
-          return previousValue;
-        })),
       if (keys == null ||
           keys.any((key) => RegExp(r'^businessActivity\.').hasMatch(key)))
         r'businessActivity': businessActivity?.toJson(keys?.fold<List<String>>(

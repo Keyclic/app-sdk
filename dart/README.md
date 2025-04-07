@@ -40,20 +40,24 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 
+// TODO Configure API key authorization: bearer
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-final api_instance = ApplicationApi();
+final api_instance = ArticleApi();
 final xKeyclicApp = xKeyclicApp_example; // String | 
-final application = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final article = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
 final acceptLanguage = acceptLanguage_example; // String | 
 final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try {
-    final result = api_instance.getApplication(xKeyclicApp, application, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getArticle(xKeyclicApp, article, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print('Exception when calling ApplicationApi->getApplication: $e\n');
+    print('Exception when calling ArticleApi->getArticle: $e\n');
 }
 
 ```
@@ -64,7 +68,6 @@ All URIs are relative to *https://api.keyclic.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ApplicationApi* | [**getApplication**](doc//ApplicationApi.md#getapplication) | **GET** /applications/{application} | Retrieve one Application resource.
 *ArticleApi* | [**getArticle**](doc//ArticleApi.md#getarticle) | **GET** /articles/{article} | Retrieve one Article resource.
 *AssignmentApi* | [**getAssignment**](doc//AssignmentApi.md#getassignment) | **GET** /assignments/{assignment} | Retrieve one Assignment resource.
 *AssignmentApi* | [**postAssignment**](doc//AssignmentApi.md#postassignment) | **POST** /assignments | Create one Assignment resource.
@@ -228,21 +231,6 @@ Class | Method | HTTP request | Description
  - [ActivityEntity](doc//ActivityEntity.md)
  - [ActivityGroup](doc//ActivityGroup.md)
  - [ActivityPagination](doc//ActivityPagination.md)
- - [AgreementOlderThan](doc//AgreementOlderThan.md)
- - [AgreementPrivacyPolicy](doc//AgreementPrivacyPolicy.md)
- - [AgreementTermsOfService](doc//AgreementTermsOfService.md)
- - [Application](doc//Application.md)
- - [ApplicationAbout](doc//ApplicationAbout.md)
- - [ApplicationAgreement](doc//ApplicationAgreement.md)
- - [ApplicationConfiguration](doc//ApplicationConfiguration.md)
- - [ApplicationContactPoint](doc//ApplicationContactPoint.md)
- - [ApplicationLinks](doc//ApplicationLinks.md)
- - [ApplicationLinksKnowledgeBase](doc//ApplicationLinksKnowledgeBase.md)
- - [ApplicationLinksKnowledgeBaseIriTemplate](doc//ApplicationLinksKnowledgeBaseIriTemplate.md)
- - [ApplicationLinksKnowledgeBaseIriTemplateMapping](doc//ApplicationLinksKnowledgeBaseIriTemplateMapping.md)
- - [ApplicationLinksSelf](doc//ApplicationLinksSelf.md)
- - [ApplicationLinksSelfIriTemplate](doc//ApplicationLinksSelfIriTemplate.md)
- - [ApplicationLinksSelfIriTemplateMapping](doc//ApplicationLinksSelfIriTemplateMapping.md)
  - [Article](doc//Article.md)
  - [ArticleCollection](doc//ArticleCollection.md)
  - [ArticleLinks](doc//ArticleLinks.md)
@@ -465,6 +453,7 @@ Class | Method | HTTP request | Description
  - [KnowledgeBaseLinks](doc//KnowledgeBaseLinks.md)
  - [KnowledgeBaseLinksSelf](doc//KnowledgeBaseLinksSelf.md)
  - [KnowledgeBaseLinksSelfIriTemplate](doc//KnowledgeBaseLinksSelfIriTemplate.md)
+ - [KnowledgeBaseLinksSelfIriTemplateMapping](doc//KnowledgeBaseLinksSelfIriTemplateMapping.md)
  - [LoginData](doc//LoginData.md)
  - [Marker](doc//Marker.md)
  - [MarkerData](doc//MarkerData.md)
@@ -548,8 +537,6 @@ Class | Method | HTTP request | Description
  - [Organization](doc//Organization.md)
  - [OrganizationCollection](doc//OrganizationCollection.md)
  - [OrganizationLinks](doc//OrganizationLinks.md)
- - [OrganizationLinksApplication](doc//OrganizationLinksApplication.md)
- - [OrganizationLinksApplicationIriTemplate](doc//OrganizationLinksApplicationIriTemplate.md)
  - [OrganizationLinksBusinessActivity](doc//OrganizationLinksBusinessActivity.md)
  - [OrganizationLinksBusinessActivityIriTemplate](doc//OrganizationLinksBusinessActivityIriTemplate.md)
  - [OrganizationLinksConfiguration](doc//OrganizationLinksConfiguration.md)

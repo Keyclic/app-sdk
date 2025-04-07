@@ -237,7 +237,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cgetInternalServicesByOrganization**
-> InternalServicePagination cgetInternalServicesByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, query, page, limit)
+> InternalServicePagination cgetInternalServicesByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, member, membersLeftSquareBracketRightSquareBracket, query, page, limit)
 
 Retrieve all InternalService resources.
 
@@ -259,12 +259,14 @@ final xKeyclicAppVersion = xKeyclicAppVersion_example; // String |
 final orderLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final after = 2013-10-20T19:20:30+01:00; // DateTime | 
 final before = 2013-10-20T19:20:30+01:00; // DateTime | 
+final member = member_example; // String | 
+final membersLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final query = query_example; // String | 
 final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
 try {
-    final result = api_instance.cgetInternalServicesByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, query, page, limit);
+    final result = api_instance.cgetInternalServicesByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, member, membersLeftSquareBracketRightSquareBracket, query, page, limit);
     print(result);
 } catch (e) {
     print('Exception when calling OrganizationApi->cgetInternalServicesByOrganization: $e\n');
@@ -284,6 +286,8 @@ Name | Type | Description  | Notes
  **orderLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **after** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
+ **member** | **String**|  | [optional] 
+ **membersLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **query** | **String**|  | [optional] 
  **page** | **int**| Page of the overview. | [optional] [default to 1]
  **limit** | **int**| Page of the overview. | [optional] [default to 10]

@@ -27,7 +27,7 @@ void main() {
 
     // Retrieve all InternalService resources.
     //
-    //Future<InternalServicePagination> cgetInternalServicesByOrganization(String xKeyclicApp, String organization, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, DateTime after, DateTime before, String query, int page, int limit }) async
+    //Future<InternalServicePagination> cgetInternalServicesByOrganization(String xKeyclicApp, String organization, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, DateTime after, DateTime before, String member, List<String> membersLeftSquareBracketRightSquareBracket, String query, int page, int limit }) async
     test('test cgetInternalServicesByOrganization', () async {});
 
     // Retrieve all Operation resources.

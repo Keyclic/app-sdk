@@ -417,6 +417,8 @@ class OrganizationApi {
   /// * [orderLeftSquareBracketRightSquareBracket]
   /// * [after]
   /// * [before]
+  /// * [member]
+  /// * [membersLeftSquareBracketRightSquareBracket]
   /// * [query]
   /// * [page] - Page of the overview.
   /// * [limit] - Page of the overview.
@@ -442,6 +444,8 @@ class OrganizationApi {
     List<String>? orderLeftSquareBracketRightSquareBracket,
     DateTime? after,
     DateTime? before,
+    String? member,
+    List<String>? membersLeftSquareBracketRightSquareBracket,
     String? query,
     int? page,
     int? limit,
@@ -488,6 +492,11 @@ class OrganizationApi {
             format: ListFormat.multi),
       if (after != null) r'after': encodeQueryParameter(after),
       if (before != null) r'before': encodeQueryParameter(before),
+      if (member != null) r'member': encodeQueryParameter(member),
+      if (membersLeftSquareBracketRightSquareBracket != null)
+        r'members[]': encodeCollectionQueryParameter(
+            membersLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
       if (query != null) r'query': encodeQueryParameter(query),
       if (page != null) r'page': encodeQueryParameter(page),
       if (limit != null) r'limit': encodeQueryParameter(limit),

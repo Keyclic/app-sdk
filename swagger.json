@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.69.0-dev.gd63162ab2"
+        "version": "2.75.1"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -8369,6 +8369,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/before"
+                    },
+                    {
+                        "$ref": "#\/parameters\/member"
+                    },
+                    {
+                        "$ref": "#\/parameters\/members__"
                     },
                     {
                         "$ref": "#\/parameters\/query"
@@ -20926,9 +20932,6 @@
                 "integration-link:read",
                 "integration-link:write",
                 "integration:read",
-                "ORGANIZATION:AGENT",
-                "ORGANIZATION:MEMBER",
-                "ORGANIZATION:OPERATOR",
                 "ANALYTICS:ALL",
                 "DOCUMENT:ALL",
                 "EXPORT:ALL",
@@ -20953,11 +20956,14 @@
                 "service-offer:write",
                 "sla-policy:read",
                 "ticket:archiving:write",
-                "ticket-task:completed:write",
                 "ticket:read",
                 "ticket:tags:read",
                 "ticket:tags:write",
-                "ticket:write"
+                "ticket-task:completed:write",
+                "ticket:write",
+                "ORGANIZATION:AGENT",
+                "ORGANIZATION:MEMBER",
+                "ORGANIZATION:OPERATOR"
             ]
         },
         "Person": {
@@ -21485,6 +21491,9 @@
         "PlacePreferences": {
             "type": "object",
             "properties": {
+                "public": {
+                    "type": "boolean"
+                },
                 "visibility": {
                     "enum": [
                         "VISIBILITY_PRIVATE",

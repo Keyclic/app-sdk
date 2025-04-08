@@ -22,7 +22,9 @@ class PreferencesForm {
     }
 
     return PreferencesForm(
-      categorySelectionStrategy: json[r'categorySelectionStrategy'],
+      categorySelectionStrategy:
+          PreferencesFormCategorySelectionStrategyEnum.fromJson(
+              json[r'categorySelectionStrategy']),
       contract: json[r'contract'],
       hidden:
           json[r'hidden'] == null ? null : List<String>.from(json[r'hidden']),
@@ -33,7 +35,7 @@ class PreferencesForm {
     );
   }
 
-  String? categorySelectionStrategy;
+  PreferencesFormCategorySelectionStrategyEnum? categorySelectionStrategy;
 
   bool? contract;
 
@@ -128,4 +130,77 @@ class PreferencesForm {
       if (keys == null || keys.contains(r'required_')) r'required': required_,
     };
   }
+}
+
+class PreferencesFormCategorySelectionStrategyEnum {
+  /// Instantiate a new enum with the provided [value].
+  const PreferencesFormCategorySelectionStrategyEnum._(this.value);
+
+  /// The underlying value of this enum member.
+  final String value;
+
+  @override
+  String toString() => value;
+
+  String toJson() => value;
+
+  static const dispatcherBased =
+      PreferencesFormCategorySelectionStrategyEnum._(r'dispatcher_based');
+
+  /// List of all possible values in this [enum][PreferencesFormCategorySelectionStrategyEnum].
+  static const values = <PreferencesFormCategorySelectionStrategyEnum>[
+    dispatcherBased,
+  ];
+
+  static PreferencesFormCategorySelectionStrategyEnum? fromJson(
+          dynamic value) =>
+      PreferencesFormCategorySelectionStrategyEnumTypeTransformer()
+          .decode(value);
+
+  static List<PreferencesFormCategorySelectionStrategyEnum> listFromJson(
+      List<dynamic> json) {
+    return json
+        .map((value) {
+          return PreferencesFormCategorySelectionStrategyEnum.fromJson(value);
+        })
+        .whereType<PreferencesFormCategorySelectionStrategyEnum>()
+        .toList();
+  }
+}
+
+/// Transformation class that can [encode] an instance of [PreferencesFormCategorySelectionStrategyEnum] to String,
+/// and [decode] dynamic data back to [PreferencesFormCategorySelectionStrategyEnum].
+class PreferencesFormCategorySelectionStrategyEnumTypeTransformer {
+  const PreferencesFormCategorySelectionStrategyEnumTypeTransformer._();
+
+  factory PreferencesFormCategorySelectionStrategyEnumTypeTransformer() =>
+      _instance ??=
+          PreferencesFormCategorySelectionStrategyEnumTypeTransformer._();
+
+  String encode(PreferencesFormCategorySelectionStrategyEnum data) =>
+      data.value;
+
+  /// Decodes a [dynamic value][data] to a PreferencesFormCategorySelectionStrategyEnum.
+  ///
+  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
+  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
+  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
+  ///
+  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
+  /// and users are still using an old app with the old code.
+  PreferencesFormCategorySelectionStrategyEnum? decode(dynamic data,
+      {bool allowNull = true}) {
+    switch (data) {
+      case r'dispatcher_based':
+        return PreferencesFormCategorySelectionStrategyEnum.dispatcherBased;
+      default:
+        if (allowNull == false) {
+          throw ArgumentError('Unknown enum value to decode: $data');
+        }
+    }
+    return null;
+  }
+
+  /// Singleton [PreferencesFormCategorySelectionStrategyEnumTypeTransformer] instance.
+  static PreferencesFormCategorySelectionStrategyEnumTypeTransformer? _instance;
 }

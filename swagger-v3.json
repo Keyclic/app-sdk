@@ -22309,6 +22309,9 @@
                 "deprecated": false,
                 "properties": {
                     "categorySelectionStrategy": {
+                        "enum": [
+                            "dispatcher_based"
+                        ],
                         "description": "The selection strategy applied for filtering categories.",
                         "type": "string",
                         "nullable": true

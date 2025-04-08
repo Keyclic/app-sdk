@@ -22,7 +22,9 @@ class FormJsonhalOrganizationPreferenceRead {
     }
 
     return FormJsonhalOrganizationPreferenceRead(
-      categorySelectionStrategy: json[r'categorySelectionStrategy'],
+      categorySelectionStrategy:
+          FormJsonhalOrganizationPreferenceReadCategorySelectionStrategyEnum
+              .fromJson(json[r'categorySelectionStrategy']),
       contract: json[r'contract'],
       hidden:
           json[r'hidden'] == null ? null : List<String>.from(json[r'hidden']),
@@ -34,7 +36,8 @@ class FormJsonhalOrganizationPreferenceRead {
   }
 
   /// The selection strategy applied for filtering categories.
-  String? categorySelectionStrategy;
+  FormJsonhalOrganizationPreferenceReadCategorySelectionStrategyEnum?
+      categorySelectionStrategy;
 
   /// Allow authorized user to provide a contract on feedback form.
   bool? contract;
@@ -136,4 +139,90 @@ class FormJsonhalOrganizationPreferenceRead {
       if (keys == null || keys.contains(r'required_')) r'required': required_,
     };
   }
+}
+
+/// The selection strategy applied for filtering categories.
+class FormJsonhalOrganizationPreferenceReadCategorySelectionStrategyEnum {
+  /// Instantiate a new enum with the provided [value].
+  const FormJsonhalOrganizationPreferenceReadCategorySelectionStrategyEnum._(
+      this.value);
+
+  /// The underlying value of this enum member.
+  final String value;
+
+  @override
+  String toString() => value;
+
+  String toJson() => value;
+
+  static const dispatcherBased =
+      FormJsonhalOrganizationPreferenceReadCategorySelectionStrategyEnum._(
+          r'dispatcher_based');
+
+  /// List of all possible values in this [enum][FormJsonhalOrganizationPreferenceReadCategorySelectionStrategyEnum].
+  static const values =
+      <FormJsonhalOrganizationPreferenceReadCategorySelectionStrategyEnum>[
+    dispatcherBased,
+  ];
+
+  static FormJsonhalOrganizationPreferenceReadCategorySelectionStrategyEnum?
+      fromJson(dynamic value) =>
+          FormJsonhalOrganizationPreferenceReadCategorySelectionStrategyEnumTypeTransformer()
+              .decode(value);
+
+  static List<
+          FormJsonhalOrganizationPreferenceReadCategorySelectionStrategyEnum>
+      listFromJson(List<dynamic> json) {
+    return json
+        .map((value) {
+          return FormJsonhalOrganizationPreferenceReadCategorySelectionStrategyEnum
+              .fromJson(value);
+        })
+        .whereType<
+            FormJsonhalOrganizationPreferenceReadCategorySelectionStrategyEnum>()
+        .toList();
+  }
+}
+
+/// Transformation class that can [encode] an instance of [FormJsonhalOrganizationPreferenceReadCategorySelectionStrategyEnum] to String,
+/// and [decode] dynamic data back to [FormJsonhalOrganizationPreferenceReadCategorySelectionStrategyEnum].
+class FormJsonhalOrganizationPreferenceReadCategorySelectionStrategyEnumTypeTransformer {
+  const FormJsonhalOrganizationPreferenceReadCategorySelectionStrategyEnumTypeTransformer._();
+
+  factory FormJsonhalOrganizationPreferenceReadCategorySelectionStrategyEnumTypeTransformer() =>
+      _instance ??=
+          FormJsonhalOrganizationPreferenceReadCategorySelectionStrategyEnumTypeTransformer
+              ._();
+
+  String encode(
+          FormJsonhalOrganizationPreferenceReadCategorySelectionStrategyEnum
+              data) =>
+      data.value;
+
+  /// Decodes a [dynamic value][data] to a FormJsonhalOrganizationPreferenceReadCategorySelectionStrategyEnum.
+  ///
+  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
+  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
+  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
+  ///
+  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
+  /// and users are still using an old app with the old code.
+  FormJsonhalOrganizationPreferenceReadCategorySelectionStrategyEnum? decode(
+      dynamic data,
+      {bool allowNull = true}) {
+    switch (data) {
+      case r'dispatcher_based':
+        return FormJsonhalOrganizationPreferenceReadCategorySelectionStrategyEnum
+            .dispatcherBased;
+      default:
+        if (allowNull == false) {
+          throw ArgumentError('Unknown enum value to decode: $data');
+        }
+    }
+    return null;
+  }
+
+  /// Singleton [FormJsonhalOrganizationPreferenceReadCategorySelectionStrategyEnumTypeTransformer] instance.
+  static FormJsonhalOrganizationPreferenceReadCategorySelectionStrategyEnumTypeTransformer?
+      _instance;
 }

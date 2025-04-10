@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **links** | [**RuleLinks**](RuleLinks.md) |  | [optional] 
 **description** | **String** |  | [optional] 
+**descriptionAsMarkdown** | **String** |  | [optional] 
 **id** | **String** |  | [optional] [readonly] 
 **name** | **String** |  | [optional] 
 **type** | **String** |  | [optional] 

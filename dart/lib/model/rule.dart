@@ -9,6 +9,7 @@ class Rule {
   Rule({
     this.links,
     this.description,
+    this.descriptionAsMarkdown,
     this.id,
     this.name,
     this.type,
@@ -24,6 +25,7 @@ class Rule {
     return Rule(
       links: RuleLinks.fromJson(json[r'_links']),
       description: json[r'description'],
+      descriptionAsMarkdown: json[r'descriptionAsMarkdown'],
       id: json[r'id'],
       name: json[r'name'],
       type: json[r'type'],
@@ -33,6 +35,8 @@ class Rule {
   RuleLinks? links;
 
   String? description;
+
+  String? descriptionAsMarkdown;
 
   final String? id;
 
@@ -50,6 +54,7 @@ class Rule {
     return other is Rule &&
         other.links == links &&
         other.description == description &&
+        other.descriptionAsMarkdown == descriptionAsMarkdown &&
         other.id == id &&
         other.name == name &&
         other.type == type;
@@ -59,6 +64,7 @@ class Rule {
   int get hashCode =>
       (links == null ? 0 : links.hashCode) +
       (description == null ? 0 : description.hashCode) +
+      (descriptionAsMarkdown == null ? 0 : descriptionAsMarkdown.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (name == null ? 0 : name.hashCode) +
       (type == null ? 0 : type.hashCode);
@@ -107,7 +113,7 @@ class Rule {
 
   @override
   String toString() =>
-      'Rule[links=$links, description=$description, id=$id, name=$name, type=$type]';
+      'Rule[links=$links, description=$description, descriptionAsMarkdown=$descriptionAsMarkdown, id=$id, name=$name, type=$type]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -122,6 +128,8 @@ class Rule {
         })),
       if (keys == null || keys.contains(r'description'))
         r'description': description,
+      if (keys == null || keys.contains(r'descriptionAsMarkdown'))
+        r'descriptionAsMarkdown': descriptionAsMarkdown,
       if (keys == null || keys.contains(r'id')) r'id': id,
       if (keys == null || keys.contains(r'name')) r'name': name,
       if (keys == null || keys.contains(r'type')) r'type': type,

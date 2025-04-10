@@ -16,6 +16,9 @@ void main() {
     // String description
     test('to test the property `description`', () async {});
 
+    // String descriptionAsMarkdown
+    test('to test the property `descriptionAsMarkdown`', () async {});
+
     // String id
     test('to test the property `id`', () async {});
 

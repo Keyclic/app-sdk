@@ -1,4 +1,4 @@
-# keyclic_sdk_api.model.Rule
+# keyclic_sdk_api.model.RuleText
 
 ## Load the model package
 ```dart
@@ -8,11 +8,8 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**links** | [**RuleLinks**](RuleLinks.md) |  | [optional] 
-**description** | [**RuleText**](RuleText.md) |  | [optional] 
-**id** | **String** |  | [optional] [readonly] 
-**name** | **String** |  | [optional] 
-**type** | **String** |  | [optional] 
+**format** | **String** |  | [optional] 
+**value** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

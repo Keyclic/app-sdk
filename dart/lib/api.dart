@@ -554,6 +554,7 @@ part 'model/rule_links_service.dart';
 part 'model/rule_links_service_iri_template.dart';
 part 'model/rule_pagination.dart';
 part 'model/rule_patch.dart';
+part 'model/rule_text.dart';
 part 'model/run.dart';
 part 'model/run_data.dart';
 part 'model/schema.dart';

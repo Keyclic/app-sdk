@@ -23,7 +23,7 @@ class Rule {
 
     return Rule(
       links: RuleLinks.fromJson(json[r'_links']),
-      description: json[r'description'],
+      description: RuleText.fromJson(json[r'description']),
       id: json[r'id'],
       name: json[r'name'],
       type: json[r'type'],
@@ -32,7 +32,7 @@ class Rule {
 
   RuleLinks? links;
 
-  String? description;
+  RuleText? description;
 
   final String? id;
 
@@ -120,8 +120,16 @@ class Rule {
 
           return previousValue;
         })),
-      if (keys == null || keys.contains(r'description'))
-        r'description': description,
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^description\.').hasMatch(key)))
+        r'description': description?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^description\.'))) {
+            previousValue.add(element.split(RegExp(r'^description\.')).last);
+          }
+
+          return previousValue;
+        })),
       if (keys == null || keys.contains(r'id')) r'id': id,
       if (keys == null || keys.contains(r'name')) r'name': name,
       if (keys == null || keys.contains(r'type')) r'type': type,

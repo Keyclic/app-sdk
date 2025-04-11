@@ -10,6 +10,9 @@ void main() {
   // final instance = PreferencesForm();
 
   group('test PreferencesForm', () {
+    // String categorySelectionStrategy
+    test('to test the property `categorySelectionStrategy`', () async {});
+
     // bool contract
     test('to test the property `contract`', () async {});
 

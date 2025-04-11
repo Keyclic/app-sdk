@@ -8,6 +8,7 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**categorySelectionStrategy** | **String** |  | [optional] 
 **contract** | **bool** |  | [optional] 
 **hidden** | **List<String>** |  | [optional] [default to const []]
 **manualDispatch** | **bool** |  | [optional] 

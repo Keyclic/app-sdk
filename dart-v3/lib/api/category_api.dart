@@ -120,7 +120,7 @@ class CategoryApi {
   /// * [leaf] -
   /// * [level] -
   /// * [levelLeftSquareBracketRightSquareBracket] -
-  /// * [categoryPlaceRules] - Filter categories by place rules
+  /// * [strategyLeftSquareBracketDispatcherBasedRightSquareBracketLeftSquareBracketPlaceRightSquareBracket] - Filter by dispatcher rules
   /// * [acceptLanguage] -
   /// * [xDateTime] -
   /// * [xKeyclicAppPlatform] -
@@ -145,7 +145,8 @@ class CategoryApi {
     bool? leaf,
     int? level,
     List<int>? levelLeftSquareBracketRightSquareBracket,
-    String? categoryPlaceRules,
+    String?
+        strategyLeftSquareBracketDispatcherBasedRightSquareBracketLeftSquareBracketPlaceRightSquareBracket,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
@@ -198,8 +199,10 @@ class CategoryApi {
         r'level[]': encodeCollectionQueryParameter(
             levelLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
-      if (categoryPlaceRules != null)
-        r'category_place_rules': encodeQueryParameter(categoryPlaceRules),
+      if (strategyLeftSquareBracketDispatcherBasedRightSquareBracketLeftSquareBracketPlaceRightSquareBracket !=
+          null)
+        r'strategy[dispatcher_based][place]': encodeQueryParameter(
+            strategyLeftSquareBracketDispatcherBasedRightSquareBracketLeftSquareBracketPlaceRightSquareBracket),
     };
 
     final response = await _apiClient.dio.request<Object>(

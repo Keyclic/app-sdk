@@ -3011,9 +3011,9 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "category_place_rules",
+                        "name": "strategy[dispatcher_based][place]",
                         "in": "query",
-                        "description": "Filter categories by place rules",
+                        "description": "Filter by dispatcher rules",
                         "required": false,
                         "deprecated": false,
                         "allowEmptyValue": true,

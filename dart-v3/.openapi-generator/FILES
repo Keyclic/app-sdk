@@ -69,8 +69,6 @@ doc/GetAssetCollection200Response.md
 doc/GetAssetCollection200ResponseEmbedded.md
 doc/GetAssetTypeCollection200Response.md
 doc/GetAssetTypeCollection200ResponseEmbedded.md
-doc/GetAuthToken200Response.md
-doc/GetAuthTokenRequest.md
 doc/GetBookmarkCollection200Response.md
 doc/GetBookmarkCollection200ResponseEmbedded.md
 doc/GetBrandCollection200Response.md
@@ -151,6 +149,10 @@ doc/PlaceCreatePlaceCommandWriteCreate.md
 doc/PlaceEditPlaceCommandWriteEdit.md
 doc/PlaceJsonhalRead.md
 doc/PointJsonhalRead.md
+doc/PostAuthToken200Response.md
+doc/PostAuthTokenRequest.md
+doc/PostRefreshTokenRequest.md
+doc/PostRevoke200Response.md
 doc/PostalAddressJsonhalRead.md
 doc/PostalAddressWrite.md
 doc/PostalAddressWriteCreate.md
@@ -313,8 +315,6 @@ lib/model/get_asset_collection200_response.dart
 lib/model/get_asset_collection200_response_embedded.dart
 lib/model/get_asset_type_collection200_response.dart
 lib/model/get_asset_type_collection200_response_embedded.dart
-lib/model/get_auth_token200_response.dart
-lib/model/get_auth_token_request.dart
 lib/model/get_bookmark_collection200_response.dart
 lib/model/get_bookmark_collection200_response_embedded.dart
 lib/model/get_brand_collection200_response.dart
@@ -389,6 +389,10 @@ lib/model/place_create_place_command_write_create.dart
 lib/model/place_edit_place_command_write_edit.dart
 lib/model/place_jsonhal_read.dart
 lib/model/point_jsonhal_read.dart
+lib/model/post_auth_token200_response.dart
+lib/model/post_auth_token_request.dart
+lib/model/post_refresh_token_request.dart
+lib/model/post_revoke200_response.dart
 lib/model/postal_address_jsonhal_read.dart
 lib/model/postal_address_write.dart
 lib/model/postal_address_write_create.dart
@@ -512,8 +516,6 @@ test/get_asset_collection200_response_embedded_test.dart
 test/get_asset_collection200_response_test.dart
 test/get_asset_type_collection200_response_embedded_test.dart
 test/get_asset_type_collection200_response_test.dart
-test/get_auth_token200_response_test.dart
-test/get_auth_token_request_test.dart
 test/get_bookmark_collection200_response_embedded_test.dart
 test/get_bookmark_collection200_response_test.dart
 test/get_brand_collection200_response_embedded_test.dart
@@ -594,6 +596,10 @@ test/place_create_place_command_write_create_test.dart
 test/place_edit_place_command_write_edit_test.dart
 test/place_jsonhal_read_test.dart
 test/point_jsonhal_read_test.dart
+test/post_auth_token200_response_test.dart
+test/post_auth_token_request_test.dart
+test/post_refresh_token_request_test.dart
+test/post_revoke200_response_test.dart
 test/postal_address_jsonhal_read_test.dart
 test/postal_address_write_create_test.dart
 test/postal_address_write_edit_test.dart

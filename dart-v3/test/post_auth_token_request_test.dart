@@ -5,11 +5,11 @@
 // import 'package:keyclic_sdk_api_platform/api.dart';
 import 'package:test/test.dart';
 
-// tests for GetAuthTokenRequest
+// tests for PostAuthTokenRequest
 void main() {
-  // final instance = GetAuthTokenRequest();
+  // final instance = PostAuthTokenRequest();
 
-  group('test GetAuthTokenRequest', () {
+  group('test PostAuthTokenRequest', () {
     // String grantType
     test('to test the property `grantType`', () async {});
 

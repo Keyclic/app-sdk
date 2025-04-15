@@ -9,7 +9,6 @@ class SuccessLogin {
   SuccessLogin({
     this.accessToken,
     this.idToken,
-    this.tokenType,
   });
 
   /// Returns a new [SuccessLogin] instance and imports its values from
@@ -22,15 +21,12 @@ class SuccessLogin {
     return SuccessLogin(
       accessToken: json[r'accessToken'],
       idToken: json[r'idToken'],
-      tokenType: json[r'tokenType'],
     );
   }
 
   String? accessToken;
 
   String? idToken;
-
-  String? tokenType;
 
   @override
   bool operator ==(Object other) {
@@ -41,15 +37,13 @@ class SuccessLogin {
 
     return other is SuccessLogin &&
         other.accessToken == accessToken &&
-        other.idToken == idToken &&
-        other.tokenType == tokenType;
+        other.idToken == idToken;
   }
 
   @override
   int get hashCode =>
       (accessToken == null ? 0 : accessToken.hashCode) +
-      (idToken == null ? 0 : idToken.hashCode) +
-      (tokenType == null ? 0 : tokenType.hashCode);
+      (idToken == null ? 0 : idToken.hashCode);
 
   static List<SuccessLogin> listFromJson(Iterable? json) {
     if (json == null) {
@@ -98,14 +92,13 @@ class SuccessLogin {
 
   @override
   String toString() =>
-      'SuccessLogin[accessToken=$accessToken, idToken=$idToken, tokenType=$tokenType]';
+      'SuccessLogin[accessToken=$accessToken, idToken=$idToken]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       if (keys == null || keys.contains(r'accessToken'))
         r'accessToken': accessToken,
       if (keys == null || keys.contains(r'idToken')) r'idToken': idToken,
-      if (keys == null || keys.contains(r'tokenType')) r'tokenType': tokenType,
     };
   }
 }

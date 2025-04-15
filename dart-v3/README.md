@@ -73,8 +73,10 @@ Class | Method | HTTP request | Description
 *AssetApi* | [**getAssetCollection**](doc//AssetApi.md#getassetcollection) | **GET** /assets | Retrieves the collection of Asset resources.
 *AssetTypeApi* | [**getAssetType**](doc//AssetTypeApi.md#getassettype) | **GET** /asset-types/{identifier} | Retrieves a AssetType resource.
 *AssetTypeApi* | [**getAssetTypeCollection**](doc//AssetTypeApi.md#getassettypecollection) | **GET** /asset-types | Retrieves the collection of AssetType resources.
-*AuthApi* | [**getAuthToken**](doc//AuthApi.md#getauthtoken) | **POST** /auth/token | Retrieve an access token and ID token.
 *AuthApi* | [**postAuthProfile**](doc//AuthApi.md#postauthprofile) | **POST** /auth/profile | Creates a Profile resource.
+*AuthApi* | [**postAuthToken**](doc//AuthApi.md#postauthtoken) | **POST** /auth/token | Retrieve an access token and ID token.
+*AuthApi* | [**postRefreshToken**](doc//AuthApi.md#postrefreshtoken) | **POST** /auth/token/refresh | Refresh access and refresh tokens using a valid refresh token.
+*AuthApi* | [**postRevoke**](doc//AuthApi.md#postrevoke) | **POST** /auth/token/revoke | Revoke a refresh token (logout).
 *BookmarkApi* | [**getBookmark**](doc//BookmarkApi.md#getbookmark) | **GET** /v2/bookmarks/{identifier} | Retrieves a Bookmark resource.
 *BookmarkApi* | [**getBookmarkCollection**](doc//BookmarkApi.md#getbookmarkcollection) | **GET** /v2/bookmarks | Retrieves the collection of Bookmark resources.
 *BrandApi* | [**getBrand**](doc//BrandApi.md#getbrand) | **GET** /brands/{identifier} | Retrieves a Brand resource.
@@ -204,8 +206,6 @@ Class | Method | HTTP request | Description
  - [GetAssetCollection200ResponseEmbedded](doc//GetAssetCollection200ResponseEmbedded.md)
  - [GetAssetTypeCollection200Response](doc//GetAssetTypeCollection200Response.md)
  - [GetAssetTypeCollection200ResponseEmbedded](doc//GetAssetTypeCollection200ResponseEmbedded.md)
- - [GetAuthToken200Response](doc//GetAuthToken200Response.md)
- - [GetAuthTokenRequest](doc//GetAuthTokenRequest.md)
  - [GetBookmarkCollection200Response](doc//GetBookmarkCollection200Response.md)
  - [GetBookmarkCollection200ResponseEmbedded](doc//GetBookmarkCollection200ResponseEmbedded.md)
  - [GetBrandCollection200Response](doc//GetBrandCollection200Response.md)
@@ -280,6 +280,10 @@ Class | Method | HTTP request | Description
  - [PlaceEditPlaceCommandWriteEdit](doc//PlaceEditPlaceCommandWriteEdit.md)
  - [PlaceJsonhalRead](doc//PlaceJsonhalRead.md)
  - [PointJsonhalRead](doc//PointJsonhalRead.md)
+ - [PostAuthToken200Response](doc//PostAuthToken200Response.md)
+ - [PostAuthTokenRequest](doc//PostAuthTokenRequest.md)
+ - [PostRefreshTokenRequest](doc//PostRefreshTokenRequest.md)
+ - [PostRevoke200Response](doc//PostRevoke200Response.md)
  - [PostalAddressJsonhalRead](doc//PostalAddressJsonhalRead.md)
  - [PostalAddressWrite](doc//PostalAddressWrite.md)
  - [PostalAddressWriteCreate](doc//PostalAddressWriteCreate.md)

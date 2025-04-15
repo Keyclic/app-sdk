@@ -391,10 +391,6 @@ class ApiPlatformClient {
           return GetAssetTypeCollection200Response.fromJson(value);
         case 'GetAssetTypeCollection200ResponseEmbedded':
           return GetAssetTypeCollection200ResponseEmbedded.fromJson(value);
-        case 'GetAuthToken200Response':
-          return GetAuthToken200Response.fromJson(value);
-        case 'GetAuthTokenRequest':
-          return GetAuthTokenRequest.fromJson(value);
         case 'GetBookmarkCollection200Response':
           return GetBookmarkCollection200Response.fromJson(value);
         case 'GetBookmarkCollection200ResponseEmbedded':
@@ -545,6 +541,14 @@ class ApiPlatformClient {
           return PlaceJsonhalRead.fromJson(value);
         case 'PointJsonhalRead':
           return PointJsonhalRead.fromJson(value);
+        case 'PostAuthToken200Response':
+          return PostAuthToken200Response.fromJson(value);
+        case 'PostAuthTokenRequest':
+          return PostAuthTokenRequest.fromJson(value);
+        case 'PostRefreshTokenRequest':
+          return PostRefreshTokenRequest.fromJson(value);
+        case 'PostRevoke200Response':
+          return PostRevoke200Response.fromJson(value);
         case 'PostalAddressJsonhalRead':
           return PostalAddressJsonhalRead.fromJson(value);
         case 'PostalAddressWrite':

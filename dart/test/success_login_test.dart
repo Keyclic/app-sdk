@@ -15,8 +15,5 @@ void main() {
 
     // String idToken
     test('to test the property `idToken`', () async {});
-
-    // String tokenType (default value: 'Bearer')
-    test('to test the property `tokenType`', () async {});
   });
 }

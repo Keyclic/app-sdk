@@ -23977,6 +23977,10 @@
                 "idToken": {
                     "type": "string",
                     "format": "string"
+                },
+                "refreshToken": {
+                    "type": "string",
+                    "format": "string"
                 }
             }
         },

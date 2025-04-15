@@ -15,5 +15,8 @@ void main() {
 
     // String idToken
     test('to test the property `idToken`', () async {});
+
+    // String refreshToken
+    test('to test the property `refreshToken`', () async {});
   });
 }

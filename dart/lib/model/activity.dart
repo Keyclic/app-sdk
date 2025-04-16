@@ -8,6 +8,7 @@ class Activity {
   /// Returns a new [Activity] instance.
   Activity({
     this.actor,
+    this.context,
     this.message,
     this.object,
     this.origin,
@@ -26,6 +27,9 @@ class Activity {
 
     return Activity(
       actor: json[r'actor'],
+      context: json[r'context'] == null
+          ? null
+          : Map<String, Object?>.from(json[r'context']),
       message: json[r'message'],
       object: json[r'object'],
       origin: json[r'origin'],
@@ -37,6 +41,8 @@ class Activity {
   }
 
   String? actor;
+
+  Map<String, Object?>? context;
 
   String? message;
 
@@ -61,6 +67,7 @@ class Activity {
 
     return other is Activity &&
         other.actor == actor &&
+        DeepCollectionEquality.unordered().equals(context, other.context) &&
         other.message == message &&
         other.object == object &&
         other.origin == origin &&
@@ -73,6 +80,7 @@ class Activity {
   @override
   int get hashCode =>
       (actor == null ? 0 : actor.hashCode) +
+      (context == null ? 0 : context.hashCode) +
       (message == null ? 0 : message.hashCode) +
       (object == null ? 0 : object.hashCode) +
       (origin == null ? 0 : origin.hashCode) +
@@ -127,11 +135,12 @@ class Activity {
 
   @override
   String toString() =>
-      'Activity[actor=$actor, message=$message, object=$object, origin=$origin, subject=$subject, time=$time, title=$title, verb=$verb]';
+      'Activity[actor=$actor, context=$context, message=$message, object=$object, origin=$origin, subject=$subject, time=$time, title=$title, verb=$verb]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       if (keys == null || keys.contains(r'actor')) r'actor': actor,
+      if (keys == null || keys.contains(r'context')) r'context': context,
       if (keys == null || keys.contains(r'message')) r'message': message,
       if (keys == null || keys.contains(r'object')) r'object': object,
       if (keys == null || keys.contains(r'origin')) r'origin': origin,

@@ -10,6 +10,10 @@ void main() {
   // final instance = FormJsonhalOrganizationPreferenceRead();
 
   group('test FormJsonhalOrganizationPreferenceRead', () {
+    // The selection strategy applied for filtering categories.
+    // String categorySelectionStrategy
+    test('to test the property `categorySelectionStrategy`', () async {});
+
     // Allow authorized user to provide a contract on feedback form.
     // bool contract
     test('to test the property `contract`', () async {});

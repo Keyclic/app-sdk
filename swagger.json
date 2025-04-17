@@ -21120,6 +21120,13 @@
         "PreferencesForm": {
             "type": "object",
             "properties": {
+                "categorySelectionStrategy": {
+                    "enum": [
+                        "dispatcher_based"
+                    ],
+                    "format": "string",
+                    "type": "string"
+                },
                 "contract": {
                     "type": "boolean"
                 },

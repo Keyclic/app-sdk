@@ -3136,6 +3136,20 @@
                         "allowReserved": false
                     },
                     {
+                        "name": "strategy[dispatcher_based][place]",
+                        "in": "query",
+                        "description": "Filter by dispatcher rules",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
                         "name": "Accept-Language",
                         "in": "header",
                         "description": "",
@@ -23025,6 +23039,14 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
+                    "categorySelectionStrategy": {
+                        "enum": [
+                            "dispatcher_based"
+                        ],
+                        "description": "The selection strategy applied for filtering categories.",
+                        "type": "string",
+                        "nullable": true
+                    },
                     "contract": {
                         "description": "Allow authorized user to provide a contract on feedback form.",
                         "type": "boolean"

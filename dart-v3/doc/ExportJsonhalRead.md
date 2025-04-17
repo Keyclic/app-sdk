@@ -11,10 +11,10 @@ Name | Type | Description | Notes
 **links** | [**AssetTypeJsonhalReadLinks**](AssetTypeJsonhalReadLinks.md) |  | [optional] 
 **id** | **String** | The resource identifier. | [optional] [readonly] 
 **contentType** | **String** |  | [default to 'application/vnd.ms-excel']
-**downloadUrl** | **String** |  | [optional] 
 **expiredAt** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 
 **groupBy** | **String** |  | [optional] 
 **name** | **String** |  | [optional] 
+**downloadUrl** | **String** |  | [optional] 
 **createdAt** | [**DateTime**](DateTime.md) | The date and time when the resource was created, in UTC format. | [optional] [readonly] 
 **updatedAt** | [**DateTime**](DateTime.md) | The date and time when the resource was updated, in UTC format. | [optional] [readonly] 
 

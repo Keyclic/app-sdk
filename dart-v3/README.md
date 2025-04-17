@@ -73,6 +73,10 @@ Class | Method | HTTP request | Description
 *AssetApi* | [**getAssetCollection**](doc//AssetApi.md#getassetcollection) | **GET** /assets | Retrieves the collection of Asset resources.
 *AssetTypeApi* | [**getAssetType**](doc//AssetTypeApi.md#getassettype) | **GET** /asset-types/{identifier} | Retrieves a AssetType resource.
 *AssetTypeApi* | [**getAssetTypeCollection**](doc//AssetTypeApi.md#getassettypecollection) | **GET** /asset-types | Retrieves the collection of AssetType resources.
+*AttachmentApi* | [**deleteAttachment**](doc//AttachmentApi.md#deleteattachment) | **DELETE** /attachments/{identifier} | Removes the Attachment resource.
+*AttachmentApi* | [**getAttachment**](doc//AttachmentApi.md#getattachment) | **GET** /attachments/{identifier} | Retrieves a Attachment resource.
+*AttachmentApi* | [**getAttachments**](doc//AttachmentApi.md#getattachments) | **GET** /attachments | Retrieves the collection of Attachment resources.
+*AttachmentApi* | [**postAttachment**](doc//AttachmentApi.md#postattachment) | **POST** /attachments | Creates a Attachment resource.
 *AuthApi* | [**getAuthToken**](doc//AuthApi.md#getauthtoken) | **POST** /auth/token | Retrieve an access token and ID token.
 *AuthApi* | [**postAuthProfile**](doc//AuthApi.md#postauthprofile) | **POST** /auth/profile | Creates a Profile resource.
 *BookmarkApi* | [**getBookmark**](doc//BookmarkApi.md#getbookmark) | **GET** /v2/bookmarks/{identifier} | Retrieves a Bookmark resource.
@@ -167,6 +171,9 @@ Class | Method | HTTP request | Description
  - [AssetTypeJsonhalReadLinks](doc//AssetTypeJsonhalReadLinks.md)
  - [AssignmentJsonhalRead](doc//AssignmentJsonhalRead.md)
  - [AssignmentJsonhalReadLinks](doc//AssignmentJsonhalReadLinks.md)
+ - [AttachmentCreateAttachmentCommandWrite](doc//AttachmentCreateAttachmentCommandWrite.md)
+ - [AttachmentJsonhalRead](doc//AttachmentJsonhalRead.md)
+ - [AttachmentJsonhalReadLinks](doc//AttachmentJsonhalReadLinks.md)
  - [BillingJsonhalRead](doc//BillingJsonhalRead.md)
  - [BillingWrite](doc//BillingWrite.md)
  - [BookmarkJsonhalRead](doc//BookmarkJsonhalRead.md)
@@ -216,6 +223,8 @@ Class | Method | HTTP request | Description
  - [GetAssetCollection200ResponseEmbedded](doc//GetAssetCollection200ResponseEmbedded.md)
  - [GetAssetTypeCollection200Response](doc//GetAssetTypeCollection200Response.md)
  - [GetAssetTypeCollection200ResponseEmbedded](doc//GetAssetTypeCollection200ResponseEmbedded.md)
+ - [GetAttachments200Response](doc//GetAttachments200Response.md)
+ - [GetAttachments200ResponseEmbedded](doc//GetAttachments200ResponseEmbedded.md)
  - [GetAuthToken200Response](doc//GetAuthToken200Response.md)
  - [GetAuthTokenRequest](doc//GetAuthTokenRequest.md)
  - [GetBookmarkCollection200Response](doc//GetBookmarkCollection200Response.md)

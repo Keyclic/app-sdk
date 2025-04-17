@@ -12,13 +12,11 @@ Method | HTTP request | Description
 [**cgetAssignmentsByOperation**](OperationApi.md#cgetassignmentsbyoperation) | **GET** /operations/{operation}/assignments | Retrieve all Assignment resources.
 [**cgetCommentsByOperation**](OperationApi.md#cgetcommentsbyoperation) | **GET** /operations/{operation}/comments | Retrieve all Comment resources.
 [**cgetDocumentsByOperation**](OperationApi.md#cgetdocumentsbyoperation) | **GET** /operations/{operation}/documents | Retrieve all Document resources.
-[**deleteAttachmentByOperationAndAttachment**](OperationApi.md#deleteattachmentbyoperationandattachment) | **DELETE** /operations/{operation}/attachments/{attachment} | Remove one Attachment resource.
 [**deleteOperation**](OperationApi.md#deleteoperation) | **DELETE** /operations/{operation} | Remove one Operation resource.
 [**getOperation**](OperationApi.md#getoperation) | **GET** /operations/{operation} | Retrieve one Operation resource.
 [**getTrackingByOperation**](OperationApi.md#gettrackingbyoperation) | **GET** /operations/{operation}/tracking | Retrieve one Tracking resource.
 [**patchOperation**](OperationApi.md#patchoperation) | **PATCH** /operations/{operation} | Edit one Operation resource.
 [**postAssignByOperation**](OperationApi.md#postassignbyoperation) | **POST** /operations/{operation}/assign | Create one Assign resource.
-[**postAttachmentByOperation**](OperationApi.md#postattachmentbyoperation) | **POST** /operations/{operation}/attachments | Create one Attachment resource.
 [**postCommentByOperation**](OperationApi.md#postcommentbyoperation) | **POST** /operations/{operation}/comments | Create one Comment resource.
 [**postDocumentByOperation**](OperationApi.md#postdocumentbyoperation) | **POST** /operations/{operation}/documents | Create one Document resource.
 [**postOperation**](OperationApi.md#postoperation) | **POST** /operations | Create one Operation resource.
@@ -210,62 +208,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DocumentPagination**](DocumentPagination.md)
-
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/hal+json;charset=UTF-8
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **deleteAttachmentByOperationAndAttachment**
-> deleteAttachmentByOperationAndAttachment(xKeyclicApp, operation, attachment, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
-
-Remove one Attachment resource.
-
-### Example
-```dart
-import 'package:keyclic_sdk_api/api.dart';
-// TODO Configure API key authorization: bearer
-//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
-
-final api_instance = OperationApi();
-final xKeyclicApp = xKeyclicApp_example; // String | 
-final operation = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
-final attachment = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
-final acceptLanguage = acceptLanguage_example; // String | 
-final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
-
-try {
-    api_instance.deleteAttachmentByOperationAndAttachment(xKeyclicApp, operation, attachment, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
-} catch (e) {
-    print('Exception when calling OperationApi->deleteAttachmentByOperationAndAttachment: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
- **operation** | **String**| The identifier of the resource. | 
- **attachment** | **String**| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
- **xDateTime** | **DateTime**|  | [optional] 
- **xKeyclicAppPlatform** | **String**|  | [optional] 
- **xKeyclicAppVersion** | **String**|  | [optional] 
-
-### Return type
-
-void (empty response body)
 
 ### Authorization
 
@@ -536,63 +478,6 @@ Name | Type | Description  | Notes
  **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **operation** | **String**| The identifier of the resource. | 
  **assignData** | [**AssignData**](AssignData.md)|  | 
- **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
- **xDateTime** | **DateTime**|  | [optional] 
- **xKeyclicAppPlatform** | **String**|  | [optional] 
- **xKeyclicAppVersion** | **String**|  | [optional] 
-
-### Return type
-
-[**Operation**](Operation.md)
-
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=UTF-8
- - **Accept**: application/hal+json;charset=UTF-8
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **postAttachmentByOperation**
-> Operation postAttachmentByOperation(xKeyclicApp, operation, fileData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
-
-Create one Attachment resource.
-
-### Example
-```dart
-import 'package:keyclic_sdk_api/api.dart';
-// TODO Configure API key authorization: bearer
-//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
-
-final api_instance = OperationApi();
-final xKeyclicApp = xKeyclicApp_example; // String | 
-final operation = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
-final fileData = FileData(); // FileData | 
-final acceptLanguage = acceptLanguage_example; // String | 
-final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
-
-try {
-    final result = api_instance.postAttachmentByOperation(xKeyclicApp, operation, fileData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
-    print(result);
-} catch (e) {
-    print('Exception when calling OperationApi->postAttachmentByOperation: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
- **operation** | **String**| The identifier of the resource. | 
- **fileData** | [**FileData**](FileData.md)|  | 
  **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 

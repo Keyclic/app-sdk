@@ -9,6 +9,7 @@ import 'package:keyclic_sdk_api/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **actor** | **String** |  | [optional] 
+**context** | [**Map<String, Object>**](Object.md) |  | [optional] [default to const {}]
 **message** | **String** |  | [optional] 
 **object** | **String** |  | [optional] 
 **origin** | **String** |  | [optional] 

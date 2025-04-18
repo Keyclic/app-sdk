@@ -13,6 +13,9 @@ void main() {
     // String actor
     test('to test the property `actor`', () async {});
 
+    // Map<String, dynamic> context (default value: const {})
+    test('to test the property `context`', () async {});
+
     // String message
     test('to test the property `message`', () async {});
 

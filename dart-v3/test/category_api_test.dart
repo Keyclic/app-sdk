@@ -21,7 +21,7 @@ void main() {
     //
     // Retrieves the collection of Category resources.
     //
-    //Future<GetCategoryCollection200Response> getCategoryCollection(String xKeyclicApp, String xOrganizationId, { int page, int limit, bool pagination, String search, bool enabled, bool leaf, int level, List<int> levelLeftSquareBracketRightSquareBracket, String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
+    //Future<GetCategoryCollection200Response> getCategoryCollection(String xKeyclicApp, String xOrganizationId, { int page, int limit, bool pagination, String search, bool enabled, bool leaf, int level, List<int> levelLeftSquareBracketRightSquareBracket, String strategyLeftSquareBracketDispatcherBasedRightSquareBracketLeftSquareBracketPlaceRightSquareBracket, String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
     test('test getCategoryCollection', () async {});
   });
 }

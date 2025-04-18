@@ -1,42 +1,44 @@
-# keyclic_sdk_api.api.DeviceApi
+# keyclic_sdk_api_platform.api.DeviceApi
 
 ## Load the API package
 ```dart
-import 'package:keyclic_sdk_api/api.dart';
+import 'package:keyclic_sdk_api_platform/api.dart';
 ```
 
-All URIs are relative to *https://api.keyclic.com*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteDevice**](DeviceApi.md#deletedevice) | **DELETE** /devices/{device} | Remove one Device resource.
-[**getDevice**](DeviceApi.md#getdevice) | **GET** /devices/{device} | Retrieve one Device resource.
-[**postDevice**](DeviceApi.md#postdevice) | **POST** /devices | Create one Device resource.
+[**deleteDevice**](DeviceApi.md#deletedevice) | **DELETE** /devices/{token} | Removes the Device resource.
+[**getDevice**](DeviceApi.md#getdevice) | **GET** /devices/{token} | Retrieves a Device resource.
+[**postDevice**](DeviceApi.md#postdevice) | **POST** /devices | Creates a Device resource.
 
 
 # **deleteDevice**
-> deleteDevice(xKeyclicApp, device, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> deleteDevice(token, xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
-Remove one Device resource.
+Removes the Device resource.
+
+Removes the Device resource.
 
 ### Example
 ```dart
-import 'package:keyclic_sdk_api/api.dart';
-// TODO Configure API key authorization: bearer
-//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
+import 'package:keyclic_sdk_api_platform/api.dart';
+// TODO Configure API key authorization: apiKey
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
 
 final api_instance = DeviceApi();
+final token = token_example; // String | Device identifier
 final xKeyclicApp = xKeyclicApp_example; // String | 
-final device = device_example; // String | 
 final acceptLanguage = acceptLanguage_example; // String | 
 final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try {
-    api_instance.deleteDevice(xKeyclicApp, device, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    api_instance.deleteDevice(token, xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
 } catch (e) {
     print('Exception when calling DeviceApi->deleteDevice: $e\n');
 }
@@ -46,8 +48,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
- **device** | **String**|  | 
+ **token** | **String**| Device identifier | 
+ **xKeyclicApp** | **String**|  | 
  **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
@@ -59,38 +61,41 @@ void (empty response body)
 
 ### Authorization
 
-[bearer](../README.md#bearer)
+[apiKey](../README.md#apiKey)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/hal+json;charset=UTF-8
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getDevice**
-> getDevice(xKeyclicApp, device, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> DeviceJsonhalRead getDevice(token, xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
-Retrieve one Device resource.
+Retrieves a Device resource.
+
+Retrieves a Device resource.
 
 ### Example
 ```dart
-import 'package:keyclic_sdk_api/api.dart';
-// TODO Configure API key authorization: bearer
-//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
+import 'package:keyclic_sdk_api_platform/api.dart';
+// TODO Configure API key authorization: apiKey
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
 
 final api_instance = DeviceApi();
+final token = token_example; // String | Device identifier
 final xKeyclicApp = xKeyclicApp_example; // String | 
-final device = device_example; // String | 
 final acceptLanguage = acceptLanguage_example; // String | 
 final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try {
-    api_instance.getDevice(xKeyclicApp, device, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getDevice(token, xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    print(result);
 } catch (e) {
     print('Exception when calling DeviceApi->getDevice: $e\n');
 }
@@ -100,8 +105,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
- **device** | **String**|  | 
+ **token** | **String**| Device identifier | 
+ **xKeyclicApp** | **String**|  | 
  **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
@@ -109,42 +114,44 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**DeviceJsonhalRead**](DeviceJsonhalRead.md)
 
 ### Authorization
 
-[bearer](../README.md#bearer)
+[apiKey](../README.md#apiKey)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/hal+json;charset=UTF-8
+ - **Accept**: application/hal+json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postDevice**
-> Device postDevice(xKeyclicApp, deviceData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> DeviceJsonhalRead postDevice(xKeyclicApp, deviceCreateDeviceCommandWrite, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
-Create one Device resource.
+Creates a Device resource.
+
+Creates a Device resource.
 
 ### Example
 ```dart
-import 'package:keyclic_sdk_api/api.dart';
-// TODO Configure API key authorization: bearer
-//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
+import 'package:keyclic_sdk_api_platform/api.dart';
+// TODO Configure API key authorization: apiKey
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
 
 final api_instance = DeviceApi();
 final xKeyclicApp = xKeyclicApp_example; // String | 
-final deviceData = DeviceData(); // DeviceData | 
+final deviceCreateDeviceCommandWrite = DeviceCreateDeviceCommandWrite(); // DeviceCreateDeviceCommandWrite | The new Device resource
 final acceptLanguage = acceptLanguage_example; // String | 
 final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try {
-    final result = api_instance.postDevice(xKeyclicApp, deviceData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.postDevice(xKeyclicApp, deviceCreateDeviceCommandWrite, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
     print('Exception when calling DeviceApi->postDevice: $e\n');
@@ -155,8 +162,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
- **deviceData** | [**DeviceData**](DeviceData.md)|  | 
+ **xKeyclicApp** | **String**|  | 
+ **deviceCreateDeviceCommandWrite** | [**DeviceCreateDeviceCommandWrite**](DeviceCreateDeviceCommandWrite.md)| The new Device resource | 
  **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
@@ -164,16 +171,16 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Device**](Device.md)
+[**DeviceJsonhalRead**](DeviceJsonhalRead.md)
 
 ### Authorization
 
-[bearer](../README.md#bearer)
+[apiKey](../README.md#apiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
- - **Accept**: application/hal+json;charset=UTF-8
+ - **Content-Type**: application/json
+ - **Accept**: application/hal+json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

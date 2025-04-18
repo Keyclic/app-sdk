@@ -81,9 +81,6 @@ Class | Method | HTTP request | Description
 *ContributionApi* | [**cgetContributions**](doc//ContributionApi.md#cgetcontributions) | **GET** /contributions | Retrieve all Contribution resources.
 *ContributionApi* | [**getContribution**](doc//ContributionApi.md#getcontribution) | **GET** /contributions/{contribution} | Retrieve one Contribution resource.
 *ContributionApi* | [**postContribution**](doc//ContributionApi.md#postcontribution) | **POST** /contributions | Create one Contribution resource.
-*DeviceApi* | [**deleteDevice**](doc//DeviceApi.md#deletedevice) | **DELETE** /devices/{device} | Remove one Device resource.
-*DeviceApi* | [**getDevice**](doc//DeviceApi.md#getdevice) | **GET** /devices/{device} | Retrieve one Device resource.
-*DeviceApi* | [**postDevice**](doc//DeviceApi.md#postdevice) | **POST** /devices | Create one Device resource.
 *DigitalDocumentApi* | [**cgetFeedbackByDigitalDocument**](doc//DigitalDocumentApi.md#cgetfeedbackbydigitaldocument) | **GET** /digital-documents/{digitalDocument}/feedbacks | Retrieve all Feedback resources.
 *DigitalDocumentApi* | [**deleteDigitalDocument**](doc//DigitalDocumentApi.md#deletedigitaldocument) | **DELETE** /digital-documents/{digitalDocument} | Remove one DigitalDocument resource.
 *DigitalDocumentApi* | [**getDigitalDocument**](doc//DigitalDocumentApi.md#getdigitaldocument) | **GET** /digital-documents/{digitalDocument} | Retrieve one DigitalDocument resource.
@@ -346,14 +343,6 @@ Class | Method | HTTP request | Description
  - [ContributionLinksFeedbackIriTemplate](doc//ContributionLinksFeedbackIriTemplate.md)
  - [ContributionLinksFeedbackIriTemplateMapping](doc//ContributionLinksFeedbackIriTemplateMapping.md)
  - [ContributionPagination](doc//ContributionPagination.md)
- - [Device](doc//Device.md)
- - [DeviceData](doc//DeviceData.md)
- - [DeviceLinks](doc//DeviceLinks.md)
- - [DeviceLinksPerson](doc//DeviceLinksPerson.md)
- - [DeviceLinksPersonIriTemplate](doc//DeviceLinksPersonIriTemplate.md)
- - [DeviceLinksSelf](doc//DeviceLinksSelf.md)
- - [DeviceLinksSelfIriTemplate](doc//DeviceLinksSelfIriTemplate.md)
- - [DeviceLinksSelfIriTemplateMapping](doc//DeviceLinksSelfIriTemplateMapping.md)
  - [Dispatcher](doc//Dispatcher.md)
  - [Document](doc//Document.md)
  - [DocumentCollection](doc//DocumentCollection.md)

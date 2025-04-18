@@ -504,6 +504,7 @@ doc/RuleLinksService.md
 doc/RuleLinksServiceIriTemplate.md
 doc/RulePagination.md
 doc/RulePatch.md
+doc/RuleText.md
 doc/Run.md
 doc/RunData.md
 doc/Schema.md
@@ -1076,6 +1077,7 @@ lib/model/rule_links_service.dart
 lib/model/rule_links_service_iri_template.dart
 lib/model/rule_pagination.dart
 lib/model/rule_patch.dart
+lib/model/rule_text.dart
 lib/model/run.dart
 lib/model/run_data.dart
 lib/model/schema.dart
@@ -1629,6 +1631,7 @@ test/rule_links_test.dart
 test/rule_pagination_test.dart
 test/rule_patch_test.dart
 test/rule_test.dart
+test/rule_text_test.dart
 test/run_data_test.dart
 test/run_test.dart
 test/schema_property_test.dart

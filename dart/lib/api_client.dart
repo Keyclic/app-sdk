@@ -1251,6 +1251,8 @@ class ApiClient {
           return RulePagination.fromJson(value);
         case 'RulePatch':
           return RulePatch.fromJson(value);
+        case 'RuleText':
+          return RuleText.fromJson(value);
         case 'Run':
           return Run.fromJson(value);
         case 'RunData':

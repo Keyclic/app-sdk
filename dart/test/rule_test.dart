@@ -13,7 +13,7 @@ void main() {
     // RuleLinks links
     test('to test the property `links`', () async {});
 
-    // String description
+    // RuleText description
     test('to test the property `description`', () async {});
 
     // String id

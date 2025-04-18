@@ -2,6 +2,11 @@
 .travis.yml
 README.md
 analysis_options.yaml
+doc/AboutJsonhalRead.md
+doc/AgreementJsonhalRead.md
+doc/ApplicationApi.md
+doc/ApplicationJsonhalRead.md
+doc/ApplicationJsonhalReadLinks.md
 doc/ArchivingJsonhalOrganizationPreferenceRead.md
 doc/AssetApi.md
 doc/AssetJsonhalRead.md
@@ -31,10 +36,12 @@ doc/CollaboratorJsonhalRead.md
 doc/CollaboratorJsonhalReadEmbedded.md
 doc/CollaboratorJsonhalReadLinks.md
 doc/ConditionJsonhalRead.md
+doc/ConfigurationJsonhalRead.md
 doc/ConnectionJsonhalAuthProfileRead.md
 doc/ConnectorApi.md
 doc/ConnectorJsonhalRead.md
 doc/ContactJsonhalRead.md
+doc/ContactPointJsonhalApplicationRead.md
 doc/ContactPointJsonhalRead.md
 doc/ContactPointWrite.md
 doc/ContractApi.md
@@ -143,6 +150,7 @@ doc/NodeJsonhalRead.md
 doc/OccupantApi.md
 doc/OccupantJsonhalRead.md
 doc/OccupantJsonhalReadEmbedded.md
+doc/OlderThanJsonhalRead.md
 doc/OrganizationJsonhalRead.md
 doc/OrganizationJsonhalReadLinks.md
 doc/PersonJsonhalRead.md
@@ -160,6 +168,7 @@ doc/PreferencesJsonhalAssetRead.md
 doc/PreferencesJsonhalOrganizationRead.md
 doc/PriceJsonhalRead.md
 doc/PriceWrite.md
+doc/PrivacyPolicyJsonhalRead.md
 doc/ProfileJsonhalAuthProfileRead.md
 doc/ProfileProfileInput.md
 doc/PublicationApi.md
@@ -199,6 +208,7 @@ doc/SlaPolicyJsonhalReadEmbedded.md
 doc/SlaPolicyJsonhalReadLinks.md
 doc/TargetGroupApi.md
 doc/TargetGroupJsonhalRead.md
+doc/TermsOfServiceJsonhalRead.md
 doc/TicketApi.md
 doc/TicketCreateTicketCommandWrite.md
 doc/TicketEditTicketCommandWrite.md
@@ -220,6 +230,7 @@ doc/WorkflowTransitionJsonhalRead.md
 doc/WorkflowTransitionJsonhalReadEmbedded.md
 git_push.sh
 lib/api.dart
+lib/api/application_api.dart
 lib/api/asset_api.dart
 lib/api/asset_type_api.dart
 lib/api/auth_api.dart
@@ -262,6 +273,10 @@ lib/auth/authentication.dart
 lib/auth/http_basic_auth.dart
 lib/auth/http_bearer_auth.dart
 lib/auth/oauth.dart
+lib/model/about_jsonhal_read.dart
+lib/model/agreement_jsonhal_read.dart
+lib/model/application_jsonhal_read.dart
+lib/model/application_jsonhal_read_links.dart
 lib/model/archiving_jsonhal_organization_preference_read.dart
 lib/model/asset_jsonhal_read.dart
 lib/model/asset_jsonhal_read_links.dart
@@ -283,9 +298,11 @@ lib/model/collaborator_jsonhal_read.dart
 lib/model/collaborator_jsonhal_read_embedded.dart
 lib/model/collaborator_jsonhal_read_links.dart
 lib/model/condition_jsonhal_read.dart
+lib/model/configuration_jsonhal_read.dart
 lib/model/connection_jsonhal_auth_profile_read.dart
 lib/model/connector_jsonhal_read.dart
 lib/model/contact_jsonhal_read.dart
+lib/model/contact_point_jsonhal_application_read.dart
 lib/model/contact_point_jsonhal_read.dart
 lib/model/contact_point_write.dart
 lib/model/contract_create_contract_command_write.dart
@@ -382,6 +399,7 @@ lib/model/metric_jsonhal_read.dart
 lib/model/node_jsonhal_read.dart
 lib/model/occupant_jsonhal_read.dart
 lib/model/occupant_jsonhal_read_embedded.dart
+lib/model/older_than_jsonhal_read.dart
 lib/model/organization_jsonhal_read.dart
 lib/model/organization_jsonhal_read_links.dart
 lib/model/person_jsonhal_read.dart
@@ -398,6 +416,7 @@ lib/model/preferences_jsonhal_asset_read.dart
 lib/model/preferences_jsonhal_organization_read.dart
 lib/model/price_jsonhal_read.dart
 lib/model/price_write.dart
+lib/model/privacy_policy_jsonhal_read.dart
 lib/model/profile_jsonhal_auth_profile_read.dart
 lib/model/profile_profile_input.dart
 lib/model/publication_jsonhal_read.dart
@@ -429,6 +448,7 @@ lib/model/sla_policy_jsonhal_read.dart
 lib/model/sla_policy_jsonhal_read_embedded.dart
 lib/model/sla_policy_jsonhal_read_links.dart
 lib/model/target_group_jsonhal_read.dart
+lib/model/terms_of_service_jsonhal_read.dart
 lib/model/ticket_create_ticket_command_write.dart
 lib/model/ticket_edit_ticket_command_write.dart
 lib/model/ticket_jsongeo_read.dart
@@ -445,6 +465,11 @@ lib/model/workflow_state_jsonhal_read.dart
 lib/model/workflow_transition_jsonhal_read.dart
 lib/model/workflow_transition_jsonhal_read_embedded.dart
 pubspec.yaml
+test/about_jsonhal_read_test.dart
+test/agreement_jsonhal_read_test.dart
+test/application_api_test.dart
+test/application_jsonhal_read_links_test.dart
+test/application_jsonhal_read_test.dart
 test/archiving_jsonhal_organization_preference_read_test.dart
 test/asset_api_test.dart
 test/asset_jsonhal_read_links_test.dart
@@ -474,10 +499,12 @@ test/collaborator_jsonhal_read_embedded_test.dart
 test/collaborator_jsonhal_read_links_test.dart
 test/collaborator_jsonhal_read_test.dart
 test/condition_jsonhal_read_test.dart
+test/configuration_jsonhal_read_test.dart
 test/connection_jsonhal_auth_profile_read_test.dart
 test/connector_api_test.dart
 test/connector_jsonhal_read_test.dart
 test/contact_jsonhal_read_test.dart
+test/contact_point_jsonhal_application_read_test.dart
 test/contact_point_jsonhal_read_test.dart
 test/contact_point_write_test.dart
 test/contract_api_test.dart
@@ -586,6 +613,7 @@ test/node_jsonhal_read_test.dart
 test/occupant_api_test.dart
 test/occupant_jsonhal_read_embedded_test.dart
 test/occupant_jsonhal_read_test.dart
+test/older_than_jsonhal_read_test.dart
 test/organization_jsonhal_read_links_test.dart
 test/organization_jsonhal_read_test.dart
 test/person_jsonhal_read_test.dart
@@ -603,6 +631,7 @@ test/preferences_jsonhal_asset_read_test.dart
 test/preferences_jsonhal_organization_read_test.dart
 test/price_jsonhal_read_test.dart
 test/price_write_test.dart
+test/privacy_policy_jsonhal_read_test.dart
 test/profile_jsonhal_auth_profile_read_test.dart
 test/profile_profile_input_test.dart
 test/publication_api_test.dart
@@ -642,6 +671,7 @@ test/sla_policy_jsonhal_read_links_test.dart
 test/sla_policy_jsonhal_read_test.dart
 test/target_group_api_test.dart
 test/target_group_jsonhal_read_test.dart
+test/terms_of_service_jsonhal_read_test.dart
 test/ticket_api_test.dart
 test/ticket_create_ticket_command_write_test.dart
 test/ticket_edit_ticket_command_write_test.dart

@@ -164,6 +164,11 @@ class ApiPlatformClient {
     return MetricApi(this);
   }
 
+  /// Get NoteApi instance
+  NoteApi getNoteApi() {
+    return NoteApi(this);
+  }
+
   /// Get OccupantApi instance
   OccupantApi getOccupantApi() {
     return OccupantApi(this);
@@ -444,6 +449,10 @@ class ApiPlatformClient {
           return GetMemberCollection200Response.fromJson(value);
         case 'GetMemberCollection200ResponseEmbedded':
           return GetMemberCollection200ResponseEmbedded.fromJson(value);
+        case 'GetNoteCollection200Response':
+          return GetNoteCollection200Response.fromJson(value);
+        case 'GetNoteCollection200ResponseEmbedded':
+          return GetNoteCollection200ResponseEmbedded.fromJson(value);
         case 'GetOccupantCollection200Response':
           return GetOccupantCollection200Response.fromJson(value);
         case 'GetOccupantCollection200ResponseEmbedded':
@@ -527,6 +536,14 @@ class ApiPlatformClient {
           return MetricJsonhalRead.fromJson(value);
         case 'NodeJsonhalRead':
           return NodeJsonhalRead.fromJson(value);
+        case 'NoteCreateNoteCommandWrite':
+          return NoteCreateNoteCommandWrite.fromJson(value);
+        case 'NoteEditNoteCommandWrite':
+          return NoteEditNoteCommandWrite.fromJson(value);
+        case 'NoteJsonhalRead':
+          return NoteJsonhalRead.fromJson(value);
+        case 'NoteJsonhalReadLinks':
+          return NoteJsonhalReadLinks.fromJson(value);
         case 'OccupantJsonhalRead':
           return OccupantJsonhalRead.fromJson(value);
         case 'OccupantJsonhalReadEmbedded':

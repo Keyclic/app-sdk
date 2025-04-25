@@ -95,6 +95,8 @@ doc/GetIntegrationLinkCollection200Response.md
 doc/GetIntegrationLinkCollection200ResponseEmbedded.md
 doc/GetMemberCollection200Response.md
 doc/GetMemberCollection200ResponseEmbedded.md
+doc/GetNoteCollection200Response.md
+doc/GetNoteCollection200ResponseEmbedded.md
 doc/GetOccupantCollection200Response.md
 doc/GetOccupantCollection200ResponseEmbedded.md
 doc/GetPlaceCollection200Response.md
@@ -140,6 +142,11 @@ doc/MemberJsonhalRead.md
 doc/MetricApi.md
 doc/MetricJsonhalRead.md
 doc/NodeJsonhalRead.md
+doc/NoteApi.md
+doc/NoteCreateNoteCommandWrite.md
+doc/NoteEditNoteCommandWrite.md
+doc/NoteJsonhalRead.md
+doc/NoteJsonhalReadLinks.md
 doc/OccupantApi.md
 doc/OccupantJsonhalRead.md
 doc/OccupantJsonhalReadEmbedded.md
@@ -240,6 +247,7 @@ lib/api/integration_api.dart
 lib/api/integration_link_api.dart
 lib/api/member_api.dart
 lib/api/metric_api.dart
+lib/api/note_api.dart
 lib/api/occupant_api.dart
 lib/api/place_api.dart
 lib/api/publication_api.dart
@@ -339,6 +347,8 @@ lib/model/get_integration_link_collection200_response.dart
 lib/model/get_integration_link_collection200_response_embedded.dart
 lib/model/get_member_collection200_response.dart
 lib/model/get_member_collection200_response_embedded.dart
+lib/model/get_note_collection200_response.dart
+lib/model/get_note_collection200_response_embedded.dart
 lib/model/get_occupant_collection200_response.dart
 lib/model/get_occupant_collection200_response_embedded.dart
 lib/model/get_place_collection200_response.dart
@@ -380,6 +390,10 @@ lib/model/marker_jsonhal_read.dart
 lib/model/member_jsonhal_read.dart
 lib/model/metric_jsonhal_read.dart
 lib/model/node_jsonhal_read.dart
+lib/model/note_create_note_command_write.dart
+lib/model/note_edit_note_command_write.dart
+lib/model/note_jsonhal_read.dart
+lib/model/note_jsonhal_read_links.dart
 lib/model/occupant_jsonhal_read.dart
 lib/model/occupant_jsonhal_read_embedded.dart
 lib/model/organization_jsonhal_read.dart
@@ -538,6 +552,8 @@ test/get_integration_link_collection200_response_embedded_test.dart
 test/get_integration_link_collection200_response_test.dart
 test/get_member_collection200_response_embedded_test.dart
 test/get_member_collection200_response_test.dart
+test/get_note_collection200_response_embedded_test.dart
+test/get_note_collection200_response_test.dart
 test/get_occupant_collection200_response_embedded_test.dart
 test/get_occupant_collection200_response_test.dart
 test/get_place_collection200_response_embedded_test.dart
@@ -583,6 +599,11 @@ test/member_jsonhal_read_test.dart
 test/metric_api_test.dart
 test/metric_jsonhal_read_test.dart
 test/node_jsonhal_read_test.dart
+test/note_api_test.dart
+test/note_create_note_command_write_test.dart
+test/note_edit_note_command_write_test.dart
+test/note_jsonhal_read_links_test.dart
+test/note_jsonhal_read_test.dart
 test/occupant_api_test.dart
 test/occupant_jsonhal_read_embedded_test.dart
 test/occupant_jsonhal_read_test.dart

@@ -1,14 +1,14 @@
-# keyclic_sdk_api.model.NotePatch
+# keyclic_sdk_api_platform.model.GetNoteCollection200ResponseEmbedded
 
 ## Load the model package
 ```dart
-import 'package:keyclic_sdk_api/api.dart';
+import 'package:keyclic_sdk_api_platform/api.dart';
 ```
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**text** | [**List<Map<String, Object>>**](Map.md) |  | [optional] [default to const []]
+**item** | [**List<NoteJsonhalRead>**](NoteJsonhalRead.md) |  | [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

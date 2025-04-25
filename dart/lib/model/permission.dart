@@ -58,8 +58,10 @@ class Permission {
   static const rEPORTColonALL = Permission._(r'REPORT:ALL');
   static const rEPORTINGColonALL = Permission._(r'REPORTING:ALL');
   static const sERVICEColonALL = Permission._(r'SERVICE:ALL');
-  static const NOTE_READ = Permission._(r'NOTE_READ');
-  static const NOTE_WRITE = Permission._(r'NOTE_WRITE');
+  static const noteColonRead = Permission._(r'note:read');
+  static const noteColonWriteColonCreate = Permission._(r'note:write:create');
+  static const noteColonWriteColonDelete = Permission._(r'note:write:delete');
+  static const noteColonWriteColonEdit = Permission._(r'note:write:edit');
   static const quoteColonRead = Permission._(r'quote:read');
   static const quoteColonTagsColonRead = Permission._(r'quote:tags:read');
   static const quoteColonTagsColonWrite = Permission._(r'quote:tags:write');
@@ -117,8 +119,10 @@ class Permission {
     rEPORTColonALL,
     rEPORTINGColonALL,
     sERVICEColonALL,
-    NOTE_READ,
-    NOTE_WRITE,
+    noteColonRead,
+    noteColonWriteColonCreate,
+    noteColonWriteColonDelete,
+    noteColonWriteColonEdit,
     quoteColonRead,
     quoteColonTagsColonRead,
     quoteColonTagsColonWrite,
@@ -239,10 +243,14 @@ class PermissionTypeTransformer {
         return Permission.rEPORTINGColonALL;
       case r'SERVICE:ALL':
         return Permission.sERVICEColonALL;
-      case r'NOTE_READ':
-        return Permission.NOTE_READ;
-      case r'NOTE_WRITE':
-        return Permission.NOTE_WRITE;
+      case r'note:read':
+        return Permission.noteColonRead;
+      case r'note:write:create':
+        return Permission.noteColonWriteColonCreate;
+      case r'note:write:delete':
+        return Permission.noteColonWriteColonDelete;
+      case r'note:write:edit':
+        return Permission.noteColonWriteColonEdit;
       case r'quote:read':
         return Permission.quoteColonRead;
       case r'quote:tags:read':

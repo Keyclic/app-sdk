@@ -16,6 +16,7 @@ class {{classname}} {
   /// * [{{paramName}}] {{#description}}- {{{.}}}{{/description}}
   {{/allParams}}
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [dio] - An optional [Dio] instance used to override the current one for this operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
   /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
@@ -39,12 +40,15 @@ class {{classname}} {
     {{#required}}required {{/required}}{{{dataType}}}{{^required}}?{{/required}} {{paramName}},{{/isFormParam}}{{/allParams}}
     {{#hasConsumes}}{{#hasBodyParam}}Iterable<String>? bodyParameters,{{/hasBodyParam}}{{/hasConsumes}}
     CancelToken? cancelToken,
+    Dio? dio,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
     ValidateStatus? validateStatus,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
+    dio ??= _apiClient.dio;
+
     final String path = r'{{{path}}}'{{#pathParams}}.replaceAll('{' r'{{{baseName}}}' '}', {{{paramName}}}.toString()){{/pathParams}};
     final options = Options(
       method: r'{{#lambda.uppercase}}{{httpMethod}}{{/lambda.uppercase}}',
@@ -129,7 +133,7 @@ class {{classname}} {
       throw DioException(
         error: error,
         requestOptions: options.compose(
-          _apiClient.dio.options,
+          dio.options,
           path,
           {{#hasQueryParams}}
           queryParameters: queryParameters,
@@ -141,7 +145,7 @@ class {{classname}} {
     }
     {{/hasBodyOrFormParams}}
 
-    {{#returnType}}final response = await{{/returnType}}{{^returnType}}return{{/returnType}} _apiClient.dio.request<Object>(
+    {{#returnType}}final response = await{{/returnType}}{{^returnType}}return{{/returnType}} dio.request<Object>(
       path,
       {{#hasBodyOrFormParams}}
       data: bodyData,
